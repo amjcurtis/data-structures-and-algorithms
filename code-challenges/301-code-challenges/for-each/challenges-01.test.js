@@ -14,7 +14,6 @@ const greeting = (word) => {
 
 const speaker = (message, callback) => {
   return callback(message);
-  
 }
 
 /* ------------------------------------------------------------------------------------------------
@@ -34,11 +33,14 @@ Return the modified array.
 ------------------------------------------------------------------------------------------------ */
 
 const addValues = (arr, value) => {
-  // Solution code here...
+  arr.push(value);
 }
 
 const addNumbers = (num, arr, times, callback) => {
-  // Solution code here...
+  for (let i = 0; i < times; i++) {
+    callback(arr, num);
+  }
+  return arr;
 }
 
 /* ------------------------------------------------------------------------------------------------
@@ -54,11 +56,16 @@ Return the modified array.
 ------------------------------------------------------------------------------------------------ */
 
 const removeOne = (num, arr) => {
-  // Solution code here...
+  if ((num % 3) === 2) {
+    arr.pop();
+  }
 }
 
 const removeElements = (arr, callback) => {
-  // Solution code here...
+  for (var i = 0; i < arr.length; i++) {
+    callback(arr[i], arr);
+  }
+  return arr;
 }
 
 /* ------------------------------------------------------------------------------------------------
@@ -88,7 +95,7 @@ const removeWithAnon = (arr) => {
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
 
-Write a function named createList that takes in an array of the current store intentory.
+Write a function named createList that takes in an array of the current store inventory.
 
 The inventory is formatted like this:
 [
