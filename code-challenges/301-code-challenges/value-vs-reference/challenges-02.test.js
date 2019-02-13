@@ -41,11 +41,11 @@ Do not use a return statement.
 For example:
 const octavia = { fullName: 'Octavia Estelle Butler' };
 addBirthYearProperty(octavia, 1947);
-console.log(a) prints { fullName: 'Octavia Estelle Butler', yearBorn: 1947 }
+console.log(octavia) prints { fullName: 'Octavia Estelle Butler', yearBorn: 1947 }
 ------------------------------------------------------------------------------------------------ */
 
 const addBirthYearProperty = (obj, year) => {
-  // Solution code here...
+  obj.yearBorn = year;
 }
 
 /* ------------------------------------------------------------------------------------------------
