@@ -52,7 +52,7 @@ For example, ['Alphabet', 'alphabet', 'carrot', 'Zebra'] is correctly sorted, an
 const alphabetizeBetter = (arr) => {
   arr.sort( (a, b) => {
     return a.toUpperCase() > b.toUpperCase();
-  });
+  }); 
   return arr;
 };
 
