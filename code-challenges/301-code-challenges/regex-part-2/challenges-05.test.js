@@ -58,7 +58,7 @@ const gruffaloCrumble = {
     '1 pound baking powder',
     '1 pound cinnamon',
     '6 gallons melted butter',
-    '2 gallons fresh water',
+    '2 gallons fresh water'
   ],
   steps: [
     'Pre-heat a large oven to 375',
@@ -73,10 +73,27 @@ const gruffaloCrumble = {
   ]
 }
 
-
 const listFoods = (recipe) => {
   let result = [];
-  // Solution code here...
+
+  // My solution is below here
+  // Regex pattern that matches characters I want to *exclude* (?)
+  let regex = /^[\w-]+\s[\w-]+\s/g; 
+  for (let i = 0; i < recipe.ingredients.length; i++) {
+    // Use if stmt here to compare each element of array against regex?
+    
+    
+    // Get index of start of portion of string that *doesn't* match regex I want to exclude (use indexOf() in this)
+
+    // Slice from index of part of string I want to keep and continue to end of string  
+
+    // PART OF STRING I WANNA PUSH INTO result ARRAY
+    let slicedIngredient = recipe.ingredients.slice(indexOf/*......*/)
+    
+
+    result.push(slicedIngredient);
+  }
+
   return result;
 }
 
