@@ -93,7 +93,6 @@ const listFoods = (recipe) => {
 
     result.push(slicedIngredient);
   }
-
   return result;
 }
 
