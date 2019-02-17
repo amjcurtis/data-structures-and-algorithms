@@ -83,9 +83,9 @@ const listFoods = (recipe) => {
     // Use if stmt here to compare each element of array against regex?
     
     
-    // Get index of start of portion of string that *doesn't* match regex I want to exclude (use indexOf() in this)
+    // Get index of start of portion of string that follows regex match I want to exclude (use indexOf() )
 
-    // Slice from index of part of string I want to keep and continue to end of string  
+    // Slice from index of part of string I want to keep (i.e. part that follows regex match) and continue to end of string  
 
     // PART OF STRING I WANNA PUSH INTO result ARRAY
     let slicedIngredient = recipe.ingredients.slice(indexOf/*......*/)
