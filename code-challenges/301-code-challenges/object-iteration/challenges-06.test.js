@@ -8,8 +8,19 @@ Write a function named getCourseKeys that takes in the courseInfo object and ret
 For example: (['name', 'duration', 'topics', 'finalExam']).
 ------------------------------------------------------------------------------------------------ */
 const courseInfo = {
-  name: 'Code 301', duration: { dayTrack: '4 weeks', eveningTrack: '8 weeks' },
-  topics: ['SMACSS', 'APIs', 'NodeJS', 'SQL', 'jQuery', 'functional programming'],
+  name: 'Code 301',
+  duration: {
+    dayTrack: '4 weeks',
+    eveningTrack: '8 weeks'
+  },
+  topics: [
+    'SMACSS',
+    'APIs',
+    'NodeJS',
+    'SQL',
+    'jQuery',
+    'functional programming'
+  ],
   finalExam: true
 };
 
@@ -70,7 +81,7 @@ let characters = [
 ]
 
 const totalCharacters = (arr) => {
-  // Solution code here...
+  return arr.length;
 }
 
 /*------------------------------------------------------------------------------------------------
