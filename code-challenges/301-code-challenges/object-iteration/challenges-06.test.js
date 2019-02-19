@@ -92,11 +92,18 @@ Write a function named getHouses that returns a new array containing the names o
 
 const getHouses = (arr) => {
   let houses = [];
-  // Solution code here
-  for (let i = 0; i < arr.length; i++) {
-    houses.push(arr[i].house);
-  }
-  // ^ End of solution code
+
+  // First solution
+  // for (let i = 0; i < arr.length; i++) {
+  //   houses.push(arr[i].house);
+  // }
+  
+  // Refactored solution that uses for...in
+  for (let element in arr) {
+    houses.push(arr[element].house);
+  } 
+
+  // > End of solution code
   return houses;
 }
 
