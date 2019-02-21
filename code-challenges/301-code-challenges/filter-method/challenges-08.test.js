@@ -27,7 +27,7 @@ For example, filterStringsWithVowels('gregor','hound','xyz') returns ['gregor', 
 
 
 const filterStringsWithVowels = (arr) => {
-  let regex = /[aeiou]/ig;
+  let regex = /[aeiou]/; 
   const wordsWithVowels = arr.filter(val => {
     return val.match(regex);
   });
@@ -88,28 +88,24 @@ const snorlaxData = {
   weight: 4600,
 };
 
-// Passes tests but probably shouldn't? Ask about in code review
 const getBaseStatGreaterThan = (arr, minBaseStat) => {
   const greaterBaseStats = arr.filter(val => {
-    // console.log(val.baseStat > minBaseStat);
     return (val.baseStat > minBaseStat);
   });
-  // console.log(greaterBaseStats);
   return greaterBaseStats;
 };
 
 // Doesn't pass test of non-Snorlax data
-// const getBaseStatGreaterThan = (arr, minBaseStat) => {
-//   const greaterBaseStats = arr.filter(val => {
-//     if (val.baseStat > minBaseStat) {
-//       console.log('Line 103', val.baseStat > minBaseStat);
-//       console.log('Line 104', val.baseStat > minBaseStat);
-//       return val.baseStat;
-//     }
-//   });
-//   console.log('Line 108', greaterBaseStats);
-//   return greaterBaseStats;
-// };
+const getBaseStatGreaterThan = (arr, minBaseStat) => {
+  const greaterBaseStats = arr.filter(val => {
+    if (val.baseStat > minBaseStat) {
+      console.log('Line 104', val.baseStat > minBaseStat);
+      return val.baseStat;
+    }
+  });
+  console.log('Line 109', greaterBaseStats);
+  return greaterBaseStats;
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
