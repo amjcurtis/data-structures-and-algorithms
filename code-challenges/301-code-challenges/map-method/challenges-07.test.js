@@ -56,7 +56,7 @@ For example: charCode(['h','i']) returns [104, 105].
 ------------------------------------------------------------------------------------------------ */
 
 const charCode = (arr) => {
-  let result = arr.map( value => value.charCodeAt(0) );
+  let result = arr.map( value => value.charCodeAt() ); // previously had 0 in charCodeAt's parens: "...charCodeAt(0)"
   return result;
 };
 
