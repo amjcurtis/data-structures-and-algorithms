@@ -96,16 +96,16 @@ const getBaseStatGreaterThan = (arr, minBaseStat) => {
 };
 
 // Doesn't pass test of non-Snorlax data
-const getBaseStatGreaterThan = (arr, minBaseStat) => {
-  const greaterBaseStats = arr.filter(val => {
-    if (val.baseStat > minBaseStat) {
-      console.log('Line 104', val.baseStat > minBaseStat);
-      return val.baseStat;
-    }
-  });
-  console.log('Line 109', greaterBaseStats);
-  return greaterBaseStats;
-};
+// const getBaseStatGreaterThan = (arr, minBaseStat) => {
+//   const greaterBaseStats = arr.filter(val => {
+//     if (val.baseStat > minBaseStat) {
+//       console.log('Line 104', val.baseStat > minBaseStat);
+//       return val.baseStat;
+//     }
+//   });
+//   console.log('Line 109', greaterBaseStats);
+//   return greaterBaseStats;
+// };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
