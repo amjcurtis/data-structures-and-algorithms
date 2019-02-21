@@ -128,7 +128,12 @@ const snorlaxAbilities = {
 };
 
 const extractAbilities = (arr) => {
-  // Solution code here...
+  // abilities.ability.name
+  // val.ability.name
+  const newArray = arr.map( (val, idx) => {
+    return val.ability.name;
+  });
+  return newArray;
 };
 
 /* ------------------------------------------------------------------------------------------------
