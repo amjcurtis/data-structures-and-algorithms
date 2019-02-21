@@ -9,9 +9,9 @@ For example, oddValues([1,2,3]) returns [1,3].
 ------------------------------------------------------------------------------------------------ */
 
 const oddValues = (arr) => {
-  const odds = arr.filter((val, idx) => {
+  const odds = arr.filter( (val, idx) => {
     return (val % 2);
-  })
+  });
   return odds;
 };
 
@@ -27,9 +27,12 @@ For example, filterStringsWithVowels('gregor','hound','xyz') returns ['gregor', 
 
 
 const filterStringsWithVowels = (arr) => {
-  // Solution code here...
+  let regex = /[aeiou]/ig;
+  const wordsWithVowels = arr.filter(val => {
+    return val.match(regex);
+  });
+  return wordsWithVowels;
 };
-
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
