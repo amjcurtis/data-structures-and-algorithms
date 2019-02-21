@@ -56,7 +56,7 @@ For example: charCode(['h','i']) returns [104, 105].
 ------------------------------------------------------------------------------------------------ */
 
 const charCode = (arr) => {
-  let result = arr.map( value => value.charCodeAt(0) );
+  let result = arr.map( value => value.charCodeAt() ); // previously had 0 in charCodeAt's parens: "...charCodeAt(0)"
   return result;
 };
 
@@ -71,7 +71,18 @@ For example: evenOdd([1,2,3]) returns ['odd','even','odd'].
 ------------------------------------------------------------------------------------------------ */
 
 const evenOdd = (arr) => {
-  // Solution code here...
+  let newArray = arr.map( (val, idx) => {
+    if (typeof val === 'number') {
+      if (val % 2 === 0) {
+        return 'even';
+      } else {
+        return 'odd';
+      }
+    } else {
+      return 'N/A';      
+    }
+  });
+  return newArray;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -117,7 +128,12 @@ const snorlaxAbilities = {
 };
 
 const extractAbilities = (arr) => {
-  // Solution code here...
+  // abilities.ability.name
+  // val.ability.name
+  const newArray = arr.map( (val, idx) => {
+    return val.ability.name;
+  });
+  return newArray;
 };
 
 /* ------------------------------------------------------------------------------------------------
