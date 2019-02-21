@@ -91,10 +91,10 @@ const snorlaxData = {
 // Passes tests but probably shouldn't? Ask about in code review
 const getBaseStatGreaterThan = (arr, minBaseStat) => {
   const greaterBaseStats = arr.filter(val => {
-    console.log(val.baseStat > minBaseStat);
+    // console.log(val.baseStat > minBaseStat);
     return (val.baseStat > minBaseStat);
   });
-  console.log(greaterBaseStats);
+  // console.log(greaterBaseStats);
   return greaterBaseStats;
 };
 
@@ -120,10 +120,13 @@ For example, getStatName(snorlaxData.stats, 50) will return ['special-defense', 
 ------------------------------------------------------------------------------------------------ */
 
 const getStatName = (arr, minBaseStat) => {
-  const statNames = arr.filter(val => {
-    return val.stat.name;
+  let newArray = [];
+  arr.filter(val => {
+    if (val.baseStat > minBaseStat) {
+      newArray.push(val.stat.name);
+    }  
   });
-  return statNames;
+  return newArray;
 };
 
 /* ------------------------------------------------------------------------------------------------
