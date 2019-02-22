@@ -98,7 +98,7 @@ Note: You must use reduce for this challenge. You may not use the built-in .reve
 const reversedString = (str) => {
   let arr = str.split('');
   // console.log('arr', arr);
-  let reversed = arr.reduce( (acc, val, idx) => {
+  let reversed = arr.reduce( (acc, val) => {
     // console.log('acc', acc, 'val', val);
     return val + acc;
   }, '');
@@ -156,7 +156,16 @@ const characters = [
 ];
 
 const countNumberOfChildren = (arr) => {
-  // Solution code here...
+  let numberOfChildren = arr.reduce( (acc, val) => {
+    if (val.children) {
+      // console.log('val.children', val.children);
+      acc += val.children.length;
+    }
+    // console.log('acc again', acc);
+    return acc;
+  }, 0);
+  // console.log('numberOfChildren', numberOfChildren);
+  return numberOfChildren;
 };
 
 /* ------------------------------------------------------------------------------------------------
