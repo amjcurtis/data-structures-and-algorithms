@@ -95,8 +95,15 @@ Write a function named reversedString that takes in a string and returns a strin
 Note: You must use reduce for this challenge. You may not use the built-in .reverse() string method.
 ------------------------------------------------------------------------------------------------ */
 
-const reversedString = (arr) => {
-  // Solution code here...
+const reversedString = (str) => {
+  let arr = str.split('');
+  // console.log('arr', arr);
+  let reversed = arr.reduce( (acc, val, idx) => {
+    // console.log('acc', acc, 'val', val);
+    return val + acc;
+  }, '');
+  // console.log('reversed', reversed);
+  return reversed;
 };
 
 /* ------------------------------------------------------------------------------------------------
