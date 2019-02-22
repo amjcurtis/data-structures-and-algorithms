@@ -11,11 +11,11 @@ Note: You may not use the array's built-in length property.
 const countNumberOfElements = (arr) => {
   let numberOfElements = arr.reduce((acc, val, idx) => {
     acc++;
-    console.log('IDX', idx, 'Accumulator', acc);
+    // console.log('IDX', idx, 'Accumulator', acc);
     // return acc++; // Why doesn't this work instead of lines 13 & 16?
     return acc;
   }, 0);
-  console.log('numberOfElements:', numberOfElements);
+  // console.log('numberOfElements:', numberOfElements);
   return numberOfElements;
 };
 
@@ -77,7 +77,14 @@ let starWarsData = [{
 }];
 
 const returnNames = (arr) => {
-  // Solution code here...
+  let namesArray = arr.reduce( (acc, val, idx) => {
+    // console.log('val.name is', val.name);
+    acc.push(val.name);
+    // console.log('acc is', acc);
+    return acc;
+  }, []);
+  // console.log('namesArray', namesArray);
+  return namesArray;
 };
 
 /* ------------------------------------------------------------------------------------------------
