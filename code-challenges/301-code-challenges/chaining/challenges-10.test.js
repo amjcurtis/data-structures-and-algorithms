@@ -12,7 +12,21 @@ For example, count(5, [[1, 3, 5, 7, 9], [5, 5, 5], [1, 2, 3]]) returns 4.
 ------------------------------------------------------------------------------------------------ */
 
 const count = (target, input) => {
-  // Solution code here...
+  // let output = input.forEach(value, idx => {
+  //   var numberOfTimes = value.reduce((acc, val, idx) => {
+  //     acc++;
+  //     return acc;
+  //   }, target);
+  //   return numberOfTimes;
+  // });
+  // return output;
+
+  for (let i = 0; i < input.length; i++) {
+    let numberOfTimes = input.reduce((acc, val, idx) => {
+      acc++;
+      return acc;
+    }, target);    
+  return numberOfTimes;
 };
 
 /* ------------------------------------------------------------------------------------------------
