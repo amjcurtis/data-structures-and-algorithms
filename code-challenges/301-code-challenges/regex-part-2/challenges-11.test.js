@@ -34,18 +34,6 @@ const validateEmail = (email) => {
   return pattern.test(email);
 };
 
-// test ('It should fail things that aren\'t email addresses', () => {
-//     expect(validateEmail('justastring')).toBeFalsy();
-//     expect(validateEmail('missing@adomain')).toBeFalsy();
-//     expect(validateEmail('@noname.com')).toBeFalsy();
-//     expect(validateEmail('.@noname.com')).toBeFalsy();
-//     expect(validateEmail('nolastname.@sadness.net')).toBeFalsy();
-//     expect(validateEmail('canadaisnotreal@canada.ca')).toBeFalsy();
-//     expect(validateEmail('missing.atsymbol.net')).toBeFalsy();
-//     expect(validateEmail('looksgood@sofar.comohnowaitthisisbad')).toBeFalsy();
-//     expect(validateEmail('no.middle.names@foryou.com')).toBeFalsy();
-//   })
-
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
 
@@ -68,7 +56,8 @@ Return either true or false.
 ------------------------------------------------------------------------------------------------ */
 
 const validatePhoneNumber = (phoneNumber) => {
-  // Solution code here...
+  const pattern = /^(\(\d{3}\)|\d{3})( |-)?\d{3}( |-)?\d{4}$/ig;
+  return pattern.test(phoneNumber);
 };
 
 /* ------------------------------------------------------------------------------------------------
