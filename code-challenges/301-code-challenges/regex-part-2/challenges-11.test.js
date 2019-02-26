@@ -9,7 +9,8 @@ If the PIN is four numerical digits long, return true. Otherwise, return false.
 ------------------------------------------------------------------------------------------------ */
 
 const validatePin = (pin) => {
-  // Solution code here...
+  const pattern = /\b[0-9]{4}\b/g;
+  return pattern.test(pin);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -29,8 +30,21 @@ Note: if you ever need to validate an email using a regex in practice, the Inter
 ------------------------------------------------------------------------------------------------ */
 
 const validateEmail = (email) => {
-  // Solution code here...
+  const pattern = /^\w+(\.?\w+)?@\w+\.(net|com|org)$/ig;
+  return pattern.test(email);
 };
+
+// test ('It should fail things that aren\'t email addresses', () => {
+//     expect(validateEmail('justastring')).toBeFalsy();
+//     expect(validateEmail('missing@adomain')).toBeFalsy();
+//     expect(validateEmail('@noname.com')).toBeFalsy();
+//     expect(validateEmail('.@noname.com')).toBeFalsy();
+//     expect(validateEmail('nolastname.@sadness.net')).toBeFalsy();
+//     expect(validateEmail('canadaisnotreal@canada.ca')).toBeFalsy();
+//     expect(validateEmail('missing.atsymbol.net')).toBeFalsy();
+//     expect(validateEmail('looksgood@sofar.comohnowaitthisisbad')).toBeFalsy();
+//     expect(validateEmail('no.middle.names@foryou.com')).toBeFalsy();
+//   })
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
