@@ -1,4 +1,3 @@
-
 'use strict';
 
 /* ------------------------------------------------------------------------------------------------
@@ -12,21 +11,19 @@ For example, count(5, [[1, 3, 5, 7, 9], [5, 5, 5], [1, 2, 3]]) returns 4.
 ------------------------------------------------------------------------------------------------ */
 
 const count = (target, input) => {
-  // let output = input.forEach(value, idx => {
-  //   var numberOfTimes = value.reduce((acc, val, idx) => {
-  //     acc++;
-  //     return acc;
-  //   }, target);
-  //   return numberOfTimes;
-  // });
-  // return output;
-
-  for (let i = 0; i < input.length; i++) {
-    let numberOfTimes = input.reduce((acc, val, idx) => {
-      acc++;
-      return acc;
-    }, target);    
-  return numberOfTimes;
+  let arrayOne = input.filter(value => {
+    return value.includes(target);
+  });
+  
+  let count = 0;
+  arrayOne.forEach( (val, idx) => {
+    for (let i = 0; i < val.length; i++) {
+      if (val[i] === target) {
+        count++;
+      }
+    }
+  });
+  return count;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -40,7 +37,7 @@ For example, [[1, 2, 3, 4, 5], [6, 7, 2, 4, 5, 7], [9, 2, 3, 6,]] returns 66.
 ------------------------------------------------------------------------------------------------ */
 
 const totalSum = (input) => {
-  // Solution code here...
+  // Solution code here ...
 };
 
 /* ------------------------------------------------------------------------------------------------

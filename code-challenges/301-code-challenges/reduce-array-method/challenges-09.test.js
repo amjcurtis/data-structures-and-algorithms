@@ -12,8 +12,7 @@ const countNumberOfElements = (arr) => {
   let numberOfElements = arr.reduce((acc, val, idx) => {
     acc++;
     // console.log('IDX', idx, 'Accumulator', acc);
-    // return acc++; // Why doesn't this work instead of lines 13 & 16?
-    return acc;
+    return acc; // Instead of lines 13-15 could simply do "return ++acc;"
   }, 0);
   // console.log('numberOfElements:', numberOfElements);
   return numberOfElements;
