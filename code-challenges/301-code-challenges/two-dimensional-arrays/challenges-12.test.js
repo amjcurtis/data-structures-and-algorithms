@@ -23,12 +23,16 @@ const alkiBeach = [33, 31, 147, 130, 27, 93, 38, 126, 141, 63, 46, 17];
 const cookieStores = [firstPike, seaTac, seattleCenter, capHill, alkiBeach];
 
 const grandTotal = (stores) => {
-  let hourlyCookieTotals = new Array(stores.length).fill(0);
+  let hourlyCookieTotals = [];
+
+  // i is store number?
+  // j is hour number?
+  
   for (let i = 0; i <= stores.length-1; i++) {
+    // TODO Set counter to 0
+
     for (let j = 0; j <= stores[i].length-1; j++) {
-      let value = stores[i][j];
-      hourlyCookieTotals[j] += value;
-      // hourlyCookieTotals.push(hourlyCookieTotals[j]);
+      
     }
   }
   return hourlyCookieTotals;
@@ -202,7 +206,6 @@ describe('Testing challenge 2', () => {
     expect(salesData(hoursOpen, grandTotal(cookieStores)).length).toStrictEqual(hoursOpen.length);
   });
 });
-
 
 describe('Testing challenge 3', () => {
   test('It should return the number 24', () => {
