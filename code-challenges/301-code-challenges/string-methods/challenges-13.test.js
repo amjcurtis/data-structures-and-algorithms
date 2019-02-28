@@ -43,14 +43,19 @@ For example, (123) 456-7890 returns 1234567890
 ------------------------------------------------------------------------------------------------ */
 
 const standardizePhoneNumbers = (arr) => {
+  // Brute-force solution
   // let myArray = arr.map(val => {
   //   return val.substring(1,4).toString() + val.substring(6,9).toString() + val.substring(10,14).toString();
   // });
   // return myArray;
 
-  return arr.map(val => {
-    return `${val.substring(1,4)}${val.substring(6,9)}${val.substring(10,14)}`;
-  });
+  // Drier solution
+  // return arr.map(val => {
+  //   return `${val.substring(1,4)}${val.substring(6,9)}${val.substring(10,14)}`;
+  // });
+
+  // Driest solution
+  return arr.map(val => `${val.substring(1,4)}${val.substring(6,9)}${val.substring(10,14)}`);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -62,7 +67,7 @@ For example, 'abcdefg' returns 'bdf'
 ------------------------------------------------------------------------------------------------ */
 
 const onlyOddChars = (str) => {
-  // Solution code here...
+  return str.split('').filter( (val, idx) => idx % 2 === 1).join('');
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -72,7 +77,17 @@ Write a function named allHappy that takes in an array of strings and returns a 
 ------------------------------------------------------------------------------------------------ */
 
 const allHappy = (arr) => {
-  // Solution code here...
+  // Brute-force solution (before I learned to use .every() )
+  // let test = true;
+  // arr.forEach(val => {
+  //   if (!val.includes(':)')) {
+  //     test = false;
+  //   };
+  // });
+  // return test;
+
+  // Drier solution
+  return arr.every(val => val.includes(':)'));
 };
 
 /* ------------------------------------------------------------------------------------------------
