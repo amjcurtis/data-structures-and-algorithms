@@ -9,7 +9,11 @@ For example, ['this is great :)', 'wow', 'whyyyyyy :(', ':)))))'] returns ['t', 
 ------------------------------------------------------------------------------------------------ */
 
 const firstLetters = (arr) => {
-  // Solution code here...
+  const newArray = [];
+  for (let i = 0; i < arr.length; i++) {
+    newArray.push(arr[i].substring(0,1));
+  }
+  return newArray;
 };
 
 /* ------------------------------------------------------------------------------------------------
