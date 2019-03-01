@@ -109,16 +109,27 @@ Write a function named sortBy that takes in an array of objects, each of which h
 
 Here is an example of the input:
 [
-  {name: 'Sweatshirt', price: 45},
-  {name: 'Bookmark', price: 2.50},
-  {name: 'Tote bag', price: 15}
+  {
+    name: 'Sweatshirt',
+    price: 45
+  },
+  {
+    name: 'Bookmark',
+    price: 2.50},
+  {
+    name: 'Tote bag',
+    price: 15
+  }
 ];
 
 This data could be sorted by name or price.
 ------------------------------------------------------------------------------------------------ */
 
 const sortBy = (property, arr) => {
-  // Solution code here...
+  // First attempt at solution
+  // return arr.sort( (a, b) => {
+  //   return a.name - b.name;
+  // });
 };
 
 /* ------------------------------------------------------------------------------------------------
