@@ -151,6 +151,7 @@ const daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Sat
 
 const sortByDay = (arr) => {
   // Solution code here...
+  // [Chain of map - filter - includes]
 };
 
 /* ------------------------------------------------------------------------------------------------
