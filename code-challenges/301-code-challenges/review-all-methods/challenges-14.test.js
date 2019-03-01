@@ -84,14 +84,23 @@ let starWarsData = [{
 }]
 
 let biggerThanLuke = (arr) => {
+  // Initial, less-DRY version
+  // let greaterMasses = arr.filter(elem => {
+  //   if (parseInt(elem.mass) > parseInt(arr[0].mass)) {
+  //     return elem.name;
+  //   }
+  // });
+  // let stringifiedVersion = greaterMasses.map(val => val.name).join(',');
+  // let backToArray = stringifiedVersion.replace(',', ' - ');
+  // return backToArray;
+
+  // DRYer version
   let greaterMasses = arr.filter(elem => {
     if (parseInt(elem.mass) > parseInt(arr[0].mass)) {
       return elem.name;
     }
   });
-  let stringifiedVersion = greaterMasses.map(val => val.name).join(',');
-  let backToArray = stringifiedVersion.replace(',', ' - ');
-  return backToArray;
+  return greaterMasses.map(val => val.name).join(',').replace(',', ' - ');
 }
 
 /* ------------------------------------------------------------------------------------------------
