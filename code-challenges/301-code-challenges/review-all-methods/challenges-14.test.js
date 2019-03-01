@@ -84,7 +84,14 @@ let starWarsData = [{
 }]
 
 let biggerThanLuke = (arr) => {
-  // Solution code here...
+  let greaterMasses = arr.filter(elem => {
+    if (parseInt(elem.mass) > parseInt(arr[0].mass)) {
+      return elem.name;
+    }
+  });
+  let stringifiedVersion = greaterMasses.map(val => val.name).join(',');
+  let backToArray = stringifiedVersion.replace(',', ' - ');
+  return backToArray;
 }
 
 /* ------------------------------------------------------------------------------------------------
