@@ -75,7 +75,9 @@ const errands = [
 ]
 
 const howManyTreats = (arr) => {
-  // Solution code here...
+  
+  // Should probably use reduce() here
+
 }
 
 /* ------------------------------------------------------------------------------------------------
