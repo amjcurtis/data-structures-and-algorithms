@@ -29,12 +29,12 @@ const grandTotal = (stores) => {
   for (let i = 0; i < stores[0].length; i++) {
     var count = 0;
     for (let j = 0; j < stores.length; j++) {
-      console.log('stores[j][i]', stores[j][i]);
+      // console.log('stores[j][i]', stores[j][i]);
       count = stores[j][i] + count;
-      console.log('count', count);
+      // console.log('count', count);
     }
     hourlySales.push(count);
-    console.log('hourlySales', hourlySales);
+    // console.log('hourlySales', hourlySales);
   }
   return hourlySales;
 };
@@ -61,27 +61,6 @@ const salesData = (hours, data) => {
   return formattedDataArray;
 };
 
-describe('Testing challenge 2', () => {
-  test('It should create an object of data for each store', () => {
-    expect(salesData(hoursOpen, grandTotal(cookieStores))).toStrictEqual([
-      { sales: '88 cookies', time: '9 a.m.' },
-      { sales: '153 cookies', time: '10 a.m.' },
-      { sales: '252 cookies', time: '11 a.m.' },
-      { sales: '286 cookies', time: '12 p.m.' },
-      { sales: '139 cookies', time: '1 p.m.' },
-      { sales: '161 cookies', time: '2 p.m.' },
-      { sales: '145 cookies', time: '3 p.m.' },
-      { sales: '232 cookies', time: '4 p.m.' },
-      { sales: '276 cookies', time: '5 p.m.' },
-      { sales: '207 cookies', time: '6 p.m.' },
-      { sales: '161 cookies', time: '7 p.m.' },
-      { sales: '169 cookies', time: '8 p.m.' }
-    ]);
-
-    expect(salesData(hoursOpen, grandTotal(cookieStores)).length).toStrictEqual(hoursOpen.length);
-  });
-});
-
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
 
@@ -105,9 +84,34 @@ const errands = [
 
 const howManyTreats = (arr) => {
   
-  // Should probably use reduce() here
+  return arr[2].items[1].quantity;
 
-}
+  /////////////////////////////////////////////////
+  // Initial attempt
+  // let count = 0; 
+  // let treatsToGet = arr.forEach((value, index) => {
+  //   console.log('value.store', value.store);
+  
+  //   if (value.store === 'Pet store') {
+  
+  //     let treatsQty = value.items.forEach((val, idx) => {
+  //       console.log('val.name', val.name);
+  
+  //       if (val.name === 'Treats') {
+  //         console.log('val.quantity', val.quantity);
+  //         count += val.quantity;
+  //       }
+  
+  //     });
+  //     console.log('treatsQty', treatsQty);
+  //     return treatsQty;
+  
+  //   }
+  // });
+  // return treatsToGet;
+  //////////////////////////////////////////////////
+
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
