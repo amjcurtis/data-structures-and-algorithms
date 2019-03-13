@@ -24,11 +24,27 @@ const cookieStores = [firstPike, seaTac, seattleCenter, capHill, alkiBeach];
 
 const grandTotal = (stores) => {
 
+  // My attempt that didn't work
+  // let hourlyCookieTotals = [];
+
+  // for (let i = 0; i <= stores.length - 1; i++) {
+  //   var count = 0;
+  //   for (let j = 0; j <= stores[i].length - 1; j++) {
+  //     console.log('stores[j][i]', stores[j][i]);
+  //     count = stores[j][i] + count;
+  //     console.log('count', count);
+  //   }
+  //   hourlyCookieTotals.push(count);
+  //   console.log('hourlyCookieTotals', hourlyCookieTotals);
+  // }
+  // return hourlyCookieTotals;
+
+  // Solution code from demo
   let hourlyCookieTotals = [];
 
-  for (let i = 0; i <= stores.length - 1; i++) {
+  for (let i = 0; i < stores[0].length; i++) {
     var count = 0;
-    for (let j = 0; j <= stores[i].length - 1; j++) {
+    for (let j = 0; j < stores.length; j++) {
       console.log('stores[j][i]', stores[j][i]);
       count = stores[j][i] + count;
       console.log('count', count);
@@ -37,6 +53,7 @@ const grandTotal = (stores) => {
     console.log('hourlyCookieTotals', hourlyCookieTotals);
   }
   return hourlyCookieTotals;
+  
 }
 
 /* ------------------------------------------------------------------------------------------------
