@@ -84,7 +84,13 @@ const errands = [
 
 const howManyTreats = (arr) => {
   
-  return arr[2].items[1].quantity;
+  let treatsToPickUp = arr.forEach((value, index) => {
+    if (value.store === 'Pet store') {
+
+    }
+  });
+
+  return treatsToPickUp;
 
   /////////////////////////////////////////////////
   // Initial attempt
@@ -94,18 +100,17 @@ const howManyTreats = (arr) => {
   
   //   if (value.store === 'Pet store') {
   
-  //     let treatsQty = value.items.forEach((val, idx) => {
+  //     value.items.forEach((val, idx) => {
   //       console.log('val.name', val.name);
   
   //       if (val.name === 'Treats') {
   //         console.log('val.quantity', val.quantity);
   //         count += val.quantity;
+  //         console.log('count', count);
   //       }
-  
+  //       return count;
   //     });
-  //     console.log('treatsQty', treatsQty);
-  //     return treatsQty;
-  
+      
   //   }
   // });
   // return treatsToGet;
