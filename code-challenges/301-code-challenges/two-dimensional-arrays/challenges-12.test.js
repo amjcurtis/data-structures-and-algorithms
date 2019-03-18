@@ -128,8 +128,14 @@ For example, the following input returns a product of 720: [[1,2], [3,4], [5,6]]
 ------------------------------------------------------------------------------------------------ */
 
 const calculateProduct = (numbers) => {
-  // Solution code here...
-}
+  let finalProduct = 1;
+  for (let x = 0; x < numbers.length; x++) {
+    for (let y = 0; y < numbers[x].length; y++) {
+      finalProduct *= numbers[x][y];
+    }
+  }
+  return finalProduct;
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
