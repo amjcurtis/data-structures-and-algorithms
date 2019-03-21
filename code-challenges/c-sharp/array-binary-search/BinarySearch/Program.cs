@@ -37,7 +37,7 @@ namespace BinarySearch
                 }
 
                 Console.WriteLine("Here's the array we searched for our number in:\n" +
-                    "{0}", string.Join(", ", sortedInputArray));
+                    "[{0}]", string.Join(", ", sortedInputArray));
 
                 Console.WriteLine(" ");
                 Console.WriteLine("Thanks for trying out our algorithm!");
@@ -78,7 +78,6 @@ namespace BinarySearch
                     return mid;
                 }
             }
-
             return -1;
         }
     }
