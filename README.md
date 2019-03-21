@@ -1,2 +1,6 @@
-# data-structures-and-algorithms
-Repo for code challenges for Code Fellows 301 and 401 courses
+# Data Structures and Algorithms
+
+## Table of Contents
+
+1. [Challenge: Array Binary Search](code-challenges/c-sharp/array-binary-search)
+
