@@ -1,8 +1,6 @@
-# 301 Code Challenges
+# JavaScript Code Challenges
 
-Materials linked to below are from the Code Fellows curriculum for the Code 301 course.
-
-See Code Fellows [Shred Talks](https://www.youtube.com/playlist?list=PLVngfM2hsbi-L6G8qlWd8RyRbuTamHt3k) video series on YouTube for walk-throughs of the topics below.
+See [Shred Talks](https://www.youtube.com/playlist?list=PLVngfM2hsbi-L6G8qlWd8RyRbuTamHt3k) video series on YouTube for walk-throughs of the topics below.
 
 ## forEach()
 * [Overview](https://codefellows.github.io/code-301-guide/curriculum/01-smacss-media-queries/challenges)
@@ -40,7 +38,7 @@ See Code Fellows [Shred Talks](https://www.youtube.com/playlist?list=PLVngfM2hsb
 * [Sample Problems](https://codefellows.github.io/code-301-guide/curriculum/09-cache-invalidation/challenges/DEMO.html)
 
 ## Chaining methods
-* No overview, video, or sample problems. Just reviewed methods we'd learned so far and practiced chaining them using dot notation. 
+* No overview, video, or sample problems. Just reviewed methods learned so far and practiced chaining them using dot notation. 
 * See challenges in the [chaining](https://github.com/amjcurtis/data-structures-and-algorithms/tree/master/code-challenges/301-code-challenges/chaining) folder in this repo.
 
 ## Regular expressions, part 2
@@ -56,5 +54,5 @@ See Code Fellows [Shred Talks](https://www.youtube.com/playlist?list=PLVngfM2hsb
 * [Sample Problems](https://codefellows.github.io/code-301-guide/curriculum/13-update-delete/challenges/DEMO.html)
 
 ## Review of all methods
-* No overview, video, or sample problems. Reviewed and practiced working with all methods learned above.
+* No overview, video, or sample problems. Reviewed and practiced working with all methods above.
 * See challenges in the [review-all-methods](https://github.com/amjcurtis/data-structures-and-algorithms/tree/master/code-challenges/301-code-challenges/review-all-methods) folder in this repo.
