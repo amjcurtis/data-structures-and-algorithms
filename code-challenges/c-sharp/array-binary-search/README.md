@@ -9,6 +9,14 @@ element is not present in the array.
 
 ## Approach & Efficiency
 
+I used an iterative approach to implementing my binary search algorithm. It returns the index of the first matching array element even if duplicate elements are included in the array. 
+
+1. Worst-case performance: Big O Time = O(log *n*)
+2. Best-case performance: Big O Time = O(1)
+3. Average performance: Big O Time = O(log *n*)
+4. Worst-case space complexity: Big O Space Complexity: O(1)
+
+I got my initial understanding of binary search's Big O performance from Wikipedia's article ["Binary Search Algorithm"](https://en.wikipedia.org/wiki/Binary_search_algorithm).
 
 ## Solution
 

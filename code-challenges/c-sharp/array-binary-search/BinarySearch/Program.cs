@@ -21,7 +21,7 @@ namespace BinarySearch
                 Console.WriteLine($"Ok, the key value we will search for is {key}.");
 
                 // Declare sorted array to search in
-                int[] sortedInputArray = { 4, 8, 15, 16, 19, 20, 23, 26, 29, 34, 39, 42 };
+                int[] sortedInputArray = { 4, 8, 15, 16, 19, 20, 23, 26, 29, 34, 34, 39, 42 };
 
                 // Save result of BinarySearch algorithm method
                 int result = BinarySearch(sortedInputArray, key);

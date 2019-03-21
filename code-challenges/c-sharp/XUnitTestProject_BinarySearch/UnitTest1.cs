@@ -5,6 +5,9 @@ namespace XUnitTestProject_BinarySearch
 {
     public class UnitTest1
     {
+        /// <summary>
+        /// Tests whether BinarySearch method correctly returns index of key if present in array
+        /// </summary>
         [Fact]
         public void CanReturnCorrectIndexIfKeyFoundInArray()
         {
@@ -18,6 +21,9 @@ namespace XUnitTestProject_BinarySearch
             Assert.Equal(2, result);
         }
 
+        /// <summary>
+        /// Tests whether BinarySearch method returns index -1 if key not present in array
+        /// </summary>
         [Fact]
         public void CanReturnNegativeOneIfKeyNotFoundInArray()
         {
