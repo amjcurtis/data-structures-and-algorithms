@@ -20,24 +20,40 @@ namespace BinarySearch
 
             if (result == -1)
             {
-                Console.WriteLine($"The element we searched for ({key}) is not present in the array we searched in.");
+                Console.WriteLine($"The index returned by our algorithm is [{result}]");
+                Console.WriteLine($"This means the element we searched for ({key}) is not present in the array we searched in.");
             }
             else
             {
-                Console.WriteLine($"The index of the array’s element that is equal to our search key is {result}");
+                Console.WriteLine($"The index of the array element that is equal to our search key is [{result}]");
             }
             Console.WriteLine(" ");
             Console.WriteLine("Press Enter to exit the program.");
             Console.ReadLine();
         }
 
-        public static int BinarySearch(int[] sortedArray, int key)
+        public static int BinarySearch(int[] array, int key)
         {
             int min = 0;
-            int max = sortedArray.Length;
+            int max = array.Length -1;
+            while (min <= max)
+            {
+                int mid = Convert.ToInt32(Math.Floor(Convert.ToDouble((min + max) / 2)));
+                if (array[mid] < key)
+                {
+                    min = mid + 1;
+                }
+                else if (array[mid] > key)
+                {
+                    max = mid - 1;
+                }
+                else
+                {
+                    return mid;
+                }
+            }
 
-
-            return key;
+            return -1;
         }
     }
 }
