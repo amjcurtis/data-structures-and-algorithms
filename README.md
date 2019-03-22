@@ -4,3 +4,4 @@
 
 1. [Challenge: Array Binary Search](code-challenges/c-sharp/array-binary-search)
 
+2. [Challenge: Singly Linked List]()
