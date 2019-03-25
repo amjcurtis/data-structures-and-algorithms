@@ -1,7 +1,7 @@
 using System;
 using Xunit;
 
-namespace XUnitTestProject_LinkedList
+namespace XUnitTestProject_SinglyLinkedList
 {
     public class UnitTest1
     {
