@@ -55,7 +55,6 @@ namespace XUnitTestProject_SinglyLinkedList
             Assert.Equal(114, newList.Head.Value);
         }
 
-        // 4. Can properly insert multiple nodes into the linked list
         /// <summary>
         /// Tests presence of multiple nodes in list by verifying Head node's Next is not null
         /// </summary>
@@ -73,9 +72,11 @@ namespace XUnitTestProject_SinglyLinkedList
             Assert.NotNull(newList.Head.Next);
         }
 
-        //// 5. Will return true when finding a value within the linked list that exists
+        /// <summary>
+        /// Tests if returns true when finding a value present in list
+        /// </summary>
         [Fact]
-        public void Test1()
+        public void CanVerifyValueExistsInList()
         {
             // Arrange
             LList newList = new LList();
@@ -89,18 +90,29 @@ namespace XUnitTestProject_SinglyLinkedList
             Assert.True(listIncludesVal);
         }
 
-        //// 6. Will return false when searching for a value in the linked list that does not exist
-        //[Fact]
-        //public void Test1()
-        //{
+        /// <summary>
+        /// Tests if returns false when checking for a value not present in list
+        /// </summary>
+        [Fact]
+        public void CanVerifyValueNotExistsInList()
+        {
+            // Arrange
+            LList newList = new LList();
+            newList.Insert(5);
+            newList.Insert(16);
 
-        //}
+            // Act
+            bool listIncludesVal = newList.Includes(3);
 
-        //// 7. Can properly return a collection of all the values that exist in the linked list
-        //[Fact]
-        //public void Test1()
-        //{
+            // Assert
+            Assert.False(listIncludesVal);
+        }
 
-        //}
+        // 7. Can properly return a collection of all the values that exist in the linked list
+        [Fact]
+        public void Test1()
+        {
+
+        }
     }
 }
