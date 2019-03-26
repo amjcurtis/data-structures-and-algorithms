@@ -108,11 +108,30 @@ namespace XUnitTestProject_SinglyLinkedList
             Assert.False(listIncludesVal);
         }
 
-        // 7. Can properly return a collection of all the values that exist in the linked list
-        [Fact]
-        public void Test1()
-        {
+        /// <summary>
+        /// Tests if Print() method returns array of all values in list
+        /// </summary>
+        /// <param name="index">index to check for value at</param>
+        /// <param name="value">value to check for</param>
+        [Theory]
+        [InlineData(0, 3)]
+        [InlineData(1, 2)]
+        [InlineData(2, 1)]
 
+        public void CanReturnArrayOfAllValuesInList(int index, int value)
+        {
+            // Arrange
+            LList newList = new LList();
+            for (int i = 0; i < 3; i++)
+            {
+                newList.Insert(i + 1);
+            }
+
+            // Act
+            int[] printedVals = newList.Print();
+
+            // Assert
+            Assert.Equal(printedVals[index], value); 
         }
     }
 }
