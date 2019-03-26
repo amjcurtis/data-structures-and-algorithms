@@ -1,5 +1,4 @@
 using ConsoleApp_LinkedList.Classes;
-using System;
 using Xunit;
 
 namespace XUnitTestProject_SinglyLinkedList
@@ -132,6 +131,24 @@ namespace XUnitTestProject_SinglyLinkedList
 
             // Assert
             Assert.Equal(printedVals[index], value); 
+        }
+
+        [Fact]
+        public void CanAddNodeToEndOfList()
+        {
+            // Arrange
+            LList newList = new LList();
+            for (int i = 0; i < 3; i++)
+            {
+                newList.Insert(i + 1);
+            }
+
+            // Act
+            newList.Append(56);
+            int[] printedVals = newList.Print();
+            
+            // Assert
+            Assert.Equal(56, printedVals[printedVals.Length - 1]);
         }
     }
 }

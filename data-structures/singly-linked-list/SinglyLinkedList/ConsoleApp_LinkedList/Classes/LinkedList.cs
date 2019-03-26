@@ -112,6 +112,10 @@ namespace ConsoleApp_LinkedList.Classes
         }
 
 
+        /// <summary>
+        /// Appends new node to end of linked list
+        /// </summary>
+        /// <param name="value">int value</param>
         public void Append(int value)
         {
             Current = Head;
@@ -127,6 +131,12 @@ namespace ConsoleApp_LinkedList.Classes
         }
 
 
+        /// <summary>
+        /// Inserts new node before specified existing node
+        /// </summary>
+        /// <param name="existingNodeValue">int for value of node to insert new node before</param>
+        /// <param name="newNodeValue">int for value of new node</param>
+        /// <returns>boolean</returns>
         public bool InsertBefore(int existingNodeValue, int newNodeValue)
         {
             Current = Head;
@@ -137,6 +147,31 @@ namespace ConsoleApp_LinkedList.Classes
                 {
                     Node nodeToInsert = new Node(newNodeValue);
                     //Head = Current;
+                    nodeToInsert.Next = Current.Next;
+                    Current.Next = nodeToInsert;
+                    return true;
+                }
+                Current = Current.Next;
+            }
+            return false;
+        }
+
+
+        /// <summary>
+        /// Inserts new node after specified existing node
+        /// </summary>
+        /// <param name="existingNodeValue">int for value of node to insert new node after</param>
+        /// <param name="newNodeValue">int for value of new node</param>
+        /// <returns>boolean</returns>
+        public bool InsertAfter(int existingNodeValue, int newNodeValue)
+        {
+            Current = Head;
+
+            while (Current.Next != null)
+            {
+                if (Current.Value == existingNodeValue)
+                {
+                    Node nodeToInsert = new Node(newNodeValue);
                     nodeToInsert.Next = Current.Next;
                     Current.Next = nodeToInsert;
                     return true;
