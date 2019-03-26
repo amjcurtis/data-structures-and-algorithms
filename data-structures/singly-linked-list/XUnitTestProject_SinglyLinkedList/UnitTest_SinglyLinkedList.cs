@@ -57,16 +57,17 @@ namespace XUnitTestProject_SinglyLinkedList
 
         // 4. Can properly insert multiple nodes into the linked list
         [Fact]
-        public void Test1()
+        public void CanInsertMultipleNodesIntoList()
         {
             // Arrange
-            
-            
-            // Act
-            
-            
-            // Assert
+            LList newList = new LList();
 
+            // Act
+            newList.Insert(7);
+            newList.Insert(12);
+
+            // Assert
+            Assert.NotNull(newList.Head.Next);
         }
 
         //// 5. Will return true when finding a value within the linked list that exists
