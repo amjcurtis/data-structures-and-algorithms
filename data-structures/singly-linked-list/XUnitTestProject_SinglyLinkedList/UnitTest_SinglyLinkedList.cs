@@ -179,6 +179,27 @@ namespace XUnitTestProject_SinglyLinkedList
             Assert.Equal(printedVals[index], value);
         }
 
+        /// <summary>
+        /// Tests whether can insert new node before middle node in list
+        /// </summary>
+        [Fact]
+        public void CanInsertNodeBeforeMiddleNodeInList()
+        {
+            // Arrange
+            LList newList = new LList();
+            for (int i = 0; i < 3; i++)
+            {
+                newList.Insert(i + 1);
+            }
 
+            // Act
+            newList.InsertBefore(2, 81);
+            int[] printedVals = newList.Print();
+
+            // Assert
+            Assert.Equal(81, printedVals[1]);
+        }
+
+        
     }
 }
