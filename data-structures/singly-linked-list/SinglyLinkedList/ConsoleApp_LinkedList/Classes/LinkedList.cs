@@ -110,5 +110,20 @@ namespace ConsoleApp_LinkedList.Classes
 
             return arrayOfAllIntValues;
         }
+
+
+        public void Append(int value)
+        {
+            Current = Head;
+
+            Node nodeToInsert = new Node(value);
+
+            while (Current.Next != null)
+            {
+                Current = Current.Next;
+            }
+
+            Current.Next = nodeToInsert;
+        }
     }
 }

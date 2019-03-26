@@ -17,7 +17,9 @@ namespace ConsoleApp_LinkedList
                 myLinkedList.Insert(i * 3);
             }
 
-            bool listIncludesVal = myLinkedList.Includes(12);
+            myLinkedList.Append(244);
+
+            bool listIncludesVal = myLinkedList.Includes(244);
 
             Console.WriteLine($"listIncludesVal: {listIncludesVal}");
 
@@ -25,7 +27,7 @@ namespace ConsoleApp_LinkedList
 
             // Reverse array of values before printing it to console
             // Running this on own separate line b/c couldn't save to variable (return type conflict)
-            Array.Reverse(printedVals);
+            //Array.Reverse(printedVals);
 
             Console.WriteLine("printedVals: {0}", string.Join(", ", printedVals));
 
