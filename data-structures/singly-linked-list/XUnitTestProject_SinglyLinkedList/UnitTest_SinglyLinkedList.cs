@@ -133,6 +133,9 @@ namespace XUnitTestProject_SinglyLinkedList
             Assert.Equal(printedVals[index], value); 
         }
 
+        /// <summary>
+        /// Tests whether can append new node to end of list
+        /// </summary>
         [Fact]
         public void CanAddNodeToEndOfList()
         {
@@ -150,5 +153,32 @@ namespace XUnitTestProject_SinglyLinkedList
             // Assert
             Assert.Equal(56, printedVals[printedVals.Length - 1]);
         }
+
+        /// <summary>
+        /// Tests whether can append multiple new nodes to end of list
+        /// </summary>
+        [Theory]
+        [InlineData(3, 49)]
+        [InlineData(4, 49)]
+
+        public void CanAddMultipleNodesToEndOfList(int index, int value)
+        {
+            // Arrange
+            LList newList = new LList();
+            for (int i = 0; i < 3; i++)
+            {
+                newList.Insert(i + 1);
+            }
+
+            // Act
+            newList.Append(value);
+            newList.Append(value);
+            int[] printedVals = newList.Print();
+
+            // Assert
+            Assert.Equal(printedVals[index], value);
+        }
+
+
     }
 }
