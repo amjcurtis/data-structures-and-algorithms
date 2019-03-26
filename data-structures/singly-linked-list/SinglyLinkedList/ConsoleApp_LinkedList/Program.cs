@@ -14,16 +14,20 @@ namespace ConsoleApp_LinkedList
             LList myLinkedList = new LList();
             for (int i = 0; i < 6; i++)
             {
-                myLinkedList.Insert(i * 3);
+                myLinkedList.Insert((i + 1));
             }
-
+            //myLinkedList.Insert(244);
             myLinkedList.Append(244);
+            int[] printedVals = myLinkedList.Print();
+            Console.WriteLine("printedVals: {0}", string.Join(", ", printedVals));
 
-            bool listIncludesVal = myLinkedList.Includes(244);
+            myLinkedList.InsertBefore(2, 77);
+
+            bool listIncludesVal = myLinkedList.Includes(6);
 
             Console.WriteLine($"listIncludesVal: {listIncludesVal}");
 
-            int[] printedVals = myLinkedList.Print();
+            printedVals = myLinkedList.Print();
 
             // Reverse array of values before printing it to console
             // Running this on own separate line b/c couldn't save to variable (return type conflict)

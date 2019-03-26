@@ -125,5 +125,25 @@ namespace ConsoleApp_LinkedList.Classes
 
             Current.Next = nodeToInsert;
         }
+
+
+        public bool InsertBefore(int existingNodeValue, int newNodeValue)
+        {
+            Current = Head;
+
+            while (Current.Next != null)
+            {
+                if (Current.Next.Value == existingNodeValue)
+                {
+                    Node nodeToInsert = new Node(newNodeValue);
+                    //Head = Current;
+                    nodeToInsert.Next = Current.Next;
+                    Current.Next = nodeToInsert;
+                    return true;
+                }
+                Current = Current.Next;
+            }
+            return false;
+        }
     }
 }
