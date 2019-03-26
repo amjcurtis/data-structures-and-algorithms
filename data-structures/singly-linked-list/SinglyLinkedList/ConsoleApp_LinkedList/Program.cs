@@ -1,5 +1,5 @@
-﻿using ConsoleApp_LinkedList.Classes;
-using System;
+﻿using System;
+using ConsoleApp_LinkedList.Classes;
 
 namespace ConsoleApp_LinkedList
 {
@@ -8,15 +8,25 @@ namespace ConsoleApp_LinkedList
         static void Main(string[] args)
         {
 
-                Node newNode = new Node();
-                newNode.Value = 10;
+            //Node newNode = new Node();
+            //newNode.Value = 10;
 
-            for (int i = 0; i < 7; i++)
+            LList myLinkedList = new LList();
+            for (int i = 0; i < 6; i++)
             {
-                current = Head; 
-                Node node = new Node()
-                LinkedList node = node.Insert(i + 2)
+                myLinkedList.Insert(i * 3);
             }
+
+            bool listIncludesVal = myLinkedList.Includes(12);
+
+            Console.WriteLine($"listIncludesVal: {listIncludesVal}");
+
+            int[] printedVals = myLinkedList.Print();
+
+            Console.WriteLine("printedVals: {0}", string.Join(", ", printedVals));
+            //Console.WriteLine("{0}", string.Join(" ", arrayWithCorrectGuesses));
+
+            Console.ReadLine();
         }
     }
 }

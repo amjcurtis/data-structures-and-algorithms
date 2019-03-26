@@ -4,55 +4,107 @@ using System.Text;
 
 namespace ConsoleApp_LinkedList.Classes
 {
-    public class LinkedList
+    public class LList
     {
-
         // Add head property
         public Node Head { get; set; }
 
-        public /* string or Node? */ current;
+        // Amanda prefers it this way
+        public Node Current { get; set; }
 
 
-        // Should take any (int) value as arg and add a new node with that value to head of linked list
+        /// <summary>
+        /// Adds new node with input value to beginning of linked list
+        /// </summary>
+        /// <param name="value">int value</param>
         public void Insert(int value)
         {
-            current = Head;
+            // Point Current node to Head to make sure we're starting at beginning of list
+            Current = Head;
+            
+            // Instantiate new node
+            Node nodeToInsert = new Node(value);
 
-            Node newNode = new Node();
+            // Set new node's Next to point to Head
+            nodeToInsert.Next = Head;
 
-            newNode.Value = value;
+            // Point Head to inserted node
+            Head = nodeToInsert;
 
-            Node Head = newNode;
+            // Assign Current to Head again now that Head has been updated
+            Current = Head;
         }
 
 
-        // Define method on LinkedList class called Includes()
-        // Should take any value as arg and return boolean result depending on if value exists as a node's value somewhere in list  
+        /// <summary>
+        /// Traverses singly linked list and return whether input value is found in list
+        /// </summary>
+        /// <param name="value">int value</param>
+        /// <returns>boolean depending on whether value exists in a node in list</returns>
         public bool Includes(int value)
         {
-            while (/* node's Next != null */)
+            // Start at beginning of list
+            Current = Head;
+
+            // Traverse list if list contains multiple nodes
+            while (Current.Next != null)
             {
-                if (/* node's value == value*/)
+                if (Current.Value == value)
                 {
                     return true;
                 }
+                Current = Current.Next;
             }
-            return false;
-        }
 
-
-        // Define method on LinkedList class called Print()
-        // Takes in no arguments and returns a collection all of the current Node values in the Linked List
-        public void Print()
-        {
-            while (/* node's Next != null */)
+            // Catches case where list contains only single node
+            if (Current.Value == value)
             {
-
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
 
+
+        /// <summary>
+        /// Traverses singly linked list and returns int array of all nodes' values
+        /// </summary>
+        /// <returns>int array</returns>
+        public int[] Print()
+        {
+            int count = 0;
+
+            Current = Head;
+
+            // Loop through list first time to find list's length
+            while (Current.Next != null)
+            {
+                // Can get/save node value here somehow to avoid having to loop through list a second time?
+
+                count++;
+                Current = Current.Next;
+            }
+
+            // Saves value of last node to insert into array later
+            int valueOfLastNode = Current.Value;
+
+            // Reset Current before next loop through link
+            Current = Head;
+
+            // Initialize array to store int values of nodes
+            // Length is number of nodes whose Next isn't null + last node
+            int[] arrayOfAllIntValues = new int[count + 1];
+
+            for (int i = 0; i < count; i++)
+            {
+                arrayOfAllIntValues[i] = Current.Value;
+                Current = Current.Next;
+            }
+            arrayOfAllIntValues[arrayOfAllIntValues.Length - 1] = valueOfLastNode;
+
+            return arrayOfAllIntValues;
+        }
     }
-
-
-
 }
