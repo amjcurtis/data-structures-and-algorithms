@@ -110,5 +110,85 @@ namespace ConsoleApp_LinkedList.Classes
 
             return arrayOfAllIntValues;
         }
+
+
+        /// <summary>
+        /// Appends new node to end of linked list
+        /// </summary>
+        /// <param name="value">int value</param>
+        public void Append(int value)
+        {
+            Current = Head;
+
+            Node nodeToInsert = new Node(value);
+
+            while (Current.Next != null)
+            {
+                Current = Current.Next;
+            }
+
+            Current.Next = nodeToInsert;
+        }
+
+
+        /// <summary>
+        /// Inserts new node before specified existing node
+        /// </summary>
+        /// <param name="existingNodeValue">int for value of node to insert new node before</param>
+        /// <param name="newNodeValue">int for value of new node</param>
+        /// <returns>boolean</returns>
+        public bool InsertBefore(int existingNodeValue, int newNodeValue)
+        {
+            Current = Head;
+            Node nodeToInsert = new Node(newNodeValue);
+
+            while (Current.Next != null)
+            {
+                if (Current.Value == existingNodeValue)
+                {
+                    nodeToInsert.Next = Current;
+                    Head = nodeToInsert;
+                    return true;
+                }
+                else if (Current.Next.Value == existingNodeValue)
+                {
+                    nodeToInsert.Next = Current.Next;
+                    Current.Next = nodeToInsert;
+                    return true;
+                }
+                Current = Current.Next;
+            }
+            return false;
+        }
+
+
+        /// <summary>
+        /// Inserts new node after specified existing node
+        /// </summary>
+        /// <param name="existingNodeValue">int for value of node to insert new node after</param>
+        /// <param name="newNodeValue">int for value of new node</param>
+        /// <returns>boolean</returns>
+        public bool InsertAfter(int existingNodeValue, int newNodeValue)
+        {
+            Current = Head;
+            Node nodeToInsert = new Node(newNodeValue);
+
+            while (Current.Next != null)
+            {
+                if (Current.Value == existingNodeValue)
+                {
+                    nodeToInsert.Next = Current.Next;
+                    Current.Next = nodeToInsert;
+                    return true;
+                }
+                Current = Current.Next;
+            }
+            if (Current.Next == null)
+            {
+                Current.Next = nodeToInsert;
+                return true;
+            }
+            return false;
+        }
     }
 }

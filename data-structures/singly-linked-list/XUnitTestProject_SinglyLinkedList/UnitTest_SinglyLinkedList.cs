@@ -1,5 +1,4 @@
 using ConsoleApp_LinkedList.Classes;
-using System;
 using Xunit;
 
 namespace XUnitTestProject_SinglyLinkedList
@@ -132,6 +131,135 @@ namespace XUnitTestProject_SinglyLinkedList
 
             // Assert
             Assert.Equal(printedVals[index], value); 
+        }
+
+        /// <summary>
+        /// Tests whether can append new node to end of list
+        /// </summary>
+        [Fact]
+        public void CanAddNodeToEndOfList()
+        {
+            // Arrange
+            LList newList = new LList();
+            for (int i = 0; i < 3; i++)
+            {
+                newList.Insert(i + 1);
+            }
+
+            // Act
+            newList.Append(56);
+            int[] printedVals = newList.Print();
+            
+            // Assert
+            Assert.Equal(56, printedVals[printedVals.Length - 1]);
+        }
+
+        /// <summary>
+        /// Tests whether can append multiple new nodes to end of list
+        /// </summary>
+        [Theory]
+        [InlineData(3, 49)]
+        [InlineData(4, 49)]
+
+        public void CanAddMultipleNodesToEndOfList(int index, int value)
+        {
+            // Arrange
+            LList newList = new LList();
+            for (int i = 0; i < 3; i++)
+            {
+                newList.Insert(i + 1);
+            }
+
+            // Act
+            newList.Append(value);
+            newList.Append(value);
+            int[] printedVals = newList.Print();
+
+            // Assert
+            Assert.Equal(printedVals[index], value);
+        }
+
+        /// <summary>
+        /// Tests whether can insert new node before middle node in list
+        /// </summary>
+        [Fact]
+        public void CanInsertNodeBeforeMiddleNodeInList()
+        {
+            // Arrange
+            LList newList = new LList();
+            for (int i = 0; i < 3; i++)
+            {
+                newList.Insert(i + 1);
+            }
+
+            // Act
+            newList.InsertBefore(2, 81);
+            int[] printedVals = newList.Print();
+
+            // Assert
+            Assert.Equal(81, printedVals[1]);
+        }
+        
+        /// <summary>
+        /// Tests whether can use InsertBefore() to insert new node before first node in list
+        /// </summary>
+        [Fact]
+        public void CanInsertNodeBeforeFirstNodeInList()
+        {
+            // Arrange
+            LList newList = new LList();
+            for (int i = 0; i < 3; i++)
+            {
+                newList.Insert(i + 1);
+            }
+
+            // Act
+            newList.InsertBefore(3, 85);
+
+            // Assert
+            Assert.Equal(85, newList.Head.Value);
+        }
+
+        /// <summary>
+        /// Tests whether can insert new node after middle node in list
+        /// </summary>
+        [Fact]
+        public void CanInsertNodeAfterMiddleNodeInList()
+        {
+            // Arrange
+            LList newList = new LList();
+            for (int i = 0; i < 3; i++)
+            {
+                newList.Insert(i + 1);
+            }
+
+            // Act
+            newList.InsertAfter(2, 81);
+            int[] printedVals = newList.Print();
+
+            // Assert
+            Assert.Equal(81, printedVals[2]);
+        }
+
+        /// <summary>
+        /// Tests whether can use InsertAfter() to insert new node after last node in list
+        /// </summary>
+        [Fact]
+        public void CanInsertNodeAfterLastNodeInList()
+        {
+            // Arrange
+            LList newList = new LList();
+            for (int i = 0; i < 3; i++)
+            {
+                newList.Insert(i + 1);
+            }
+
+            // Act
+            newList.InsertAfter(1, 85);
+            int[] printedVals = newList.Print();
+
+            // Assert
+            Assert.Equal(85, printedVals[printedVals.Length - 1]);
         }
     }
 }
