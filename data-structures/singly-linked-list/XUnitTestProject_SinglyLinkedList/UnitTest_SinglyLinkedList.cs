@@ -220,5 +220,28 @@ namespace XUnitTestProject_SinglyLinkedList
             // Assert
             Assert.Equal(85, newList.Head.Value);
         }
+
+        /// <summary>
+        /// Tests whether can insert new node after middle node in list
+        /// </summary>
+        [Fact]
+        public void CanInsertNodeAfterMiddleNodeInList()
+        {
+            // Arrange
+            LList newList = new LList();
+            for (int i = 0; i < 3; i++)
+            {
+                newList.Insert(i + 1);
+            }
+
+            // Act
+            newList.InsertAfter(2, 81);
+            int[] printedVals = newList.Print();
+
+            // Assert
+            Assert.Equal(81, printedVals[2]);
+        }
+
+
     }
 }
