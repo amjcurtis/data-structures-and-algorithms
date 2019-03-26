@@ -23,8 +23,11 @@ namespace ConsoleApp_LinkedList
 
             int[] printedVals = myLinkedList.Print();
 
+            // Reverse array of values before printing it to console
+            // Running this on own separate line b/c couldn't save to variable (return type conflict)
+            Array.Reverse(printedVals);
+
             Console.WriteLine("printedVals: {0}", string.Join(", ", printedVals));
-            //Console.WriteLine("{0}", string.Join(" ", arrayWithCorrectGuesses));
 
             Console.ReadLine();
         }

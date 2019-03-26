@@ -74,6 +74,7 @@ namespace ConsoleApp_LinkedList.Classes
         /// <returns>int array</returns>
         public int[] Print()
         {
+            // Counter that tracks number of while loop interations 
             int count = 0;
 
             Current = Head;
@@ -90,18 +91,21 @@ namespace ConsoleApp_LinkedList.Classes
             // Saves value of last node to insert into array later
             int valueOfLastNode = Current.Value;
 
-            // Reset Current before next loop through link
-            Current = Head;
-
             // Initialize array to store int values of nodes
             // Length is number of nodes whose Next isn't null + last node
             int[] arrayOfAllIntValues = new int[count + 1];
+            
+            // Reset Current before next loop through link
+            Current = Head;
 
+            // Populates array with values from all but last node (i.e. nodes whose Next wasn't null)
             for (int i = 0; i < count; i++)
             {
                 arrayOfAllIntValues[i] = Current.Value;
                 Current = Current.Next;
             }
+
+            // Adds last value in linked list to last position in array
             arrayOfAllIntValues[arrayOfAllIntValues.Length - 1] = valueOfLastNode;
 
             return arrayOfAllIntValues;
