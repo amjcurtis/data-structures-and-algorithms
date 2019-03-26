@@ -199,7 +199,26 @@ namespace XUnitTestProject_SinglyLinkedList
             // Assert
             Assert.Equal(81, printedVals[1]);
         }
-
         
+        /// <summary>
+        /// Tests whether can use InsertBefore() to insert new node before first node in list
+        /// </summary>
+        [Fact]
+        public void CanInsertNodeBeforeFirstNodeInList()
+        {
+            // Arrange
+            LList newList = new LList();
+            for (int i = 0; i < 3; i++)
+            {
+                newList.Insert(i + 1);
+            }
+
+            // Act
+            newList.InsertBefore(3, 85);
+            int[] printedVals = newList.Print();
+
+            // Assert
+            Assert.Equal(85, newList.Head.Value);
+        }
     }
 }

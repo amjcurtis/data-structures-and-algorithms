@@ -143,10 +143,16 @@ namespace ConsoleApp_LinkedList.Classes
 
             while (Current.Next != null)
             {
-                if (Current.Next.Value == existingNodeValue)
+                if (Current.Value == existingNodeValue)
                 {
                     Node nodeToInsert = new Node(newNodeValue);
-                    //Head = Current;
+                    nodeToInsert.Next = Current;
+                    Head = nodeToInsert;
+                    return true;
+                }
+                else if (Current.Next.Value == existingNodeValue)
+                {
+                    Node nodeToInsert = new Node(newNodeValue);
                     nodeToInsert.Next = Current.Next;
                     Current.Next = nodeToInsert;
                     return true;
