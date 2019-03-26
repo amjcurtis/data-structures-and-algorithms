@@ -46,16 +46,19 @@ namespace XUnitTestProject_SinglyLinkedList
 
             // Act
             // Insert single node into list
-            newList.Insert(12);
+            newList.Insert(114);
 
             // Assert
             // Check whether Head node is the only node in list
             Assert.Null(newList.Head.Next);
             // Check whether value of the list's single node equals value of node's Head
-            Assert.Equal(12, newList.Head.Value);
+            Assert.Equal(114, newList.Head.Value);
         }
 
         // 4. Can properly insert multiple nodes into the linked list
+        /// <summary>
+        /// Tests presence of multiple nodes in list by verifying Head node's Next is not null
+        /// </summary>
         [Fact]
         public void CanInsertMultipleNodesIntoList()
         {
@@ -71,11 +74,20 @@ namespace XUnitTestProject_SinglyLinkedList
         }
 
         //// 5. Will return true when finding a value within the linked list that exists
-        //[Fact]
-        //public void Test1()
-        //{
+        [Fact]
+        public void Test1()
+        {
+            // Arrange
+            LList newList = new LList();
+            newList.Insert(5);
+            newList.Insert(16);
 
-        //}
+            // Act
+            bool listIncludesVal = newList.Includes(16);
+
+            // Assert
+            Assert.True(listIncludesVal);
+        }
 
         //// 6. Will return false when searching for a value in the linked list that does not exist
         //[Fact]
