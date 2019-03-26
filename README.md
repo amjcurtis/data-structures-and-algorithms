@@ -4,4 +4,4 @@
 
 1. [Challenge: Array Binary Search](code-challenges/c-sharp/array-binary-search)
 
-2. [Implementation: Singly Linked List](data-structures/LinkedList)
+2. [Implementation: Singly Linked List](data-structures/singly-linked-list/LinkedList/SinglyLinkedList)
