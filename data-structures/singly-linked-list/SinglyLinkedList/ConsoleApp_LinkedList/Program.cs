@@ -22,6 +22,7 @@ namespace ConsoleApp_LinkedList
             Console.WriteLine("printedVals: {0}", string.Join(", ", printedVals));
 
             myLinkedList.InsertBefore(2, 77);
+            myLinkedList.InsertAfter(4, 48);
 
             bool listIncludesVal = myLinkedList.Includes(6);
 
