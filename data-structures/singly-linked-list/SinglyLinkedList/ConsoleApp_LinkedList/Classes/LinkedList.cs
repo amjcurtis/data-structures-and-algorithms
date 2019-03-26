@@ -140,19 +140,18 @@ namespace ConsoleApp_LinkedList.Classes
         public bool InsertBefore(int existingNodeValue, int newNodeValue)
         {
             Current = Head;
+            Node nodeToInsert = new Node(newNodeValue);
 
             while (Current.Next != null)
             {
                 if (Current.Value == existingNodeValue)
                 {
-                    Node nodeToInsert = new Node(newNodeValue);
                     nodeToInsert.Next = Current;
                     Head = nodeToInsert;
                     return true;
                 }
                 else if (Current.Next.Value == existingNodeValue)
                 {
-                    Node nodeToInsert = new Node(newNodeValue);
                     nodeToInsert.Next = Current.Next;
                     Current.Next = nodeToInsert;
                     return true;
@@ -172,17 +171,22 @@ namespace ConsoleApp_LinkedList.Classes
         public bool InsertAfter(int existingNodeValue, int newNodeValue)
         {
             Current = Head;
+            Node nodeToInsert = new Node(newNodeValue);
 
             while (Current.Next != null)
             {
                 if (Current.Value == existingNodeValue)
                 {
-                    Node nodeToInsert = new Node(newNodeValue);
                     nodeToInsert.Next = Current.Next;
                     Current.Next = nodeToInsert;
                     return true;
                 }
                 Current = Current.Next;
+            }
+            if (Current.Next == null)
+            {
+                Current.Next = nodeToInsert;
+                return true;
             }
             return false;
         }

@@ -215,7 +215,6 @@ namespace XUnitTestProject_SinglyLinkedList
 
             // Act
             newList.InsertBefore(3, 85);
-            int[] printedVals = newList.Print();
 
             // Assert
             Assert.Equal(85, newList.Head.Value);
@@ -242,6 +241,25 @@ namespace XUnitTestProject_SinglyLinkedList
             Assert.Equal(81, printedVals[2]);
         }
 
+        /// <summary>
+        /// Tests whether can use InsertAfter() to insert new node after last node in list
+        /// </summary>
+        [Fact]
+        public void CanInsertNodeAfterLastNodeInList()
+        {
+            // Arrange
+            LList newList = new LList();
+            for (int i = 0; i < 3; i++)
+            {
+                newList.Insert(i + 1);
+            }
 
+            // Act
+            newList.InsertAfter(1, 85);
+            int[] printedVals = newList.Print();
+
+            // Assert
+            Assert.Equal(85, printedVals[printedVals.Length - 1]);
+        }
     }
 }
