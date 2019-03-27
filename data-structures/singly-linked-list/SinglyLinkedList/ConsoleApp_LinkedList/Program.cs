@@ -24,15 +24,16 @@ namespace ConsoleApp_LinkedList
                 int[] printedVals = myLinkedList.Print();
                 Console.WriteLine("printedVals: {0}", string.Join(", ", printedVals));
 
-                myLinkedList.InsertBefore(6, 77);
-                myLinkedList.InsertAfter(244, 48);
+                //myLinkedList.InsertBefore(6, 77);
+                //myLinkedList.InsertAfter(244, 48);
 
-                int kthValFromEnd = myLinkedList.GetKthNodeFromEnd(5);
-                Console.WriteLine($"kthValFromEnd: {kthValFromEnd}");
+                Node kthValFromEnd = myLinkedList.GetKthNodeFromEnd(7);
+                Console.WriteLine($"Value of kthValFromEnd: {kthValFromEnd.Value}");
 
                 bool listIncludesVal = myLinkedList.Includes(6);
-
                 Console.WriteLine($"listIncludesVal: {listIncludesVal}");
+
+                Console.WriteLine($"Length of printedVals: {printedVals.Length}");
 
                 printedVals = myLinkedList.Print();
 

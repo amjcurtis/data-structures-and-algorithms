@@ -192,21 +192,28 @@ namespace ConsoleApp_LinkedList.Classes
         }
 
 
-        public int GetKthNodeFromEnd(int k)
+        /// <summary>
+        /// Gets node at specified distance k from end of list
+        /// </summary>
+        /// <param name="k">integer k value</param>
+        /// <returns>current node</returns>
+        public Node GetKthNodeFromEnd(int k)
         {
+            Current = Head;
+
             if (Head == null)
             {
-                throw new Exception("Exception in GetKthNodeFromEnd()\nThere are no nodes in the list!");
+                Console.WriteLine("From GetKthNodeFromEnd(): There are no nodes in the list!");
+                return null;
             }
             if (k < 0)
             {
-                throw new Exception("Exception in GetKthNodeFromEnd()\nValue of k cannot be negative!");
+                Console.WriteLine("From GetKthNodeFromEnd(): Value of k cannot be negative!");
+                return null;
             }
 
-            Current = Head;
-
             // Counter to increment for tracking length of list
-            int count = 0;
+            int count = 1;
 
             while (Current.Next != null)
             {
@@ -214,20 +221,25 @@ namespace ConsoleApp_LinkedList.Classes
                 Current = Current.Next;
             }
 
+            if (k == count)
+            {
+                return Head;
+            }
             if (k > count)
             {
-                throw new IndexOutOfRangeException("IndexOutOfRangeException in GetKthNodeFromEnd()\nValue of k is greater than length of list!");
+                Console.WriteLine("From GetKthNodeFromEnd(): Value of k is greater than length of list!");
+                return null;
             }
 
             // Reset Current to Head before second loop through list
             Current = Head;
 
             int distanceFromEnd = count - k;
-            for (int i = 0; i < distanceFromEnd; i++)
+            for (int i = 0; i == distanceFromEnd; i++)
             {
                 Current = Current.Next;
             }
-            return Current.Value;
+            return Current;
         }
     }
 }

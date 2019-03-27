@@ -261,5 +261,52 @@ namespace XUnitTestProject_SinglyLinkedList
             // Assert
             Assert.Equal(85, printedVals[printedVals.Length - 1]);
         }
+
+        /// <summary>
+        /// Returns null node if k greater than length of list
+        /// </summary>
+        [Fact]
+        public void CanHandleKGreaterThanLengthOfList()
+        {
+            // Arrange
+            LList newList = new LList();
+            for (int i = 0; i < 4; i++)
+            {
+                newList.Insert(i + 1);
+            }
+
+            // Act
+            Node result = newList.GetKthNodeFromEnd(7);
+
+            // Assert
+            Assert.Null(result);
+        }
+
+        [Fact]
+        public void CanHandleKEqualsLengthOfList()
+        {
+            // Arrange
+            LList newList = new LList();
+            for (int i = 0; i < 4; i++)
+            {
+                newList.Insert(i + 1);
+            }
+
+            // Act
+            Node result = newList.GetKthNodeFromEnd(4);
+
+            // Assert
+            Assert.Equal(4, result.Value);
+        }
+
+        [Fact]
+        public void 
+
+        // Arrange
+
+        // Act
+
+        // Assert
+
     }
 }
