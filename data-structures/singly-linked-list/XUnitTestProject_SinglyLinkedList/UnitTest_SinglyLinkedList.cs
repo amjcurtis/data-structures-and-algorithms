@@ -338,5 +338,22 @@ namespace XUnitTestProject_SinglyLinkedList
             // Assert
             Assert.Equal(4, result.Value);
         }
+
+        [Fact]
+        public void CanReturnNodeNotAtEitherEndOfList()
+        {
+            // Arrange
+            LList newList = new LList();
+            for (int i = 0; i < 5; i++)
+            {
+                newList.Insert(i + 1);
+            }
+
+            // Act
+            Node result = newList.GetKthNodeFromEnd(2);
+
+            // Assert
+            Assert.Equal(2, result.Value);
+        }
     }
 }

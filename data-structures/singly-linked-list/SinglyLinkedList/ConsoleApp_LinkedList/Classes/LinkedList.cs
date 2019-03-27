@@ -221,10 +221,12 @@ namespace ConsoleApp_LinkedList.Classes
                 Current = Current.Next;
             }
 
+            // Handles list of only one node
             if (k == count)
             {
                 return Head;
             }
+            // Handles k value greater than length of list
             if (k > count)
             {
                 Console.WriteLine("From GetKthNodeFromEnd(): Value of k is greater than length of list!");
@@ -235,7 +237,7 @@ namespace ConsoleApp_LinkedList.Classes
             Current = Head;
 
             int distanceFromEnd = count - k;
-            for (int i = 0; i == distanceFromEnd; i++)
+            for (int i = 0; i < distanceFromEnd; i++)
             {
                 Current = Current.Next;
             }

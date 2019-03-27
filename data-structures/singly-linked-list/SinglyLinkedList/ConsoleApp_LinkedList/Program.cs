@@ -19,7 +19,7 @@ namespace ConsoleApp_LinkedList
                     myLinkedList.Insert((i + 1));
                 }
 
-                myLinkedList.Append(244);
+                //myLinkedList.Append(244);
 
                 int[] printedVals = myLinkedList.Print();
                 Console.WriteLine("printedVals: {0}", string.Join(", ", printedVals));
@@ -27,11 +27,11 @@ namespace ConsoleApp_LinkedList
                 //myLinkedList.InsertBefore(6, 77);
                 //myLinkedList.InsertAfter(244, 48);
 
-                Node kthValFromEnd = myLinkedList.GetKthNodeFromEnd(7);
+                Node kthValFromEnd = myLinkedList.GetKthNodeFromEnd(2);
                 Console.WriteLine($"Value of kthValFromEnd: {kthValFromEnd.Value}");
 
-                bool listIncludesVal = myLinkedList.Includes(6);
-                Console.WriteLine($"listIncludesVal: {listIncludesVal}");
+                //bool listIncludesVal = myLinkedList.Includes(6);
+                //Console.WriteLine($"listIncludesVal: {listIncludesVal}");
 
                 Console.WriteLine($"Length of printedVals: {printedVals.Length}");
 
