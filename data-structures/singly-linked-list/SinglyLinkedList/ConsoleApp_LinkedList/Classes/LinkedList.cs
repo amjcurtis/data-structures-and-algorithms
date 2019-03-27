@@ -6,10 +6,10 @@ namespace ConsoleApp_LinkedList.Classes
 {
     public class LList
     {
-        // Add head property
+        // Add Head property
         public Node Head { get; set; }
 
-        // Amanda prefers it this way
+        // Add Current property
         public Node Current { get; set; }
 
 
@@ -189,6 +189,45 @@ namespace ConsoleApp_LinkedList.Classes
                 return true;
             }
             return false;
+        }
+
+
+        public int GetKthNodeFromEnd(int k)
+        {
+            if (Head == null)
+            {
+                throw new Exception("There are no nodes in the list!");
+            }
+            if (k < 0)
+            {
+                throw new Exception("k value cannot be negative!");
+            }
+
+            Current = Head;
+
+            // Counter to increment for tracking length of list
+            int count = 0;
+
+            while (Current.Next != null)
+            {
+                count++;
+                Current = Current.Next;
+            }
+
+            if (k > count)
+            {
+                throw new IndexOutOfRangeException("k value is greater than length of list!");
+            }
+
+            // Reset Current to Head before second loop through list
+            Current = Head;
+
+            int distanceFromEnd = count - k;
+            for (int i = 0; i < distanceFromEnd; i++)
+            {
+                Current = Current.Next;
+            }
+            return Current.Value;
         }
     }
 }

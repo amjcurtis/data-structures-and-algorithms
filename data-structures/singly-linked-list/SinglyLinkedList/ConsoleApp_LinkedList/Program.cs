@@ -23,6 +23,8 @@ namespace ConsoleApp_LinkedList
 
             myLinkedList.InsertBefore(6, 77);
             myLinkedList.InsertAfter(244, 48);
+            int kthValFromEnd = myLinkedList.GetKthNodeFromEnd(4);
+            Console.WriteLine($"kthValFromEnd: {kthValFromEnd}");
 
             bool listIncludesVal = myLinkedList.Includes(6);
 
