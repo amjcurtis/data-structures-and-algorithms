@@ -196,11 +196,11 @@ namespace ConsoleApp_LinkedList.Classes
         {
             if (Head == null)
             {
-                throw new Exception("There are no nodes in the list!");
+                throw new Exception("Exception in GetKthNodeFromEnd()\nThere are no nodes in the list!");
             }
             if (k < 0)
             {
-                throw new Exception("k value cannot be negative!");
+                throw new Exception("Exception in GetKthNodeFromEnd()\nValue of k cannot be negative!");
             }
 
             Current = Head;
@@ -216,7 +216,7 @@ namespace ConsoleApp_LinkedList.Classes
 
             if (k > count)
             {
-                throw new IndexOutOfRangeException("k value is greater than length of list!");
+                throw new IndexOutOfRangeException("IndexOutOfRangeException in GetKthNodeFromEnd()\nValue of k is greater than length of list!");
             }
 
             // Reset Current to Head before second loop through list

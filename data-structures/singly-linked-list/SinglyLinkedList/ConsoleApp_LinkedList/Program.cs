@@ -11,32 +11,41 @@ namespace ConsoleApp_LinkedList
             //Node newNode = new Node();
             //newNode.Value = 10;
 
-            LList myLinkedList = new LList();
-            for (int i = 0; i < 6; i++)
+            try
             {
-                myLinkedList.Insert((i + 1));
+                LList myLinkedList = new LList();
+                for (int i = 0; i < 6; i++)
+                {
+                    myLinkedList.Insert((i + 1));
+                }
+
+                myLinkedList.Append(244);
+
+                int[] printedVals = myLinkedList.Print();
+                Console.WriteLine("printedVals: {0}", string.Join(", ", printedVals));
+
+                myLinkedList.InsertBefore(6, 77);
+                myLinkedList.InsertAfter(244, 48);
+
+                int kthValFromEnd = myLinkedList.GetKthNodeFromEnd(5);
+                Console.WriteLine($"kthValFromEnd: {kthValFromEnd}");
+
+                bool listIncludesVal = myLinkedList.Includes(6);
+
+                Console.WriteLine($"listIncludesVal: {listIncludesVal}");
+
+                printedVals = myLinkedList.Print();
+
+                // Reverse array of values before printing it to console
+                // Running this on own separate line b/c couldn't save to variable (return type conflict)
+                //Array.Reverse(printedVals);
+
+                Console.WriteLine("printedVals: {0}", string.Join(", ", printedVals));
             }
-            //myLinkedList.Insert(244);
-            myLinkedList.Append(244);
-            int[] printedVals = myLinkedList.Print();
-            Console.WriteLine("printedVals: {0}", string.Join(", ", printedVals));
-
-            myLinkedList.InsertBefore(6, 77);
-            myLinkedList.InsertAfter(244, 48);
-            int kthValFromEnd = myLinkedList.GetKthNodeFromEnd(4);
-            Console.WriteLine($"kthValFromEnd: {kthValFromEnd}");
-
-            bool listIncludesVal = myLinkedList.Includes(6);
-
-            Console.WriteLine($"listIncludesVal: {listIncludesVal}");
-
-            printedVals = myLinkedList.Print();
-
-            // Reverse array of values before printing it to console
-            // Running this on own separate line b/c couldn't save to variable (return type conflict)
-            //Array.Reverse(printedVals);
-
-            Console.WriteLine("printedVals: {0}", string.Join(", ", printedVals));
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
 
             Console.ReadLine();
         }
