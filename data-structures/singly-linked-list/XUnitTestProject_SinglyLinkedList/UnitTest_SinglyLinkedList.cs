@@ -130,7 +130,7 @@ namespace XUnitTestProject_SinglyLinkedList
             int[] printedVals = newList.Print();
 
             // Assert
-            Assert.Equal(printedVals[index], value); 
+            Assert.Equal(printedVals[index], value);
         }
 
         /// <summary>
@@ -149,7 +149,7 @@ namespace XUnitTestProject_SinglyLinkedList
             // Act
             newList.Append(56);
             int[] printedVals = newList.Print();
-            
+
             // Assert
             Assert.Equal(56, printedVals[printedVals.Length - 1]);
         }
@@ -199,7 +199,7 @@ namespace XUnitTestProject_SinglyLinkedList
             // Assert
             Assert.Equal(81, printedVals[1]);
         }
-        
+
         /// <summary>
         /// Tests whether can use InsertBefore() to insert new node before first node in list
         /// </summary>
@@ -282,8 +282,11 @@ namespace XUnitTestProject_SinglyLinkedList
             Assert.Null(result);
         }
 
+        /// <summary>
+        /// Tests whether can get value of node when k equals length of list
+        /// </summary>
         [Fact]
-        public void CanHandleKEqualsLengthOfList()
+        public void CanHandleKEqualToLengthOfList()
         {
             // Arrange
             LList newList = new LList();
@@ -299,14 +302,41 @@ namespace XUnitTestProject_SinglyLinkedList
             Assert.Equal(4, result.Value);
         }
 
+        /// <summary>
+        /// Tests whether can return null node if k is negative value
+        /// </summary>
         [Fact]
-        public void 
+        public void CanHandleNegativeKValue()
+        {
+            // Arrange
+            LList newList = new LList();
+            for (int i = 0; i < 4; i++)
+            {
+                newList.Insert(i + 1);
+            }
 
-        // Arrange
+            // Act
+            Node result = newList.GetKthNodeFromEnd(-2);
 
-        // Act
+            // Assert
+            Assert.Null(result);
+        }
 
-        // Assert
+        /// <summary>
+        /// Test whether can return value of kth node in list with only one node
+        /// </summary>
+        [Fact]
+        public void CanHandleListWithOneNode()
+        {
+            // Arrange
+            LList newList = new LList();
+            newList.Insert(4);
 
+            // Act
+            Node result = newList.GetKthNodeFromEnd(0);
+
+            // Assert
+            Assert.Equal(4, result.Value);
+        }
     }
 }
