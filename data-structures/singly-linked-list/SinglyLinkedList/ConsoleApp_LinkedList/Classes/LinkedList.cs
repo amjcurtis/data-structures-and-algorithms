@@ -6,10 +6,10 @@ namespace ConsoleApp_LinkedList.Classes
 {
     public class LList
     {
-        // Add head property
+        // Add Head property
         public Node Head { get; set; }
 
-        // Amanda prefers it this way
+        // Add Current property
         public Node Current { get; set; }
 
 
@@ -189,6 +189,59 @@ namespace ConsoleApp_LinkedList.Classes
                 return true;
             }
             return false;
+        }
+
+
+        /// <summary>
+        /// Gets node at specified distance k from end of list
+        /// </summary>
+        /// <param name="k">integer k value</param>
+        /// <returns>current node</returns>
+        public Node GetKthNodeFromEnd(int k)
+        {
+            Current = Head;
+
+            if (Head == null)
+            {
+                Console.WriteLine("From GetKthNodeFromEnd(): There are no nodes in the list!");
+                return null;
+            }
+            if (k < 0)
+            {
+                Console.WriteLine("From GetKthNodeFromEnd(): Value of k cannot be negative!");
+                return null;
+            }
+
+            // Counter to increment for tracking length of list
+            int count = 1;
+
+            while (Current.Next != null)
+            {
+                count++;
+                Current = Current.Next;
+            }
+
+            // Handles list of only one node
+            if (k == count)
+            {
+                return Head;
+            }
+            // Handles k value greater than length of list
+            if (k > count)
+            {
+                Console.WriteLine("From GetKthNodeFromEnd(): Value of k is greater than length of list!");
+                return null;
+            }
+
+            // Reset Current to Head before second loop through list
+            Current = Head;
+
+            int distanceFromEnd = count - k;
+            for (int i = 0; i < distanceFromEnd; i++)
+            {
+                Current = Current.Next;
+            }
+            return Current;
         }
     }
 }
