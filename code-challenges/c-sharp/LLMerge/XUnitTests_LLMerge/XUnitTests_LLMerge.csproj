@@ -13,7 +13,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\LLMerge\LLMerge.csproj" />
+    <Reference Include="ConsoleApp_LinkedList">
+      <HintPath>..\..\..\..\data-structures\singly-linked-list\SinglyLinkedList\ConsoleApp_LinkedList\bin\Debug\netcoreapp2.2\ConsoleApp_LinkedList.dll</HintPath>
+    </Reference>
+    <Reference Include="LLMerge">
+      <HintPath>..\LLMerge\bin\Debug\netcoreapp2.2\LLMerge.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>

@@ -3,7 +3,7 @@ using ConsoleApp_LinkedList.Classes;
 
 namespace LLMerge
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {
