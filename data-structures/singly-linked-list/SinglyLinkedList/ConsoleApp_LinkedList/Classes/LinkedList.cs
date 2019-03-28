@@ -122,12 +122,18 @@ namespace ConsoleApp_LinkedList.Classes
 
             Node nodeToInsert = new Node(value);
 
-            while (Current.Next != null)
+            if (Head == null)
             {
-                Current = Current.Next;
+                Head = nodeToInsert;
             }
-
-            Current.Next = nodeToInsert;
+            else
+            {
+                while (Current.Next != null)
+                {
+                    Current = Current.Next;
+                }
+                Current.Next = nodeToInsert;
+            }
         }
 
 

@@ -19,7 +19,7 @@ namespace ConsoleApp_LinkedList
                     myLinkedList.Insert((i + 1));
                 }
 
-                //myLinkedList.Append(244);
+                myLinkedList.Append(244);
 
                 int[] printedVals = myLinkedList.Print();
                 Console.WriteLine("printedVals: {0}", string.Join(", ", printedVals));
