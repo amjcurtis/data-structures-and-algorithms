@@ -77,6 +77,9 @@ The `Node` class includes public Node properties for `Value` (type `int`) and `V
 #### `v1.3`
 * `2019-03-27`: Added GetKthNodeFromEnd() method and corresponding unit tests.
 
+#### `v1.4`
+* `2019-03-28`: Fixed failing unit test by adding logic to handle *k* value input of 0.
+
 
 ## Initial Whiteboard Planning for Linked List Methods
 
