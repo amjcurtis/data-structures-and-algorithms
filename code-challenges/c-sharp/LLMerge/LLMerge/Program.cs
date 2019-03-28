@@ -36,12 +36,27 @@ namespace LLMerge
             Console.ReadLine();
         }
 
+        /// <summary>
+        /// Merges two linked lists together with nodes from the lists in alternating order
+        /// </summary>
+        /// <param name="list1">first linked list argument</param>
+        /// <param name="list2">second linked list argument</param>
+        /// <returns></returns>
         public static LList MergeLists(LList list1, LList list2)
         {
-            if (list1.Head == null || list2.Head == null)
+            // Return null if either list is empty
+            if (list1.Head == null && list2.Head == null)
             {
-                Console.WriteLine("Sorry, the lists you input are both empty!");
+                Console.WriteLine("Sorry, both the lists you input are empty!");
                 return null;
+            }
+            else if (list1.Head == null && list2.Head != null)
+            {
+                return list2;
+            }
+            else if (list1.Head != null && list2.Head == null)
+            {
+                return list1;
             }
          
             // Set Current node of each list to its respective Head
