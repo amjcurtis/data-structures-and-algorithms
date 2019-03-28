@@ -212,9 +212,9 @@ namespace ConsoleApp_LinkedList.Classes
                 Console.WriteLine("From GetKthNodeFromEnd(): There are no nodes in the list!");
                 return null;
             }
-            if (k < 0)
+            if (k <= 0)
             {
-                Console.WriteLine("From GetKthNodeFromEnd(): Value of k cannot be negative!");
+                Console.WriteLine("From GetKthNodeFromEnd(): Value of k must be a positive number greater than zero!");
                 return null;
             }
 

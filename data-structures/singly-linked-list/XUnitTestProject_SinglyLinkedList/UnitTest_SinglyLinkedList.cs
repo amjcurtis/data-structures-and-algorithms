@@ -333,10 +333,11 @@ namespace XUnitTestProject_SinglyLinkedList
             newList.Insert(4);
 
             // Act
-            Node result = newList.GetKthNodeFromEnd(0);
+            Node result = newList.GetKthNodeFromEnd(1);
 
             // Assert
             Assert.Equal(4, result.Value);
+            //Assert.Null(result);
         }
 
         [Fact]
