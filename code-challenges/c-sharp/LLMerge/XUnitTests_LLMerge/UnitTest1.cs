@@ -66,5 +66,26 @@ namespace XUnitTests_LLMerge
             // Assert
             Assert.Equal(printedZippedList[index], expectedValue);
         }
+
+        [Fact]
+        public void CanHandleEmptyListInputAsArgs()
+        {
+            // Arrange
+            LList list1 = new LList();
+            for (int i = 0; i < 3; i++)
+            {
+                list1.Append(i + 1);
+            }
+
+            LList list2 = new LList();
+
+            // Act
+            LList zippedList = MergeLists(list1, list2);
+
+            // Assert
+            //Assert.Equal(11, printedZippedList[1]);
+            Assert.Null(zippedList);
+        }
+
     }
 }

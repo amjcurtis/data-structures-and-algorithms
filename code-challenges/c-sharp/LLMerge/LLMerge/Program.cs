@@ -18,10 +18,10 @@ namespace LLMerge
             Console.WriteLine("list1NodeValues: {0}", string.Join(", ", list1NodeValues));
 
             LList list2 = new LList();
-            for (int i = 0; i < 3; i++)
-            {
-                list2.Append(i + 11);
-            }
+            //for (int i = 0; i < 3; i++)
+            //{
+            //    list2.Append(i + 11);
+            //}
 
             int[] list2NodeValues = list2.Print();
             Console.WriteLine("list2NodeValues: {0}", string.Join(", ", list2NodeValues));
@@ -38,6 +38,13 @@ namespace LLMerge
 
         public static LList MergeLists(LList list1, LList list2)
         {
+            if (list1.Head == null || list2.Head == null)
+            {
+                Console.WriteLine("Sorry, the lists you input are both empty!");
+                return null;
+            }
+         
+            // Set Current node of each list to its respective Head
             Node Current1 = list1.Head;
             Node Current2 = list2.Head;
 
