@@ -18,10 +18,10 @@ namespace LLMerge
             Console.WriteLine("list1NodeValues: {0}", string.Join(", ", list1NodeValues));
 
             LList list2 = new LList();
-            //for (int i = 0; i < 3; i++)
-            //{
-            //    list2.Append(i + 11);
-            //}
+            for (int i = 0; i < 3; i++)
+            {
+                list2.Append(i + 11);
+            }
 
             int[] list2NodeValues = list2.Print();
             Console.WriteLine("list2NodeValues: {0}", string.Join(", ", list2NodeValues));
