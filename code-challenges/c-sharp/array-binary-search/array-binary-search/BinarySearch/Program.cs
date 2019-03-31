@@ -4,6 +4,10 @@ namespace BinarySearch
 {
     public class Program
     {
+        /// <summary>
+        /// Contains console app UI and exception handling
+        /// </summary>
+        /// <param name="args">string[] args</param>
         public static void Main(string[] args)
         {
             Console.WriteLine("Welcome to the binary search challenge!");
@@ -58,6 +62,12 @@ namespace BinarySearch
             }
         }
 
+        /// <summary>
+        /// Binary search algorithm
+        /// </summary>
+        /// <param name="array">integer array</param>
+        /// <param name="key">value to search array for</param>
+        /// <returns>value searched for or -1 if value not found</returns>
         public static int BinarySearch(int[] array, int key)
         {
             int min = 0;
