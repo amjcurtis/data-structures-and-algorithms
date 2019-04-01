@@ -57,6 +57,9 @@ namespace XUnit_StacksAndQueues
             Assert.Equal(12, valOfPeekedTopNode);
         }
 
+        /// <summary>
+        /// Tests Queue's Enqueue method
+        /// </summary>
         [Fact]
         public void CanEnqueueNodeInQueue()
         {
@@ -68,6 +71,41 @@ namespace XUnit_StacksAndQueues
 
             // Assert
             Assert.Equal(13, myQueue.Rear.Value);
+        }
+
+        /// <summary>
+        /// Tests Queue's Dequeue method
+        /// </summary>
+        [Fact]
+        public void CanDequeueNodeFromQueue()
+        {
+            // Arrange
+            Queue<Node<int>> myQueue = new Queue<Node<int>>();
+            myQueue.Enqueue(25);
+            myQueue.Enqueue(16);
+
+            // Act
+            int valOfDequeuedNode = myQueue.Dequeue();
+
+            // Assert
+            Assert.Equal(25, valOfDequeuedNode);
+        }
+
+        /// <summary>
+        /// Tests Queue's Peek method
+        /// </summary>
+        [Fact]
+        public void CanPeekFrontNodeInQueue()
+        {
+            // Arrange
+            Queue<Node<int>> myQueue = new Queue<Node<int>>();
+            myQueue.Enqueue(25);
+
+            // Act
+            int valOfPeekedFrontNode = myQueue.Peek();
+
+            // Assert
+            Assert.Equal(25, valOfPeekedFrontNode);
         }
     }
 }

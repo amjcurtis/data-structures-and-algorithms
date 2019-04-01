@@ -7,14 +7,12 @@ namespace StacksAndQueues.Classes
     public class Queue<T> : IEnumerable
     {
 
-        // Add Top property
-        public Node<T> Top { get; set; }
-
         // Add Front property
         public Node<T> Front { get; set; }
 
         // Add Rear property
         public Node<T> Rear { get; set; }
+
 
         /// <summary>
         /// Creates new node and enqueues at rear of queue
@@ -22,9 +20,33 @@ namespace StacksAndQueues.Classes
         /// <param name="value">integer value</param>
         public void Enqueue(int value)
         {
-            Node<T> nodeToAdd = new Node<T>(value);
-            Rear.Next = nodeToAdd;
-            Rear = nodeToAdd;
+            Node<T> nodeToEnqueue = new Node<T>(value);
+            //Rear.Next = nodeToEnqueue;
+            nodeToEnqueue.Next = Rear;
+            Rear = nodeToEnqueue;
+        }
+
+
+        /// <summary>
+        /// Removes front node from queue
+        /// </summary>
+        /// <returns>dequeued node's value</returns>
+        public int Dequeue()
+        {
+            Node<T> temp = Front;
+            Front = Front.Next;
+            temp.Next = null;
+            return temp.Value;
+        }
+
+
+        /// <summary>
+        /// Looks at value of front node in queue
+        /// </summary>
+        /// <returns>value of front node in queue or null if queue is empty</returns>
+        public int Peek()
+        {
+            return Front.Value;
         }
 
 
