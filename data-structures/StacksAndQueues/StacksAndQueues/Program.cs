@@ -6,6 +6,11 @@ namespace StacksAndQueues
 {
     class Program
     {
+
+        /// <summary>
+        /// Main method for program
+        /// </summary>
+        /// <param name="args">string[] args</param>
         static void Main(string[] args)
         {
             // Instantiate generic Stack of int Nodes
@@ -14,12 +19,10 @@ namespace StacksAndQueues
             {
                 myStack.Push(i + 1);
             }
-
-            //myStack.Push(25);
             Console.WriteLine($"myStack.Top: {myStack.Top.Value}");
 
-            //Node<int> testNode = new Node<int>(12);
-            //Console.WriteLine(testNode.Value);
+            int valOfPoppedNode = myStack.Pop();
+            Console.WriteLine($"Value of popped node: {valOfPoppedNode}");
         }
     }
 }

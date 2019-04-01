@@ -11,7 +11,10 @@ namespace StacksAndQueues.Classes
         // Add Top property
         public Node<T> Top { get; set; }
 
-        //TODO Push method
+        /// <summary>
+        /// Creates new node and pushes to top of stack
+        /// </summary>
+        /// <param name="value">integer value</param>
         public void Push(int value)
         {
             Node<T> nodeToAdd = new Node<T>(value);
@@ -20,6 +23,13 @@ namespace StacksAndQueues.Classes
         }
 
         //TODO Pop method
+        public int Pop()
+        {
+            Node<T> temp = Top;
+            Top = Top.Next;
+            temp.Next = null;
+            return temp.Value;
+        }
 
         //TODO Peek method 
 
