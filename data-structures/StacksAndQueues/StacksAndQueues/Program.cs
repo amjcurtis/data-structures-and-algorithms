@@ -23,6 +23,9 @@ namespace StacksAndQueues
 
             int valOfPoppedNode = myStack.Pop();
             Console.WriteLine($"Value of popped node: {valOfPoppedNode}");
+
+            int valOfPeekedTopNode = myStack.Peek();
+            Console.WriteLine($"Val of peeked node: {valOfPeekedTopNode}");
         }
     }
 }

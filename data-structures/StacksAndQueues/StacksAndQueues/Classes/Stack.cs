@@ -11,6 +11,7 @@ namespace StacksAndQueues.Classes
         // Add Top property
         public Node<T> Top { get; set; }
 
+
         /// <summary>
         /// Creates new node and pushes to top of stack
         /// </summary>
@@ -22,7 +23,11 @@ namespace StacksAndQueues.Classes
             Top = nodeToAdd;
         }
 
-        //TODO Pop method
+
+        /// <summary>
+        /// Removes top node from stack
+        /// </summary>
+        /// <returns>popped node's value</returns>
         public int Pop()
         {
             Node<T> temp = Top;
@@ -31,7 +36,15 @@ namespace StacksAndQueues.Classes
             return temp.Value;
         }
 
-        //TODO Peek method 
+
+        /// <summary>
+        /// Looks at value of top node in stack
+        /// </summary>
+        /// <returns>value of top node in stack or null if stack is empty</returns>
+        public int Peek()
+        {
+            return Top.Value;
+        }
 
         /// <summary>
         /// Implements IEnumerable
