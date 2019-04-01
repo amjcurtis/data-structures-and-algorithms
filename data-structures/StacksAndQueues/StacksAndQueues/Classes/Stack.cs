@@ -12,7 +12,12 @@ namespace StacksAndQueues.Classes
         public Node<T> Top { get; set; }
 
         //TODO Push method
-
+        public void Push(int value)
+        {
+            Node<T> nodeToAdd = new Node<T>(value);
+            nodeToAdd.Next = Top;
+            Top = nodeToAdd;
+        }
 
         //TODO Pop method
 
