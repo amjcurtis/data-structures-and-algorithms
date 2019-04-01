@@ -28,7 +28,16 @@ namespace XUnit_StacksAndQueues
         [Fact]
         public void CanPopNodeFromStack()
         {
+            // Arrange
+            Stack<Node<int>> myStack = new Stack<Node<int>>();
+            myStack.Push(12);
+            myStack.Push(25);
 
+            // Act
+            int poppedValue = myStack.Pop();
+
+            // Assert
+            Assert.Equal(25, poppedValue);
         }
 
     }
