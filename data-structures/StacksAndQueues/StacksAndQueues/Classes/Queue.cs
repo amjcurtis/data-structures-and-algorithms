@@ -4,19 +4,29 @@ using System.Text;
 
 namespace StacksAndQueues.Classes
 {
-    public class Node<T> : IEnumerable
+    public class Queue<T> : IEnumerable
     {
 
-        public int Value { get; set; }
+        // Add Top property
+        public Node<T> Top { get; set; }
 
-        public Node<T> Next { get; set; }
+        // Add Front property
+        public Node<T> Front { get; set; }
 
-        // Node constructor
-        public Node(int value)
+        // Add Rear property
+        public Node<T> Rear { get; set; }
+
+        /// <summary>
+        /// Creates new node and enqueues at rear of queue
+        /// </summary>
+        /// <param name="value">integer value</param>
+        public void Enqueue(int value)
         {
-            Value = value;
-            Next = null;
+            Node<T> nodeToAdd = new Node<T>(value);
+            Rear.Next = nodeToAdd;
+            Rear = nodeToAdd;
         }
+
 
         /// <summary>
         /// Implements IEnumerable

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using StacksAndQueues.Classes;
 
 namespace StacksAndQueues
@@ -14,7 +13,7 @@ namespace StacksAndQueues
         static void Main(string[] args)
         {
             // Instantiate generic Stack of int Nodes
-            Classes.Stack<Node<int>> myStack = new Classes.Stack<Node<int>>();
+            Stack<Node<int>> myStack = new Stack<Node<int>>();
             for (int i = 0; i < 6; i++)
             {
                 myStack.Push(i + 1);

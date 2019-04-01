@@ -40,8 +40,11 @@ namespace XUnit_StacksAndQueues
             Assert.Equal(25, poppedValue);
         }
 
+        /// <summary>
+        /// Tests Stack's Peek method
+        /// </summary>
         [Fact]
-        public void CanPeekTopNode()
+        public void CanPeekTopNodeInStack()
         {
             // Arrange
             Stack<Node<int>> myStack = new Stack<Node<int>>();
@@ -52,6 +55,19 @@ namespace XUnit_StacksAndQueues
 
             // Assert
             Assert.Equal(12, valOfPeekedTopNode);
+        }
+
+        [Fact]
+        public void CanEnqueueNodeInQueue()
+        {
+            // Arrange
+            Queue<Node<int>> myQueue = new Queue<Node<int>>();
+
+            // Act
+            myQueue.Enqueue(13);
+
+            // Assert
+            Assert.Equal(13, myQueue.Rear.Value);
         }
     }
 }
