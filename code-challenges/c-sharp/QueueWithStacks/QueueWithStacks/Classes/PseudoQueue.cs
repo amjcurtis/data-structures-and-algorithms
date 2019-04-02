@@ -6,29 +6,13 @@ namespace QueueWithStacks.Classes
 {
     public class PseudoQueue<T>
     {
-
-        public Node<T> Front { get; set; }
-
-        public Node<T> Rear { get; set; }
-
+        // Publicly accessible stack
         public Stack<T> Stack1 { get; set; }
 
-        public Stack<T> Stack2 { get; set; }
-
         // PseudoQueue constructor
-        public PseudoQueue(Node<T> node)
-        {
-            Front = node;
-            Rear = node;
-            
-            // Instantiate two empty stacks
-            Stack<T> Stack1 = new Stack<T>(node);
-            Stack<T> Stack2 = new Stack<T>();
-        }
-
-        // Empty constructor (so can instantiate empty PseudoQueue)
         public PseudoQueue()
         {
+            Stack1 = new Stack<T>();
         }
 
 
@@ -43,12 +27,6 @@ namespace QueueWithStacks.Classes
             // OR the below?
             //Node<T> newNode = new Node<T>(value);
             //Stack1.Push(newNode.Value);
-            
-
-            // Queue's Enqueue method
-            //Node<T> nodeToEnqueue = new Node<T>(value);
-            //Rear.Next = nodeToEnqueue;
-            //Rear = nodeToEnqueue;
         }
 
 
@@ -58,26 +36,31 @@ namespace QueueWithStacks.Classes
         /// <returns>dequeued node</returns>
         public Node<T> Dequeue()
         {
+            // Instantiate a second stack (empty) inside Dequeue b/c no need for it outside the method
+            Stack<T> Stack2 = new Stack<T>();
+
+            Node<T> temp;
+            Node<T> tempToMove;
+
+            // Can assume Stack2 is empty b/c it was just instantiated empty above, so no need to check first if Stack2 is empty
             while (Stack1.Top != null)
             {
-                Node<T> current = Stack1.Pop();
-                Stack2.Push(current.Value);
+
+                tempToMove = Stack1.Pop();
+                Stack2.Push(tempToMove.Value);
             }
-            Node<T> temp = Stack1.Peek();
-            Stack1.Pop();
+            // Holds bottom node of stack
+            temp = Stack2.Pop();
+
+            // Logic for resetting Stack1
             while (Stack2.Top != null)
             {
-                Node<T> current = Stack2.Pop();
-                Stack1.Push(current.Value);
+                tempToMove = Stack2.Pop();
+                Stack1.Push(tempToMove.Value);
             }
+            
+            // After stack 1 is reset, *then* return temp
             return temp;
-
-            // Queue's Dequeue method
-            //Node<T> temp = Front;
-            //Front = Front.Next;
-            //temp.Next = null;
-            //return temp;
         }
-
     }
 }
