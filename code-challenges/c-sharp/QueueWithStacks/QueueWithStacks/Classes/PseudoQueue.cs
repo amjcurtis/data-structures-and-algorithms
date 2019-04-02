@@ -36,30 +36,29 @@ namespace QueueWithStacks.Classes
         /// <returns>dequeued node</returns>
         public Node<T> Dequeue()
         {
-            // Instantiate a second stack (empty) inside Dequeue b/c no need for it outside the method
+            // Instantiate second stack (empty) inside Dequeue b/c no need for it outside Dequeue method
             Stack<T> Stack2 = new Stack<T>();
 
             Node<T> temp;
             Node<T> tempToMove;
 
-            // Can assume Stack2 is empty b/c it was just instantiated empty above, so no need to check first if Stack2 is empty
+            // Can assume stack 2 is empty b/c it was instantiated empty above
             while (Stack1.Top != null)
             {
-
                 tempToMove = Stack1.Pop();
                 Stack2.Push(tempToMove.Value);
             }
             // Holds bottom node of stack
             temp = Stack2.Pop();
 
-            // Logic for resetting Stack1
+            // Put nodes from stack 2 back in stack 1
             while (Stack2.Top != null)
             {
                 tempToMove = Stack2.Pop();
                 Stack1.Push(tempToMove.Value);
             }
             
-            // After stack 1 is reset, *then* return temp
+            // After stack 1 is reset, return temp
             return temp;
         }
     }
