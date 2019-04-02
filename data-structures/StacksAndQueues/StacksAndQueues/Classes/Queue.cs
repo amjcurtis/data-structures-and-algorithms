@@ -30,7 +30,6 @@ namespace StacksAndQueues.Classes
         {
             Node<T> nodeToEnqueue = new Node<T>(value);
             Rear.Next = nodeToEnqueue;
-            //nodeToEnqueue.Next = Rear;
             Rear = nodeToEnqueue;
         }
 
@@ -38,7 +37,7 @@ namespace StacksAndQueues.Classes
         /// <summary>
         /// Removes front node from queue
         /// </summary>
-        /// <returns>dequeued node's value</returns>
+        /// <returns>dequeued node</returns>
         public Node<T> Dequeue()
         {
             Node<T> temp = Front;
@@ -51,7 +50,7 @@ namespace StacksAndQueues.Classes
         /// <summary>
         /// Looks at value of front node in queue
         /// </summary>
-        /// <returns>value of front node in queue or null if queue is empty</returns>
+        /// <returns>front node in queue or null if queue is empty</returns>
         public Node<T> Peek()
         {
             return Front;

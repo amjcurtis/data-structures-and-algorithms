@@ -33,7 +33,7 @@ namespace StacksAndQueues.Classes
         /// <summary>
         /// Removes top node from stack
         /// </summary>
-        /// <returns>popped node's value</returns>
+        /// <returns>popped node</returns>
         public Node<T> Pop()
         {
             Node<T> temp = Top;
@@ -45,7 +45,7 @@ namespace StacksAndQueues.Classes
         /// <summary>
         /// Looks at value of top node in stack
         /// </summary>
-        /// <returns>value of top node in stack or null if stack is empty</returns>
+        /// <returns>top node in stack or null if stack is empty</returns>
         public Node<T> Peek()
         {
             return Top;
