@@ -4,7 +4,7 @@ using System.Text;
 
 namespace StacksAndQueues.Classes
 {
-    public class Queue<T> : IEnumerable
+    public class Queue<T>
     {
 
         // Add Front property
@@ -13,16 +13,27 @@ namespace StacksAndQueues.Classes
         // Add Rear property
         public Node<T> Rear { get; set; }
 
+        // Queue constructor
+        public Queue(Node<T> node)
+        {
+            Front = node;
+            Rear = node;
+        }
+
+        // Empty constructor (so can instantiate empty Queue)
+        public Queue()
+        {
+        }
 
         /// <summary>
         /// Creates new node and enqueues at rear of queue
         /// </summary>
         /// <param name="value">integer value</param>
-        public void Enqueue(int value)
+        public void Enqueue(T value)
         {
             Node<T> nodeToEnqueue = new Node<T>(value);
-            //Rear.Next = nodeToEnqueue;
-            nodeToEnqueue.Next = Rear;
+            Rear.Next = nodeToEnqueue;
+            //nodeToEnqueue.Next = Rear;
             Rear = nodeToEnqueue;
         }
 
@@ -31,12 +42,12 @@ namespace StacksAndQueues.Classes
         /// Removes front node from queue
         /// </summary>
         /// <returns>dequeued node's value</returns>
-        public int Dequeue()
+        public Node<T> Dequeue()
         {
             Node<T> temp = Front;
             Front = Front.Next;
             temp.Next = null;
-            return temp.Value;
+            return temp;
         }
 
 
@@ -44,28 +55,9 @@ namespace StacksAndQueues.Classes
         /// Looks at value of front node in queue
         /// </summary>
         /// <returns>value of front node in queue or null if queue is empty</returns>
-        public int Peek()
+        public Node<T> Peek()
         {
-            return Front.Value;
-        }
-
-
-        /// <summary>
-        /// Implements IEnumerable
-        /// </summary>
-        /// <returns></returns>
-        public IEnumerator GetEnumerator()
-        {
-            throw new NotImplementedException();
-        }
-
-        /// <summary>
-        /// Implements IEnumerable
-        /// </summary>
-        /// <returns>GetEumerator()</returns>
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return GetEnumerator();
+            return Front;
         }
     }
 }

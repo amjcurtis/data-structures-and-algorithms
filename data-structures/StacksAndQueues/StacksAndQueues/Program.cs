@@ -3,7 +3,7 @@ using StacksAndQueues.Classes;
 
 namespace StacksAndQueues
 {
-    class Program
+    public class Program
     {
 
         /// <summary>
@@ -12,37 +12,44 @@ namespace StacksAndQueues
         /// <param name="args">string[] args</param>
         static void Main(string[] args)
         {
-            try
-            {
+            //try
+            //{
                 // Instantiate generic Stack of int Nodes
-                Stack<Node<int>> myStack = new Stack<Node<int>>();
+                Node<int> intNode = new Node<int>(21);
+                Stack<int> myStack = new Stack<int>(intNode);
                 for (int i = 0; i < 6; i++)
                 {
                     myStack.Push(i + 1);
                 }
                 Console.WriteLine($"myStack.Top: {myStack.Top.Value}");
 
-                int valOfPoppedNode = myStack.Pop();
-                Console.WriteLine($"Value of popped node: {valOfPoppedNode}");
+                myStack.Pop();
+                myStack.Pop();
+                myStack.Pop();
+                myStack.Pop();
+                myStack.Pop();
+                Node<int> valOfPoppedNode = myStack.Pop();
+                Console.WriteLine($"Value of popped node: {valOfPoppedNode.Value}");
 
-                int valOfPeekedTopNode = myStack.Peek();
-                Console.WriteLine($"Val of peeked node: {valOfPeekedTopNode}");
+                Node<int> valOfPeekedTopNode = myStack.Peek();
+                Console.WriteLine($"Val of peeked node: {valOfPeekedTopNode.Value}");
 
 
-                Queue<Node<int>> myQueue = new Queue<Node<int>>();
+                Node<int> newNode = new Node<int>(1);
+                Queue<int> myQueue = new Queue<int>(newNode);
                 for (int i = 0; i < 6; i++)
                 {
                     myQueue.Enqueue(i + 1);
                 }
                 Console.WriteLine($"myQueue.Rear: {myQueue.Rear.Value}");
 
-                int valOfDequeuedNode = myQueue.Dequeue();
-                Console.WriteLine($"myQueue.Front: {valOfDequeuedNode}");
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-            }
+                Node<int> valOfDequeuedNode = myQueue.Dequeue();
+                Console.WriteLine($"myQueue.Front: {valOfDequeuedNode.Value}");
+            //}
+            //catch (Exception e)
+            //{
+            //    Console.WriteLine(e.Message);
+            //}
 
             Console.ReadLine();
         }

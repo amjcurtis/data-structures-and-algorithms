@@ -13,7 +13,8 @@ namespace XUnit_StacksAndQueues
         public void CanPushNodeToStack()
         {
             // Arrange
-            Stack<Node<int>> myStack = new Stack<Node<int>>();
+            Node<int> newNode = new Node<int>(16);
+            Stack<int> myStack = new Stack<int>(newNode);
             
             // Act
             myStack.Push(25);
@@ -29,7 +30,8 @@ namespace XUnit_StacksAndQueues
         public void CanPushMultipeNodeSToStack()
         {
             // Arrange
-            Stack<Node<int>> myStack = new Stack<Node<int>>();
+            Node<int> newNode = new Node<int>(16);
+            Stack<int> myStack = new Stack<int>(newNode);
 
             // Act
             myStack.Push(25);
@@ -46,17 +48,18 @@ namespace XUnit_StacksAndQueues
         public void CanPopNodeFromStack()
         {
             // Arrange
-            Stack<Node<int>> myStack = new Stack<Node<int>>();
+            Node<int> newNode = new Node<int>(14);
+            Stack<int> myStack = new Stack<int>(newNode);
             myStack.Push(12);
             myStack.Push(25);
 
             // Act
-            int poppedValue = myStack.Pop();
+            Node<int> poppedNode = myStack.Pop();
 
             // Assert
-            Assert.Equal(25, poppedValue);
+            Assert.Equal(25, poppedNode.Value);
         }
-
+        
         /// <summary>
         /// Tests Stack's Pop method's ability to pop all nodes off stack
         /// </summary>
@@ -64,11 +67,13 @@ namespace XUnit_StacksAndQueues
         public void CanPopAllNodesFromStack()
         {
             // Arrange
-            Stack<Node<int>> myStack = new Stack<Node<int>>();
+            Node<int> newNode = new Node<int>(14);
+            Stack<int> myStack = new Stack<int>(newNode);
             myStack.Push(12);
             myStack.Push(25);
 
             // Act
+            myStack.Pop();
             myStack.Pop();
             myStack.Pop();
 
@@ -83,7 +88,7 @@ namespace XUnit_StacksAndQueues
         public void CanInstantiateEmptyStack()
         {
             // Act
-            Stack<Node<int>> myStack = new Stack<Node<int>>();
+            Stack<int> myStack = new Stack<int>();
 
             // Assert
             Assert.Null(myStack.Top);
@@ -96,14 +101,14 @@ namespace XUnit_StacksAndQueues
         public void CanPeekTopNodeInStack()
         {
             // Arrange
-            Stack<Node<int>> myStack = new Stack<Node<int>>();
+            Stack<int> myStack = new Stack<int>();
             myStack.Push(12);
 
             // Act
-            int valOfPeekedTopNode = myStack.Peek();
+            Node<int> peekedTopNode = myStack.Peek();
 
             // Assert
-            Assert.Equal(12, valOfPeekedTopNode);
+            Assert.Equal(12, peekedTopNode.Value);
         }
 
         /// <summary>
@@ -113,7 +118,8 @@ namespace XUnit_StacksAndQueues
         public void CanEnqueueNodeInQueue()
         {
             // Arrange
-            Queue<Node<int>> myQueue = new Queue<Node<int>>();
+            Node<int> newNode = new Node<int>(13);
+            Queue<int> myQueue = new Queue<int>(newNode);
 
             // Act
             myQueue.Enqueue(13);
@@ -121,7 +127,7 @@ namespace XUnit_StacksAndQueues
             // Assert
             Assert.Equal(13, myQueue.Rear.Value);
         }
-
+        
         /// <summary>
         /// Tests Queue's Enqueue method can enqueue multiple nodes
         /// </summary>
@@ -129,7 +135,8 @@ namespace XUnit_StacksAndQueues
         public void CanEnqueueMultipleNodesInQueue()
         {
             // Arrange
-            Queue<Node<int>> myQueue = new Queue<Node<int>>();
+            Node<int> newNode = new Node<int>(4);
+            Queue<int> myQueue = new Queue<int>(newNode);
 
             // Act
             myQueue.Enqueue(20);
@@ -138,7 +145,7 @@ namespace XUnit_StacksAndQueues
             // Assert
             Assert.Equal(13, myQueue.Rear.Value);
         }
-
+        
         /// <summary>
         /// Tests Queue's Dequeue method
         /// </summary>
@@ -146,15 +153,15 @@ namespace XUnit_StacksAndQueues
         public void CanDequeueNodeFromQueue()
         {
             // Arrange
-            Queue<Node<int>> myQueue = new Queue<Node<int>>();
+            Node<int> newNode = new Node<int>(4);
+            Queue<int> myQueue = new Queue<int>(newNode);
             myQueue.Enqueue(25);
-            myQueue.Enqueue(16);
 
             // Act
-            int valOfDequeuedNode = myQueue.Dequeue();
+            Node<int> dequeuedNode = myQueue.Dequeue();
 
             // Assert
-            Assert.Equal(25, valOfDequeuedNode);
+            Assert.Equal(4, dequeuedNode.Value);
         }
 
         /// <summary>
@@ -164,9 +171,9 @@ namespace XUnit_StacksAndQueues
         public void CanDequeueAllNodesFromQueue()
         {
             // Arrange
-            Queue<Node<int>> myQueue = new Queue<Node<int>>();
+            Node<int> newNode = new Node<int>(4);
+            Queue<int> myQueue = new Queue<int>(newNode);
             myQueue.Enqueue(25);
-            myQueue.Enqueue(16);
 
             // Act
             myQueue.Dequeue();
@@ -183,16 +190,16 @@ namespace XUnit_StacksAndQueues
         public void CanPeekFrontNodeInQueue()
         {
             // Arrange
-            Queue<Node<int>> myQueue = new Queue<Node<int>>();
-            myQueue.Enqueue(25);
+            Node<int> newNode = new Node<int>(4);
+            Queue<int> myQueue = new Queue<int>(newNode);
 
             // Act
-            int valOfPeekedFrontNode = myQueue.Peek();
+            Node<int> peekedFrontNode = myQueue.Peek();
 
             // Assert
-            Assert.Equal(25, valOfPeekedFrontNode);
+            Assert.Equal(4, peekedFrontNode.Value);
         }
-
+        
         /// <summary>
         /// Tests whether can instantiate empty queue
         /// </summary>
@@ -200,7 +207,7 @@ namespace XUnit_StacksAndQueues
         public void CanInstantiateEmptyQueue()
         {
             // Act
-            Queue<Node<int>> myQueue = new Queue<Node<int>>();
+            Queue<int> myQueue = new Queue<int>();
 
             // Assert
             Assert.Null(myQueue.Front);
