@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Text;
 
 namespace StacksAndQueues.Classes
@@ -7,10 +6,8 @@ namespace StacksAndQueues.Classes
     public class Queue<T>
     {
 
-        // Add Front property
         public Node<T> Front { get; set; }
 
-        // Add Rear property
         public Node<T> Rear { get; set; }
 
         // Queue constructor
@@ -28,7 +25,7 @@ namespace StacksAndQueues.Classes
         /// <summary>
         /// Creates new node and enqueues at rear of queue
         /// </summary>
-        /// <param name="value">integer value</param>
+        /// <param name="value">value of any type</param>
         public void Enqueue(T value)
         {
             Node<T> nodeToEnqueue = new Node<T>(value);

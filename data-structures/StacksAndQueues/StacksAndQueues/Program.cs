@@ -12,8 +12,8 @@ namespace StacksAndQueues
         /// <param name="args">string[] args</param>
         static void Main(string[] args)
         {
-            //try
-            //{
+            try
+            {
                 // Instantiate generic Stack of int Nodes
                 Node<int> intNode = new Node<int>(21);
                 Stack<int> myStack = new Stack<int>(intNode);
@@ -45,13 +45,13 @@ namespace StacksAndQueues
 
                 Node<int> valOfDequeuedNode = myQueue.Dequeue();
                 Console.WriteLine($"myQueue.Front: {valOfDequeuedNode.Value}");
-            //}
-            //catch (Exception e)
-            //{
-            //    Console.WriteLine(e.Message);
-            //}
+        }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
 
-            Console.ReadLine();
+    Console.ReadLine();
         }
     }
 }

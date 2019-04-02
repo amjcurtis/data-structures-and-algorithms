@@ -6,7 +6,6 @@ namespace StacksAndQueues.Classes
     public class Stack<T>
     {
 
-        // Add Top property
         public Node<T> Top { get; set; }
 
         // Stack constructor
@@ -23,7 +22,7 @@ namespace StacksAndQueues.Classes
         /// <summary>
         /// Creates new node and pushes to top of stack
         /// </summary>
-        /// <param name="value">integer value</param>
+        /// <param name="value">value of any type</param>
         public void Push(T value)
         {
             Node<T> nodeToAdd = new Node<T>(value);
