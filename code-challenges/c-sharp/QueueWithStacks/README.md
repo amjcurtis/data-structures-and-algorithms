@@ -10,4 +10,4 @@ The approach I took has an efficiency of O(1) time for the `Enqueue()` method an
 
 ## Solution
 
-![Whiteboard Planning](../../../../data-structures-and-algorithms/assets/queue-with-stacks.jpeg)
+![Whiteboard Planning](https://github.com/amjcurtis/data-structures-and-algorithms/blob/queue_with_stacks/assets/queue-with-stacks.jpeg)
