@@ -14,8 +14,7 @@ namespace QueueWithStacks.Classes
         {
             Stack1 = new Stack<T>();
         }
-
-
+        
         /// <summary>
         /// Simulates queue's Enqueue method by creating new node and pushing to bottom of stack
         /// </summary>
@@ -23,19 +22,19 @@ namespace QueueWithStacks.Classes
         public void Enqueue(T value)
         {
             Stack1.Push(value);
-            
-            // OR the below?
-            //Node<T> newNode = new Node<T>(value);
-            //Stack1.Push(newNode.Value);
         }
-
-
+        
         /// <summary>
         /// Simulates queue's Dequeue method by removing bottom node from stack
         /// </summary>
         /// <returns>dequeued node</returns>
         public Node<T> Dequeue()
         {
+            if (Stack1.Top == null)
+            {
+                return null;
+            }
+
             // Instantiate second stack (empty) inside Dequeue b/c no need for it outside Dequeue method
             Stack<T> Stack2 = new Stack<T>();
 

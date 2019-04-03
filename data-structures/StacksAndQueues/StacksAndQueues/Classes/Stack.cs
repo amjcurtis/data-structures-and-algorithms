@@ -36,6 +36,10 @@ namespace StacksAndQueues.Classes
         /// <returns>popped node</returns>
         public Node<T> Pop()
         {
+            //if (Top == null)
+            //{
+            //    return null;
+            //}
             Node<T> temp = Top;
             Top = Top.Next;
             temp.Next = null;
