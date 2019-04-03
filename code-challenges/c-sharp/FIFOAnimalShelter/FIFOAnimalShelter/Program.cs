@@ -25,8 +25,10 @@ namespace FIFOAnimalShelter
 
             Console.WriteLine(animalQueue.Front.Value);
             Console.WriteLine(animalQueue.Rear.Value);
-
-
+            
+            Node<string> preferredAnimal = new Node<string>("cat");
+            animalQueue.Dequeue(preferredAnimal);
+            
             Console.ReadLine();
         }
     }

@@ -9,7 +9,7 @@ namespace QueueWithStacks
     {
         static void Main(string[] args)
         {
-            //Node<int> newNode = new Node<int>(21);
+            Node<int> newNode = new Node<int>(21);
             PseudoQueue<int> pseudoQueue = new PseudoQueue<int>();
 
             for (int i = 0; i < 6; i++)
