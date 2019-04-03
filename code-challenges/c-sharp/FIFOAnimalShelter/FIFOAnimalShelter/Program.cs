@@ -1,12 +1,33 @@
 ﻿using System;
+using FIFOAnimalShelter.Classes;
+using StacksAndQueues.Classes;
 
 namespace FIFOAnimalShelter
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+
+            Node<string> newAnimal = new Node<string>("dog");
+            Queue<string> animalQueue = new Queue<string>(newAnimal);
+            for (int i = 1; i <= 6; i++)
+            {
+                if (i % 3 == 0)
+                {
+                    animalQueue.Enqueue("cat");
+                }
+                else
+                {
+                    animalQueue.Enqueue("dog");
+                }
+            }
+
+            Console.WriteLine(animalQueue.Front.Value);
+            Console.WriteLine(animalQueue.Rear.Value);
+
+
+            Console.ReadLine();
         }
     }
 }
