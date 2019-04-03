@@ -9,3 +9,5 @@
 3. [Challenge: Merge Singly Linked Lists](code-challenges/c-sharp/LLMerge)
 
 4. [Implementation: Stacks and Queues](data-structures/StacksAndQueues)
+
+5. [Challenge: Queue with Stacks](code-challenges/c-sharp/QueueWithStacks)
