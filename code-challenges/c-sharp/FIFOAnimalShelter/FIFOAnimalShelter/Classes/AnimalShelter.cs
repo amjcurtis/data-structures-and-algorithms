@@ -1,6 +1,4 @@
-﻿using StacksAndQueues.Classes;
-using System.Collections;
-
+﻿
 namespace FIFOAnimalShelter.Classes
 {
     public class AnimalShelter<T>
