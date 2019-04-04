@@ -11,3 +11,7 @@
 4. [Implementation: Stacks and Queues](data-structures/StacksAndQueues)
 
 5. [Challenge: Queue with Stacks](code-challenges/c-sharp/QueueWithStacks)
+
+6. [Challenge: First In, First Out Animal Shelter (Generic Queue)](code-challenges/c-sharp/FIFOAnimalShelter)
+
+7. [Challenge: Multi-Bracket Validation Using Stacks](code-challenges/c-sharp/MultiBracketValidation)
