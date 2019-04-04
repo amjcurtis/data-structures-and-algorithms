@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.438
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FIFOAnimalShelter", "FIFOAnimalShelter\FIFOAnimalShelter.csproj", "{290593FF-8DBD-40D3-ACC7-AA016A2C4836}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FIFOAnimalShelter", "FIFOAnimalShelter\FIFOAnimalShelter.csproj", "{290593FF-8DBD-40D3-ACC7-AA016A2C4836}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XUnit_FIFOAnimalShelter", "XUnit_FIFOAnimalShelter\XUnit_FIFOAnimalShelter.csproj", "{D989560D-601B-4012-A09D-B353C20C54D3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XUnit_FIFOAnimalShelter", "XUnit_FIFOAnimalShelter\XUnit_FIFOAnimalShelter.csproj", "{D989560D-601B-4012-A09D-B353C20C54D3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
