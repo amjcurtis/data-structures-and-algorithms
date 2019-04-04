@@ -23,12 +23,12 @@ namespace FIFOAnimalShelter
 				if (i % 3 == 0)
 				{
 					animalShelter.Enqueue(catPreference.Value);
-					Console.WriteLine($"animalShelter.Rear is now {animalShelter.Rear.Value}");
+					Console.WriteLine($"animalShelter.Rear:  {animalShelter.Rear.Value}");
 				}
 				else
 				{
 					animalShelter.Enqueue(dogPreference.Value);
-					Console.WriteLine($"animalShelter.Rear is now {animalShelter.Rear.Value}");
+					Console.WriteLine($"animalShelter.Rear:  {animalShelter.Rear.Value}");
 				}
 			}
 
@@ -38,16 +38,25 @@ namespace FIFOAnimalShelter
 			
 			Console.WriteLine("Enter the animal you would like: dog or cat.");
 
-			// Take in user input
-			string pref = Console.ReadLine();
+			try
+			{
+				// Take in user input
+				string pref = Console.ReadLine();
 
-			// Instantiate animal node with value input by user
-			AnimalNode<string> preferredAnimal = new AnimalNode<string>(pref);
+				// Instantiate animal node with value input by user
+				AnimalNode<string> preferredAnimal = new AnimalNode<string>(pref);
 
-			// Dequeue user's preferred type of animal and store in variable
-			AnimalNode<string> dequeuedAnimal = DequeueAnimal(animalShelter, preferredAnimal);
+				// Dequeue user's preferred type of animal and store in variable
+				AnimalNode<string> dequeuedAnimal = DequeueAnimal(animalShelter, preferredAnimal);
 
-			Console.WriteLine($"dequeuedAnimal is: {dequeuedAnimal.Value}");
+				Console.WriteLine($"dequeuedAnimal is: {dequeuedAnimal.Value}");
+
+			}
+			catch (Exception e)
+			{
+
+				Console.WriteLine(e);
+			}
 
 			Console.ReadLine();
         }
@@ -62,7 +71,7 @@ namespace FIFOAnimalShelter
 		{
 			
 			// Input validation
-			if (!pref.Value.Equals("dog") && !pref.Value.Equals("cat"))
+			if (pref.Value != "dog" && pref.Value !="cat")
 			{
 				return null;
 			}
@@ -83,6 +92,8 @@ namespace FIFOAnimalShelter
 				AnimalNode<string> temp2 = animalShelterQueue.Front;
 				animalShelterQueue.Front = animalShelterQueue.Front.Next;
 				queue2.Enqueue(temp2.Value);
+				Console.WriteLine($"queue2.Front.Value:  {queue2.Peek().Value}");
+				Console.WriteLine($"queue2.Rear.Value:  {queue2.Rear.Value}");
 			}
 			return temp;
 		}
