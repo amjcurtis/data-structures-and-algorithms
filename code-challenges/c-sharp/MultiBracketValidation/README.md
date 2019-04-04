@@ -20,4 +20,4 @@ The approach I followed for implementing my stack data structure has a time and 
 
 ## Attribution
 
-I got the idea of using a single stack to push to and pop from from a conversation with Andrew Roska [Roketsu86](https://github.com/Roketsu86). The code of my implementation is all my own, however. 
+I got the idea of using a single stack to push to and pop from from a conversation with Andrew Roska ([Roketsu86](https://github.com/Roketsu86)). The code of my implementation is all my own, however. 
