@@ -16,6 +16,7 @@ namespace MultiBracketValidation
 			Split input string into char array
 			
 			// Need logic somewhere to return false for cases of overlapping bracket units like 3rd false InlineData test
+				// Something like, 'If most recent opening bracket of any kind is not followed by a closing bracket of its own kind before a closing bracket of any other kind, return false'
 
 			for loop over each char in array
 					
