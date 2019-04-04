@@ -24,6 +24,9 @@ namespace XUnit_FIFOAnimalShelter
 
 		}
 
+		/// <summary>
+		/// Tests whether DeqeueAnimal method returns null if anything other than "cat" or "dog" is passed as preferred animal argument
+		/// </summary>
 		[Fact]
 		public void CanReturnNullIfNeitherDogNorCatPassedInAsPreferredAnimal()
 		{

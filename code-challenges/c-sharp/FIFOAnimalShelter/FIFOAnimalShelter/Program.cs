@@ -1,5 +1,6 @@
 ﻿using System;
 using FIFOAnimalShelter.Classes;
+using StacksAndQueues.Classes;
 
 namespace FIFOAnimalShelter
 {
