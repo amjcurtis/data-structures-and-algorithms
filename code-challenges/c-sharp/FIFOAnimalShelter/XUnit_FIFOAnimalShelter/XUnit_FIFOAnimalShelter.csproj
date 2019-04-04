@@ -12,11 +12,8 @@
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.0" />
   </ItemGroup>
 
-<<<<<<< HEAD
-=======
   <ItemGroup>
-    <ProjectReference Include="..\MultiBracketValidation\MultiBracketValidation.csproj" />
+    <ProjectReference Include="..\FIFOAnimalShelter\FIFOAnimalShelter.csproj" />
   </ItemGroup>
 
->>>>>>> 9f0ce04f7ced5fc4d48dbec48f6bed6cc6dfefc5
 </Project>
