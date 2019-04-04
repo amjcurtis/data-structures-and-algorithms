@@ -1,4 +1,5 @@
 using System;
+using MultiBracketValidation;
 using Xunit;
 
 namespace XUnit_MultiBracketValidation
@@ -27,14 +28,14 @@ namespace XUnit_MultiBracketValidation
 		// Edge case: first bracket in string is a closing bracket
 		[InlineData(")", false)]
 
-		public void CanMultiBracketValidationMethodCorrectlyReturnTrueAndFalse(string pattern, bool expectedBool)
+		public void CanMultiBracketValidationMethodCorrectlyReturnTrueAndFalse(string input, bool expectedBool)
 		{
 			// Arrange
 
 			// Act
-
+			bool actualBool = Program.MultiBracketValidation(input);
 			// Assert
-
+			Assert.Equal(actualBool, expectedBool);
 		}
 	}
 }
