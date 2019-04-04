@@ -6,56 +6,85 @@ namespace FIFOAnimalShelter
 {
     public class Program
     {
+
         public static void Main(string[] args)
         {
-            ////////////////////////////////////////////
-            // Section below uses *Queue* class's methods
-            ////////////////////////////////////////////
-            //Node<string> newAnimal = new Node<string>("dog");
-            //Queue<string> animalQueue = new Queue<string>(newAnimal);
-            //for (int i = 1; i <= 6; i++)
-            //{
-            //    if (i % 3 == 0)
-            //    {
-            //        animalQueue.Enqueue("cat");
-            //    }
-            //    else
-            //    {
-            //        animalQueue.Enqueue("dog");
-            //    }
-            //}
+			///////////////////////////////////////////////////////
+			// Instantiate nodes to populate animal shelter queue
+			///////////////////////////////////////////////////////
 
-            //Console.WriteLine(animalQueue.Front.Value);
-            //Console.WriteLine(animalQueue.Rear.Value);
+			AnimalNode<string> catPreference = new AnimalNode<string>("cat");
+			AnimalNode<string> dogPreference = new AnimalNode<string>("dog");
 
-            //Node<string> preferredAnimal = new Node<string>("cat");
-            // Doesn't work; uses Queue class's Dequeue method, not AnimalShelter class's Dequeue
-            //animalQueue.Dequeue(preferredAnimal);
+			// Instantiate and populate animal shelter queue
+			AnimalShelter<string> animalShelter = new AnimalShelter<string>(catPreference);
+			for (int i = 1; i <= 6; i++)
+			{
+				if (i % 3 == 0)
+				{
+					animalShelter.Enqueue(catPreference.Value);
+					Console.WriteLine($"animalShelter.Rear is now {animalShelter.Rear.Value}");
+				}
+				else
+				{
+					animalShelter.Enqueue(dogPreference.Value);
+					Console.WriteLine($"animalShelter.Rear is now {animalShelter.Rear.Value}");
+				}
+			}
 
+			///////////////////////////////////////////
+			// Beginning of console app UI
+			///////////////////////////////////////////
+			
+			Console.WriteLine("Enter the animal you would like: dog or cat.");
 
-            ////////////////////////////////////////////
-            // Section below uses *AnimalShelter* class's methods
-            ////////////////////////////////////////////
+			// Take in user input
+			string pref = Console.ReadLine();
 
-            Node<string> catPreference = new Node<string>("cat");
-            Node<string> dogPreference = new Node<string>("dog");
+			// Instantiate animal node with value input by user
+			AnimalNode<string> preferredAnimal = new AnimalNode<string>(pref);
 
-            AnimalShelter<string> animalShelterQueue = new AnimalShelter<string>(catPreference);
-            for (int i = 1; i <= 6; i++)
-            {
-                if (i % 3 == 0)
-                {
-                    animalShelterQueue.Enqueue("cat");
-                }
-                else
-                {
-                    animalShelterQueue.Enqueue("dog");
-                }
-            }
+			// Dequeue user's preferred type of animal and store in variable
+			AnimalNode<string> dequeuedAnimal = DequeueAnimal(animalShelter, preferredAnimal);
 
-            //animalShelterQueue.Dequeue(catPreference);
+			Console.WriteLine($"dequeuedAnimal is: {dequeuedAnimal.Value}");
 
-            Console.ReadLine();
+			Console.ReadLine();
         }
-    }
+
+		/// <summary>
+		/// Dequeues first node with value of specified animal type
+		/// </summary>
+		/// <param name="animalShelterQueue">"animal shelter" queue</param>
+		/// <param name="pref">node with value of user's preferred animal</param>
+		/// <returns></returns>
+		public static AnimalNode<string> DequeueAnimal(AnimalShelter<string> animalShelterQueue, AnimalNode<string> pref)
+		{
+			
+			// Input validation
+			if (!pref.Value.Equals("dog") && !pref.Value.Equals("cat"))
+			{
+				return null;
+			}
+
+			AnimalShelter<string> queue2 = new AnimalShelter<string>();
+			AnimalNode<string> temp = null;
+
+			if (pref.Value == animalShelterQueue.Peek().Value)
+			{
+				return animalShelterQueue.Peek();
+			}
+			while (animalShelterQueue.Front.Next != null)
+			{
+				if (animalShelterQueue.Front.Value.Equals(pref.Value))
+				{
+					temp = animalShelterQueue.Front;
+				}
+				AnimalNode<string> temp2 = animalShelterQueue.Front;
+				animalShelterQueue.Front = animalShelterQueue.Front.Next;
+				queue2.Enqueue(temp2.Value);
+			}
+			return temp;
+		}
+	}
 }
