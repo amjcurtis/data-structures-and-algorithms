@@ -2,7 +2,7 @@
 
 ## Challenge
 
-For this challenge I created a console app that implements a queue data structure and uses it to model an animal shelter that operates with a *first in, first out* approach. It has an `Enqueue(animal)` method that takes an `animal` as an argument and adds (enqueues) it to the shelter queue. `animal` can be either a `"dog"` or a `"cat"` object. The app also has a `Dequeue(pref)` method that takes `pref` (preferred animal) as an argument and returns either a dog or a cat object, or, if `pref` is neither a dog nor a cat, it returns `null`.
+For this challenge I created a .NET Core console app that implements a queue data structure and uses it to model an animal shelter that operates with a *first in, first out* approach. It has an `Enqueue(animal)` method that takes an `animal` as an argument and adds (enqueues) it to the shelter queue. `animal` can be either a `"dog"` or a `"cat"` object. The app also has a `Dequeue(pref)` method that takes `pref` (preferred animal) as an argument and returns either a dog or a cat object, or, if `pref` is neither a dog nor a cat, it returns `null`.
 
 ## Approach & Efficiency
 
