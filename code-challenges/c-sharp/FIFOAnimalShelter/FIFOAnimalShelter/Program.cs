@@ -64,10 +64,10 @@ namespace FIFOAnimalShelter
 		/// <summary>
 		/// Dequeues first node with value of specified animal type
 		/// </summary>
-		/// <param name="animalShelterQueue">"animal shelter" queue</param>
+		/// <param name="queue1">"animal shelter" queue</param>
 		/// <param name="pref">node with value of user's preferred animal</param>
 		/// <returns></returns>
-		public static AnimalNode<string> DequeueAnimal(AnimalShelter<string> animalShelterQueue, AnimalNode<string> pref)
+		public static AnimalNode<string> DequeueAnimal(AnimalShelter<string> queue1, AnimalNode<string> pref)
 		{
 			
 			// Input validation
@@ -76,21 +76,25 @@ namespace FIFOAnimalShelter
 				return null;
 			}
 
+			// NOTE: swapping the two lines below in for the third line below makes difference in whether dog can be passed as preferred animal
+			//AnimalNode<string> catPreference = new AnimalNode<string>("cat");
+			//AnimalShelter<string> queue2 = new AnimalShelter<string>(catPreference);
+
 			AnimalShelter<string> queue2 = new AnimalShelter<string>();
 			AnimalNode<string> temp = null;
 
-			if (pref.Value == animalShelterQueue.Peek().Value)
+			if (pref.Value == queue1.Peek().Value)
 			{
-				return animalShelterQueue.Peek();
+				return queue1.Peek();
 			}
-			while (animalShelterQueue.Front.Next != null)
+			while (queue1.Front.Next != null)
 			{
-				if (animalShelterQueue.Front.Value.Equals(pref.Value))
+				if (queue1.Front.Value == pref.Value)
 				{
-					temp = animalShelterQueue.Front;
+					temp = queue1.Front;
 				}
-				AnimalNode<string> temp2 = animalShelterQueue.Front;
-				animalShelterQueue.Front = animalShelterQueue.Front.Next;
+				AnimalNode<string> temp2 = queue1.Front;
+				queue1.Front = queue1.Front.Next;
 				queue2.Enqueue(temp2.Value);
 				Console.WriteLine($"queue2.Front.Value:  {queue2.Peek().Value}");
 				Console.WriteLine($"queue2.Rear.Value:  {queue2.Rear.Value}");
