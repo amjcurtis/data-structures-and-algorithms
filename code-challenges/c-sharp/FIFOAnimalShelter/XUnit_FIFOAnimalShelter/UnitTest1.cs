@@ -24,7 +24,18 @@ namespace XUnit_FIFOAnimalShelter
 
 		}
 
-		//[Fact]
-		//public void 
+		[Fact]
+		public void CanReturnNullIfNeitherDogNorCatPassedInAsPreferredAnimal()
+		{
+			// Arrange
+			AnimalNode<string> badPreference = new AnimalNode<string>("bird");
+			AnimalShelter<string> animalShelter = new AnimalShelter<string>(badPreference);
+
+			// Act
+			AnimalNode<string> dequeuedAnimal = Program.DequeueAnimal(animalShelter, badPreference);
+
+			// Assert
+			Assert.Null(dequeuedAnimal);
+		}
 	}
 }
