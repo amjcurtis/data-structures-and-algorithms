@@ -13,6 +13,10 @@ namespace MultiBracketValidation
 			Console.ReadLine();
 		}
 
+		/// <summary>
+		/// Validates string argument and returns true if any brackets like () {} [] contained in string are opened and closed in proper order
+		/// </summary>
+		/// <param name="input">string of letters to validate</param>
 		public static bool MultiBracketValidation(string input)
 		{
 			char[] charArray = input.ToCharArray();

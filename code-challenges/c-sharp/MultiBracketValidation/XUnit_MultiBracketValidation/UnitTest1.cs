@@ -10,8 +10,8 @@ namespace XUnit_MultiBracketValidation
 		/// <summary>
 		/// Tests whether MultiBracketValidation method can correctly return true or false
 		/// </summary>
-		/// <param name="pattern"></param>
-		/// <param name="expectedBool"></param>
+		/// <param name="input">string</param>
+		/// <param name="expectedBool">boolean</param>
 		[Theory]
 		// Return true
 		[InlineData("{}", true)]
