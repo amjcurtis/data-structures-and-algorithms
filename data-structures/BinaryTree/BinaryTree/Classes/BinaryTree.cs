@@ -1,5 +1,4 @@
 ﻿using System;
-using BinaryTree.Classes;
 using StacksAndQueues.Classes;
 using System.Collections.Generic;
 using System.Text;
@@ -48,6 +47,6 @@ namespace BinaryTree.Classes
 			}
 
 			return output;
-		} 
+		}
 	}
 }
