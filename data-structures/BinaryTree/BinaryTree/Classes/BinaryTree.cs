@@ -48,5 +48,46 @@ namespace BinaryTree.Classes
 
 			return output;
 		}
+
+
+		public List<T> InOrder(Node<T> root)
+		{
+			// Instantiate new collection
+			List<T> output = new List<T>();
+
+			if (root.LeftChild != null)
+			{
+				InOrder(root.LeftChild);
+			}
+
+			output.Add(root.Value);
+
+			if (root.RightChild != null)
+			{
+				InOrder(root.RightChild);
+			}
+
+			return output;
+		}
+
+		public List<T> PostOrder(Node<T> root)
+		{
+			// Instantiate new collection
+			List<T> output = new List<T>();
+
+			if (root.LeftChild != null)
+			{
+				InOrder(root.LeftChild);
+			}
+
+			if (root.RightChild != null)
+			{
+				InOrder(root.RightChild);
+			}
+
+			output.Add(root.Value);
+
+			return output;
+		}
 	}
 }

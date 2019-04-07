@@ -7,18 +7,36 @@ namespace BinaryTree.Classes
 	public class BinarySearchTree<T>
 	{
 
-		public BinaryTree<int> BinaryTree { get; set; }
+		public Node<T> Root { get; set; }
 
-		// Constructor for binary search tree
+		//public BinaryTree<int> BinaryTree { get; set; }
+
+		//// Constructor for binary search tree
+		//public BinarySearchTree()
+		//{
+		//	BinaryTree = new BinaryTree<int>();
+		//}
+
+		// Constructor for BST
+		public BinarySearchTree(Node<T> node)
+		{
+			Root = node;
+		}
+
+		// Empty constructor so can instantiate empty BST
 		public BinarySearchTree()
 		{
-			BinaryTree = new BinaryTree<int>();
 		}
 
 		public void Add(int value)
 		{
 			// Instantiate new node and give it a value
 			Node<int> newNode = new Node<int>(value);
+
+			while (Root.LeftChild)
+			{
+
+			}
 
 			if (value > BinaryTree.Root.Value)
 			{
