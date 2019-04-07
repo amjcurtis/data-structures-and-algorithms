@@ -28,6 +28,11 @@ namespace BinaryTree.Classes
 		{
 		}
 
+		/// <summary>
+		/// Adds new node with specified value to binary search tree
+		/// </summary>
+		/// <param name="root">root node of binary search tree to add node to</param>
+		/// <param name="value">value of the node to be added</param>
 		public void Add(Node<int> root, int value)
 		{
 			// Instantiate new node and give it a value
@@ -43,25 +48,35 @@ namespace BinaryTree.Classes
 				{
 					if (newNode.Value < root.Value)
 					{
-						if (root.LeftChild == null)
+						root = root.LeftChild;
+						if (root == null)
 						{
 							root.LeftChild = newNode;
 						}
-						root = root.LeftChild;
 					}
 					else if (value > root.Value)
 					{
+						root = root.RightChild;
 						if (root == null)
 						{
 							root.RightChild = newNode;
 						}
-						root = root.RightChild;
 					}
 					// Need else clause for if newNode.Value == root.Value?
 
 					
 				}
 			}
+		}
+
+		/// <summary>
+		/// Searches binary search tree for a given value and returns boolean
+		/// </summary>
+		/// <param name="value">value to search nodes in BST for</param>
+		/// <returns>true if value found in BST, else false</returns>
+		public bool Contains(int value)
+		{
+
 		}
 	}
 }

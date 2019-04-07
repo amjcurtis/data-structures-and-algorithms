@@ -28,7 +28,7 @@ namespace BinaryTree.Classes
 		/// Performs depth-first traversal of binary tree, inspecting root node before traversing to child nodes
 		/// </summary>
 		/// <param name="root">root node of tree</param>
-		/// <returns>array of type T</returns>
+		/// <returns>list of values of nodes in binary tree</returns>
 		public List<T> PreOrder(Node<T> root)
 		{
 			// Instantiate new collection
@@ -48,6 +48,8 @@ namespace BinaryTree.Classes
 
 			return output;
 		}
+
+		//TODO add summary comment
 
 
 		public List<T> InOrder(Node<T> root)
@@ -69,6 +71,9 @@ namespace BinaryTree.Classes
 
 			return output;
 		}
+
+		//TODO add summary comment
+
 
 		public List<T> PostOrder(Node<T> root)
 		{
