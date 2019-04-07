@@ -28,19 +28,39 @@ namespace BinaryTree.Classes
 		{
 		}
 
-		public void Add(int value)
+		public void Add(Node<int> root, int value)
 		{
 			// Instantiate new node and give it a value
 			Node<int> newNode = new Node<int>(value);
 
-			while (Root.LeftChild)
+			if (root == null)
 			{
-
+				root = newNode;
 			}
-
-			if (value > BinaryTree.Root.Value)
+			else
 			{
+				while (root.LeftChild != null || root.RightChild != null)
+				{
+					if (newNode.Value < root.Value)
+					{
+						if (root.LeftChild == null)
+						{
+							root.LeftChild = newNode;
+						}
+						root = root.LeftChild;
+					}
+					else if (value > root.Value)
+					{
+						if (root == null)
+						{
+							root.RightChild = newNode;
+						}
+						root = root.RightChild;
+					}
+					// Need else clause for if newNode.Value == root.Value?
 
+					
+				}
 			}
 		}
 	}
