@@ -1,5 +1,6 @@
-﻿using BinaryTree.Classes;
-using System;
+﻿using System;
+using BinaryTree.Classes;
+using StacksAndQueues.Classes;
 using System.Collections.Generic;
 using System.Text;
 
@@ -7,37 +8,30 @@ namespace BinaryTree
 {
 	public class BinaryTree<T>
 	{
-		public Node<T> Root { get; set; }
-		
-		// Array for storing values to be output from methods below
-		T[] output = new T[15];
-
-		// Count to use for tracking number of values in output array
-		int count;
+		public Classes.Node<T> Root { get; set; }
 
 		/// <summary>
 		/// Performs depth-first traversal of binary tree, inspecting root node before traversing to child nodes
 		/// </summary>
 		/// <param name="root">root node of tree</param>
 		/// <returns>array of type T</returns>
-		public T[] PreOrder(Node<T> root)
+		public List<T> PreOrder(Classes.Node<T> root)
 		{
-			// Clear array (reset all indices to default value)
-			Array.Clear(output, 0, output.Length);
+			List<T> output = new List<T>();
 
+			StacksAndQueues.Classes.Queue<T> queue = new StacksAndQueues.Classes.Queue<T>();
 
-		} 
-
-		// Helper method for pushing new values to output array
-		public void AddToArray(T value)
-		{
-			if (count == output.Length)
+			if (root.LeftChild != null)
 			{
-				Array.Resize(ref output, output.Length + (output.Length / 2));
+				PreOrder(root.LeftChild);
 			}
 
-			// Updates output array at next index
-			output[count++] = value;
-		}
+			if (root.RightChild != null)
+			{
+				PreOrder(root.RightChild);
+			}
+
+			return output;
+		} 
 	}
 }
