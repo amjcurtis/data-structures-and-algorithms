@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BinaryTree.Classes;
+using System;
 
 namespace BinaryTree
 {
@@ -6,7 +7,11 @@ namespace BinaryTree
 	{
 		static void Main(string[] args)
 		{
-			Console.WriteLine("Hello World!");
+			//Node<int> intNode = new Node<int>(1);
+			//BinaryTree<int> tree = new BinaryTree<int>(intNode);
+
+
+
 		}
 	}
 }
