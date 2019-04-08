@@ -62,9 +62,10 @@ namespace BinaryTree.Classes
 							root.RightChild = newNode;
 						}
 					}
-					// Need else clause for if newNode.Value == root.Value?
+					//else // if newNode.Value == root.Value // Should add new node if its value already present in tree?
+					//{
 
-					
+					//}
 				}
 			}
 		}
@@ -74,9 +75,23 @@ namespace BinaryTree.Classes
 		/// </summary>
 		/// <param name="value">value to search nodes in BST for</param>
 		/// <returns>true if value found in BST, else false</returns>
-		public bool Contains(int value)
+		public bool Contains(Node<int> root, int value)
 		{
-
+			if (root.Value == value)
+			{
+				return true;
+			}
+			else
+			{
+				while (root.LeftChild != null || root.RightChild != null)
+				{
+					if (value < root.Value)
+					{
+						root = root.LeftChild;
+					}
+				}
+			}
+			return false;
 		}
 	}
 }
