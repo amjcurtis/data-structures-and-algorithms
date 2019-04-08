@@ -10,6 +10,9 @@ namespace BinaryTree.Classes
 
 		public Node<T> Root { get; set; }
 
+		// Instantiate new collection
+		public List<T> output = new List<T>();
+
 		// Should only need for breadth-first traversals
 		//StacksAndQueues.Classes.Queue<T> queue = new StacksAndQueues.Classes.Queue<T>();
 
@@ -31,9 +34,6 @@ namespace BinaryTree.Classes
 		/// <returns>list of values of nodes in binary tree</returns>
 		public List<T> PreOrder(Node<T> root)
 		{
-			// Instantiate new collection
-			List<T> output = new List<T>();
-
 			output.Add(root.Value);
 
 			if (root.LeftChild != null)
@@ -49,14 +49,13 @@ namespace BinaryTree.Classes
 			return output;
 		}
 
-		//TODO add summary comment
-
-
+		/// <summary>
+		/// Performs depth-first traversal of binary tree, inspecting root node between traversing to child nodes
+		/// </summary>
+		/// <param name="root">root node of tree</param>
+		/// <returns>list of values of nodes in binary tree</returns>
 		public List<T> InOrder(Node<T> root)
 		{
-			// Instantiate new collection
-			List<T> output = new List<T>();
-
 			if (root.LeftChild != null)
 			{
 				InOrder(root.LeftChild);
@@ -66,20 +65,19 @@ namespace BinaryTree.Classes
 
 			if (root.RightChild != null)
 			{
-				InOrder(root.RightChild);
+				PreOrder(root.RightChild);
 			}
 
 			return output;
 		}
 
-		//TODO add summary comment
-
-
+		/// <summary>
+		/// Performs depth-first traversal of binary tree, inspecting root node after traversing to child nodes
+		/// </summary>
+		/// <param name="root">root node of tree</param>
+		/// <returns>list of values of nodes in binary tree</returns>
 		public List<T> PostOrder(Node<T> root)
 		{
-			// Instantiate new collection
-			List<T> output = new List<T>();
-
 			if (root.LeftChild != null)
 			{
 				InOrder(root.LeftChild);
@@ -87,7 +85,7 @@ namespace BinaryTree.Classes
 
 			if (root.RightChild != null)
 			{
-				InOrder(root.RightChild);
+				PreOrder(root.RightChild);
 			}
 
 			output.Add(root.Value);
