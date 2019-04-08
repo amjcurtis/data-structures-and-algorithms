@@ -9,14 +9,6 @@ namespace BinaryTree.Classes
 
 		public Node<T> Root { get; set; }
 
-		//public BinaryTree<int> BinaryTree { get; set; }
-
-		//// Constructor for binary search tree
-		//public BinarySearchTree()
-		//{
-		//	BinaryTree = new BinaryTree<int>();
-		//}
-
 		// Constructor for BST
 		public BinarySearchTree(Node<T> node)
 		{
@@ -44,28 +36,29 @@ namespace BinaryTree.Classes
 			}
 			else
 			{
-				while (root.LeftChild != null || root.RightChild != null)
+				while (root!= null)
 				{
 					if (newNode.Value < root.Value)
 					{
-						root = root.LeftChild;
-						if (root == null)
+						if (root.LeftChild == null)
 						{
 							root.LeftChild = newNode;
+							break;
 						}
+						root = root.LeftChild;
 					}
 					else if (value > root.Value)
 					{
-						root = root.RightChild;
-						if (root == null)
+						if (root.RightChild == null)
 						{
 							root.RightChild = newNode;
+							break;
 						}
+						root = root.RightChild;
 					}
-					//else // if newNode.Value == root.Value // Should add new node if its value already present in tree?
-					//{
-
-					//}
+					// Could add logic here to handle situation where new node's value equals root node's value
+					// Currently I'm simply not adding the new node if a node with its value is already present in tree
+					// Could handle it differently if I wanted to allow duplicate values in tree
 				}
 			}
 		}

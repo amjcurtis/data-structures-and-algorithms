@@ -88,7 +88,7 @@ namespace XUnit_BinaryTree
 			List<int> outputList = tree.PreOrder(intNode);
 
 			// Assert
-			Assert.Equal(13, outputList[2]);
+			Assert.Equal(11, outputList[0]);
 		}
 
 		[Fact]

@@ -10,13 +10,10 @@ namespace BinaryTree.Classes
 
 		public Node<T> Root { get; set; }
 
-		// Instantiate new collection
+		// Instantiate new public collection
 		public List<T> output = new List<T>();
 
-		// Should only need for breadth-first traversals
-		//StacksAndQueues.Classes.Queue<T> queue = new StacksAndQueues.Classes.Queue<T>();
-
-		// Binary tree constructor
+		// BT constructor
 		public BinaryTree(Node<T> node)
 		{
 			Root = node;
