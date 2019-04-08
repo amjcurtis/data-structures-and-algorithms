@@ -73,22 +73,24 @@ namespace BinaryTree.Classes
 		/// <summary>
 		/// Searches binary search tree for a given value and returns boolean
 		/// </summary>
+		/// <param name="root">root node to start search on</param>
 		/// <param name="value">value to search nodes in BST for</param>
 		/// <returns>true if value found in BST, else false</returns>
 		public bool Contains(Node<int> root, int value)
 		{
-			if (root.Value == value)
+			while (root != null)
 			{
-				return true;
-			}
-			else
-			{
-				while (root.LeftChild != null || root.RightChild != null)
+				if (root.Value == value)
 				{
-					if (value < root.Value)
-					{
-						root = root.LeftChild;
-					}
+					return true;
+				}
+				if (root.Value > value)
+				{
+					root = root.LeftChild;
+				}
+				else
+				{
+					root = root.RightChild;
 				}
 			}
 			return false;

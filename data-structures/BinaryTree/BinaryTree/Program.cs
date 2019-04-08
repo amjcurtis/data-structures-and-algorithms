@@ -12,7 +12,7 @@ namespace BinaryTree
 
 			BinarySearchTree<int> bst = new BinarySearchTree<int>();
 
-			bst.Add(12);
+			//bst.Add(12);
 
 		}
 	}
