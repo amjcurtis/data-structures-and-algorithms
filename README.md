@@ -17,3 +17,7 @@
 6. [Challenge: First In, First Out Animal Shelter (Generic Queue)](code-challenges/c-sharp/FIFOAnimalShelter)
 
 7. [Challenge: Multi-Bracket Validation Using Stacks](code-challenges/c-sharp/MultiBracketValidation)
+
+8. [Implementation: Binary Tree and Binary Search Tree](data-structures/BinaryTree)
+
+9. [Challenge: FizzBuzz Tree](code-challenges/c-sharp/FizzBuzzTree)
