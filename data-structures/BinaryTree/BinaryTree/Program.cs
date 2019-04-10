@@ -47,7 +47,39 @@ namespace BinaryTree
 
 			bst.Add(bst.Root, 22);
 			Console.WriteLine(bst.Root.RightChild.Value);
+
+			////////////////////////////////////////////
 			
+			////////////////////////////////////////////
+			
+			BinaryTree<int> breadthFirstTree = new BinaryTree<int>();
+
+			Node<int> node1 = new Node<int>(11);
+			Node<int> node2 = new Node<int>(12);
+			Node<int> node3 = new Node<int>(13);
+			Node<int> node4 = new Node<int>(14);
+			Node<int> node5 = new Node<int>(15);
+			Node<int> node6 = new Node<int>(16);
+			Node<int> node7 = new Node<int>(17);
+			Node<int> node8 = new Node<int>(18);
+			Node<int> node9 = new Node<int>(19);
+			Node<int> node10 = new Node<int>(20);
+
+			// Populate tree with nodes
+			tree.Root = node1;
+			tree.Root.LeftChild = node2;
+			tree.Root.RightChild = node3;
+			tree.Root.LeftChild.LeftChild = node4;
+			tree.Root.LeftChild.RightChild = node5;
+			tree.Root.RightChild.LeftChild = node6;
+			tree.Root.RightChild.RightChild = node7;
+			tree.Root.LeftChild.LeftChild.LeftChild = node8;
+			tree.Root.LeftChild.LeftChild.RightChild = node9;
+			tree.Root.LeftChild.RightChild.LeftChild = node10;
+
+			// Run breadth-first traversal method
+			tree.TraverseBreadthFirst(tree);
+
 			Console.ReadLine();
 		}
 	}

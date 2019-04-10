@@ -33,6 +33,15 @@ namespace StacksAndQueues.Classes
             Rear = nodeToEnqueue;
         }
 
+		/// <summary>
+		/// Override method for Enqueue that takes node argument
+		/// </summary>
+		/// <param name="nodeToEnqueue">node</param>
+		public void Enqueue(Node<T> nodeToEnqueue)
+		{
+			Rear.Next = nodeToEnqueue;
+			Rear = nodeToEnqueue;
+		}
 
         /// <summary>
         /// Removes front node from queue
@@ -45,7 +54,6 @@ namespace StacksAndQueues.Classes
             temp.Next = null;
             return temp;
         }
-
 
         /// <summary>
         /// Looks at value of front node in queue
