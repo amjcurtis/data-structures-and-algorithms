@@ -89,5 +89,36 @@ namespace BinaryTree.Classes
 
 			return output;
 		}
+
+		public bool TraverseBreadthFirst(BinaryTree<int> tree)
+		{
+			if (tree.Root == null)
+			{
+				return false;
+			}
+
+			// Instantiate queue
+			System.Collections.Generic.Queue<Node<int>> queue = new System.Collections.Generic.Queue<Node<int>>();
+
+			queue.Enqueue(tree.Root);
+
+			while (queue.Count != 0)
+			{
+				Node<int> front = queue.Dequeue();
+
+				Console.WriteLine(front.Value);
+
+				if (front.LeftChild != null)
+				{
+					queue.Enqueue(front.LeftChild);
+				}
+
+				if (front.RightChild != null)
+				{
+					queue.Enqueue(front.RightChild);
+				}
+			}
+			return true;
+		}
 	}
 }
