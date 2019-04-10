@@ -90,14 +90,19 @@ namespace BinaryTree.Classes
 			return output;
 		}
 
-		public void TraverseBreadthFirst(BinaryTree<int> tree)
+		public bool TraverseBreadthFirst(BinaryTree<int> tree)
 		{
+			if (tree.Root == null)
+			{
+				return false;
+			}
+
 			// Instantiate queue
 			System.Collections.Generic.Queue<Node<int>> queue = new System.Collections.Generic.Queue<Node<int>>();
 
 			queue.Enqueue(tree.Root);
 
-			while (queue.Peek() != null)
+			while (queue.Count != 0)
 			{
 				Node<int> front = queue.Dequeue();
 
@@ -112,10 +117,8 @@ namespace BinaryTree.Classes
 				{
 					queue.Enqueue(front.RightChild);
 				}
-
-				// For temporary debugging purposes
-				Console.ReadLine();
 			}
+			return true;
 		}
 	}
 }

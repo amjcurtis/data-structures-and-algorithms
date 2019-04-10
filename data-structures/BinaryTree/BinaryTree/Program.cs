@@ -46,13 +46,13 @@ namespace BinaryTree
 			Console.WriteLine(bst.Root.Value);
 
 			bst.Add(bst.Root, 22);
-			Console.WriteLine(bst.Root.RightChild.Value);
+			Console.WriteLine($"{bst.Root.RightChild.Value}\n");
 
 			////////////////////////////////////////////
-			
+			// Breadth-first binary tree traversal
 			////////////////////////////////////////////
-			
-			BinaryTree<int> breadthFirstTree = new BinaryTree<int>();
+
+			Console.WriteLine("Node values from breadth-first binary tree traversal:");
 
 			Node<int> node1 = new Node<int>(11);
 			Node<int> node2 = new Node<int>(12);
@@ -77,10 +77,8 @@ namespace BinaryTree
 			tree.Root.LeftChild.LeftChild.RightChild = node9;
 			tree.Root.LeftChild.RightChild.LeftChild = node10;
 
-			// Run breadth-first traversal method
+			// Traverse tree breadth-first
 			tree.TraverseBreadthFirst(tree);
-
-			Console.ReadLine();
 		}
 	}
 }
