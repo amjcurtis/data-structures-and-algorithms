@@ -90,6 +90,11 @@ namespace BinaryTree.Classes
 			return output;
 		}
 
+		/// <summary>
+		/// Traverses binary tree breadth first
+		/// </summary>
+		/// <param name="tree">binary tree</param>
+		/// <returns>boolean indicated whether tree has been traversed successfully to end</returns>
 		public bool TraverseBreadthFirst(BinaryTree<int> tree)
 		{
 			if (tree.Root == null)
