@@ -125,5 +125,44 @@ namespace BinaryTree.Classes
 			}
 			return true;
 		}
+
+		public int? FindMaxValue(BinaryTree<int> tree)
+		{
+			//TODO handle edge case where tree is empty
+			if (tree.Root == null)
+			{
+				return null;
+			}
+
+			// Variable to store max value
+			int? max = int.MinValue;
+
+			// Instantiate queue
+			System.Collections.Generic.Queue<Node<int>> queue = new System.Collections.Generic.Queue<Node<int>>();
+
+			queue.Enqueue(tree.Root);
+
+			while (queue.Count != 0)
+			{
+				Node<int> front = queue.Dequeue();
+
+				// Update max if necessary
+				if (front.Value > max)
+				{
+					max = front.Value;
+				}
+
+				if (front.LeftChild != null)
+				{
+					queue.Enqueue(front.LeftChild);
+				}
+
+				if (front.RightChild != null)
+				{
+					queue.Enqueue(front.RightChild);
+				}
+			}
+			return max;
+		}
 	}
 }
