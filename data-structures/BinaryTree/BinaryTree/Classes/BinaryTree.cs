@@ -128,7 +128,7 @@ namespace BinaryTree.Classes
 
 		public int? FindMaxValue(BinaryTree<int> tree)
 		{
-			//TODO handle edge case where tree is empty
+			// Handles edge case where tree is empty
 			if (tree.Root == null)
 			{
 				return null;

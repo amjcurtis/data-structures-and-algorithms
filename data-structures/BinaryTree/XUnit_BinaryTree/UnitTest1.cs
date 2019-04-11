@@ -245,10 +245,10 @@ namespace XUnit_BinaryTree
 			tree.Root = node1;
 
 			// ACT
-			int? response = tree.FindMaxValue(tree);
+			int? maxValue = tree.FindMaxValue(tree);
 
 			// ASSERT
-			Assert.Equal(0, response);
+			Assert.Equal(0, maxValue);
 		}
 
 		/// <summary>
