@@ -19,27 +19,13 @@ namespace FIFOAnimalShelter
 			// Instantiate and populate animal shelter queue
 			AnimalShelter<string> animalShelter = new AnimalShelter<string>(catPreference);
 
-			animalShelter.Enqueue(dogPreference);
-			animalShelter.Enqueue(dogPreference);
-			animalShelter.Enqueue(catPreference);
-			animalShelter.Enqueue(dogPreference);
-			animalShelter.Enqueue(dogPreference);
-
-
-			//for (int i = 1; i <= 6; i++)
-			//{
-			//	if (i % 3 == 0)
-			//	{
-			//		animalShelter.Enqueue(catPreference.Value);
-			//		Console.WriteLine($"animalShelter.Rear:  {animalShelter.Rear.Value}");
-			//	}
-			//	else
-			//	{
-			//		animalShelter.Enqueue(dogPreference.Value);
-			//		Console.WriteLine($"animalShelter.Rear:  {animalShelter.Rear.Value}");
-			//	}
-			//}
-
+			// Populate shelter with mix of dogs and cats
+			animalShelter.EnqueueAnimal(dogPreference);
+			animalShelter.EnqueueAnimal(dogPreference);
+			animalShelter.EnqueueAnimal(catPreference);
+			animalShelter.EnqueueAnimal(dogPreference);
+			animalShelter.EnqueueAnimal(dogPreference);
+			
 			Console.WriteLine("");
 			Console.WriteLine($"Front: {animalShelter.Front.Value}");
 			Console.WriteLine($"Rear: {animalShelter.Rear.Value}");
@@ -117,7 +103,7 @@ namespace FIFOAnimalShelter
 					}
 					AnimalNode<string> temp = queue1.Front;
 					queue1.Front = queue1.Front.Next;
-					queue2.Enqueue(temp);
+					queue2.EnqueueAnimal(temp);
 				}
 			}
 			// Fallback (should never happen)

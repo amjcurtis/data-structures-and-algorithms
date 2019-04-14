@@ -33,7 +33,7 @@ namespace XUnit_FIFOAnimalShelter
 			AnimalNode<string> badPreference = new AnimalNode<string>("bird");
 			AnimalNode<string> legitPreference = new AnimalNode<string>("cat");
 			AnimalShelter<string> animalShelter = new AnimalShelter<string>();
-			animalShelter.Enqueue(legitPreference);
+			animalShelter.EnqueueAnimal(legitPreference);
 
 			// Act
 			AnimalNode<string> dequeuedAnimal = Program.DequeueAnimal(animalShelter, badPreference);
