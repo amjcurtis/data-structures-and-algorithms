@@ -23,11 +23,16 @@ namespace FIFOAnimalShelter.Classes
         /// Adds new node with string value "dog" or "cat" to end of queue
         /// </summary>
         /// <param name="animal">string "dog" or "cat"</param>
-        public void Enqueue(T animal)
+        public void Enqueue(AnimalNode<T> animal)
         {
-            AnimalNode<T> animalToEnqueue = new AnimalNode<T>(animal);
-            Rear.Next = animalToEnqueue;
-            Rear = animalToEnqueue;
+			//AnimalNode<T> newAnimal = new AnimalNode<T>(animal);
+			if (Rear == null)
+			{
+				Front = animal;
+				Rear = Front;
+			}
+            Rear.Next = animal;
+            Rear = animal;
         }
 
         /// <summary>

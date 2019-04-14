@@ -7,7 +7,7 @@ namespace XUnit_FIFOAnimalShelter
     public class UnitTest1
     {
 		/// <summary>
-		/// Tests whether DequeueAnimal method can correctly return selected animal
+		/// Tests for "happy path": verifies DequeueAnimal method can correctly return selected animal
 		/// </summary>
 		[Fact]
         public void CanReturnPreferredAnimal()
@@ -21,21 +21,39 @@ namespace XUnit_FIFOAnimalShelter
 
 			// Assert
 			Assert.Equal("cat", dequeuedAnimal.Value);
-
 		}
 
 		/// <summary>
-		/// Tests whether DeqeueAnimal method returns null if anything other than "cat" or "dog" is passed as preferred animal argument
+		/// Tests for expected failure if anything other than "cat" or "dog" is passed as preferred animal argument
 		/// </summary>
 		[Fact]
 		public void CanReturnNullIfNeitherDogNorCatPassedInAsPreferredAnimal()
 		{
 			// Arrange
 			AnimalNode<string> badPreference = new AnimalNode<string>("bird");
-			AnimalShelter<string> animalShelter = new AnimalShelter<string>(badPreference);
+			AnimalNode<string> legitPreference = new AnimalNode<string>("cat");
+			AnimalShelter<string> animalShelter = new AnimalShelter<string>();
+			animalShelter.Enqueue(legitPreference);
 
 			// Act
 			AnimalNode<string> dequeuedAnimal = Program.DequeueAnimal(animalShelter, badPreference);
+
+			// Assert
+			Assert.Null(dequeuedAnimal);
+		}
+
+		/// <summary>
+		/// Tests for edge case of trying to dequeue from empty queue
+		/// </summary>
+		[Fact]
+		public void CanReturnNullWhenTryingToDequeueFromEmptyQueue()
+		{
+			// Arrange
+			AnimalNode<string> preference = new AnimalNode<string>("cat");
+			AnimalShelter<string> animalShelter = new AnimalShelter<string>();
+
+			// Act
+			AnimalNode<string> dequeuedAnimal = Program.DequeueAnimal(animalShelter, preference);
 
 			// Assert
 			Assert.Null(dequeuedAnimal);
