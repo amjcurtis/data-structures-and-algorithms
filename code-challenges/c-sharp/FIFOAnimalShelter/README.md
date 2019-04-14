@@ -10,4 +10,4 @@ The approach I took has an efficiency of O(1) time for the `Enqueue()` method an
 
 ## Solution
 
-![Whiteboard Planning](https://github.com/amjcurtis/data-structures-and-algorithms/blob/fifo_animal_shelter/assets/fifo-animal-shelter.JPG)
+![Whiteboard Planning](https://github.com/amjcurtis/data-structures-and-algorithms/blob/master/assets/fifo-animal-shelter.JPG)

@@ -13,7 +13,6 @@ namespace FIFOAnimalShelter.Classes
 		// Node constructor for "animal shelter" queue data structure
 		public AnimalNode(T value)			{
 			Value = value;
-			// Next = null;
 		}
 	}
 }
