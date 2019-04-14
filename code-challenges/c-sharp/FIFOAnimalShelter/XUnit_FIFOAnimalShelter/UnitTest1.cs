@@ -17,7 +17,7 @@ namespace XUnit_FIFOAnimalShelter
 			AnimalShelter<string> animalShelter = new AnimalShelter<string>(catPreference);
 
 			// Act
-			AnimalNode<string> dequeuedAnimal = Program.DequeueAnimal(animalShelter, catPreference);
+			AnimalNode<string> dequeuedAnimal = animalShelter.DequeueAnimal(catPreference);
 
 			// Assert
 			Assert.Equal("cat", dequeuedAnimal.Value);
@@ -36,7 +36,7 @@ namespace XUnit_FIFOAnimalShelter
 			animalShelter.EnqueueAnimal(legitPreference);
 
 			// Act
-			AnimalNode<string> dequeuedAnimal = Program.DequeueAnimal(animalShelter, badPreference);
+			AnimalNode<string> dequeuedAnimal = animalShelter.DequeueAnimal(badPreference);
 
 			// Assert
 			Assert.Null(dequeuedAnimal);
@@ -53,7 +53,7 @@ namespace XUnit_FIFOAnimalShelter
 			AnimalShelter<string> animalShelter = new AnimalShelter<string>();
 
 			// Act
-			AnimalNode<string> dequeuedAnimal = Program.DequeueAnimal(animalShelter, preference);
+			AnimalNode<string> dequeuedAnimal = animalShelter.DequeueAnimal(preference);
 
 			// Assert
 			Assert.Null(dequeuedAnimal);

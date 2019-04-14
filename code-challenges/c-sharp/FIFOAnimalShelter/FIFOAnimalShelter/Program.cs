@@ -56,7 +56,9 @@ namespace FIFOAnimalShelter
 				AnimalNode<string> preferredAnimal = new AnimalNode<string>(pref);
 
 				// Dequeue user's preferred type of animal and store in variable
-				AnimalNode<string> dequeuedAnimal = DequeueAnimal(animalShelter, preferredAnimal);
+				//AnimalNode<string> dequeuedAnimal = DequeueAnimal(animalShelter, preferredAnimal);
+				AnimalNode<string> dequeuedAnimal = animalShelter.DequeueAnimal(preferredAnimal);
+
 
 				Console.WriteLine($"You've successfully gotten your new {dequeuedAnimal.Value} from the shelter!\n");
 			}
@@ -65,49 +67,5 @@ namespace FIFOAnimalShelter
 				Console.WriteLine(e.Message);
 			}
         }
-
-		/// <summary>
-		/// Dequeues first node with value of specified animal type
-		/// </summary>
-		/// <param name="queue1">"animal shelter" queue</param>
-		/// <param name="pref">node with value of user's preferred animal</param>
-		/// <returns></returns>
-		public static AnimalNode<string> DequeueAnimal(AnimalShelter<string> queue1, AnimalNode<string> pref)
-		{
-
-			// Input validation
-			if (queue1.Front == null)
-			{
-				return null;
-			}
-			if (pref.Value != "dog" && pref.Value != "cat")
-			{
-				return null;
-			}
-
-
-			// Instantiate empty second queue for use below
-			AnimalShelter<string> queue2 = new AnimalShelter<string>();
-
-			if (pref.Value == queue1.Peek().Value)
-			{
-				return queue1.Peek();
-			}
-			else
-			{
-				while (queue1.Front.Next != null)
-				{
-					if (queue1.Front.Value == pref.Value)
-					{
-						return queue1.Front;
-					}
-					AnimalNode<string> temp = queue1.Front;
-					queue1.Front = queue1.Front.Next;
-					queue2.EnqueueAnimal(temp);
-				}
-			}
-			// Fallback (should never happen)
-			return null;
-		}
 	}
 }
