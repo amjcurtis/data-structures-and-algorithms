@@ -30,10 +30,6 @@ The `Add()` and `Contains()` methods on the `BinarySearchTree` class have a time
 additional space when searching for a node).
 
 
-## Whiteboard Planning for `FindMaxValue()` Method
-
-![Whiteboard Planning](/assets/find-max-value-in-tree.jpg)
-
 ## Attribution
 
 Andrew Roska ([roketsu86](https://github.com/roketsu86)) pointed me to the `.Count()` method on the generic queue data structure, and I used it in my method for breadth-first traversal.
