@@ -31,4 +31,4 @@ additional space when searching for a node).
 
 ## Attribution
 
-Andrew Roska ([roketsu86](https://github.com/roketsu86)) pointed me to the `.Count()` method on C#’s built-in generic queue data structure, and I used it in my method for breadth-first traversal.
+Andrew Roska ([roketsu86](https://github.com/roketsu86)) pointed me to the `.Count()` method on C#’s built-in generic queue data structure, and I used it in my method for breadth-first tree traversal.
