@@ -21,3 +21,5 @@
 8. [Implementation: Binary Tree and Binary Search Tree](data-structures/BinaryTree)
 
 9. [Challenge: FizzBuzz Tree](code-challenges/c-sharp/FizzBuzzTree)
+
+10. [Implementation: Insertion Sort](code-challenges/c-sharp/sorts)
