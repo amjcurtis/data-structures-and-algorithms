@@ -12,15 +12,8 @@ namespace InsertionSort
 
 			for (int i = 0; i < sortedArray.Length; i++)
 			{
-				Console.Write("{0}  ", sortedArray[i]);
+				Console.Write("{0} ", sortedArray[i]);
 			}
-
-			int[] emptyArray = new int[0];
-
-			int[] sortedEmptyArray = InsertionSort(emptyArray);
-
-			Console.WriteLine("");
-			Console.WriteLine(emptyArray[0]);
 
 			Console.ReadLine();
 		}
