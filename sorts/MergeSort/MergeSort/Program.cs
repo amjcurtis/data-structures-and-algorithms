@@ -17,6 +17,10 @@ namespace MergeSort
 			Console.ReadLine();
 		}
 
+		/// <summary>
+		/// Partitions the input array recursively and calls Merge function on subarrays
+		/// </summary>
+		/// <param name="arr">integer array</param>
 		public static void MergeSort(int[] arr)
 		{
 			int arrLength = arr.Length;
@@ -48,6 +52,13 @@ namespace MergeSort
 			}
 		}
 
+		/// <summary>
+		/// Performs comparison logic on subarrays and merges the sorted values
+		/// </summary>
+		/// <param name="leftSubArray">first half of partitioned array</param>
+		/// <param name="rightSubArray">second half of partitioned array</param>
+		/// <param name="arr">integer array to return after merging subarrays</param>
+		/// <returns>integer array</returns>
 		public static int[] Merge(int[] leftSubArray, int[] rightSubArray, int[] arr)
 		{
 			int i = 0;
