@@ -22,6 +22,8 @@
 
 9. [Challenge: FizzBuzz Tree](code-challenges/c-sharp/FizzBuzzTree)
 
-10. [Implementation: Insertion Sort](sorts/InsertionSort)
+10. [Implementation: Insertion Sort](data-structures/sorts/InsertionSort)
 
-11. [Implementation: Merge Sort](sorts/MergeSort)
+11. [Implementation: Merge Sort](data-structures/sorts/MergeSort)
+
+12. [Implementation: Quick Sort](data-structures/sorts/QuickSort)
