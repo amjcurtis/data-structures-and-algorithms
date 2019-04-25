@@ -8,7 +8,7 @@ namespace QuickSort
 		{
 			int[] myArray = new int[] { 6, 3, 2, 5, 9, 4, 7, 1, 8 };
 
-			QuickSort(myArray, 0, myArray.Length-1);
+			QuickSort(myArray, 0, myArray.Length - 1);
 
 			PrintArray(myArray);
 
