@@ -27,3 +27,5 @@
 11. [Implementation: Merge Sort](data-structures/sorts/MergeSort)
 
 12. [Implementation: Quick Sort](data-structures/sorts/QuickSort)
+
+13. [Implementation: Hash Table](data-structures/HashTable)
