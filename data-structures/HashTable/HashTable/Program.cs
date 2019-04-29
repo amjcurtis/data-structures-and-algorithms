@@ -38,5 +38,10 @@ namespace HashTable
 
 			Console.ReadLine();
 		}
+
+		public static string RepeatedWord(string sentence)
+		{
+
+		}
 	}
 }
