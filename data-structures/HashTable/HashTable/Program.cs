@@ -7,7 +7,7 @@ namespace HashTable
 		static void Main(string[] args)
 		{
 			// Initialize hash table of specified size
-			HashTable ht = new HashTable(1024);
+			Hashtable ht = new Hashtable(1024);
 
 			// Populate hash table
 			ht.Add("John", "Husband");
