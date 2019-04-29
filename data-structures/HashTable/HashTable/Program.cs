@@ -27,11 +27,14 @@ namespace HashTable
 			ht.Print();
 
 			// Demo Contains() method
-			bool key1 = ht.Contains("Ben");
+			bool key1 = ht.Contains("Demi");
 			Console.WriteLine(key1);
 			bool key2 = ht.Contains("T-Rex");
 			Console.WriteLine(key2);
 
+			// Demo Get() method
+			Node node1 = ht.Get("Amanda");
+			Console.WriteLine($"{node1.Key}:{node1.Value}");
 
 			Console.ReadLine();
 		}

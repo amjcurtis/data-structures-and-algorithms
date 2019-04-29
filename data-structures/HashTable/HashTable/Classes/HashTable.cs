@@ -7,7 +7,7 @@ namespace HashTable
 	public class HashTable
 	{
 
-		private LinkedList<Node>[] Map { get; set; }
+		public LinkedList<Node>[] Map { get; set; }
 
 		// Hash table constructor
 		public HashTable(int size)
@@ -53,15 +53,34 @@ namespace HashTable
 			Map[hashKey].AddFirst(new Node(key, value));
 		}
 
+		/// <summary>
+		/// Traverses hash table and retrieves first key:value pair with specified key
+		/// </summary>
+		/// <param name="key">key to search for</param>
+		/// <returns>node if key found, else null</returns>
+		public Node Get(string key)
+		{
+			for (int i = 0; i < Map.Length; i++)
+			{
+				if (Map[i] != null)
+				{
+					foreach (var item in Map[i])
+					{
+						if (item.Key == key)
+						{
+							return item;
+						}
+					}
+				}
+			}
+			return null;
+		}
 
-		//TODO Get() method
-		//public string Get(string key)
-		//{
-
-		//}
-
-
-		//TODO Contains() method
+		/// <summary>
+		/// Traverses hash table and returns whether or not table contains specified key
+		/// </summary>
+		/// <param name="key">key to search hash table for</param>
+		/// <returns>boolean</returns>
 		public bool Contains(string key)
 		{
 			for (int i = 0; i < Map.Length; i++)
@@ -79,8 +98,7 @@ namespace HashTable
 			}
 			return false;
 		}
-
-
+		
 		/// <summary>
 		/// Writes key:value pairs from hash table to console
 		/// </summary>

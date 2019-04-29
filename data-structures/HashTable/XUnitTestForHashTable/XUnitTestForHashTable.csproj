@@ -12,14 +12,4 @@
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.0" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\HashTable\HashTable.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Reference Include="HashTable">
-      <HintPath>..\HashTable\bin\Debug\netcoreapp2.2\HashTable.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-
 </Project>
