@@ -62,10 +62,23 @@ namespace HashTable
 
 
 		//TODO Contains() method
-		//public bool Contains(string key)
-		//{
-
-		//}
+		public bool Contains(string key)
+		{
+			for (int i = 0; i < Map.Length; i++)
+			{
+				if (Map[i] != null)
+				{
+					foreach (var item in Map[i])
+					{
+						if (item.Key == key)
+						{
+							return true;
+						}
+					}
+				}
+			}
+			return false;
+		}
 
 
 		/// <summary>
@@ -82,9 +95,9 @@ namespace HashTable
 					{
 						Console.Write($"{item.Key}:{item.Value} --> ");
 					}
+					Console.Write("null");
+					Console.WriteLine();
 				}
-				Console.Write("null");
-				Console.WriteLine();
 			}
 		}
 	}

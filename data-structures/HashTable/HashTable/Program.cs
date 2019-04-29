@@ -26,6 +26,13 @@ namespace HashTable
 			// Print contents of hash table
 			ht.Print();
 
+			// Demo Contains() method
+			bool key1 = ht.Contains("Ben");
+			Console.WriteLine(key1);
+			bool key2 = ht.Contains("T-Rex");
+			Console.WriteLine(key2);
+
+
 			Console.ReadLine();
 		}
 	}
