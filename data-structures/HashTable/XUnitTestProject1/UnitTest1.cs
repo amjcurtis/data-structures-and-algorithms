@@ -39,5 +39,22 @@ namespace XUnitTestProject1
 			// Assert
 			Assert.Equal("Instructor", node.Value);
 		}
+
+		/// <summary>
+		/// Tests whether can return null when searched key not present in table
+		/// </summary>
+		[Fact]
+		public void CanReturnNullWhenSearchedKeyNotPresentInTable()
+		{
+			// Arrange
+			Hashtable ht = new Hashtable(1024);
+
+			// Act
+			Node node = ht.Get("John");
+
+			// Assert
+			Assert.Null(node);
+
+		}
 	}
 }
