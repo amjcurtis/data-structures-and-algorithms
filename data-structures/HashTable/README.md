@@ -25,3 +25,8 @@ My Hashtable class has the following methods:
 * `Contains()`: takes a key of type string as input and returns boolean true or false depending on whether key is present in table
 * `Get()`: takes a key of type string as input and returns a Node object containing the key:value pair corresponding to the key argument if the pair is present in the table, otherwise returns null
 * `Print()`: void method that writes all key:value pairs in the table to the console
+
+
+## Planning
+
+![Initial whiteboard planning for RepeatedWord method](/assets/hashtable_find-repeated-word.png)
