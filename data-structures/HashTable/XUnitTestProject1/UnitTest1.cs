@@ -149,11 +149,37 @@ namespace XUnitTestProject1
 			Assert.Equal("the", firstRepeatedWordInSentence);
 		}
 
-		//TODO Test expected failure
+		/// <summary>
+		/// Tests whether can return null if no repeated word exists in input string
+		/// </summary>
+		[Fact]
+		public void CanReturnNullIfNoRepeatWordFound()
+		{
+			// Arrange
+			string sentence = "The quick brown fox jumped over a lazy dog.";
 
-		//TODO Test if can return null
+			// Act
+			string firstRepeatedWordInSentence = Program.RepeatedWord(sentence);
 
-		//TODO Test if can handle empty string as method arg
+			// Assert
+			Assert.Null(firstRepeatedWordInSentence);
+		}
+
+		/// <summary>
+		/// Tests whether can handle empty string argument by returning null
+		/// </summary>
+		[Fact]
+		public void CanHandleEmptyStringAsInput()
+		{
+			// Arrange
+			string sentence = "";
+
+			// Act
+			string firstRepeatedWordInSentence = Program.RepeatedWord(sentence);
+
+			// Assert
+			Assert.Null(firstRepeatedWordInSentence);
+		}
 
 	}
 }
