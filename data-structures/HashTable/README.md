@@ -29,6 +29,6 @@ My Hashtable class has the following methods:
 
 ## Planning
 
-I collaborated with ([Alexander White](https://github.com/AlexWhitey)) on the first-take whiteboard planning for a static `RepeatedWord()` method using my hash table implementation.
+I collaborated with [Alexander White](https://github.com/AlexWhitey) on the first-take whiteboard planning for a static `RepeatedWord()` method  using my hash table implementation. I created the method in `Program.cs` in this console app project.
 
 ![Initial whiteboard planning for RepeatedWord method](/assets/hashtable_find-repeated-word.png)
