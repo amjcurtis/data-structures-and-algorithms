@@ -6,6 +6,11 @@ namespace HashTable
 	{
 		static void Main(string[] args)
 		{
+
+			///////////////////////////////////////
+			// Demo the methods on Hashtable class
+			///////////////////////////////////////
+
 			// Initialize hash table of specified size
 			Hashtable ht = new Hashtable(1024);
 
@@ -37,20 +42,25 @@ namespace HashTable
 			Console.WriteLine($"{node1.Key}:{node1.Value}");
 
 
+			///////////////////////////////////////
 			// Demo RepeatedWord() method
+			///////////////////////////////////////
+
+			// Declare a first demo sentence
 			string sentence1 = "Once upon a time, there was a brave princess who...";
+
+			// Print normalized array created from sentence
 			string[] wordsArray = sentence1.Split(new char[] { ' ', ',', '.', ':', ';', '\t' }, StringSplitOptions.RemoveEmptyEntries);
 			Console.WriteLine("[{0}]", string.Join(" ", wordsArray));
 
+			// Call RepeatedWord() method on first demo sentence
 			string firstRepeatedWordInSentence1 = RepeatedWord(sentence1);
 			Console.WriteLine($"First repeated word in sentence1: {firstRepeatedWordInSentence1}");
 
+			// Declare a second demo sentence and print result of calling RepeatedWord() on it
 			string sentence2 = "It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair, we had everything before us, we had nothing before us, we were all going direct to Heaven, we were all going direct the other way – in short, the period was so far like the present period, that some of its noisiest authorities insisted on its being received, for good or for evil, in the superlative degree of comparison only...";
 			string firstRepeatedWordInSentence2 = RepeatedWord(sentence2);
 			Console.WriteLine($"First repeated word in sentence2: {firstRepeatedWordInSentence2}");
-
-
-			Console.ReadLine();
 		}
 
 		/// <summary>
