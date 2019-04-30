@@ -2,7 +2,7 @@
 
 namespace HashTable
 {
-	class Program
+	public class Program
 	{
 		static void Main(string[] args)
 		{
@@ -53,7 +53,11 @@ namespace HashTable
 			Console.ReadLine();
 		}
 
-
+		/// <summary>
+		/// Returns first repeated word in a specified string
+		/// </summary>
+		/// <param name="sentence">string to search for repeated words</param>
+		/// <returns>first repeated word</returns>
 		public static string RepeatedWord(string sentence)
 		{
 			char[] separator = new char[] { ' ', ',', '.', ':', ';', '\t' };
