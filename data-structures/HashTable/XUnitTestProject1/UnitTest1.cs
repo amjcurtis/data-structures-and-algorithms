@@ -6,6 +6,10 @@ namespace XUnitTestProject1
 	public class UnitTest1
 	{
 
+		/////////////////////////////////////
+		// Tests for methods on Hashtable class
+		/////////////////////////////////////
+
 		/// <summary>
 		/// Tests whether can add new key:value pair to hash table
 		/// </summary>
@@ -123,5 +127,59 @@ namespace XUnitTestProject1
 			// Assert
 			Assert.True(hash <= 16);
 		}
+
+
+		/////////////////////////////////////
+		// Tests for RepeatedWord() static method
+		/////////////////////////////////////
+
+		/// <summary>
+		/// Tests whether can successfully return first repeated word (happy path)
+		/// </summary>
+		[Fact]
+		public void CanReturnFirstRepeatedWord()
+		{
+			// Arrange
+			string sentence = "The quick brown fox jumped over the lazy dog.";
+
+			// Act
+			string firstRepeatedWordInSentence = Program.RepeatedWord(sentence);
+
+			// Assert
+			Assert.Equal("the", firstRepeatedWordInSentence);
+		}
+
+		/// <summary>
+		/// Tests whether can return null if no repeated word exists in input string
+		/// </summary>
+		[Fact]
+		public void CanReturnNullIfNoRepeatWordFound()
+		{
+			// Arrange
+			string sentence = "The quick brown fox jumped over a lazy dog.";
+
+			// Act
+			string firstRepeatedWordInSentence = Program.RepeatedWord(sentence);
+
+			// Assert
+			Assert.Null(firstRepeatedWordInSentence);
+		}
+
+		/// <summary>
+		/// Tests whether can handle empty string argument by returning null
+		/// </summary>
+		[Fact]
+		public void CanHandleEmptyStringAsInput()
+		{
+			// Arrange
+			string sentence = "";
+
+			// Act
+			string firstRepeatedWordInSentence = Program.RepeatedWord(sentence);
+
+			// Assert
+			Assert.Null(firstRepeatedWordInSentence);
+		}
+
 	}
 }
