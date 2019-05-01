@@ -82,10 +82,10 @@ namespace TreeIntersection
 			void PostOrder1(Node<string> root)
 			{
 				// Base case
-				if (root == null)
-				{
-					return;
-				}
+				//if (root == null)
+				//{
+				//	return;
+				//}
 
 				// Traverse tree
 				if (root.LeftChild != null)
@@ -111,20 +111,20 @@ namespace TreeIntersection
 			void PostOrder2(Node<string> root)
 			{
 				// Base case
-				if (root == null)
-				{
-					return;
-				}
+				//if (root == null)
+				//{
+				//	return;
+				//}
 
 				// Traverse tree
 				if (root.LeftChild != null)
 				{
-					PostOrder1(root.LeftChild);
+					PostOrder2(root.LeftChild);
 				}
 
 				if (root.RightChild != null)
 				{
-					PostOrder1(root.RightChild);
+					PostOrder2(root.RightChild);
 				}
 
 				// Logic for adding to List
