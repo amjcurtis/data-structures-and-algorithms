@@ -21,32 +21,36 @@ namespace BinaryTree
 
 			// Test PreOrder() method
 			List<int> outputOfPreOrder = tree.PreOrder(intNode);
-			Console.Write(outputOfPreOrder[0]);
-			Console.Write(outputOfPreOrder[1]);
-			Console.WriteLine(outputOfPreOrder[2]);
+			Console.Write($"{outputOfPreOrder[0]} ");
+			Console.Write($"{outputOfPreOrder[1]} ");
+			Console.WriteLine($"{outputOfPreOrder[2]} ");
+			Console.WriteLine("");
 			tree.output.Clear();
 
 			// Test InOrder() method
 			List<int> outputOfInOrder = tree.InOrder(intNode);
-			Console.Write(outputOfInOrder[0]);
-			Console.Write(outputOfInOrder[1]);
-			Console.WriteLine(outputOfInOrder[2]);
+			Console.Write($"{outputOfInOrder[0]} ");
+			Console.Write($"{outputOfInOrder[1]} ");
+			Console.WriteLine($"{outputOfInOrder[2]} ");
+			Console.WriteLine("");
 			tree.output.Clear();
 
 			// Test PostOrder() method
 			List<int> outputOfPostOrder = tree.PostOrder(intNode);
-			Console.Write(outputOfPostOrder[0]);
-			Console.Write(outputOfPostOrder[1]);
-			Console.WriteLine(outputOfPostOrder[2]);
+			Console.Write($"{outputOfPostOrder[0]} ");
+			Console.Write($"{outputOfPostOrder[1]} ");
+			Console.WriteLine($"{outputOfPostOrder[2]} ");
+			Console.WriteLine("");
 			tree.output.Clear();
 
 			// Test BST's Add() method
 			Node<int> rootOfBST = new Node<int>(21);
 			BinarySearchTree<int> bst = new BinarySearchTree<int>(rootOfBST);
-			Console.WriteLine(bst.Root.Value);
+			Console.WriteLine($"bst.Root.Value: {bst.Root.Value}");
 
 			bst.Add(bst.Root, 22);
-			Console.WriteLine($"{bst.Root.RightChild.Value}\n");
+			Console.WriteLine($"bst.Root.RightChild.Value: {bst.Root.RightChild.Value}");
+			Console.WriteLine("");
 
 			////////////////////////////////////////////
 			// Breadth-first binary tree traversal
