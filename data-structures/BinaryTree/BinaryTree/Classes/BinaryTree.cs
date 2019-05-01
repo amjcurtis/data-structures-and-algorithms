@@ -62,7 +62,7 @@ namespace BinaryTree.Classes
 
 			if (root.RightChild != null)
 			{
-				PreOrder(root.RightChild);
+				InOrder(root.RightChild);
 			}
 
 			return output;
@@ -77,12 +77,12 @@ namespace BinaryTree.Classes
 		{
 			if (root.LeftChild != null)
 			{
-				InOrder(root.LeftChild);
+				PostOrder(root.LeftChild);
 			}
 
 			if (root.RightChild != null)
 			{
-				PreOrder(root.RightChild);
+				PostOrder(root.RightChild);
 			}
 
 			output.Add(root.Value);
