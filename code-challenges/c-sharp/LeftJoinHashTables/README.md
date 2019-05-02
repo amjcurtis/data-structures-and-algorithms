@@ -8,7 +8,7 @@ My solution uses my own custom implementations of the hash table data structure.
 
 ## Example of Input & Output
 
-![Input-Output Example]()
+![Input-Output Example](https://github.com/amjcurtis/data-structures-and-algorithms/blob/left-join-hash-tables/assets/left-join_io-table-example.png)
 
 ## Approach & Efficiency
 
