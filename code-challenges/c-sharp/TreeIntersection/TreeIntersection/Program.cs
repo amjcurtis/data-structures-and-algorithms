@@ -124,7 +124,8 @@ namespace TreeIntersection
 				// Logic for adding to list of shared values
 				if (ht.Contains(root.Value))
 				{
-					if (!listOfSharedValues.Contains(root.Value))
+					// Used ToLower() to prevent duplication of words in array due to case sensitivity
+					if (!listOfSharedValues.Contains(root.Value.ToLower())) 
 					{
 						listOfSharedValues.Add(root.Value);
 					}
