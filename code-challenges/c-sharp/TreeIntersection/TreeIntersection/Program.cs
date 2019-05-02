@@ -13,16 +13,15 @@ namespace TreeIntersection
 			BinaryTree<string> tree1 = new BinaryTree<string>();
 
 			// Instantiate first group of nodes to put in first tree
-			Node<string> node1 = new Node<string>("quick");
-			Node<string> node2 = new Node<string>("brown");
-			Node<string> node3 = new Node<string>("fox");
-			Node<string> node4 = new Node<string>("jumped");
-			Node<string> node5 = new Node<string>("over");
-			Node<string> node6 = new Node<string>("the");
-			Node<string> node7 = new Node<string>("lazy");
-			Node<string> node8 = new Node<string>("dog");
-			Node<string> node9 = new Node<string>("and");
-			Node<string> node10 = new Node<string>("said");
+			Node<string> node1 = new Node<string>("The");
+			Node<string> node2 = new Node<string>("quick");
+			Node<string> node3 = new Node<string>("brown");
+			Node<string> node4 = new Node<string>("fox");
+			Node<string> node5 = new Node<string>("jumped");
+			Node<string> node6 = new Node<string>("over");
+			Node<string> node7 = new Node<string>("the");
+			Node<string> node8 = new Node<string>("lazy");
+			Node<string> node9 = new Node<string>("dog");
 
 			// Populate first tree with first group of nodes
 			tree1.Root = node1;
@@ -34,13 +33,12 @@ namespace TreeIntersection
 			tree1.Root.RightChild.RightChild = node7;
 			tree1.Root.LeftChild.LeftChild.LeftChild = node8;
 			tree1.Root.LeftChild.LeftChild.RightChild = node9;
-			tree1.Root.LeftChild.RightChild.LeftChild = node10;
 
 			// Instantiate second tree
 			BinaryTree<string> tree2 = new BinaryTree<string>();
 
 			// Instantiate second group of nodes to put in second tree
-			Node<string> node11 = new Node<string>("fast");
+			Node<string> node11 = new Node<string>("The");
 			Node<string> node12 = new Node<string>("brown");
 			Node<string> node13 = new Node<string>("cat");
 			Node<string> node14 = new Node<string>("hopped");
