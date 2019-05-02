@@ -9,10 +9,10 @@ namespace TreeIntersection
 	{
 		static void Main(string[] args)
 		{
-			// Instantiate new node and add as root of tree1
-			Node<string> tree1Root = new Node<string>("The");
-			BinaryTree<string> tree1 = new BinaryTree<string>(tree1Root);
+			// Instantiate first tree
+			BinaryTree<string> tree1 = new BinaryTree<string>();
 
+			// Instantiate first group of nodes to put in first tree
 			Node<string> node1 = new Node<string>("quick");
 			Node<string> node2 = new Node<string>("brown");
 			Node<string> node3 = new Node<string>("fox");
@@ -24,7 +24,7 @@ namespace TreeIntersection
 			Node<string> node9 = new Node<string>("and");
 			Node<string> node10 = new Node<string>("said");
 
-			// Populate tree1 with nodes
+			// Populate first tree with first group of nodes
 			tree1.Root = node1;
 			tree1.Root.LeftChild = node2;
 			tree1.Root.RightChild = node3;
@@ -36,10 +36,10 @@ namespace TreeIntersection
 			tree1.Root.LeftChild.LeftChild.RightChild = node9;
 			tree1.Root.LeftChild.RightChild.LeftChild = node10;
 
-			// Instantiate new node and add as root of tree2
-			Node<string> tree2Root = new Node<string>("A");
-			BinaryTree<string> tree2 = new BinaryTree<string>(tree2Root);
+			// Instantiate second tree
+			BinaryTree<string> tree2 = new BinaryTree<string>();
 
+			// Instantiate second group of nodes to put in second tree
 			Node<string> node11 = new Node<string>("fast");
 			Node<string> node12 = new Node<string>("brown");
 			Node<string> node13 = new Node<string>("cat");
@@ -51,7 +51,7 @@ namespace TreeIntersection
 			Node<string> node19 = new Node<string>("and");
 			Node<string> node20 = new Node<string>("shouted");
 
-			// Populate tree2 with nodes
+			// Populate second tree with second group of nodes
 			tree2.Root = node11;
 			tree2.Root.LeftChild = node12;
 			tree2.Root.RightChild = node13;
@@ -66,6 +66,7 @@ namespace TreeIntersection
 			// Invoke TreeIntersection method
 			List<string> sharedValues = TreeIntersection(tree1, tree2);
 
+			// Print contents of the array of values common to both trees
 			foreach (var item in sharedValues)
 			{
 				Console.WriteLine(item);
@@ -74,19 +75,20 @@ namespace TreeIntersection
 			Console.ReadLine();
 		}
 
+		/// <summary>
+		/// Takes in two binary trees and returns list of all values found in both trees
+		/// </summary>
+		/// <param name="tree1">first binary tree</param>
+		/// <param name="tree2">second binary tree</param>
+		/// <returns>List of values common to both trees</string></returns>
 		public static List<string> TreeIntersection(BinaryTree<string> tree1, BinaryTree<string> tree2)
 		{
 			Hashtable ht = new Hashtable(1024);
-			List<string> list = new List<string>();
+			List<string> listOfSharedValues = new List<string>();
 			
+			// First internal helper method: traverses first tree recursively and add its values to hash table
 			void PostOrder1(Node<string> root)
 			{
-				// Base case
-				//if (root == null)
-				//{
-				//	return;
-				//}
-
 				// Traverse tree
 				if (root.LeftChild != null)
 				{
@@ -99,23 +101,12 @@ namespace TreeIntersection
 				}
 
 				// Logic for adding to HT
-				if (!ht.Contains(root.Value))
-				{
-					ht.Add(root.Value, root.Value);
-				}
+				ht.Add(root.Value, root.Value);
 			}
 
-			// Invoke helper method defined above
-			PostOrder1(tree1.Root);
-
+			// Second internal helper method: traverses second tree recursively and add values found in both trees to an array
 			void PostOrder2(Node<string> root)
 			{
-				// Base case
-				//if (root == null)
-				//{
-				//	return;
-				//}
-
 				// Traverse tree
 				if (root.LeftChild != null)
 				{
@@ -127,17 +118,21 @@ namespace TreeIntersection
 					PostOrder2(root.RightChild);
 				}
 
-				// Logic for adding to List
+				// Logic for adding to list of shared values
 				if (ht.Contains(root.Value))
 				{
-					list.Add(root.Value);
+					if (!listOfSharedValues.Contains(root.Value))
+					{
+						listOfSharedValues.Add(root.Value);
+					}
 				}
 			}
 
-			// Invoke helper method defined above
+			// Invoke helper methods defined above
+			PostOrder1(tree1.Root);
 			PostOrder2(tree2.Root);
 
-			return list;
+			return listOfSharedValues;
 		}
 	}
 }
