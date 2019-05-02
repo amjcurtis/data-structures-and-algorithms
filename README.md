@@ -31,3 +31,5 @@
 13. [Implementation: Hash Table](data-structures/HashTable)
 
 14. [Challenge: Tree Intersection](code-challenges/c-sharp/TreeIntersection)
+
+15. [Challenge: Left Join Hash Tables](code-challenges/c-sharp/LeftJoinHashTables)
