@@ -16,4 +16,10 @@
     <ProjectReference Include="..\LeftJoinHashTables\LeftJoinHashTables.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="HashTable">
+      <HintPath>..\..\..\..\data-structures\HashTable\HashTable\bin\Debug\netcoreapp2.2\HashTable.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

@@ -1,12 +1,11 @@
 ﻿using System;
-using System.Collections;
 using Hashtable = HashTable.Hashtable;
 using HashTable;
 using System.Collections.Generic;
 
 namespace LeftJoinHashTables
 {
-	class Program
+	public class Program
 	{
 		static void Main(string[] args)
 		{
