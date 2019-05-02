@@ -50,7 +50,7 @@ namespace XUnitTest_LeftJoin
 		}
 
 		/// <summary>
-		/// Tests whether LeftJoin can return NULL string if right table does contain current key in left table
+		/// Tests whether LeftJoin method can return NULL string if right table does contain current key in left table
 		/// </summary>
 		[Fact]
 		public void CanReturnNullStringIfRightTableNotContainsKey()
@@ -89,6 +89,9 @@ namespace XUnitTest_LeftJoin
 			Assert.Contains("NULL", rightTableValue);
 		}
 
+		/// <summary>
+		/// Tests whether LeftJoin method can return empty list if both input trees are empty
+		/// </summary>
 		[Fact]
 		public void CanReturnEmptyListIfBothTablesEmpty()
 		{
