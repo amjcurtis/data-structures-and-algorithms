@@ -63,8 +63,8 @@ namespace TreeIntersection
 			tree2.Root.LeftChild.LeftChild.RightChild = node19;
 			tree2.Root.LeftChild.RightChild.LeftChild = node20;
 
-			// Invoke TreeIntersection method
-			List<string> sharedValues = TreeIntersection(tree1, tree2);
+			// Invoke TreeIntersect method
+			List<string> sharedValues = TreeIntersect(tree1, tree2);
 
 			// Print contents of the array of values common to both trees
 			foreach (var item in sharedValues)
@@ -81,8 +81,13 @@ namespace TreeIntersection
 		/// <param name="tree1">first binary tree</param>
 		/// <param name="tree2">second binary tree</param>
 		/// <returns>List of values common to both trees</string></returns>
-		public static List<string> TreeIntersection(BinaryTree<string> tree1, BinaryTree<string> tree2)
+		public static List<string> TreeIntersect(BinaryTree<string> tree1, BinaryTree<string> tree2)
 		{
+			if (tree1.Root == null || tree2.Root == null)
+			{
+				return null;
+			}
+
 			Hashtable ht = new Hashtable(1024);
 			List<string> listOfSharedValues = new List<string>();
 			

@@ -12,4 +12,17 @@
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\TreeIntersection\TreeIntersection.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="BinaryTree">
+      <HintPath>..\..\..\..\data-structures\BinaryTree\BinaryTree\bin\Debug\netcoreapp2.2\BinaryTree.dll</HintPath>
+    </Reference>
+    <Reference Include="HashTable">
+      <HintPath>..\..\..\..\data-structures\HashTable\HashTable\bin\Debug\netcoreapp2.2\HashTable.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>
