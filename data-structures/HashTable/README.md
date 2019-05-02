@@ -26,9 +26,20 @@ My Hashtable class has the following methods:
 * `Get()`: takes a key of type string as input and returns a Node object containing the key:value pair corresponding to the key argument if the pair is present in the table, otherwise returns null
 * `Print()`: void method that writes all key:value pairs in the table to the console
 
+Additionally I implemented a static method in the Program class
+called `RepeatedWord()`. This method takes a string of text as input
+and returns the first repeated word in the string (or `null` if no
+repeated words were found). A hash table is used inside the method to
+store the individual words from the input string so that each
+successive word can be compared against all the previous words in the
+string, which is necessary for finding repeated words.
+
 
 ## Planning
 
-I collaborated with [Alexander White](https://github.com/AlexWhitey) on the first-take whiteboard planning for a static `RepeatedWord()` method  using my hash table implementation. I created the method in `Program.cs` in this console app project.
+I collaborated with [Alexander White](https://github.com/AlexWhitey)
+on the first-take whiteboard planning for the `RepeatedWord()`
+method using my hash table implementation. I created the method in
+this console app project.
 
 ![Initial whiteboard planning for RepeatedWord method](/assets/hashtable_find-repeated-word.png)

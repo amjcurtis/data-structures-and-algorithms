@@ -30,4 +30,4 @@
 
 13. [Implementation: Hash Table](data-structures/HashTable)
 
-14. [Challenge: Tree Intersection](data-structures/c-sharp/TreeIntersection)
+14. [Challenge: Tree Intersection](code-challenges/c-sharp/TreeIntersection)
