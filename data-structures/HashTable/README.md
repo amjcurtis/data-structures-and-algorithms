@@ -39,7 +39,6 @@ string, which is necessary for finding repeated words.
 
 I collaborated with [Alexander White](https://github.com/AlexWhitey)
 on the first-take whiteboard planning for the `RepeatedWord()`
-method using my hash table implementation. I created the method in
-this console app project.
+method.
 
 ![Initial whiteboard planning for RepeatedWord method](/assets/hashtable_find-repeated-word.png)

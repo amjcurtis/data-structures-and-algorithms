@@ -2,9 +2,9 @@
 
 ## Challenge
 
-In this challenge I wrote a C# console app containing a method that takes two binary trees as inputs and returns a list of the values common to both trees.
+In this challenge I wrote a C# console app containing a method called `TreeIntersect()` that takes two binary trees as inputs and returns a list of the values common to both trees.
 
-My solution use my own custom implementations of binary tree and hash table data structures. 
+My solution uses my own custom implementations of binary tree and hash table data structures. 
 
 ## Approach & Efficiency
 
@@ -19,11 +19,9 @@ My solution use my own custom implementations of binary tree and hash table data
 ### Space Efficiency
 
 * Binary tree
-
 	* O(h) where *h* is the height of the tree
 
 * Hash table
-
 	* O(n)
 
 ## Solution
