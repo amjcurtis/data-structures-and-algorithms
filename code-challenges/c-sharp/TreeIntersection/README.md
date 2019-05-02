@@ -28,6 +28,6 @@ My solution use my own custom implementations of binary tree and hash table data
 
 ## Solution
 
-First-take whiteboard solution:
+I collaborated with [Vanessa Wei](https://github.com/Wei9023) and [Chris Merritt](https://github.com/ChristopherKnightMerritt) on my first-take whiteboard solution for this challenge.
 
 ![Initial whiteboard planning](https://github.com/amjcurtis/data-structures-and-algorithms/blob/master/assets/binarytree-intersection-whiteboard.JPG)
