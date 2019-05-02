@@ -6,6 +6,10 @@ In this challenge I wrote a C# console app containing a method called `LeftJoin(
 
 My solution uses my own custom implementations of the hash table data structure. 
 
+## Example of Input & Output
+
+![Input-Output Example]()
+
 ## Approach & Efficiency
 
 ### Time Efficiency
