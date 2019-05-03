@@ -4,7 +4,7 @@
 
 ###  .NET Core Console Apps
 
-1. [Challenge: Array Binary Search](code-challenges/c-sharp/array-binary-search)
+1. [Challenge: Array Binary Search](code-challenges/c-sharp/ArrayBinarySearch)
 
 2. [Implementation: Singly Linked List](https://github.com/amjcurtis/data-structures-and-algorithms/blob/linked-list/data-structures/singly-linked-list/README.md)
 
@@ -22,11 +22,11 @@
 
 9. [Challenge: FizzBuzz Tree](code-challenges/c-sharp/FizzBuzzTree)
 
-10. [Implementation: Insertion Sort](data-structures/sorts/InsertionSort)
+10. [Challenge: Insertion Sort](code-challenges/c-sharp/Sorts/InsertionSort)
 
-11. [Implementation: Merge Sort](data-structures/sorts/MergeSort)
+11. [Challenge: Merge Sort](code-challenges/c-sharp/Sorts/MergeSort)
 
-12. [Implementation: Quick Sort](data-structures/sorts/QuickSort)
+12. [Challenge: Quick Sort](code-challenges/c-sharp/Sorts/QuickSort)
 
 13. [Implementation: Hash Table](data-structures/HashTable)
 
