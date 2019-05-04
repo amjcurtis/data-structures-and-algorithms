@@ -249,5 +249,28 @@ namespace ConsoleApp_LinkedList.Classes
             }
             return Current;
         }
-    }
+
+		/// <summary>
+		/// Checks whether singly linked list is circular (one node points to a previous node)
+		/// </summary>
+		/// <returns>boolean</returns>
+		public bool IsCircular()
+		{
+			// "Tortoise and hare"
+			Node runner = Head;
+			Node walker = Head;
+
+			while (runner != null && runner.Next != null)
+			{
+				walker = walker.Next;
+				runner = runner.Next.Next;
+				if (runner == walker)
+				{
+					return true;
+				}
+			}
+
+			return false;
+		}
+	}
 }

@@ -50,5 +50,5 @@ namespace ConsoleApp_LinkedList
 
             Console.ReadLine();
         }
-    }
+	}
 }

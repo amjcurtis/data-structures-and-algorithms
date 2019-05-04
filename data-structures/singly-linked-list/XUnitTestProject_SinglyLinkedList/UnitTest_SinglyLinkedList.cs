@@ -356,5 +356,25 @@ namespace XUnitTestProject_SinglyLinkedList
             // Assert
             Assert.Equal(2, result.Value);
         }
+
+		/// <summary>
+		/// Tests whether can determine linked list is not circular
+		/// </summary>
+		[Fact]
+		public void CanReturnFalseIfListNotCircular()
+		{
+			// Arrange
+			LList list = new LList();
+			for (int i = 0; i < 6; i++)
+			{
+				list.Insert((i + 1));
+			}
+
+			// Act
+			bool notCirc = list.IsCircularList();
+
+			// Assert
+			Assert.True(notCirc);
+		}
     }
 }
