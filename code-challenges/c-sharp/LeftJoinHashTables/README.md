@@ -8,7 +8,7 @@ My solution uses my own custom implementations of the hash table data structure.
 
 ## Example of Input & Output
 
-![Input-Output Example](https://github.com/amjcurtis/data-structures-and-algorithms/blob/left-join-hash-tables/assets/left-join_io-table-example.png)
+![Input-Output Example](https://github.com/amjcurtis/data-structures-and-algorithms/blob/master/assets/left-join_io-table-example.png)
 
 ## Approach & Efficiency
 
@@ -32,4 +32,4 @@ My solution uses my own custom implementations of the hash table data structure.
 I collaborated with [Alexander White](https://github.com/AlexWhitey)
 on the first-take whiteboard planning for the `LeftJoin()` method.
 
-![Initial whiteboard planning for LeftJoin](https://github.com/amjcurtis/data-structures-and-algorithms/blob/left-join-hash-tables/assets/left-join-hash-tables.jpg)
+![Initial whiteboard planning for LeftJoin](https://github.com/amjcurtis/data-structures-and-algorithms/blob/master/assets/left-join-hash-tables.jpg)
