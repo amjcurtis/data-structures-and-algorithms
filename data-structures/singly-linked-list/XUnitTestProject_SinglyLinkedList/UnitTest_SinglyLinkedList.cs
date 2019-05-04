@@ -447,6 +447,9 @@ namespace XUnitTestProject_SinglyLinkedList
 			Assert.False(notCirc);
 		}
 
+		/// <summary>
+		/// Tests whether can return false if list is empty
+		/// </summary>
 		[Fact]
 		public void CanReturnFalseIfListIsEmpty()
 		{
