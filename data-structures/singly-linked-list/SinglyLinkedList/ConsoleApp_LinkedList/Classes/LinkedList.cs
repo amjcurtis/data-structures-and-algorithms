@@ -264,6 +264,7 @@ namespace ConsoleApp_LinkedList.Classes
 			{
 				walker = walker.Next;
 				runner = runner.Next.Next;
+
 				if (runner == walker)
 				{
 					return true;

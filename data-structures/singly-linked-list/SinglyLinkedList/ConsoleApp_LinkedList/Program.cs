@@ -16,22 +16,16 @@ namespace ConsoleApp_LinkedList
                 LList myLinkedList = new LList();
                 for (int i = 0; i < 6; i++)
                 {
-                    myLinkedList.Insert((i + 1));
+                    myLinkedList.Insert(i + 1);
                 }
 
                 myLinkedList.Append(244);
 
                 int[] printedVals = myLinkedList.Print();
-                Console.WriteLine("printedVals: {0}", string.Join(", ", printedVals));
-
-                //myLinkedList.InsertBefore(6, 77);
-                //myLinkedList.InsertAfter(244, 48);
+                Console.WriteLine("printedVals: [{0}]", string.Join(", ", printedVals));
 
                 Node kthValFromEnd = myLinkedList.GetKthNodeFromEnd(1);
                 Console.WriteLine($"Value of kthValFromEnd: {kthValFromEnd.Value}");
-
-                //bool listIncludesVal = myLinkedList.Includes(6);
-                //Console.WriteLine($"listIncludesVal: {listIncludesVal}");
 
                 Console.WriteLine($"Length of printedVals: {printedVals.Length}");
 
@@ -41,7 +35,7 @@ namespace ConsoleApp_LinkedList
                 // Running this on own separate line b/c couldn't save to variable (return type conflict)
                 //Array.Reverse(printedVals);
 
-                Console.WriteLine("printedVals: {0}", string.Join(", ", printedVals));
+                Console.WriteLine("printedVals: [{0}]", string.Join(", ", printedVals));
             }
             catch (Exception e)
             {

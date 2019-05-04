@@ -358,23 +358,106 @@ namespace XUnitTestProject_SinglyLinkedList
         }
 
 		/// <summary>
-		/// Tests whether can determine linked list is not circular
+		/// Tests whether can determine a linked list with even no. of nodes is circular
 		/// </summary>
 		[Fact]
-		public void CanReturnFalseIfListNotCircular()
+		public void CanReturnTrueIfEvenListIsCircular()
+		{
+			// ARRANGE
+
+			LList list = new LList();
+
+			// Populate list with 4 nodes
+			for (int i = 0; i < 4; i++)
+			{
+				list.Insert(i + 1);
+			}
+			// Make circular reference: last node in list points back to head
+			list.Head.Next.Next.Next.Next = list.Head;
+
+			// ACT
+			bool circular = list.IsCircular();
+
+			// ASSERT
+			Assert.True(circular);
+		}
+
+		/// <summary>
+		/// Tests whether can determine a linked list with odd no. of nodes is circular
+		/// </summary>
+		[Fact]
+		public void CanReturnTrueIfOddListIsCircular()
+		{
+			// ARRANGE
+
+			LList list = new LList();
+
+			// Populate list with 5 nodes
+			for (int i = 0; i < 5; i++)
+			{
+				list.Insert(i + 1);
+			}
+			// Make circular reference: last node in list points back to head
+			list.Head.Next.Next.Next.Next.Next = list.Head;
+
+			// ACT
+			bool circular = list.IsCircular();
+
+			// ASSERT
+			Assert.True(circular);
+		}
+
+		/// <summary>
+		/// Tests whether can determine a linked list with odd no. of nodes is not circular
+		/// </summary>
+		[Fact]
+		public void CanReturnFalseIfOddListNotCircular()
+		{
+			// Arrange
+			LList list = new LList();
+			for (int i = 0; i < 7; i++)
+			{
+				list.Insert(i + 1);
+			}
+
+			// Act
+			bool notCirc = list.IsCircular();
+
+			// Assert
+			Assert.False(notCirc);
+		}
+
+		/// <summary>
+		/// Tests whether can determine a linked list with even no. of nodes is not circular
+		/// </summary>
+		[Fact]
+		public void CanReturnFalseIfEvenListNotCircular()
 		{
 			// Arrange
 			LList list = new LList();
 			for (int i = 0; i < 6; i++)
 			{
-				list.Insert((i + 1));
+				list.Insert(i + 1);
 			}
 
 			// Act
-			bool notCirc = list.IsCircularList();
+			bool notCirc = list.IsCircular();
 
 			// Assert
-			Assert.True(notCirc);
+			Assert.False(notCirc);
+		}
+
+		[Fact]
+		public void CanReturnFalseIfListIsEmpty()
+		{
+			// Arrange
+			LList list = new LList();
+
+			// Act
+			bool notCirc = list.IsCircular();
+
+			// Assert
+			Assert.False(notCirc);
 		}
     }
 }
