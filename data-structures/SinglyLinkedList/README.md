@@ -3,21 +3,29 @@
 
 ## Challenge
 
-Create a console app that implements a singly linked list based on two classes. Make a `Node` class that has properties for the value stored in the node as well as a pointer to the next node. Make a `LinkedList` class that includes a head property and several methods. Upon instantiation, an empty linked list should be created. The methods should include:
+I wrote a console app in C# that implements a singly linked list based on two classes: 
 
-1. A method called Insert() that takes an integer as an argument and adds a new node with that value to the head of the list with an O(1) Time performance.
+* `Node` class: has properties for the value stored in the node and a pointer to the next node
+* `LinkedList` class: includes a `Head` property (of type `Node`) and several methods. 
 
-2. A method called Includes() that takes an integer as an argument and returns a boolean result depending on whether that value exists as a node’s value anywhere within the list.
+Methods on my `LinkedList` class include:
 
-3. A method called Print() that takes in no arguments and returns a collection all of the current node values in the linked list.
+1. `Insert()`: takes an integer as an argument and adds a new node with that value to the head of the list with an O(1) time performance.
 
-4. A method called Append() that takes an integer as an argument and adds new node with that value to the end of the linked list.
+2. `Includes()`: takes an integer as an argument and returns a boolean result depending on whether that value exists as a node's value anywhere within the list.
 
-5. A method called InsertBefore() that takes two integers as arguments and adds a new node whose value is the second integer argument to the list *before* the node whose value is the first integer argument. Returns boolean result depending on success of insertion. 
+3. `Print()`: takes no arguments and returns a collection all of the current node values in the linked list.
 
-6. A method called InsertAfter() that takes two integers as arguments and adds a new node whose value is the second integer argument to the list *after* the node whose value is the first integer argument. Returns boolean result depending on success of insertion.
+4. `Append()`: takes an integer as an argument and adds new node with that value to the end of the linked list.
 
-7. A method called GetKthNodeFromEnd() that takes an integer argument *k* and returns the *k*th node from the end of the list. 
+5. `InsertBefore()`: takes two integers as arguments and adds a new node whose value is the second integer argument to the list *before* the node whose value is the first integer argument. Returns a boolean result depending on success of insertion. 
+
+6. `InsertAfter()`: takes two integers as arguments and adds a new node whose value is the second integer argument to the list *after* the node whose value is the first integer argument. Returns a boolean result depending on success of insertion.
+
+7. `GetKthNodeFromEnd()`: takes an integer argument *k* and returns the *k*th node from the end of the list. 
+
+8. `IsCircular()`: takes no arguments, returns a boolean result depending on whether the linked list is circular, i.e. whether it has a node (by definition, the last node) that refers to some previous node in the list.
+
 
 ## Approach & Efficiency
 
@@ -26,26 +34,30 @@ I implemented this project as a minimal approach to creating a singly linked lis
 #### Time and Space Complexity Analysis
 
 * `Insert()` method
-    * Big O Time: O(1)
-    * Big O Space: O(1)
+    * Time: O(1)
+    * Space: O(1)
 * `Includes()` method 
-    * Big O Time: O(n)
-    * Big O Space: O(1)
+    * Time: O(n)
+    * Space: O(1)
 * `Print()` method 
-    * Big O Time: O(n)
-    * Big O Space: O(1)
+    * Time: O(n)
+    * Space: O(1)
 * `Append()` method 
-    * Big O Time: O(n)
-    * Big O Space: O(1)
+    * Time: O(n)
+    * Space: O(1)
 * `InsertBefore()` method 
-    * Big O Time: O(n)
-    * Big O Space: O(1)
+    * Time: O(n)
+    * Space: O(1)
 * `InsertAfter()` method 
-    * Big O Time: O(n)
-    * Big O Space: O(1)
+    * Time: O(n)
+    * Space: O(1)
 * `GetKthValueFromEnd()` method
-    * Big O Time: O(n)
-    * Big O Space: O(1)
+    * Time: O(n)
+    * Space: O(1)
+* `IsCircular()` method
+	* Time: O(n)
+	* Space: O(1)
+
 
 ## API
 
@@ -60,10 +72,11 @@ The `LList` class includes public properties `Head` and `Current` for the nodes 
 5. `InsertBefore()`: Takes two `int`-type arguments "existingNodeValue" and "newNodeValue," returns `bool`. Inserts new node before specified node.
 6. `InsertAfter()`: Takes two `int`-type arguments "existingNodeValue" and "newNodeValue," returns `bool`. Inserts new node after specified node.
 7. `GetKthNodeFromEnd()`: Takes `int`-type argument "k" and returns node at *k*th position from end of list.
+8. `IsCircular()`: Takes no arguments, returns boolean.
 
 #### `public class Node` 
 
-The `Node` class includes public Node properties for `Value` (type `int`) and `Value` (type `Node`). It also includes a constructor for the `Node` object.
+The `Node` class includes public Node properties for `Value` (type `int`) and `Value` (type `Node`).
 
 
 ## Change Log
@@ -79,6 +92,9 @@ The `Node` class includes public Node properties for `Value` (type `int`) and `V
 
 #### `v1.4`
 * `2019-03-28`: Fixed failing unit test by adding logic to handle *k* value input of 0.
+
+#### `v1.4`
+* `2019-05-03`: Added `IsCircular()` method.
 
 
 ## Initial Whiteboard Planning for Linked List Methods
