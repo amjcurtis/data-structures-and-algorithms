@@ -260,7 +260,12 @@ namespace ConsoleApp_LinkedList.Classes
 			Node runner = Head;
 			Node walker = Head;
 
-			while (runner != null && runner.Next != null)
+			if (Head != null)
+			{
+				return false;
+			}
+
+			while (runner.Next != null && runner.Next.Next != null)
 			{
 				walker = walker.Next;
 				runner = runner.Next.Next;
