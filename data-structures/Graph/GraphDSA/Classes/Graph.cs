@@ -58,7 +58,16 @@ namespace GraphDSA.Classes
 			return AdjacencyList[vertex];
 		}
 
+		public List<Vertex<T>> GetVertices()
+		{
+			List<Vertex<T>> vertices = new List<Vertex<T>>();
 
+			foreach (var vertex in AdjacencyList)
+			{
+				vertices.Add(vertex.Key);
+			}
+			return vertices;
+		}
 
 		public void Print()
 		{
