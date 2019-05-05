@@ -6,11 +6,13 @@ namespace GraphDSA.Classes
 {
 	class Graph<T>
 	{
-
+		// Define adjacency list
 		public Dictionary<Vertex<T>, List<Edge<T>>> AdjacencyList { get; set; }
+
+		// Set initial value of graph's size counter
 		private int _size = 0;
 
-		// Constructor
+		// Graph constructor
 		public Graph()
 		{
 			AdjacencyList = new Dictionary<Vertex<T>, List<Edge<T>>>();
@@ -18,7 +20,11 @@ namespace GraphDSA.Classes
 
 		// METHODS
 
-		
+		/// <summary>
+		/// Adds a single vertex to graph and increments size property of graph
+		/// </summary>
+		/// <param name="value">value of vertex to add</param>
+		/// <returns>returns the newly added vertex</returns>
 		public Vertex<T> AddVertex(T value)
 		{
 			Vertex<T> vertex = new Vertex<T>(value);
@@ -30,6 +36,12 @@ namespace GraphDSA.Classes
 			return vertex;
 		}
 
+		/// <summary>
+		/// Add directed edge of specified weight from one specified vertex to another
+		/// </summary>
+		/// <param name="a">first vertex</param>
+		/// <param name="b">second vertex</param>
+		/// <param name="weight">weight of edge</param>
 		public void AddDirectedEdge(Vertex<T> a, Vertex<T> b, int weight)
 		{
 			AdjacencyList[a].Add(
@@ -42,6 +54,12 @@ namespace GraphDSA.Classes
 			);
 		}
 
+		/// <summary>
+		/// Adds an undirected edge of given weight between two given vertices
+		/// </summary>
+		/// <param name="a">first vertex</param>
+		/// <param name="b">second vertex</param>
+		/// <param name="weight">weight of edge</param>
 		public void AddUndirectedEdge(Vertex<T> a, Vertex<T> b, int weight)
 		{
 			AddDirectedEdge(a, b, weight);
@@ -58,6 +76,10 @@ namespace GraphDSA.Classes
 			return AdjacencyList[vertex];
 		}
 
+		/// <summary>
+		/// Returns list of all vertices in graph
+		/// </summary>
+		/// <returns>List of vertices</returns>
 		public List<Vertex<T>> GetVertices()
 		{
 			List<Vertex<T>> vertices = new List<Vertex<T>>();
@@ -69,6 +91,9 @@ namespace GraphDSA.Classes
 			return vertices;
 		}
 
+		/// <summary>
+		/// Prints all key:value pairs in graph to the console
+		/// </summary>
 		public void Print()
 		{
 			foreach (var vertex in AdjacencyList)
