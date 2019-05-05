@@ -92,6 +92,15 @@ namespace GraphDSA.Classes
 		}
 
 		/// <summary>
+		/// Return number of vertices in graph
+		/// </summary>
+		/// <returns>int size of graph</returns>
+		public int Size()
+		{
+			return _size;
+		}
+
+		/// <summary>
 		/// Prints all key:value pairs in graph to the console
 		/// </summary>
 		public void Print()
