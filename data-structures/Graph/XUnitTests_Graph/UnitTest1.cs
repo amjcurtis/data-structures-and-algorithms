@@ -6,6 +6,10 @@ namespace XUnitTests_Graph
 {
 	public class UnitTest1
 	{
+
+		/// <summary>
+		/// Tests whether AddVertex() method can add a vertex to graph
+		/// </summary>
 		[Fact]
 		public void CanAddVertexToGraph()
 		{
@@ -19,6 +23,9 @@ namespace XUnitTests_Graph
 			Assert.Equal("Detroit", a.Value);
 		}
 
+		/// <summary>
+		/// Tests whether AddUndirectedEdge() method can add an edge between two vertices
+		/// </summary>
 		[Fact]
 		public void CanAddEdge()
 		{
@@ -35,6 +42,9 @@ namespace XUnitTests_Graph
 			Assert.Equal(edgeList[0].Vertex.Value, b.Value);
 		}
 
+		/// <summary>
+		/// Tests whether GetVertices() method can return list of all vertices in graph
+		/// </summary>
 		[Fact]
 		public void CanGetListOfNodes()
 		{
@@ -54,6 +64,9 @@ namespace XUnitTests_Graph
 			Assert.Equal(vertList[3].Value, d.Value);
 		}
 
+		/// <summary>
+		/// Tests whether GetNeighbors() method can get list of all neighboring vertices of specified vertex
+		/// </summary>
 		[Fact]
 		public void CanGetListOfNeighbors()
 		{
@@ -79,6 +92,9 @@ namespace XUnitTests_Graph
 			Assert.Equal(neighborList[3].Vertex.Value, d.Value);
 		}
 
+		/// <summary>
+		/// Tests whether GetNeightbors() method can return weight of edges between specified vertex and its neighboring vertices
+		/// </summary>
 		[Fact]
 		public void CanReturnNeighborsWithWeightIncluded()
 		{
@@ -104,6 +120,9 @@ namespace XUnitTests_Graph
 			Assert.Equal(15, neighborList[3].Weight);
 		}
 
+		/// <summary>
+		/// Tests whether Size() method can return correct number of vertices in graph
+		/// </summary>
 		[Fact]
 		public void CanReturnGraphSize()
 		{
@@ -123,6 +142,9 @@ namespace XUnitTests_Graph
 			Assert.Equal(4, size);
 		}
 
+		/// <summary>
+		/// Tests whether GetVertices() method can return vertex from graph with only a single vertex
+		/// </summary>
 		[Fact]
 		public void CanReturnVertexFromGraphWithOneVertex()
 		{
