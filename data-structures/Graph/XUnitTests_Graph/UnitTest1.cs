@@ -35,7 +35,7 @@ namespace XUnitTests_Graph
 		}
 
 		[Fact]
-		public void CanGetReturnListOfNodes()
+		public void CanGetListOfNodes()
 		{
 			// ARRANGE
 			Graph<string> graph = new Graph<string>();
@@ -46,17 +46,80 @@ namespace XUnitTests_Graph
 			Vertex<string> c = graph.AddVertex("Atlanta");
 			Vertex<string> d = graph.AddVertex("Denver");
 
-			//// Add edges to graph
-			//graph.AddUndirectedEdge(a, b, 6);
-			//graph.AddUndirectedEdge(b, c, 10);
-			//graph.AddDirectedEdge(a, c, 13);
-			//graph.AddUndirectedEdge(b, d, 15);
-
 			// ACT
 			var vertList = graph.GetVertices();
 
 			// ASSERT
 			Assert.Equal(vertList[3].Value, d.Value);
+		}
+
+		[Fact]
+		public void CanGetListOfNeighbors()
+		{
+			// ARRANGE
+			Graph<string> graph = new Graph<string>();
+
+			// Add vertices to graph
+			Vertex<string> a = graph.AddVertex("Detroit");
+			Vertex<string> b = graph.AddVertex("Boston");
+			Vertex<string> c = graph.AddVertex("Atlanta");
+			Vertex<string> d = graph.AddVertex("Denver");
+
+			// Add edges to graph
+			graph.AddUndirectedEdge(a, b, 6);
+			graph.AddUndirectedEdge(a, c, 10);
+			graph.AddUndirectedEdge(a, c, 13);
+			graph.AddUndirectedEdge(a, d, 15);
+
+			// ACT
+			var neighborList = graph.GetNeighbors(a);
+
+			// ASSERT
+			Assert.Equal(neighborList[3].Vertex.Value, d.Value);
+		}
+
+		[Fact]
+		public void CanReturnNeighborsWithWeightIncluded()
+		{
+			// ARRANGE
+			Graph<string> graph = new Graph<string>();
+
+			// Add vertices to graph
+			Vertex<string> a = graph.AddVertex("Detroit");
+			Vertex<string> b = graph.AddVertex("Boston");
+			Vertex<string> c = graph.AddVertex("Atlanta");
+			Vertex<string> d = graph.AddVertex("Denver");
+
+			// Add edges to graph
+			graph.AddUndirectedEdge(a, b, 6);
+			graph.AddUndirectedEdge(a, c, 10);
+			graph.AddUndirectedEdge(a, c, 13);
+			graph.AddUndirectedEdge(a, d, 15);
+
+			// ACT
+			var neighborList = graph.GetNeighbors(a);
+
+			// ASSERT
+			Assert.Equal(15, neighborList[3].Weight);
+		}
+
+		[Fact]
+		public void CanReturnGraphSize()
+		{
+			// ARRANGE
+			Graph<string> graph = new Graph<string>();
+
+			// Add vertices to graph
+			Vertex<string> a = graph.AddVertex("Detroit");
+			Vertex<string> b = graph.AddVertex("Boston");
+			Vertex<string> c = graph.AddVertex("Atlanta");
+			Vertex<string> d = graph.AddVertex("Denver");
+
+			// ACT
+			var neighborList = graph.GetNeighbors(a);
+
+			// ASSERT
+			Assert.Equal(15, neighborList[3].Weight);
 		}
 	}
 }
