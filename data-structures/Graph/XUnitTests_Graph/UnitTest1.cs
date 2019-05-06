@@ -1,5 +1,6 @@
 using Xunit;
 using GraphDSA.Classes;
+using System.Collections.Generic;
 
 namespace XUnitTests_Graph
 {
@@ -116,10 +117,40 @@ namespace XUnitTests_Graph
 			Vertex<string> d = graph.AddVertex("Denver");
 
 			// ACT
-			var neighborList = graph.GetNeighbors(a);
+			int size = graph.Size();
 
 			// ASSERT
-			Assert.Equal(15, neighborList[3].Weight);
+			Assert.Equal(4, size);
+		}
+
+		[Fact]
+		public void CanReturnVertexFromGraphWithOneVertex()
+		{
+			// ARRANGE
+			Graph<string> graph = new Graph<string>();
+			Vertex<string> a = graph.AddVertex("Detroit");
+
+			// ACT
+			var vertList = graph.GetVertices();
+
+			// ASSERT
+			Assert.Equal(a.Value, vertList[0].Value);
+		}
+
+		/// <summary>
+		/// Tests whether GetVertices() method can return null if graph is empty
+		/// </summary>
+		[Fact]
+		public void CanReturnNullIfGraphEmpty()
+		{
+			// ARRANGE
+			Graph<string> graph = new Graph<string>();
+
+			// ACT
+			List<Vertex<string>> vertList = graph.GetVertices();
+
+			// ASSERT
+			Assert.Null(vertList);
 		}
 	}
 }

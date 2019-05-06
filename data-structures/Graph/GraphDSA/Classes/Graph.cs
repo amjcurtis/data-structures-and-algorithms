@@ -82,6 +82,11 @@ namespace GraphDSA.Classes
 		/// <returns>List of vertices</returns>
 		public List<Vertex<T>> GetVertices()
 		{
+			if (AdjacencyList.Count < 1)
+			{
+				return null;
+			}
+
 			List<Vertex<T>> vertices = new List<Vertex<T>>();
 
 			foreach (var vertex in AdjacencyList)
