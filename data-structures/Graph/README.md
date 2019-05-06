@@ -13,6 +13,7 @@ My GraphDSA namespace includes classes `Graph<T>`, `Vertex<T>`, and `Edge<T>`.
 * Getting list of all vertices in graph: O(n) time, O(n) space
 * Getting list of all of a vertex's neighboring vertices: O(n) time, O(n) space
 * Searching graph: O(1) time, O(1) space
+* Breadth-first traversal:  O(n) time, O(n) space
 
 ## API
 
@@ -24,4 +25,5 @@ My Graph class has the following methods:
 * `GetNeighbors()`: Takes a vertex as argument and returns an adjacency list containing all the edges connecting to the specified vertex.
 * `GetVertices()`: Returns a generic list of all vertices in the graph, or null if graph contains no vertices.
 * `Size()`: Void method that returns number of vertices in graph.
+* `BreadthFirst()`: Traverses a graph breadth-first and returns a generic list of vertices.
 * `Print()`: Void method that writes all vertices in the graph to the console.
