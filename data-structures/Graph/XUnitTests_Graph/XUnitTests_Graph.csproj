@@ -12,4 +12,10 @@
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="GraphDSA">
+      <HintPath>..\GraphDSA\bin\Debug\netcoreapp2.2\GraphDSA.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

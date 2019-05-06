@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace GraphDSA
 {
-	class Program
+	public class Program
 	{
 		static void Main(string[] args)
 		{

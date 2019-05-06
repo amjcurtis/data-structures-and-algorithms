@@ -4,7 +4,7 @@ using System.Text;
 
 namespace GraphDSA.Classes
 {
-	class Graph<T>
+	public class Graph<T>
 	{
 		// Define adjacency list
 		public Dictionary<Vertex<T>, List<Edge<T>>> AdjacencyList { get; set; }
@@ -82,6 +82,11 @@ namespace GraphDSA.Classes
 		/// <returns>List of vertices</returns>
 		public List<Vertex<T>> GetVertices()
 		{
+			if (AdjacencyList.Count < 1)
+			{
+				return null;
+			}
+
 			List<Vertex<T>> vertices = new List<Vertex<T>>();
 
 			foreach (var vertex in AdjacencyList)
