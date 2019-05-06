@@ -4,7 +4,7 @@ using System.Text;
 
 namespace GraphDSA.Classes
 {
-	class Graph<T>
+	public class Graph<T>
 	{
 		// Define adjacency list
 		public Dictionary<Vertex<T>, List<Edge<T>>> AdjacencyList { get; set; }
