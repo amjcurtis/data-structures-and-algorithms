@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace GraphDSA.Classes
 {
@@ -103,6 +102,42 @@ namespace GraphDSA.Classes
 		public int Size()
 		{
 			return _size;
+		}
+
+		public List<Vertex<T>> BreadthFirst(Vertex<T> startingVertex)
+		{
+			// List of traversed vertices to return
+			List<Vertex<T>> outputList = new List<Vertex<T>>();
+
+			// Queue to store vertices in as they're visited
+			Queue<Vertex<T>> breadth = new Queue<Vertex<T>>();
+
+			// Hashset to store vertices visited so far
+			HashSet<Vertex<T>> visited = new HashSet<Vertex<T>>();
+
+			breadth.Enqueue(startingVertex);
+			visited.Add(startingVertex);
+
+			// While queue is not empty...
+			while (breadth.TryPeek(out startingVertex))
+			{
+				// Dequeue front of queue and add to output list
+				Vertex<T> front = breadth.Dequeue();
+				outputList.Add(front);
+
+				List<Edge<T>> neighbors = GetNeighbors(front);
+				foreach (Edge<T> neighbor in neighbors)
+				{
+					// If vertex has not already been visited...
+					if (!visited.Contains(neighbor.Vertex))
+					{
+						breadth.Enqueue(neighbor.Vertex);
+						visited.Add(neighbor.Vertex);
+					}
+				}
+			}
+
+			return outputList;
 		}
 
 		/// <summary>
