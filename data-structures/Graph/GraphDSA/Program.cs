@@ -46,6 +46,14 @@ namespace GraphDSA
 			Console.WriteLine("GRAPH SIZE");
 			int graphSize = graph.Size();
 			Console.WriteLine(graphSize);
+
+			// Demo BreadthFirst traversal method
+			Console.WriteLine("BREADTH-FIRST TRAVERSAL");
+			List<Vertex<string>> traversedNodes = graph.BreadthFirst(a);
+			foreach (var vertex in traversedNodes)
+			{
+				Console.WriteLine($"{vertex.Value}");
+			}
 		}
 	}
 }
