@@ -61,10 +61,8 @@ namespace ConsoleApp_LinkedList.Classes
             {
                 return true;
             }
-            else
-            {
-                return false;
-            }
+            
+            return false;
         }
 
 
@@ -74,10 +72,10 @@ namespace ConsoleApp_LinkedList.Classes
         /// <returns>int array</returns>
         public int[] Print()
         {
+            Current = Head;
+
             // Counter that tracks number of while loop iterations 
             int count = 0;
-
-            Current = Head;
 
             // Loop through list first time to find list's length
             while (Current.Next != null)
