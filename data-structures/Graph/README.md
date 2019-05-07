@@ -27,3 +27,7 @@ My Graph class has the following methods:
 * `Size()`: Void method that returns number of vertices in graph.
 * `BreadthFirst()`: Traverses a graph breadth-first and returns a generic list of vertices.
 * `Print()`: Void method that writes all vertices in the graph to the console.
+
+## Planning
+
+![Whiteboard planning for breadth-first traversal](/assets/breadth-first-graph-traversal.JPG)
