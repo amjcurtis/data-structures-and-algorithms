@@ -74,7 +74,7 @@ namespace ConsoleApp_LinkedList.Classes
         /// <returns>int array</returns>
         public int[] Print()
         {
-            // Counter that tracks number of while loop interations 
+            // Counter that tracks number of while loop iterations 
             int count = 0;
 
             Current = Head;
