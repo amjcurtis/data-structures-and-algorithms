@@ -104,6 +104,27 @@ namespace GraphDSA.Classes
 			return _size;
 		}
 
+		/// <summary>
+		/// Prints all key:value pairs in graph to the console
+		/// </summary>
+		public void Print()
+		{
+			foreach (var vertex in AdjacencyList)
+			{
+				Console.Write($"Vertex: {vertex.Key.Value}  :  ");
+				foreach (var edge in vertex.Value)
+				{
+					Console.Write($"{edge.Vertex.Value}, {edge.Weight}  ->  ");
+				}
+				Console.WriteLine("NULL");
+			}
+		}
+
+		/// <summary>
+		/// Traverses graph breadth-first and returns list of all nodes traversed
+		/// </summary>
+		/// <param name="startingVertex">vertex</param>
+		/// <returns>list of all vertices</returns>
 		public List<Vertex<T>> BreadthFirst(Vertex<T> startingVertex)
 		{
 			// List of traversed vertices to return
@@ -138,22 +159,6 @@ namespace GraphDSA.Classes
 			}
 
 			return outputList;
-		}
-
-		/// <summary>
-		/// Prints all key:value pairs in graph to the console
-		/// </summary>
-		public void Print()
-		{
-			foreach (var vertex in AdjacencyList)
-			{
-				Console.Write($"Vertex: {vertex.Key.Value}  :  ");
-				foreach (var edge in vertex.Value)
-				{
-					Console.Write($"{edge.Vertex.Value}, {edge.Weight}  ->  ");
-				}
-				Console.WriteLine("NULL");
-			}
 		}
 	}
 }

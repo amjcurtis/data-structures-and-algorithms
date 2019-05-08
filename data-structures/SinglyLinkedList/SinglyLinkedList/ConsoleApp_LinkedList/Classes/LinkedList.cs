@@ -1,15 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace ConsoleApp_LinkedList.Classes
 {
     public class LList
     {
-        // Add Head property
-        public Node Head { get; set; }
 
-        // Add Current property
+		// Properties of singly linked list
+        public Node Head { get; set; }
         public Node Current { get; set; }
 
 
@@ -275,6 +273,26 @@ namespace ConsoleApp_LinkedList.Classes
 			}
 
 			return false;
+		}
+
+		/// <summary>
+		/// Reverses singly linked list in place: O(n) time, O(1) space
+		/// </summary>
+		/// <returns>List of </returns>
+		public void Reverse()
+		{
+			Current = Head;
+			Node follower = null;
+			Node leader = null;
+
+			while (Current != null)
+			{
+				leader = Current.Next; // Saves ref to node ahead
+				Current.Next = follower; // Saves ref to node behind
+				follower = Current; // Moves prev node ahead to current
+				Current = leader; // Moves current node ahead to next node in list
+			}
+			Head = follower;
 		}
 	}
 }

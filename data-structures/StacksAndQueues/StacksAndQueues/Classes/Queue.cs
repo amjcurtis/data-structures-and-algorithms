@@ -7,7 +7,6 @@ namespace StacksAndQueues.Classes
     {
 
         public Node<T> Front { get; set; }
-
         public Node<T> Rear { get; set; }
 
         // Queue constructor

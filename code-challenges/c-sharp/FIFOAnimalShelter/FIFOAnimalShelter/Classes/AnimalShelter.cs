@@ -1,4 +1,5 @@
-﻿
+﻿using System;
+
 namespace FIFOAnimalShelter.Classes
 {
     public class AnimalShelter<T>
