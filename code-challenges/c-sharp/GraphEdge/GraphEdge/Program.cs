@@ -12,7 +12,7 @@ namespace GraphEdge
 
 		}
 
-		public static List<string> GetEdges(Graph graph, List<string> itinerary)
+		public static List<string> GetEdges(Graph<string> graph, List<string> itinerary)
 		{
 
 		}
