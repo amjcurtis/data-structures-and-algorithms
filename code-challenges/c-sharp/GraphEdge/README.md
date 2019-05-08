@@ -23,4 +23,4 @@ My solution uses my custom graph implementation.
 
 I collaborated with [Vanessa Wei](https://github.com/Wei9023) on the whiteboard solution for this challenge.
 
-![Whiteboard planning](assets/graph_get-edges-flight-routes.JPG)
+![Whiteboard planning](/assets/graph_get-edges-flight-routes.JPG)
