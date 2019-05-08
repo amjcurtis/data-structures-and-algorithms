@@ -35,3 +35,5 @@
 15. [Challenge: Left Join Hash Tables](code-challenges/c-sharp/LeftJoinHashTables)
 
 16. [Implementation: Graph](data-structures/Graph)
+
+17. [Challenge: Flight Itinerary with a Graph](code-challenges/c-sharp/GraphEdge)
