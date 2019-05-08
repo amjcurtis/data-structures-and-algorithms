@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using ConsoleApp_LinkedList.Classes;
 
 namespace ConsoleApp_LinkedList
@@ -13,33 +14,39 @@ namespace ConsoleApp_LinkedList
 
             try
             {
-                LList myLinkedList = new LList();
+                LList sll = new LList();
                 for (int i = 0; i < 6; i++)
                 {
-                    myLinkedList.Insert(i + 1);
+					// Demo Append() method
+					sll.Append(i + 1);
                 }
 
-                myLinkedList.Append(244);
+				// Demo Insert() method
+                //myLinkedList.Insert(244);
 
-                int[] printedVals = myLinkedList.Print();
+				// Demo Print() method
+                int[] printedVals = sll.Print();
                 Console.WriteLine("printedVals: [{0}]", string.Join(", ", printedVals));
 
-                Node kthValFromEnd = myLinkedList.GetKthNodeFromEnd(1);
-                Console.WriteLine($"Value of kthValFromEnd: {kthValFromEnd.Value}");
+				// Demo GetKthNodeFromEnd()
+                Node kthValFromEnd = sll.GetKthNodeFromEnd(2);
+                Console.WriteLine($"Value of kthValFromEnd: {kthValFromEnd.Value}\n");
 
-                Console.WriteLine($"Length of printedVals: {printedVals.Length}");
+				// Reverse array of values before printing it to console (because nodes were inserted at *front* of list)
+				//Console.WriteLine("REVERSE printedVals TO SHOW NODES IN ORDER IN WHICH THEY WERE ADDED");
+				//Array.Reverse(printedVals);
 
-                printedVals = myLinkedList.Print();
-
-                // Reverse array of values before printing it to console
-                // Running this on own separate line b/c couldn't save to variable (return type conflict)
-                //Array.Reverse(printedVals);
-
-                Console.WriteLine("printedVals: [{0}]", string.Join(", ", printedVals));
-            }
-            catch (Exception e)
+				// Demo reversing of linked list
+				Console.WriteLine("REVERSE LINKED LIST");
+				sll.Reverse();
+				printedVals = sll.Print();
+				Console.WriteLine("printedVals: [{0}]", string.Join(", ", printedVals));
+				Console.WriteLine($"HEAD.Value: {sll.Head.Value}");
+				Console.WriteLine($"HEAD.Next.Value: {sll.Head.Next.Value}");
+			}
+			catch (Exception e)
             {
-                Console.WriteLine(e.Message);
+                Console.WriteLine(e);
             }
 
             Console.ReadLine();
