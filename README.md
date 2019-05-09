@@ -37,3 +37,5 @@
 16. [Implementation: Graph](data-structures/Graph)
 
 17. [Challenge: Flight Itinerary with a Graph](code-challenges/c-sharp/GraphEdge)
+
+18. [Challenge: Depth-First Graph Traversal](code-challenges/c-sharp/DepthFirstGraphTraversal)

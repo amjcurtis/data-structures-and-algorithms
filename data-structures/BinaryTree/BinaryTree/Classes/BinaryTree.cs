@@ -107,7 +107,7 @@ namespace BinaryTree.Classes
 
 			queue.Enqueue(tree.Root);
 
-			while (queue.Count != 0)
+			while (queue.Count > 0)
 			{
 				Node<int> front = queue.Dequeue();
 
@@ -142,7 +142,7 @@ namespace BinaryTree.Classes
 
 			queue.Enqueue(tree.Root);
 
-			while (queue.Count != 0)
+			while (queue.Count > 0)
 			{
 				Node<int> front = queue.Dequeue();
 

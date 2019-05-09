@@ -2,7 +2,7 @@
 
 ## Challenge
 
-> Given a business trip itinerary, and an Alaska Airlines
+> Given a business trip itinerary, and an airline
 > route map, is the trip possible with direct flights?
 > If so, how much will the total trip cost be?
 
