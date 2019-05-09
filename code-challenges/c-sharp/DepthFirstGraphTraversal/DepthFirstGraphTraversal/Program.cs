@@ -12,15 +12,16 @@ namespace DepthFirstGraphTraversal
 			Console.WriteLine("Hello World!");
 		}
 
-		public static List<Vertex<string>> DepthFirstGraph(Graph<Vertex<string>> graph)
+		public static List<Vertex<string>> DepthFirstGraph(Vertex<string> root)
 		{
 			Stack stack = new Stack();
-			Hashtable visited = new Hashtable();
-			stack.Push();
-			while (stack.Count != 0)
+			Hashtable visitedHT = new Hashtable();
+			stack.Push(root);
+			while (stack.Peek .Count != 0)
+			while (stack.Peek() != null)
 			{
 				Vertex<string> top = (Vertex<string>) stack.Pop();
-				visited.Add(top);
+				visitedHT.Add(top);
 				if (graph.GetNeighbors(top) )
 				{
 
