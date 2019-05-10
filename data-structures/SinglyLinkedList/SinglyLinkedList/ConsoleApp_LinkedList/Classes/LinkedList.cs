@@ -287,10 +287,10 @@ namespace ConsoleApp_LinkedList.Classes
 
 			while (Current != null)
 			{
-				leader = Current.Next; // Saves ref to node ahead
-				Current.Next = follower; // Saves ref to node behind
-				follower = Current; // Moves prev node ahead to current
-				Current = leader; // Moves current node ahead to next node in list
+				leader = Current.Next; // Saves a reference to node ahead
+				Current.Next = follower; // Saves a reference to node behind
+				follower = Current; // Moves prev node ahead by one node at each iteration
+				Current = leader; // Moves current one node ahead at each iteration; also ensures loop ends by making current null at end
 			}
 			Head = follower;
 		}
