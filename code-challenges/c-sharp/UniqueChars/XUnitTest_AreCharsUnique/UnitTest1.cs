@@ -32,5 +32,18 @@ namespace XUnitTest_AreCharsUnique
 			// Assert
 			Assert.False(expectedFalse);
 		}
+
+		[Fact]
+		public void CanReturnFalseWhenBothDuplicateCharAtEndOfString()
+		{
+			// Arrange
+			string falseStr = "abcdeff";
+
+			// Act
+			bool expectedFalse = Program.AreCharactersUnique(falseStr);
+
+			// Assert
+			Assert.False(expectedFalse);
+		}
 	}
 }
