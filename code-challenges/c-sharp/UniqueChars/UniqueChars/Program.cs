@@ -21,9 +21,14 @@ namespace UniqueChars
 			Console.WriteLine(AreCharactersUnique(falseStr5));
 		}
 
+		/// <summary>
+		/// Takes in a string and returns whether all characters in string are unique
+		/// </summary>
+		/// <param name="input">string</param>
+		/// <returns>boolean</returns>
 		public static bool AreCharactersUnique(string input)
 		{
-			// Split input string into char array
+			// Split input string into char array (not technically necessary but slightly faster and more memory-efficient)
 			char[] arr = input.ToCharArray();
 
 			// i can loop arr.Length-1 times; value at last index will already have been checked against all other letters
