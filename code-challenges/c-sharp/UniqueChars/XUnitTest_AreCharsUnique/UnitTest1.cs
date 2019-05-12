@@ -11,12 +11,26 @@ namespace XUnitTest_AreCharsUnique
 		{
 			// Arrange
 			string trueStr = "abcdefg";
+			string falseStr = "abcaefge";
 
 			// Act
 			bool expectedTrue = Program.AreCharactersUnique(trueStr);
 
 			// Assert
 			Assert.True(expectedTrue);
+		}
+
+		[Fact]
+		public void CanReturnFalseWhenDuplicateCharAtEndOfString()
+		{
+			// Arrange
+			string falseStr = "abcdefgd";
+
+			// Act
+			bool expectedFalse = Program.AreCharactersUnique(falseStr);
+
+			// Assert
+			Assert.False(expectedFalse);
 		}
 	}
 }
