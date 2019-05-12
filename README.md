@@ -39,3 +39,5 @@
 17. [Challenge: Flight Itinerary with a Graph](code-challenges/c-sharp/GraphEdge)
 
 18. [Challenge: Depth-First Graph Traversal](code-challenges/c-sharp/DepthFirstGraphTraversal)
+
+19. [Challenge: Determine Whether All Characters in String Are Unique](code-challenges/c-sharp/UniqueChars)
