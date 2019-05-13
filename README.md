@@ -40,4 +40,8 @@
 
 18. [Challenge: Depth-First Graph Traversal](code-challenges/c-sharp/DepthFirstGraphTraversal)
 
-19. GOAL - Challenge: Determine Whether All Characters in String Are Unique
+19. GOAL - Challenge: Determine whether all characters in a string are unique
+
+20. GOAL - Challenge: Determine whether two values in a binary tree have an ancestry relationship
+
+21. GOAL - Challenge: Remove duplicated values from a linked list
