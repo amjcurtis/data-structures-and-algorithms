@@ -256,7 +256,8 @@ namespace ConsoleApp_LinkedList.Classes
 			Node runner = Head;
 			Node walker = Head;
 
-			if (Head != null)
+			// Handle empty list
+			if (Head == null)
 			{
 				return false;
 			}
@@ -287,12 +288,12 @@ namespace ConsoleApp_LinkedList.Classes
 
 			while (Current != null)
 			{
-				leader = Current.Next; // Saves a reference to node ahead
+				leader = Current.Next;	 // Saves a reference to node ahead
 				Current.Next = follower; // Saves a reference to node behind
-				follower = Current; // Moves prev node ahead by one node at each iteration
-				Current = leader; // Moves current one node ahead at each iteration; also ensures loop ends by making current null at end
+				follower = Current;		 // Moves prev node ahead by one node at each iteration
+				Current = leader;		 // Moves current one node ahead at each iteration; also ensures loop ends by making current null at end
 			}
-			Head = follower;
+			Head = follower;			 // Reset Head to last node in list
 		}
 	}
 }
