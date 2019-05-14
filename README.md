@@ -40,7 +40,7 @@
 
 18. [Challenge: Depth-First Graph Traversal](code-challenges/c-sharp/DepthFirstGraphTraversal)
 
-19. [Challenge: Move All Instances of a Number to End of Array](code-challenges/c-sharp/MoveMoveArrayElementsToEnd)
+19. [Challenge: Move All Instances of a Number to End of Array](code-challenges/c-sharp/MoveArrayElementsToEnd)
 
 20. GOAL - Challenge: Determine whether all characters in a string are unique
 
