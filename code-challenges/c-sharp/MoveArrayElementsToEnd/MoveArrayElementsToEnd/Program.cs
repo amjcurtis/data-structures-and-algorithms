@@ -25,19 +25,14 @@ namespace MoveArrayElementsToEnd
 		/// <param name="num">number to move</param>
 		public static void MoveNumToEnd(int[] arr, int num)
 		{
-			// Iterate over array backwards
-			for (int i = arr.Length - 1; i >= 0; i--)
-				//for (int i = 0; i < arr.Length; i++)
+			for (int i = 0; i < arr.Length; i++) // Equally efficient is iterating over array backwards
 			{
 				if (arr[i] == num)
 				{
-					int temp = arr[i];
-					for (int j = i; j < arr.Length; j++)
+					int temp = arr[i]; // Save value of current index to insert later at end of array
+					for (int j = i; j < arr.Length - 1; j++) // Loop while j is less than arr.Length-1, else get IndexOutOfRange exception
 					{
-						if (j != arr.Length - 1) // If stmt to prevent IndexOutOfRange exception
-						{
-							arr[j] = arr[j + 1];
-						}
+						arr[j] = arr[j + 1];
 					}
 					arr[arr.Length - 1] = temp;
 				}
