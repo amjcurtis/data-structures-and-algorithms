@@ -47,3 +47,5 @@
 21. GOAL - Challenge: Determine whether two values in a binary tree have an ancestry relationship
 
 22. GOAL - Challenge: Remove duplicated values from a linked list
+
+23. GOAL - Challenge: Pascal’s Triangle
