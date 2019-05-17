@@ -16,6 +16,7 @@ namespace MoveArrayElementsToEnd
 				Console.Write($"{array[i]} ");
 			}
 			Console.WriteLine();
+                        // Output: 1, 7, 5, 7, 12, 0, 0, 0, 0
 		}
 
 		/// <summary>
