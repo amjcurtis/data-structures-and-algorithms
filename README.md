@@ -49,3 +49,5 @@
 22. GOAL - Challenge: Remove nodes containing a specified value from a linked list
 
 23. GOAL - Challenge: Pascal’s Triangle
+
+24. GOAL - Challenge: Escape Room Matrix 
