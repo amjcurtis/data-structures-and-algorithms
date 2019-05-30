@@ -43,11 +43,11 @@ namespace RemoveDuplValsFromLinkedList
 		}
 
 		/// <summary>
-		/// Takes in linked list and value from node(s) to remove from list
+		/// Removes all nodes with a specified value from a linked list
 		/// </summary>
-		/// <param name="list"></param>
-		/// <param name="value"></param>
-		/// <returns></returns>
+		/// <param name="list">Linked list to remove the nodes from</param>
+		/// <param name="value">Node value to remove from linked list</param>
+		/// <returns>Number of nodes with specified value that were removed from the linked list</returns>
 		public static int? RemoveDuplicateValues(LList list, int value)
 		{
 			list.Current = list.Head;
