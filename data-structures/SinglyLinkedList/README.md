@@ -102,6 +102,10 @@ The `Node` class includes public Node properties for `Value` (type `int`) and `V
 
 ## Initial Whiteboard Planning for Linked List Methods
 
+### Insertion Methods
+
 ![Insert Methods](https://github.com/amjcurtis/data-structures-and-algorithms/blob/master/assets/ll_insertions.JPG)
+
+### Get *k*th Node from End
 
 ![Get *k*th Node from End](../../assets/linked-list_kth-from-end.jpeg)
