@@ -78,6 +78,9 @@ The `LList` class includes public properties `Head` and `Current` for the nodes 
 
 The `Node` class includes public Node properties for `Value` (type `int`) and `Value` (type `Node`).
 
+## Ideas for Future Extension
+
+* Convert type to generic (`<T>`)
 
 ## Change Log
 
