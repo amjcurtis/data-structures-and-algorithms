@@ -46,7 +46,7 @@
 
 21. GOAL - Challenge: Determine whether two values in a binary tree have an ancestry relationship
 
-22. GOAL - Challenge: Remove nodes containing a specified value from a linked list
+22. [Challenge: Remove nodes containing specified value from a linked list](code-challenges/c-sharp/RemoveDuplValsFromLinkedList)
 
 23. GOAL - Challenge: Pascal’s Triangle
 
