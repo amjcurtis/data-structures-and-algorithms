@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace BinaryTree
 {
-	class Program
+	public class Program
 	{
 		static void Main(string[] args)
 		{
@@ -84,5 +84,40 @@ namespace BinaryTree
 			// Traverse tree breadth-first
 			tree.TraverseBreadthFirst(tree);
 		}
+
+		public static bool? IsAncestor(int a, int b, Node<int> root)
+		{
+			if (root == null) return null;
+
+			bool flag = false;
+
+			if (PreOrderContains(a, root) == true)
+			{
+				flag = PreOrderContains(b, )
+			}
+
+			return flag;
+		}
+
+		public static bool PreOrderContains(int x, Node<int> node)
+		{
+			if (node.Value == x)
+			{
+				return true;
+			}
+
+			if (node.LeftChild != null)
+			{
+				PreOrderContains(x, node.LeftChild);
+			}
+
+			if (node.RightChild != null)
+			{
+				PreOrderContains(x, node.RightChild);
+			}
+
+			return false;
+		}
+
 	}
 }

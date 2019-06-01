@@ -137,7 +137,7 @@ namespace BinaryTree.Classes
 			// Variable to store max value
 			int? max = int.MinValue;
 
-			// Instantiate queue
+			// Instantiate queue for breadth-first traversal
 			System.Collections.Generic.Queue<Node<int>> queue = new System.Collections.Generic.Queue<Node<int>>();
 
 			queue.Enqueue(tree.Root);
