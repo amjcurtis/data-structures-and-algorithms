@@ -10,7 +10,7 @@ namespace RemoveDuplValsFromLinkedList
 			LList llist = new LList();
 
 			// Add nodes to list
-
+			llist.Append(9);
 			llist.Append(4);
 			for (int i = 0; i < 6; i++)
 			{
@@ -43,12 +43,12 @@ namespace RemoveDuplValsFromLinkedList
 		}
 
 		/// <summary>
-		/// Takes in linked list and value from node(s) to remove from list
+		/// Takes in linked list and value of node(s) to be removed from list
 		/// </summary>
-		/// <param name="list"></param>
-		/// <param name="value"></param>
-		/// <returns></returns>
-		public static int? RemoveDuplicateValues(LList list, int value)
+		/// <param name="list">Linked list</param>
+		/// <param name="value">Value of node(s) to remove</param>
+		/// <returns>Count of nodes removed</returns>
+		public static int RemoveDuplicateValues(LList list, int value)
 		{
 			list.Current = list.Head;
 
@@ -57,26 +57,27 @@ namespace RemoveDuplValsFromLinkedList
 			//Node previous = list.Head;
 			Node previous = null;
 
+			// Handle case where Head's value is value of node(s) to remove
+			if (list.Current != null && list.Head.Value == value) // Put outside while loop to avoid running this check at every iteration of loop
+			{
+				list.Head = list.Head.Next;
+				previous = list.Current;
+				list.Current = list.Current.Next;
+				count++;
+			}
+
 			while (list.Current != null)
 			{
 				if (list.Current.Value == value)
 				{
 					previous.Next = list.Current.Next;
-					
-					//TODO Ensure node to remove gets collected by garbage collecter
-
-
 					count++;
 				}
 				previous = list.Current; // Move previous ahead one node at each iteration
 				list.Current = list.Current.Next; // Move Current ahead one node at each iteration
 			}
 
-			if (count > 1)
-			{
-				return count;
-			}
-			return null;
+			return count;
 		}
 	}
 }
