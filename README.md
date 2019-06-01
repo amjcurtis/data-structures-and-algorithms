@@ -46,6 +46,8 @@
 
 21. GOAL - Challenge: Determine whether two values in a binary tree have an ancestry relationship
 
-22. GOAL - Challenge: Remove duplicated values from a linked list
+22. GOAL - Challenge: Remove nodes containing a specified value from a linked list
 
 23. GOAL - Challenge: Pascal’s Triangle
+
+24. GOAL - Challenge: Escape Room Matrix 
