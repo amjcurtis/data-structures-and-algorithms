@@ -46,7 +46,7 @@ namespace TreeAncestry
 			// Empty tree passed as argument
 			BinaryTree<int> emptyTree = new BinaryTree<int>();
 			bool? nullTree = IsAncestor(1, 77, emptyTree.Root);
-			if (!nullTree.HasValue) Console.WriteLine("NULL"); 
+			Console.WriteLine(nullTree.HasValue ? nullTree.ToString() : "NULL");
 		}
 
 		/// <summary>
