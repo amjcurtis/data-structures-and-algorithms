@@ -20,7 +20,6 @@ namespace BinaryTree
 
 			// Test PreOrder() method
 			List<int> outputOfPreOrder = tree.PreOrder(intNode);
-
 			foreach (int num in outputOfPreOrder)
 			{
 				Console.Write("{0} ", num);
@@ -84,8 +83,22 @@ namespace BinaryTree
 			tree.Root.LeftChild.LeftChild.RightChild = node9;
 			tree.Root.LeftChild.RightChild.LeftChild = node10;
 
-			// Traverse tree breadth-first
-			tree.TraverseBreadthFirst(tree);
+			// Demo breadth-first tree traversal
+			List<int> outputOfBreadthFirst = tree.TraverseBreadthFirst(tree.Root);
+			foreach (var num in outputOfBreadthFirst)
+			{
+				Console.Write("{0} ", num);
+			}
+			Console.WriteLine("\n");
+			tree.output.Clear();
+
+			// Demo FindMaxValue method
+			int? max = tree.FindMaxValue(tree.Root);
+			Console.WriteLine($"Max value is: {(max.HasValue ? max.ToString() : "NULL")}");
+
+			Node<int> nullNode = null;
+			int ? nullMax = tree.FindMaxValue(nullNode);
+			Console.WriteLine($"Max value is: {(nullMax.HasValue ? nullMax.ToString() : "NULL")}");
 		}
 	}
 }
