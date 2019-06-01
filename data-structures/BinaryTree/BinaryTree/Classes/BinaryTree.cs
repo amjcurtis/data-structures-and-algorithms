@@ -1,19 +1,15 @@
-﻿using System;
-using StacksAndQueues.Classes;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace BinaryTree.Classes
 {
 	public class BinaryTree<T>
 	{
-
 		public Node<T> Root { get; set; }
 
-		// Instantiate new public collection
+		// Instantiate new public collection outside traversal methods so new list isn't instantiated at every recursive call
+		// Note: need to clear output list after each traversal
 		public List<T> output = new List<T>();
 
-		// BT constructor
 		public BinaryTree(Node<T> node)
 		{
 			Root = node;
@@ -95,23 +91,23 @@ namespace BinaryTree.Classes
 		/// </summary>
 		/// <param name="tree">binary tree</param>
 		/// <returns>boolean indicated whether tree has been traversed successfully to end</returns>
-		public bool TraverseBreadthFirst(BinaryTree<int> tree)
+		public List<T> TraverseBreadthFirst(Node<T> root)
 		{
-			if (tree.Root == null)
+			if (root == null)
 			{
-				return false;
+				return null;
 			}
 
 			// Instantiate queue
-			System.Collections.Generic.Queue<Node<int>> queue = new System.Collections.Generic.Queue<Node<int>>();
+			Queue<Node<T>> queue = new Queue<Node<T>>();
 
-			queue.Enqueue(tree.Root);
+			queue.Enqueue(root);
 
 			while (queue.Count > 0)
 			{
-				Node<int> front = queue.Dequeue();
+				Node<T> front = queue.Dequeue();
 
-				Console.WriteLine(front.Value);
+				output.Add(front.Value);
 
 				if (front.LeftChild != null)
 				{
@@ -123,13 +119,14 @@ namespace BinaryTree.Classes
 					queue.Enqueue(front.RightChild);
 				}
 			}
-			return true;
+
+			return output;
 		}
 
-		public int? FindMaxValue(BinaryTree<int> tree)
+		public int? FindMaxValue(Node<int> root)
 		{
 			// Handles edge case where tree is empty
-			if (tree.Root == null)
+			if (root == null)
 			{
 				return null;
 			}
@@ -137,10 +134,10 @@ namespace BinaryTree.Classes
 			// Variable to store max value
 			int? max = int.MinValue;
 
-			// Instantiate queue
-			System.Collections.Generic.Queue<Node<int>> queue = new System.Collections.Generic.Queue<Node<int>>();
+			// Instantiate queue for breadth-first traversal
+			Queue<Node<int>> queue = new Queue<Node<int>>();
 
-			queue.Enqueue(tree.Root);
+			queue.Enqueue(root);
 
 			while (queue.Count > 0)
 			{

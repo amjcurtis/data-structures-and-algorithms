@@ -163,27 +163,27 @@ namespace XUnit_BinaryTree
 			tree.Root.RightChild.RightChild = node7;
 
 			// ACT
-			bool treeTraversed = tree.TraverseBreadthFirst(tree);
+			List<int> breadthFirstNodes = tree.TraverseBreadthFirst(tree.Root);
 
 			// ASSERT
-			Assert.True(treeTraversed);
+			Assert.Equal(17, breadthFirstNodes[6]);
 		}
 
 		/// <summary>
 		/// Tests whether can return false to indicate empty tree won't be traversed
 		/// </summary>
 		[Fact]
-		public void CannotTraverseEmptyTree()
+		public void CannotTraverseEmptyTreeBreadthFirst()
 		{
 			// ARRANGE
 			// Instantiate empty tree
 			BinaryTree<int> tree = new BinaryTree<int>();
 
 			// ACT
-			bool treeTraversed = tree.TraverseBreadthFirst(tree);
+			List<int> breadthFirstNodes = tree.TraverseBreadthFirst(tree.Root);
 
 			// ASSERT
-			Assert.False(treeTraversed);
+			Assert.Null(breadthFirstNodes);
 		}
 
 		/// <summary>
@@ -213,7 +213,7 @@ namespace XUnit_BinaryTree
 			tree.Root.RightChild.RightChild = node7;
 
 			// ACT
-			int? maxValue = tree.FindMaxValue(tree);
+			int? maxValue = tree.FindMaxValue(tree.Root);
 
 			// ASSERT
 			Assert.Equal(157, maxValue);
@@ -227,7 +227,7 @@ namespace XUnit_BinaryTree
 			BinaryTree<int> tree = new BinaryTree<int>();
 
 			// ACT
-			int? maxValue = tree.FindMaxValue(tree);
+			int? maxValue = tree.FindMaxValue(tree.Root);
 
 			// ASSERT
 			Assert.Null(maxValue);
@@ -245,7 +245,7 @@ namespace XUnit_BinaryTree
 			tree.Root = node1;
 
 			// ACT
-			int? maxValue = tree.FindMaxValue(tree);
+			int? maxValue = tree.FindMaxValue(tree.Root);
 
 			// ASSERT
 			Assert.Equal(0, maxValue);
@@ -255,7 +255,7 @@ namespace XUnit_BinaryTree
 		/// Tests edge case where tree contains only nodes with negative integer values
 		/// </summary>
 		[Fact]
-		public void CanReturnMaxValueFromTreeWithAllNegativeValues()
+		public void CanReturnMaxValueFromTreeWithOnlyNegativeValues()
 		{
 			// ARRANGE
 			// Instantiate tree and populate with nodes
@@ -278,7 +278,7 @@ namespace XUnit_BinaryTree
 			tree.Root.RightChild.RightChild = node7;
 
 			// ACT
-			int? maxValue = tree.FindMaxValue(tree);
+			int? maxValue = tree.FindMaxValue(tree.Root);
 
 			// ASSERT
 			Assert.Equal(-7, maxValue);
