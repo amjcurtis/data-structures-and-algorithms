@@ -28,9 +28,15 @@ namespace ConsoleApp_LinkedList
                 int[] printedVals = sll.Print();
                 Console.WriteLine("printedVals: [{0}]", string.Join(", ", printedVals));
 
-				// Demo GetKthNodeFromEnd()
+				// Demo GetKthNodeFromEnd() method
                 Node kthValFromEnd = sll.GetKthNodeFromEnd(2);
                 Console.WriteLine($"Value of kthValFromEnd: {kthValFromEnd.Value}\n");
+
+				// Demo IsCircular method
+				Node end = sll.GetKthNodeFromEnd(1); // Get last node in list
+				end.Next = sll.Head; // Make list circular
+				Console.WriteLine(sll.IsCircular());
+				end.Next = null; // Reset end.Next so list isn't circular anymore
 
 				// Reverse array of values before printing it to console (because nodes were inserted at *front* of list)
 				//Console.WriteLine("REVERSE printedVals TO SHOW NODES IN ORDER IN WHICH THEY WERE ADDED");

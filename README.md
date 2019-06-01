@@ -40,4 +40,14 @@
 
 18. [Challenge: Depth-First Graph Traversal](code-challenges/c-sharp/DepthFirstGraphTraversal)
 
-19. [Challenge: Determine Whether All Characters in String Are Unique](code-challenges/c-sharp/UniqueChars)
+19. [Challenge: Move All Instances of a Number to End of Array](code-challenges/c-sharp/MoveArrayElementsToEnd)
+
+20. [Challenge: Determine whether all characters in a string are unique](code-challenges/c-sharp/UniqueChars)
+
+21. GOAL - Challenge: Determine whether two values in a binary tree have an ancestry relationship
+
+22. GOAL - Challenge: Remove nodes containing a specified value from a linked list
+
+23. GOAL - Challenge: Pascal’s Triangle
+
+24. GOAL - Challenge: Escape Room Matrix 
