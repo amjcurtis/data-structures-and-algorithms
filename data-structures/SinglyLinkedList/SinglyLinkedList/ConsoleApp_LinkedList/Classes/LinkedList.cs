@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace ConsoleApp_LinkedList.Classes
 {
@@ -9,7 +8,6 @@ namespace ConsoleApp_LinkedList.Classes
 		// Properties of singly linked list
         public Node Head { get; set; }
         public Node Current { get; set; }
-
 
         /// <summary>
         /// Adds new node with input value to beginning of linked list
@@ -72,10 +70,15 @@ namespace ConsoleApp_LinkedList.Classes
         {
             Current = Head;
 
+			if (Head == null)
+			{
+				return null;
+			}
+
             // Counter that tracks number of while loop iterations 
             int count = 0;
 
-            // Loop through list first time to find list's length
+            // Traverse list first time to find list's length
             while (Current.Next != null)
             {
                 // Can get/save node value here somehow to avoid having to loop through list a second time?
@@ -91,7 +94,7 @@ namespace ConsoleApp_LinkedList.Classes
             // Length is number of nodes whose Next isn't null + last node
             int[] arrayOfAllIntValues = new int[count + 1];
             
-            // Reset Current before next loop through link
+            // Reset Current before second traversal of list
             Current = Head;
 
             // Populates array with values from all but last node (i.e. nodes whose Next wasn't null)
@@ -203,20 +206,23 @@ namespace ConsoleApp_LinkedList.Classes
         {
             Current = Head;
 
+			// Handle empty list
             if (Head == null)
             {
-                Console.WriteLine("From GetKthNodeFromEnd(): There are no nodes in the list!");
+                Console.WriteLine("There are no nodes in the list!");
                 return null;
             }
+			// Handle invalid input for k
             if (k <= 0)
             {
-                Console.WriteLine("From GetKthNodeFromEnd(): Value of k must be a positive number greater than zero!");
+                Console.WriteLine("Value of k must be a positive number greater than zero!");
                 return null;
             }
 
             // Counter to increment for tracking length of list
             int count = 1;
 
+			// First loop through list to get length
             while (Current.Next != null)
             {
                 count++;
