@@ -50,7 +50,7 @@ namespace TreeAncestry
 		}
 
 		/// <summary>
-		/// Checks whether node with value a is ancestor of node with value b, treating both a and b as root nodes of their own trees in successive calls of recursive preorder method
+		/// Checks whether node with value a is ancestor of node with value b
 		/// </summary>
 		/// <param name="a">Value of ancestor node to check for</param>
 		/// <param name="b">Value of descendant node to check for</param>

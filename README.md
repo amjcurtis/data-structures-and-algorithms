@@ -44,7 +44,7 @@
 
 20. [Challenge: Determine whether all characters in a string are unique](code-challenges/c-sharp/UniqueChars)
 
-21. GOAL - Challenge: Determine whether two values in a binary tree have an ancestry relationship
+21. [Challenge: Determine whether two values in a binary tree have an ancestry relationship](code-challenges/c-sharp/TreeAncestry)
 
 22. [Challenge: Remove nodes containing specified value from a linked list](code-challenges/c-sharp/RemoveDuplValsFromLinkedList)
 
