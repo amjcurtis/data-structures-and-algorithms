@@ -4,7 +4,7 @@
 
 In this challenge I wrote a C# console app containing a method called `IsAncestor()` that determines whether a node containing a specified value is an "ancestor" of a node containing another specified value. An "ancestor" node is defined as any node present in the path from a given node to the root node (including the root node). 
 
-My approach involves using a recursive preorder traversal method (defined internally within the `IsAncestor()` method) to first check whether the tree contains the specified ancestor node and then, if so, to check whether the specified descendant value is contained downstream from the ancestor node. The same preorder method (`PreOrderContains()`) is used for both checks in succession, taking different arguments each time. This effectively treats the ancestor node as the root of its own tree when the preorder method is called on it.
+My approach involves using a recursive preorder traversal method (defined internally within the `IsAncestor()` method) to first check whether the tree contains the specified ancestor node and then, if so, to check whether the specified descendant value is contained downstream from the ancestor node. The same preorder method (`PreOrderContains()`) is used for both checks in succession, taking different arguments each time. This effectively treats the ancestor node as the root of its own tree and checks to see whether the descendant is contained in that tree; if so, then an ancestor-descendant relationship has been established.
 
 My solution uses my own custom binary tree implementation.
 
