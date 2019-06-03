@@ -51,3 +51,5 @@
 23. GOAL - Challenge: Pascal’s Triangle
 
 24. GOAL - Challenge: Escape Room Matrix 
+
+25. GOAL - Challenge: Battleships
