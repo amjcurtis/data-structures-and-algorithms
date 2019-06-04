@@ -20,7 +20,7 @@
 
 8. [Implementation: Binary Tree and Binary Search Tree](data-structures/BinaryTree)
 
-9. [Challenge: FizzBuzz Tree](code-challenges/c-sharp/FizzBuzzTree)
+9. GOAL - [Challenge: FizzBuzz Tree](code-challenges/c-sharp/FizzBuzzTree)
 
 10. [Challenge: Insertion Sort](code-challenges/c-sharp/Sorts/InsertionSort)
 
@@ -36,7 +36,7 @@
 
 16. [Implementation: Graph](data-structures/Graph)
 
-17. [Challenge: Flight Itinerary with a Graph](code-challenges/c-sharp/GraphEdge)
+17. GOAL - [Challenge: Flight Itinerary with a Graph](code-challenges/c-sharp/GraphEdge)
 
 18. [Challenge: Depth-First Graph Traversal](code-challenges/c-sharp/DepthFirstGraphTraversal)
 
