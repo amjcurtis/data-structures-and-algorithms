@@ -6,45 +6,51 @@ namespace InsertionSort
 	{
 		static void Main(string[] args)
 		{
-			int[] array = new int[] { 4, 3, 1, 8, 5, 7, 2 };
+			int[] array = new int[] { 4, 3, 1, 9, 7, 5, 8, 6, 2 };
 
-			int[] sortedArray = InsertionSort(array);
-
-			for (int i = 0; i < sortedArray.Length; i++)
+			// Print array before sorting
+			for (int i = 0; i < array.Length; i++)
 			{
-				Console.Write("{0} ", sortedArray[i]);
+				Console.Write("{0} ", array[i]);
 			}
+			Console.WriteLine();
 
-			Console.ReadLine();
+			// Sort array
+			InsertionSort(array);
+
+			// Print array after sorting
+			for (int i = 0; i < array.Length; i++)
+			{
+				Console.Write("{0} ", array[i]);
+			}
+			Console.WriteLine();
 		}
 
 		/// <summary>
 		/// Sorts an array of integers using insertion sort
 		/// </summary>
-		/// <param name="inputArray">array of integers</param>
+		/// <param name="arr">array of integers</param>
 		/// <returns>sorted integer array</returns>
-		public static int[] InsertionSort(int[] inputArray)
+		public static void InsertionSort(int[] arr)
 		{
-			if (inputArray.Length == 0)
+			if (arr.Length == 0)
 			{
-				return inputArray;
+				return;
 			}
 
-			for (int i = 1; i < inputArray.Length; i++)
+			for (int i = 1; i < arr.Length; i++)
 			{
 				int j = i - 1;
-				int temp = inputArray[i];
+				int temp = arr[i];
 
-				while (j >= 0 && temp < inputArray[j])
+				while (j >= 0 && temp < arr[j])
 				{
-					inputArray[j + 1] = inputArray[j];
+					arr[j + 1] = arr[j];
 					j = j - 1;
 				}
 
-				inputArray[j + 1] = temp;
+				arr[j + 1] = temp;
 			}
-
-			return inputArray;
 		}
 	}
 }
