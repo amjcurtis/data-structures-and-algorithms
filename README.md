@@ -24,7 +24,7 @@
 
 10. [Challenge: Insertion Sort](code-challenges/c-sharp/Sorts/InsertionSort)
 
-11. [Challenge: Merge Sort](code-challenges/c-sharp/Sorts/MergeSort)
+11. GOAL - [Challenge: Merge Sort](code-challenges/c-sharp/Sorts/MergeSort)
 
 12. [Challenge: Quick Sort](code-challenges/c-sharp/Sorts/QuickSort)
 
