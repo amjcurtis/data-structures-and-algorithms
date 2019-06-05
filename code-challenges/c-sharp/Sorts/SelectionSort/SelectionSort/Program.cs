@@ -26,13 +26,18 @@ namespace SelectionSort
 			Console.WriteLine();
 		}
 
+		/// <summary>
+		/// Sorts array in place using selection sort with O(n) time complexity
+		/// </summary>
+		/// <param name="arr">input array</param>
 		public static void SelectionSort(int[] arr)
 		{
 			int min, temp;
 
 			for (int i = 0; i < arr.Length - 1; i++)
 			{
-				min = i; // Points to index of current lowest num
+				min = i; // min points to index of current lowest num
+
 				for (int j = i + 1; j < arr.Length; j++)
 				{
 					if (arr[j] < arr[min])

@@ -6,22 +6,22 @@ namespace InsertionSort
 	{
 		static void Main(string[] args)
 		{
-			int[] array = new int[] { 4, 3, 1, 9, 7, 5, 8, 6, 2 };
+			int[] nums = new int[] { 4, 3, 1, 9, 7, 5, 8, 6, 2 };
 
 			// Print array before sorting
-			for (int i = 0; i < array.Length; i++)
+			for (int i = 0; i < nums.Length; i++)
 			{
-				Console.Write("{0} ", array[i]);
+				Console.Write("{0} ", nums[i]);
 			}
 			Console.WriteLine();
 
 			// Sort array
-			InsertionSort(array);
+			InsertionSort(nums);
 
 			// Print array after sorting
-			for (int i = 0; i < array.Length; i++)
+			for (int i = 0; i < nums.Length; i++)
 			{
-				Console.Write("{0} ", array[i]);
+				Console.Write("{0} ", nums[i]);
 			}
 			Console.WriteLine();
 		}
@@ -33,11 +33,6 @@ namespace InsertionSort
 		/// <returns>sorted integer array</returns>
 		public static void InsertionSort(int[] arr)
 		{
-			if (arr.Length == 0)
-			{
-				return;
-			}
-
 			for (int i = 1; i < arr.Length; i++)
 			{
 				int j = i - 1;
