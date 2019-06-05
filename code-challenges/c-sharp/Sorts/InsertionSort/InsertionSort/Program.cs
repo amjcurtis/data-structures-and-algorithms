@@ -33,12 +33,14 @@ namespace InsertionSort
 		/// <returns>sorted integer array</returns>
 		public static void InsertionSort(int[] arr)
 		{
+			int j, temp;
+
 			for (int i = 1; i < arr.Length; i++)
 			{
-				int j = i - 1;
-				int temp = arr[i];
+				j = i - 1;
+				temp = arr[i];
 
-				while (j >= 0 && temp < arr[j])
+				while (j > -1 && temp < arr[j])
 				{
 					arr[j + 1] = arr[j];
 					j = j - 1;

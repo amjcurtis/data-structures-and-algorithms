@@ -35,13 +35,13 @@ namespace XUnit_InsertionSort
 		public void CanSortBackwardSortedArray()
 		{
 			// Arrange
-			int[] reversedArray = new int[] { 8, 7, 5, 4, 3, 2, 1 };
+			int[] backwardSortedArray = new int[] { 8, 7, 5, 4, 3, 2, 1 };
 
 			// Act
-			Program.InsertionSort(reversedArray);
+			Program.InsertionSort(backwardSortedArray);
 
 			// Assert
-			Assert.Equal(8, reversedArray[6]);
+			Assert.Equal(8, backwardSortedArray[6]);
 		}
 
 		[Fact]
@@ -68,6 +68,19 @@ namespace XUnit_InsertionSort
 
 			// Assert
 			Assert.Equal(77, singleElementArray[0]);
+		}
+
+		[Fact]
+		public void CanSortArrayWithDuplicateValues()
+		{
+			// Arrange
+			int[] array = new int[] { 4, 3, 1, 7, 8, 5, 7, 2 };
+
+			// Act
+			Program.InsertionSort(array);
+
+			// Assert
+			Assert.Equal(7, array[array.Length - 3]);
 		}
 	}
 }
