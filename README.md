@@ -20,11 +20,11 @@
 
 8. [Implementation: Binary Tree and Binary Search Tree](data-structures/BinaryTree)
 
-9. [Challenge: FizzBuzz Tree](code-challenges/c-sharp/FizzBuzzTree)
+9. GOAL - [Challenge: FizzBuzz Tree](code-challenges/c-sharp/FizzBuzzTree)
 
 10. [Challenge: Insertion Sort](code-challenges/c-sharp/Sorts/InsertionSort)
 
-11. [Challenge: Merge Sort](code-challenges/c-sharp/Sorts/MergeSort)
+11. GOAL - [Challenge: Merge Sort](code-challenges/c-sharp/Sorts/MergeSort)
 
 12. [Challenge: Quick Sort](code-challenges/c-sharp/Sorts/QuickSort)
 
@@ -36,7 +36,7 @@
 
 16. [Implementation: Graph](data-structures/Graph)
 
-17. [Challenge: Flight Itinerary with a Graph](code-challenges/c-sharp/GraphEdge)
+17. GOAL - [Challenge: Flight Itinerary with a Graph](code-challenges/c-sharp/GraphEdge)
 
 18. [Challenge: Depth-First Graph Traversal](code-challenges/c-sharp/DepthFirstGraphTraversal)
 
@@ -51,3 +51,5 @@
 23. GOAL - Challenge: Pascal’s Triangle
 
 24. GOAL - Challenge: Escape Room Matrix 
+
+25. GOAL - Challenge: Battleships
