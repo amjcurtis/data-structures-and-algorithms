@@ -27,7 +27,7 @@ ALGORITHM Mergesort(arr)
         DECLARE c <-- arr[mid...n]
         Mergesort(b)
         Mergesort(c)
-        Merge(B, c, arr)
+        Merge(b, c, arr)
 
 ALGORITHM Merge(b, c, a)
     DECLARE i <-- 0
