@@ -6,15 +6,24 @@ namespace MergeSort
 	{
 		static void Main(string[] args)
 		{
-			int[] arrayToSort = new int[] { 4,7,2,3,6,8,1,9,5 };
-			MergeSort(arrayToSort);
+			int[] nums = new int[] { 4, 7, 3, 6, 2, 8, 1, 9, 5 };
 
-			for (int i = 0; i < arrayToSort.Length; i++)
+			// Print array before sorting
+			for (int i = 0; i < nums.Length; i++)
 			{
-				Console.Write("[{0}] ", arrayToSort[i]);
+				Console.Write("{0} ", nums[i]);
 			}
+			Console.WriteLine();
 
-			Console.ReadLine();
+			// Sort array
+			MergeSort(nums);
+
+			// Print array after sorting
+			for (int i = 0; i < nums.Length; i++)
+			{
+				Console.Write("{0} ", nums[i]);
+			}
+			Console.WriteLine();
 		}
 
 		/// <summary>
