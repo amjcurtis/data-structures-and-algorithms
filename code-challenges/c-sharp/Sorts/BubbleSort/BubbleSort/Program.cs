@@ -26,6 +26,10 @@ namespace BubbleSort
 			Console.WriteLine();
 		}
 
+		/// <summary>
+		/// Sorts array in place using bubble sort with O(n^2) time complexity
+		/// </summary>
+		/// <param name="arr">array to sort</param>
 		public static void BubbleSort(int[] arr)
 		{
 			int temp;

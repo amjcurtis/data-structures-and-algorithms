@@ -29,8 +29,7 @@ namespace InsertionSort
 		/// <summary>
 		/// Sorts array in place using insertion sort with O(n^2) time complexity
 		/// </summary>
-		/// <param name="arr">array of integers</param>
-		/// <returns>sorted integer array</returns>
+		/// <param name="arr">array to sort</param>
 		public static void InsertionSort(int[] arr)
 		{
 			int j, temp;

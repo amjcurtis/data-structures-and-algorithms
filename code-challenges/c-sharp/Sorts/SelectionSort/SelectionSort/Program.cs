@@ -29,7 +29,7 @@ namespace SelectionSort
 		/// <summary>
 		/// Sorts array in place using selection sort with O(n^2) time complexity
 		/// </summary>
-		/// <param name="arr">input array</param>
+		/// <param name="arr">array to sort</param>
 		public static void SelectionSort(int[] arr)
 		{
 			int min, temp;
