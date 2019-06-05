@@ -53,5 +53,31 @@ namespace XUnitTest_AreCharsUnique
 			// Assert
 			Assert.False(expectedFalse);
 		}
+
+		[Fact]
+		public void CanReturnTrueForStringOfOnlyOneChar()
+		{
+			// Arrange
+			string trueStrWithOneChar = "a";
+
+			// Act
+			bool expectedTrue = Program.AreCharactersUnique(trueStrWithOneChar);
+
+			// Assert
+			Assert.True(expectedTrue);
+		}
+
+		[Fact]
+		public void CanReturnTrueForEmptyString()
+		{
+			// Arrange
+			string emptyString = "";
+
+			// Act
+			bool expectedTrue = Program.AreCharactersUnique(emptyString);
+
+			// Assert
+			Assert.True(expectedTrue);
+		}
 	}
 }

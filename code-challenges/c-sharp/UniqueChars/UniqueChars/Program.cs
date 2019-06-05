@@ -6,13 +6,13 @@ namespace UniqueChars
 	{
 		static void Main(string[] args)
 		{
-			string trueStr = "abcdefg";
-			string falseStr = "abcaefge";
-			string falseStr2 = "abcdefge";
-			string falseStr3 = "abcdefa";
-			string falseStr4 = "abcdeff";
-			string falseStr5 = "aabcdef";
-			
+			string trueStr = "abcdefg";		// Happy path
+			string falseStr = "abcaefge";	// String with even number of chars and duplicates in random places
+			string falseStr2 = "abcdefge";  // String with odd number of chars and duplicates in random places
+			string falseStr3 = "abcdefa";	// First and last letters are duplicates
+			string falseStr4 = "abcdeff";	// Last two letters are duplicates
+			string falseStr5 = "aabcdef";   // First two letters are duplicates
+
 			Console.WriteLine(AreCharactersUnique(trueStr));
 			Console.WriteLine(AreCharactersUnique(falseStr));
 			Console.WriteLine(AreCharactersUnique(falseStr2));
