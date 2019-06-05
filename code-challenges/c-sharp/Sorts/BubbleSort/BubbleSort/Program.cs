@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace InsertionSort
+namespace BubbleSort
 {
 	public class Program
 	{
@@ -16,7 +16,7 @@ namespace InsertionSort
 			Console.WriteLine();
 
 			// Sort array
-			InsertionSort(nums);
+			BubbleSort(nums);
 
 			// Print array after sorting
 			for (int i = 0; i < nums.Length; i++)
@@ -27,25 +27,24 @@ namespace InsertionSort
 		}
 
 		/// <summary>
-		/// Sorts array in place using insertion sort with O(n^2) time complexity
+		/// Sorts array in place using bubble sort with O(n^2) time complexity
 		/// </summary>
 		/// <param name="arr">array to sort</param>
-		public static void InsertionSort(int[] arr)
+		public static void BubbleSort(int[] arr)
 		{
-			int j, temp;
+			int temp;
 
-			for (int i = 1; i < arr.Length; i++)
+			for (int i = 0; i < arr.Length - 1; i++)
 			{
-				j = i - 1;
-				temp = arr[i];
-
-				while (j > -1 && temp < arr[j])
+				for (int j = 1; j < arr.Length; j++)
 				{
-					arr[j + 1] = arr[j];
-					j = j - 1;
+					if (arr[j] < arr[j - 1])
+					{
+						temp = arr[j];
+						arr[j] = arr[j - 1];
+						arr[j - 1] = temp;
+					}
 				}
-
-				arr[j + 1] = temp;
 			}
 		}
 	}

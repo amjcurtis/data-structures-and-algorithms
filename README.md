@@ -48,8 +48,12 @@
 
 22. [Challenge: Remove nodes containing specified value from a linked list](code-challenges/c-sharp/RemoveDuplValsFromLinkedList)
 
-23. GOAL - Challenge: Pascal’s Triangle
+23. [Challenge: Selection Sort](code-challenges/c-sharp/Sorts/SelectionSort)
 
-24. GOAL - Challenge: Escape Room Matrix 
+24. [Challenge: Bubble Sort](code-challenges/c-sharp/Sorts/BubbleSort)
 
-25. GOAL - Challenge: Battleships
+25. GOAL - Challenge: Pascal’s Triangle
+
+26. GOAL - Challenge: Escape Room Matrix 
+
+27. GOAL - Challenge: Battleships
