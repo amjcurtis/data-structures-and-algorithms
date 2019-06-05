@@ -27,7 +27,7 @@ namespace InsertionSort
 		}
 
 		/// <summary>
-		/// Sorts an array of integers using insertion sort
+		/// Sorts array in place using insertion sort with O(n^2) time complexity
 		/// </summary>
 		/// <param name="arr">array of integers</param>
 		/// <returns>sorted integer array</returns>

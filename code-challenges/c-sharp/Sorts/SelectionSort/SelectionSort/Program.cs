@@ -27,7 +27,7 @@ namespace SelectionSort
 		}
 
 		/// <summary>
-		/// Sorts array in place using selection sort with O(n) time complexity
+		/// Sorts array in place using selection sort with O(n^2) time complexity
 		/// </summary>
 		/// <param name="arr">input array</param>
 		public static void SelectionSort(int[] arr)
