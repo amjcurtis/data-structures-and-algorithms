@@ -6,87 +6,93 @@ namespace MergeSort
 	{
 		static void Main(string[] args)
 		{
-			int[] arrayToSort = new int[] { 4,7,2,3,6,8,1,9,5 };
-			MergeSort(arrayToSort);
+			int[] nums = new int[] { 4, 7, 5, 3, 9, 6, 2, 8, 1 };
 
-			for (int i = 0; i < arrayToSort.Length; i++)
+			// Print array before sorting
+			for (int i = 0; i < nums.Length; i++)
 			{
-				Console.Write("[{0}] ", arrayToSort[i]);
+				Console.Write("{0} ", nums[i]);
 			}
+			Console.WriteLine();
 
-			Console.ReadLine();
+			// Sort array
+			int[] sortedNums = MergeSort(nums);
+
+			// Print array after sorting
+			for (int i = 0; i < sortedNums.Length; i++)
+			{
+				Console.Write("{0} ", sortedNums[i]);
+			}
+			Console.WriteLine();
 		}
 
 		/// <summary>
-		/// Partitions the input array recursively and calls Merge function on subarrays
+		/// Sorts array using recursive merge sort with O(n log n) runtime and O(n) space complexity
 		/// </summary>
-		/// <param name="arr">integer array</param>
-		public static void MergeSort(int[] arr)
+		/// <param name="arr">array to sort</param>
+		/// <returns>same array, sorted</returns>
+		public static int[] MergeSort(int[] arr)
 		{
-			int arrLength = arr.Length;
+			if (arr.Length <= 1) return arr; // Base case for recursion
 
-			// Only runs if input array has more than one element, since array of only one element is considered already sorted
-			if (arrLength > 1)
-			{
-				// Get middle index of input array
-				int mid = Convert.ToInt32(Math.Floor(Convert.ToDouble(arrLength / 2)));
+			// Capture array length and middle index
+			int len = arr.Length;
+			int mid = len / 2;
 
-				// Set lengths of left and right subarrays
-				int leftSubArrayLength = mid;
-				int rightSubArrayLength = arrLength - mid;
+			// Lengths for subarrays
+			int leftArrLen = mid;
+			int rightArrLen = len - mid;
 
-				// Declare new arrays with lengths of left and right subarrays
-				int[] leftSubArray = new int[leftSubArrayLength];
-				int[] rightSubArray = new int[rightSubArrayLength];
+			// Instantiate new subarrays
+			int[] leftArr = new int[leftArrLen];
+			int[] rightArr = new int[rightArrLen];
 
-				// Copy the two halves of input array into subarrays
-				Array.Copy(arr, 0, leftSubArray, 0, leftSubArrayLength);
-				Array.Copy(arr, 0, rightSubArray, 0, rightSubArrayLength);
+			// Copy contents in specified ranges from parent array to subarrays
+			Array.Copy(arr, 0, leftArr, 0, leftArrLen);
+			Array.Copy(arr, mid, rightArr, 0, rightArrLen);
 
-				// Call MergeSort recursively on subarrays
-				MergeSort(leftSubArray);
-				MergeSort(rightSubArray);
-
-				// Call Merge helper method on subarrays
-				Merge(leftSubArray, rightSubArray, arr);
-			}
+			// Merge sorted subarrays
+			return Merge(MergeSort(leftArr), MergeSort(rightArr), arr);
 		}
 
 		/// <summary>
-		/// Performs comparison logic on subarrays and merges the sorted values
+		/// Takes in two subarrays and compares and sorts their values into a third array
 		/// </summary>
-		/// <param name="leftSubArray">first half of partitioned array</param>
-		/// <param name="rightSubArray">second half of partitioned array</param>
-		/// <param name="arr">integer array to return after merging subarrays</param>
-		/// <returns>integer array</returns>
-		public static int[] Merge(int[] leftSubArray, int[] rightSubArray, int[] arr)
+		/// <param name="leftArr">left subarray</param>
+		/// <param name="rightArr">right subarray</param>
+		/// <param name="arr">sorted array of merged values</param>
+		/// <returns>sorted array</returns>
+		public static int[] Merge(int[] leftArr, int[] rightArr, int[] arr)
 		{
-			int i = 0;
-			int j = 0;
-			int k = 0;
+			// Set starting indices for looping over subarrays and the merge array
+			int leftIndex = 0;
+			int rightIndex = 0;
+			int currentIndex = 0;
 
-			while (i < leftSubArray.Length && j < rightSubArray.Length)
+			// Sort subarrays' values into merge array
+			while (leftIndex < leftArr.Length && rightIndex < rightArr.Length)
 			{
-				if (leftSubArray[i] <= rightSubArray[j])
+				if (leftArr[leftIndex] <= rightArr[rightIndex])
 				{
-					arr[k] = leftSubArray[i];
-					i++;
+					arr[currentIndex] = leftArr[leftIndex];
+					leftIndex++;
 				}
 				else
 				{
-					arr[k] = rightSubArray[j];
-					j++;
+					arr[currentIndex] = rightArr[rightIndex];
+					rightIndex++;
 				}
-				k++;
+				currentIndex++;
 			}
-
-			if (i == leftSubArray.Length)
+			
+			// Copy over remainder of longer subarray into merge array
+			if (leftIndex == leftArr.Length)
 			{
-				Array.Copy(rightSubArray, k, arr, i, rightSubArray.Length - k);
+				Array.Copy(rightArr, rightIndex, arr, currentIndex, rightArr.Length - rightIndex);
 			}
 			else
 			{
-				Array.Copy(leftSubArray, k, arr, j, leftSubArray.Length - k);
+				Array.Copy(leftArr, leftIndex, arr, currentIndex, leftArr.Length - leftIndex);
 			}
 
 			return arr;
