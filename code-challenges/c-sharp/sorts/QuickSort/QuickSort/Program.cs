@@ -6,16 +6,26 @@ namespace QuickSort
 	{
 		static void Main(string[] args)
 		{
-			int[] nums = new int[] { 6, 3, 2, 5, 9, 4, 7, 1, 8 };
+			// Generate array of random numbers
+			int[] nums = new int[25];
+			Random random = new Random();
+			for (int i = 0; i < 25; i++)
+			{
+				int rand = random.Next(1, 26);
+				nums[i] = rand;
+			}
 
 			// Print array before sorting
+			Console.WriteLine("Array before sorting:");
 			PrintArray(nums);
 
 			// Sort array
 			QuickSort(nums);
 
 			// Print array after sorting
+			Console.WriteLine("\nArray after sorting:");
 			PrintArray(nums);
+			Console.WriteLine();
 		}
 
 		/// <summary>
@@ -26,14 +36,6 @@ namespace QuickSort
 		{
 			QuickSort(arr, 0, arr.Length - 1);
 		}
-
-
-		/// <summary>
-		/// Performs quick sort logic recursively on array
-		/// </summary>
-		/// <param name="arr">input array</param>
-		/// <param name="left">leftmost element in array</param>
-		/// <param name="right">rightmost element in array</param>
 
 		/// <summary>
 		/// Sorts array in place using quick sort with O(n log n) runtime in best and average cases, O(n^2) in worst case 
