@@ -47,7 +47,7 @@ namespace MergeSort
 			int[] leftArr = new int[leftArrLen];
 			int[] rightArr = new int[rightArrLen];
 
-			// Copy contents in specified range from parent array to subarrays
+			// Copy contents in specified ranges from parent array to subarrays
 			Array.Copy(arr, 0, leftArr, 0, leftArrLen);
 			Array.Copy(arr, mid, rightArr, 0, rightArrLen);
 
