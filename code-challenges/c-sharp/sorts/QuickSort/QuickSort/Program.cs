@@ -41,13 +41,13 @@ namespace QuickSort
 			if (left < right)
 			{
 				// Index of partition
-				int index = Partition(arr, left, right);
+				int partitioningIndex = Partition(arr, left, right);
 
 				// Sort left
-				QuickSort(arr, left, index - 1);
+				QuickSort(arr, left, partitioningIndex - 1);
 				
 				// Sort right
-				QuickSort(arr, index + 1, right);
+				QuickSort(arr, partitioningIndex + 1, right);
 			}
 		}
 
