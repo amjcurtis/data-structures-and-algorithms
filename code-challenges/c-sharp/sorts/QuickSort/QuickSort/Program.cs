@@ -6,14 +6,27 @@ namespace QuickSort
 	{
 		static void Main(string[] args)
 		{
-			int[] myArray = new int[] { 6, 3, 2, 5, 9, 4, 7, 1, 8 };
+			int[] nums = new int[] { 6, 3, 2, 5, 9, 4, 7, 1, 8 };
 
-			QuickSort(myArray, 0, myArray.Length - 1);
+			// Print array before sorting
+			PrintArray(nums);
 
-			PrintArray(myArray);
+			// Sort array
+			QuickSort(nums);
 
-			Console.ReadLine();
+			// Print array after sorting
+			PrintArray(nums);
 		}
+
+		/// <summary>
+		/// Override method for QuickSort
+		/// </summary>
+		/// <param name="arr">array to sort</param>
+		public static void QuickSort(int[] arr)
+		{
+			QuickSort(arr, 0, arr.Length - 1);
+		}
+
 
 		/// <summary>
 		/// Performs quick sort logic recursively on array
@@ -21,6 +34,13 @@ namespace QuickSort
 		/// <param name="arr">input array</param>
 		/// <param name="left">leftmost element in array</param>
 		/// <param name="right">rightmost element in array</param>
+
+		/// <summary>
+		/// Sorts array in place using quick sort with O(n log n) runtime in best and average cases, O(n^2) in worst case 
+		/// </summary>
+		/// <param name="arr">array to sort</param>
+		/// <param name="left">leftmost index of array</param>
+		/// <param name="right">rightmost index of array</param>
 		public static void QuickSort(int[] arr, int left, int right)
 		{
 			if (left < right)
@@ -40,9 +60,9 @@ namespace QuickSort
 		/// Traverses array to find smaller element than current element and swaps them if smaller element found
 		/// </summary>
 		/// <param name="arr">input array</param>
-		/// <param name="left">leftmost element in array</param>
-		/// <param name="right">rightmost element in array</param>
-		/// <returns></returns>
+		/// <param name="left">leftmost index of array</param>
+		/// <param name="right">rightmost index of array</param>
+		/// <returns>new lowest index</returns>
 		public static int Partition(int[] arr, int left, int right)
 		{
 			// Set pivot
@@ -78,17 +98,14 @@ namespace QuickSort
 		}
 
 		/// <summary>
-		/// Prints values of an integer array
+		/// Prints array values
 		/// </summary>
-		/// <param name="arr">input array</param>
+		/// <param name="arr">array to print</param>
 		public static void PrintArray(int[] arr)
 		{
-			// Capture length of input array
-			int n = arr.Length;
-
-			for (int i = 0; i < n; i++)
+			foreach (int num in arr)
 			{
-				Console.Write(arr[i] + " ");
+				Console.Write("{0} ", num);
 			}
 			Console.WriteLine();
 		}
