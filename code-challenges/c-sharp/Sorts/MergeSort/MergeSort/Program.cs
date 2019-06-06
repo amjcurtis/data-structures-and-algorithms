@@ -69,7 +69,7 @@ namespace MergeSort
 			int rightIndex = 0;
 			int currentIndex = 0;
 
-			// Sort subarrays into merge array
+			// Sort subarrays' values into merge array
 			while (leftIndex < leftArr.Length && rightIndex < rightArr.Length)
 			{
 				if (leftArr[leftIndex] <= rightArr[rightIndex])
