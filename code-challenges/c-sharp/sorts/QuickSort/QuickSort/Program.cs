@@ -6,14 +6,7 @@ namespace QuickSort
 	{
 		static void Main(string[] args)
 		{
-			// Generate array of random numbers
-			int[] nums = new int[25];
-			Random random = new Random();
-			for (int i = 0; i < 25; i++)
-			{
-				int rand = random.Next(1, 26);
-				nums[i] = rand;
-			}
+			int[] nums = new int[] { 4, 7, 5, 3, 6, 9, 2, 8, 1 };
 
 			// Print array before sorting
 			Console.WriteLine("Array before sorting:");
@@ -41,29 +34,29 @@ namespace QuickSort
 		/// Sorts array in place using quick sort with O(n log n) runtime in best and average cases, O(n^2) in worst case 
 		/// </summary>
 		/// <param name="arr">array to sort</param>
-		/// <param name="left">leftmost index of array</param>
-		/// <param name="right">rightmost index of array</param>
+		/// <param name="left">starting index</param>
+		/// <param name="right">ending index</param>
 		public static void QuickSort(int[] arr, int left, int right)
 		{
 			if (left < right)
 			{
-				// Partition the algorithm
-				int position = Partition(arr, left, right);
+				// Index of partition
+				int index = Partition(arr, left, right);
 
 				// Sort left
-				QuickSort(arr, left, position - 1);
+				QuickSort(arr, left, index - 1);
 				
 				// Sort right
-				QuickSort(arr, position + 1, right);
+				QuickSort(arr, index + 1, right);
 			}
 		}
 
 		/// <summary>
 		/// Traverses array to find smaller element than current element and swaps them if smaller element found
 		/// </summary>
-		/// <param name="arr">input array</param>
-		/// <param name="left">leftmost index of array</param>
-		/// <param name="right">rightmost index of array</param>
+		/// <param name="arr">array to sort</param>
+		/// <param name="left">starting index</param>
+		/// <param name="right">ending index</param>
 		/// <returns>new lowest index</returns>
 		public static int Partition(int[] arr, int left, int right)
 		{
@@ -83,6 +76,7 @@ namespace QuickSort
 			}
 
 			Swap(arr, right, low + 1);
+
 			return low + 1;
 		}
 

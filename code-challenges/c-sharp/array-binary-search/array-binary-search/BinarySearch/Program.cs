@@ -10,12 +10,23 @@ namespace BinarySearch
         /// <param name="args">string[] args</param>
         public static void Main(string[] args)
         {
-            Console.WriteLine("Welcome to the binary search challenge!");
-            Console.WriteLine(" ");
+			// Generate array of random numbers
+			int size = 25; 
+			int[] nums = new int[size];
+			Random random = new Random();
+			int randomRange = size * 4;
+			for (int i = 0; i < size; i++)
+			{
+				int rand = random.Next(1, randomRange);
+				nums[i] = rand;
+			}
 
-            try
+			// Sort array (necessary for binary search to work)
+			Array.Sort(nums);
+
+			try
             {
-                Console.WriteLine("Enter a number you'd like to search for in an array.");
+                Console.WriteLine($"Enter a number you'd like to search for in an array of {randomRange} numbers.");
                 string chosenNumberAsString = Console.ReadLine();
 
                 int chosenNumberAsInt = Convert.ToInt32(chosenNumberAsString);
@@ -23,17 +34,13 @@ namespace BinarySearch
                 // Set key value to search for
                 int key = chosenNumberAsInt;
                 Console.WriteLine($"Ok, the key value we will search for is {key}.");
+				
+                // Capture result of BinarySearch algorithm method
+                int? result = BinarySearch(nums, key);
 
-                // Declare sorted array to search in
-                int[] sortedInputArray = { 4, 8, 15, 16, 19, 20, 23, 26, 29, 34, 34, 39, 42 };
-
-                // Save result of BinarySearch algorithm method
-                int result = BinarySearch(sortedInputArray, key);
-
-                if (result == -1)
+                if (result == null)
                 {
-                    Console.WriteLine($"The index returned by our algorithm is [{result}]");
-                    Console.WriteLine($"This means the element we searched for ({key}) is not present in the array we searched in.");
+                    Console.WriteLine($"The element we searched for ({key}) is not present in the array we searched in.");
                 }
                 else
                 {
@@ -41,10 +48,9 @@ namespace BinarySearch
                 }
 
                 Console.WriteLine("Here's the array we searched for our number in:\n" +
-                    "[{0}]", string.Join(", ", sortedInputArray));
+                    "[{0}]", string.Join(", ", nums));
 
-                Console.WriteLine(" ");
-                Console.WriteLine("Thanks for trying out our algorithm!");
+                Console.WriteLine("\nThanks for trying out our algorithm!");
             }
             catch (FormatException e)
             {
@@ -56,25 +62,23 @@ namespace BinarySearch
             }
             finally
             {
-                Console.WriteLine(" ");
-                Console.WriteLine("Press Enter to exit the program.");
-                Console.ReadLine();
+                Console.WriteLine("\nPress Enter to exit the program.\n");
             }
         }
 
         /// <summary>
         /// Binary search algorithm
         /// </summary>
-        /// <param name="array">integer array</param>
+        /// <param name="array">array to search in</param>
         /// <param name="key">value to search array for</param>
-        /// <returns>value searched for or -1 if value not found</returns>
-        public static int BinarySearch(int[] array, int key)
+        /// <returns>integer searched for or null if value not found</returns>
+        public static int? BinarySearch(int[] array, int key)
         {
             int min = 0;
             int max = array.Length -1;
             while (min <= max)
             {
-                int mid = Convert.ToInt32(Math.Floor(Convert.ToDouble((min + max) / 2)));
+                int mid = (min + max) / 2;
                 if (array[mid] < key)
                 {
                     min = mid + 1;
@@ -88,7 +92,7 @@ namespace BinarySearch
                     return mid;
                 }
             }
-            return -1;
+            return null;
         }
     }
 }
