@@ -6,43 +6,58 @@ namespace QuickSort
 	{
 		static void Main(string[] args)
 		{
-			int[] myArray = new int[] { 6, 3, 2, 5, 9, 4, 7, 1, 8 };
+			int[] nums = new int[] { 4, 7, 5, 3, 6, 9, 2, 8, 1 };
 
-			QuickSort(myArray, 0, myArray.Length - 1);
+			// Print array before sorting
+			Console.WriteLine("Array before sorting:");
+			PrintArray(nums);
 
-			PrintArray(myArray);
+			// Sort array
+			QuickSort(nums);
 
-			Console.ReadLine();
+			// Print array after sorting
+			Console.WriteLine("\nArray after sorting:");
+			PrintArray(nums);
+			Console.WriteLine();
 		}
 
 		/// <summary>
-		/// Performs quick sort logic recursively on array
+		/// Overload method for QuickSort
 		/// </summary>
-		/// <param name="arr">input array</param>
-		/// <param name="left">leftmost element in array</param>
-		/// <param name="right">rightmost element in array</param>
+		/// <param name="arr">array to sort</param>
+		public static void QuickSort(int[] arr)
+		{
+			QuickSort(arr, 0, arr.Length - 1);
+		}
+
+		/// <summary>
+		/// Sorts array in place using quick sort with O(n log n) runtime in best and average cases, O(n^2) in worst case 
+		/// </summary>
+		/// <param name="arr">array to sort</param>
+		/// <param name="left">starting index</param>
+		/// <param name="right">ending index</param>
 		public static void QuickSort(int[] arr, int left, int right)
 		{
 			if (left < right)
 			{
-				// Partition the algorithm
-				int position = Partition(arr, left, right);
+				// Index of partition
+				int partitioningIndex = Partition(arr, left, right);
 
 				// Sort left
-				QuickSort(arr, left, position - 1);
+				QuickSort(arr, left, partitioningIndex - 1);
 				
 				// Sort right
-				QuickSort(arr, position + 1, right);
+				QuickSort(arr, partitioningIndex + 1, right);
 			}
 		}
 
 		/// <summary>
 		/// Traverses array to find smaller element than current element and swaps them if smaller element found
 		/// </summary>
-		/// <param name="arr">input array</param>
-		/// <param name="left">leftmost element in array</param>
-		/// <param name="right">rightmost element in array</param>
-		/// <returns></returns>
+		/// <param name="arr">array to sort</param>
+		/// <param name="left">starting index</param>
+		/// <param name="right">ending index</param>
+		/// <returns>new lowest index</returns>
 		public static int Partition(int[] arr, int left, int right)
 		{
 			// Set pivot
@@ -61,6 +76,7 @@ namespace QuickSort
 			}
 
 			Swap(arr, right, low + 1);
+
 			return low + 1;
 		}
 
@@ -78,17 +94,14 @@ namespace QuickSort
 		}
 
 		/// <summary>
-		/// Prints values of an integer array
+		/// Prints array values
 		/// </summary>
-		/// <param name="arr">input array</param>
+		/// <param name="arr">array to print</param>
 		public static void PrintArray(int[] arr)
 		{
-			// Capture length of input array
-			int n = arr.Length;
-
-			for (int i = 0; i < n; i++)
+			foreach (int num in arr)
 			{
-				Console.Write(arr[i] + " ");
+				Console.Write("{0} ", num);
 			}
 			Console.WriteLine();
 		}
