@@ -22,7 +22,7 @@ namespace QuickSort
 		}
 
 		/// <summary>
-		/// Override method for QuickSort
+		/// Overload method for QuickSort
 		/// </summary>
 		/// <param name="arr">array to sort</param>
 		public static void QuickSort(int[] arr)
