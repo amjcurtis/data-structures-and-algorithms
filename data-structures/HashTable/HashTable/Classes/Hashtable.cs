@@ -1,15 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace HashTable
 {
 	public class Hashtable
 	{
-
 		public LinkedList<Node>[] Map { get; set; }
 
-		// Hash table constructor
+		// Hashtable constructor
 		public Hashtable(int size)
 		{
 			Map = new LinkedList<Node>[size];
@@ -28,7 +26,7 @@ namespace HashTable
 
 			for (int i = 0; i < letters.Length; i++)
 			{
-				hashValue += letters[i];
+				hashValue += letters[i]; // Char converts to int implicitly
 			}
 
 			hashValue = (hashValue * 599) % Map.Length;
@@ -45,7 +43,7 @@ namespace HashTable
 		{
 			int hashKey = Hash(key);
 
-			if (Map[hashKey] == null) 
+			if (Map[hashKey] == null)
 			{
 				Map[hashKey] = new LinkedList<Node>();
 			}
@@ -54,19 +52,19 @@ namespace HashTable
 		}
 
 		/// <summary>
-		/// Traverses hash table and returns whether or not table contains specified key
+		/// Traverses hashtable and returns whether or not it contains specified value
 		/// </summary>
-		/// <param name="key">key to search hash table for</param>
+		/// <param name="value">value to search hash table for</param>
 		/// <returns>boolean</returns>
-		public bool Contains(string key)
+		public bool ContainsValue(string value)
 		{
 			for (int i = 0; i < Map.Length; i++)
 			{
 				if (Map[i] != null)
 				{
-					foreach (var item in Map[i])
+					foreach (Node node in Map[i])
 					{
-						if (item.Key == key)
+						if (node.Value == value)
 						{
 							return true;
 						}
@@ -75,24 +73,47 @@ namespace HashTable
 			}
 			return false;
 		}
-		
+
 		/// <summary>
-		/// Traverses hash table and retrieves first key:value pair with specified key
+		/// Returns whether or not hashtable contains specified key
+		/// </summary>
+		/// <param name="key">key to search hash table for</param>
+		/// <returns>boolean</returns>
+		public bool ContainsKey(string key)
+		{
+			int hashKey = Hash(key);
+
+			if (Map[hashKey] != null)
+			{
+				// Could omit foreach if hash were perfect
+				foreach (Node node in Map[hashKey])
+				{
+					if (node.Key == key)
+					{
+						return true;
+					}
+				}
+			}
+			return false;
+		}
+
+		/// <summary>
+		/// Retrieves first key:value pair matching search params
 		/// </summary>
 		/// <param name="key">key to search for</param>
-		/// <returns>node if key found, else null</returns>
-		public Node Get(string key)
+		/// <param name="value">value to search for</param>
+		/// <returns>node if key:value pair found, else null</returns>
+		public Node Get(string key, string value)
 		{
-			for (int i = 0; i < Map.Length; i++)
+			int hashKey = Hash(key);
+
+			if (Map[hashKey] != null)
 			{
-				if (Map[i] != null)
+				foreach (Node node in Map[hashKey])
 				{
-					foreach (var item in Map[i])
+					if (node.Value == value)
 					{
-						if (item.Key == key)
-						{
-							return item;
-						}
+						return node;
 					}
 				}
 			}
@@ -109,9 +130,9 @@ namespace HashTable
 				if (Map[i] != null)
 				{
 					Console.Write($"Bucket: {i}: ");
-					foreach (var item in Map[i])
+					foreach (Node node in Map[i])
 					{
-						Console.Write($"{item.Key}:{item.Value} --> ");
+						Console.Write($"{node.Key}:{node.Value} --> ");
 					}
 					Console.Write("null");
 					Console.WriteLine();
