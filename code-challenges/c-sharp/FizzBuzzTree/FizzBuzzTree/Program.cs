@@ -41,11 +41,12 @@ namespace FizzBuzzTree
 				Console.Write($"{obj} ");
 			}
 			Console.WriteLine();
-			tree.Nodes.Clear(); // Clear tree node list before next tree traversal
+			tree.ClearNodeList(); // Clear tree node list before next tree traversal
 
 			// Demo FizzBuzzTree() method
 			fbTreeList = FizzBuzzTree(tree, tree.Root);
 
+			// Print tree nodes after FizzBuzz
 			foreach (var obj in tree.Nodes)
 			{
 				Console.Write($"{obj} ");
@@ -53,6 +54,12 @@ namespace FizzBuzzTree
 			Console.WriteLine();
 		}
 
+		/// <summary>
+		/// Performs FizzBuzz on binary tree nodes
+		/// </summary>
+		/// <param name="tree">binary tree</param>
+		/// <param name="root">root node of binary tree</param>
+		/// <returns>list of tree nodes traversed</returns>
 		public static List<object> FizzBuzzTree(BinaryTree<object> tree, Node<object> root)
 		{
 			// Test current node for FizzBuzz

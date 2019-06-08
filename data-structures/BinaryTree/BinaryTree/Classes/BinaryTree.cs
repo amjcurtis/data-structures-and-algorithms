@@ -27,6 +27,9 @@ namespace BinaryTree.Classes
 		/// <returns>list of values of nodes in binary tree</returns>
 		public List<T> PreOrder(Node<T> root)
 		{
+			// Error check
+			if (root == null) return null;
+
 			Nodes.Add(root.Value);
 
 			if (root.LeftChild != null)
@@ -49,6 +52,9 @@ namespace BinaryTree.Classes
 		/// <returns>list of values of nodes in binary tree</returns>
 		public List<T> InOrder(Node<T> root)
 		{
+			// Error check
+			if (root == null) return null;
+
 			if (root.LeftChild != null)
 			{
 				InOrder(root.LeftChild);
@@ -71,6 +77,9 @@ namespace BinaryTree.Classes
 		/// <returns>list of values of nodes in binary tree</returns>
 		public List<T> PostOrder(Node<T> root)
 		{
+			// Error check
+			if (root == null) return null;
+
 			if (root.LeftChild != null)
 			{
 				PostOrder(root.LeftChild);
@@ -87,16 +96,22 @@ namespace BinaryTree.Classes
 		}
 
 		/// <summary>
+		/// Clears list of nodes populated by last traversal of tree
+		/// </summary>
+		public void ClearNodeList()
+		{
+			Nodes.Clear();
+		}
+
+		/// <summary>
 		/// Traverses binary tree breadth first
 		/// </summary>
 		/// <param name="tree">binary tree</param>
 		/// <returns>boolean indicated whether tree has been traversed successfully to end</returns>
 		public List<T> TraverseBreadthFirst(Node<T> root)
 		{
-			if (root == null)
-			{
-				return null;
-			}
+			// Error check
+			if (root == null) return null;
 
 			// Instantiate queue
 			Queue<Node<T>> queue = new Queue<Node<T>>();
