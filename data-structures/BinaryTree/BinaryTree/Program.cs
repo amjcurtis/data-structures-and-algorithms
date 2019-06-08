@@ -25,7 +25,7 @@ namespace BinaryTree
 				Console.Write("{0} ", num);
 			}
 			Console.WriteLine("\n");
-			tree.output.Clear();
+			tree.Nodes.Clear();
 
 			// Demo InOrder() method
 			List<int> outputOfInOrder = tree.InOrder(intNode);
@@ -34,7 +34,7 @@ namespace BinaryTree
 				Console.Write("{0} ", num);
 			}
 			Console.WriteLine("\n");
-			tree.output.Clear();
+			tree.Nodes.Clear();
 
 			// Demo PostOrder() method
 			List<int> outputOfPostOrder = tree.PostOrder(intNode);
@@ -43,7 +43,7 @@ namespace BinaryTree
 				Console.Write("{0} ", num);
 			}
 			Console.WriteLine("\n");
-			tree.output.Clear();
+			tree.Nodes.Clear();
 
 			// Demo BST's Add() method
 			Node<int> rootOfBST = new Node<int>(21);
@@ -90,7 +90,7 @@ namespace BinaryTree
 				Console.Write("{0} ", num);
 			}
 			Console.WriteLine("\n");
-			tree.output.Clear();
+			tree.Nodes.Clear();
 
 			// Demo FindMaxValue method
 			int? max = tree.FindMaxValue(tree.Root);

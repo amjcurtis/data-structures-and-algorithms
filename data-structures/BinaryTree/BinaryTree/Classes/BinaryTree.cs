@@ -7,8 +7,8 @@ namespace BinaryTree.Classes
 		public Node<T> Root { get; set; }
 
 		// Instantiate new public collection outside traversal methods so new list isn't instantiated at every recursive call
-		// Note: need to clear output list after each traversal
-		public List<T> output = new List<T>();
+		// Note: need to clear node list after each traversal
+		public List<T> Nodes = new List<T>();
 
 		public BinaryTree(Node<T> node)
 		{
@@ -27,7 +27,10 @@ namespace BinaryTree.Classes
 		/// <returns>list of values of nodes in binary tree</returns>
 		public List<T> PreOrder(Node<T> root)
 		{
-			output.Add(root.Value);
+			// Error check
+			if (root == null) return null;
+
+			Nodes.Add(root.Value);
 
 			if (root.LeftChild != null)
 			{
@@ -39,7 +42,7 @@ namespace BinaryTree.Classes
 				PreOrder(root.RightChild);
 			}
 
-			return output;
+			return Nodes;
 		}
 
 		/// <summary>
@@ -49,19 +52,22 @@ namespace BinaryTree.Classes
 		/// <returns>list of values of nodes in binary tree</returns>
 		public List<T> InOrder(Node<T> root)
 		{
+			// Error check
+			if (root == null) return null;
+
 			if (root.LeftChild != null)
 			{
 				InOrder(root.LeftChild);
 			}
 
-			output.Add(root.Value);
+			Nodes.Add(root.Value);
 
 			if (root.RightChild != null)
 			{
 				InOrder(root.RightChild);
 			}
 
-			return output;
+			return Nodes;
 		}
 
 		/// <summary>
@@ -71,6 +77,9 @@ namespace BinaryTree.Classes
 		/// <returns>list of values of nodes in binary tree</returns>
 		public List<T> PostOrder(Node<T> root)
 		{
+			// Error check
+			if (root == null) return null;
+
 			if (root.LeftChild != null)
 			{
 				PostOrder(root.LeftChild);
@@ -81,9 +90,17 @@ namespace BinaryTree.Classes
 				PostOrder(root.RightChild);
 			}
 
-			output.Add(root.Value);
+			Nodes.Add(root.Value);
 
-			return output;
+			return Nodes;
+		}
+
+		/// <summary>
+		/// Clears list of nodes populated by last traversal of tree
+		/// </summary>
+		public void ClearNodeList()
+		{
+			Nodes.Clear();
 		}
 
 		/// <summary>
@@ -93,10 +110,8 @@ namespace BinaryTree.Classes
 		/// <returns>boolean indicated whether tree has been traversed successfully to end</returns>
 		public List<T> TraverseBreadthFirst(Node<T> root)
 		{
-			if (root == null)
-			{
-				return null;
-			}
+			// Error check
+			if (root == null) return null;
 
 			// Instantiate queue
 			Queue<Node<T>> queue = new Queue<Node<T>>();
@@ -107,7 +122,7 @@ namespace BinaryTree.Classes
 			{
 				Node<T> front = queue.Dequeue();
 
-				output.Add(front.Value);
+				Nodes.Add(front.Value);
 
 				if (front.LeftChild != null)
 				{
@@ -120,7 +135,7 @@ namespace BinaryTree.Classes
 				}
 			}
 
-			return output;
+			return Nodes;
 		}
 
 		public int? FindMaxValue(Node<int> root)
