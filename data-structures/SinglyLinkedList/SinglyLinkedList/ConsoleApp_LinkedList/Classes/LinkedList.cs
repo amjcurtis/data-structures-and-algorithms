@@ -4,8 +4,6 @@ namespace ConsoleApp_LinkedList.Classes
 {
     public class LList
     {
-
-		// Properties of singly linked list
         public Node Head { get; set; }
         public Node Current { get; set; }
 
@@ -30,7 +28,6 @@ namespace ConsoleApp_LinkedList.Classes
             // Assign Current to Head again now that Head has been updated
             Current = Head;
         }
-
 
         /// <summary>
         /// Traverses singly linked list and return whether input value is found in list
@@ -61,7 +58,6 @@ namespace ConsoleApp_LinkedList.Classes
             return false;
         }
 
-
         /// <summary>
         /// Traverses singly linked list and returns int array of all nodes' values
         /// </summary>
@@ -70,10 +66,8 @@ namespace ConsoleApp_LinkedList.Classes
         {
             Current = Head;
 
-			if (Head == null)
-			{
-				return null;
-			}
+			// Error check
+			if (Head == null) return null;
 
             // Counter that tracks number of while loop iterations 
             int count = 0;
@@ -110,7 +104,6 @@ namespace ConsoleApp_LinkedList.Classes
             return arrayOfAllIntValues;
         }
 
-
         /// <summary>
         /// Appends new node to end of linked list
         /// </summary>
@@ -134,7 +127,6 @@ namespace ConsoleApp_LinkedList.Classes
                 Current.Next = nodeToInsert;
             }
         }
-
 
         /// <summary>
         /// Inserts new node before specified existing node
@@ -163,9 +155,9 @@ namespace ConsoleApp_LinkedList.Classes
                 }
                 Current = Current.Next;
             }
+
             return false;
         }
-
 
         /// <summary>
         /// Inserts new node after specified existing node
@@ -188,14 +180,15 @@ namespace ConsoleApp_LinkedList.Classes
                 }
                 Current = Current.Next;
             }
-            if (Current.Next == null)
+
+			if (Current.Next == null)
             {
                 Current.Next = nodeToInsert;
                 return true;
             }
+
             return false;
         }
-
 
         /// <summary>
         /// Gets node at specified distance k from end of list
@@ -206,15 +199,14 @@ namespace ConsoleApp_LinkedList.Classes
         {
             Current = Head;
 
-			// Handle empty list
-            if (Head == null)
-            {
+			// Error checks
+            if (Head == null) // Handle empty list
+			{
                 Console.WriteLine("There are no nodes in the list!");
                 return null;
             }
-			// Handle invalid input for k
-            if (k <= 0)
-            {
+            if (k <= 0) // Handle invalid input for k
+			{
                 Console.WriteLine("Value of k must be a positive number greater than zero!");
                 return null;
             }
@@ -230,11 +222,9 @@ namespace ConsoleApp_LinkedList.Classes
             }
 
             // Handles list of only one node
-            if (k == count)
-            {
-                return Head;
-            }
-            // Handles k value greater than length of list
+            if (k == count) return Head;
+
+            // Error check: handles k value greater than length of list
             if (k > count)
             {
                 Console.WriteLine("From GetKthNodeFromEnd(): Value of k is greater than length of list!");
@@ -249,6 +239,7 @@ namespace ConsoleApp_LinkedList.Classes
             {
                 Current = Current.Next;
             }
+
             return Current;
         }
 
@@ -263,10 +254,7 @@ namespace ConsoleApp_LinkedList.Classes
 			Node walker = Head;
 
 			// Handle empty list
-			if (Head == null)
-			{
-				return false;
-			}
+			if (Head == null) return false;
 
 			while (runner.Next != null && runner.Next.Next != null)
 			{
@@ -285,10 +273,10 @@ namespace ConsoleApp_LinkedList.Classes
 		/// <summary>
 		/// Reverses singly linked list in place: O(n) time, O(1) space
 		/// </summary>
-		/// <returns>List of </returns>
 		public void Reverse()
 		{
 			Current = Head;
+
 			Node follower = null;
 			Node leader = null;
 
@@ -299,6 +287,7 @@ namespace ConsoleApp_LinkedList.Classes
 				follower = Current;		 // Moves prev node ahead by one node at each iteration
 				Current = leader;		 // Moves current one node ahead at each iteration; also ensures loop ends by making current null at end
 			}
+
 			Head = follower;			 // Reset Head to last node in list
 		}
 	}
