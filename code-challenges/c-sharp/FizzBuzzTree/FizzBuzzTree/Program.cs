@@ -20,7 +20,7 @@ namespace FizzBuzzTree
 			Node<object> node8 = new Node<object>(8);
 			Node<object> node9 = new Node<object>(9);
 			Node<object> node10 = new Node<object>(10);
-			Node<object> node11 = new Node<object>(10);
+			Node<object> node11 = new Node<object>(15);
 
 			tree.Root = node1;
 			tree.Root.LeftChild = node2;
@@ -32,66 +32,46 @@ namespace FizzBuzzTree
 			tree.Root.LeftChild.LeftChild.LeftChild = node8;
 			tree.Root.LeftChild.LeftChild.RightChild = node9;
 			tree.Root.LeftChild.RightChild.LeftChild = node10;
-			//tree.Root.LeftChild.RightChild.RightChild = node10;
+			tree.Root.LeftChild.RightChild.RightChild = node11;
 
-			var fbTreeList = FizzBuzzTree(tree.Root);
+			// Demo FizzBuzzTree() method
+			var fbTreeList = FizzBuzzTree(tree, tree.Root);
+			Console.WriteLine();
 
-			foreach (var obj in fbTreeList)
+			foreach (var obj in tree.Nodes)
 			{
 				Console.WriteLine(obj);
 			}
-
 		}
 
-		public static List<object> FizzBuzzTree(Node<object> root)
+		public static List<object> FizzBuzzTree(BinaryTree<object> tree, Node<object> root)
 		{
-			List<object> list = new List<object>();
-
+			// Test current node for FizzBuzz
 			CheckFizzBuzz(root);
 
-			list.Add(root.Value);
-
-			Console.Write($"{root.Value.ToString()} ");
+			// Add current node's value to tree's "output" list 
+			tree.Nodes.Add(root.Value);
 
 			// Traversal of child nodes
 			if (root.LeftChild != null)
 			{
-				FizzBuzzTree(root.LeftChild);
+				FizzBuzzTree(tree, root.LeftChild);
 			}
 
 			if (root.RightChild != null)
 			{
-				FizzBuzzTree(root.RightChild);
+				FizzBuzzTree(tree, root.RightChild);
 			}
 
-			return list;
+			return tree.Nodes;
 		}
 
-		//public static BinaryTree<object> FizzBuzzTree(BinaryTree<object> tree)
-		//{
-		//	CheckFizzBuzz(tree.Root);
-
-		//	Console.Write($"{tree.Root.Value.ToString()} ");
-		//	Console.WriteLine();
-
-		//	// Traversal of child nodes
-		//	if (tree.Root.LeftChild != null)
-		//	{
-		//		FizzBuzzTree(tree);
-		//	}
-
-		//	if (tree.Root.RightChild != null)
-		//	{
-		//		FizzBuzzTree(tree);
-		//	}
-
-		//	return tree;
-		//}
-
-		// Helper method to check for FizzBuzz
+		/// <summary>
+		/// Tests node value for FizzBuzz
+		/// </summary>
+		/// <param name="node">binary tree node</param>
 		public static void CheckFizzBuzz(Node<object> node)
 		{
-			// FizzBuzz tests
 			if ((int)node.Value % 3 == 0 && (int)node.Value % 5 == 0)
 			{
 				node.Value = "FizzBuzz";
@@ -105,6 +85,5 @@ namespace FizzBuzzTree
 				node.Value = "Buzz";
 			}
 		}
-
 	}
 }
