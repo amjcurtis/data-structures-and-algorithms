@@ -34,14 +34,23 @@ namespace FizzBuzzTree
 			tree.Root.LeftChild.RightChild.LeftChild = node10;
 			tree.Root.LeftChild.RightChild.RightChild = node11;
 
-			// Demo FizzBuzzTree() method
-			var fbTreeList = FizzBuzzTree(tree, tree.Root);
+			// Print tree nodes before FizzBuzz
+			var fbTreeList = tree.PreOrder(tree.Root);
+			foreach (var obj in tree.Nodes)
+			{
+				Console.Write($"{obj} ");
+			}
 			Console.WriteLine();
+			tree.Nodes.Clear(); // Clear tree node list before next tree traversal
+
+			// Demo FizzBuzzTree() method
+			fbTreeList = FizzBuzzTree(tree, tree.Root);
 
 			foreach (var obj in tree.Nodes)
 			{
-				Console.WriteLine(obj);
+				Console.Write($"{obj} ");
 			}
+			Console.WriteLine();
 		}
 
 		public static List<object> FizzBuzzTree(BinaryTree<object> tree, Node<object> root)
