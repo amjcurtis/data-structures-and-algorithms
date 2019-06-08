@@ -7,8 +7,8 @@ namespace BinaryTree.Classes
 		public Node<T> Root { get; set; }
 
 		// Instantiate new public collection outside traversal methods so new list isn't instantiated at every recursive call
-		// Note: need to clear output list after each traversal
-		public List<T> output = new List<T>();
+		// Note: need to clear node list after each traversal
+		public List<T> Nodes = new List<T>();
 
 		public BinaryTree(Node<T> node)
 		{
@@ -27,7 +27,7 @@ namespace BinaryTree.Classes
 		/// <returns>list of values of nodes in binary tree</returns>
 		public List<T> PreOrder(Node<T> root)
 		{
-			output.Add(root.Value);
+			Nodes.Add(root.Value);
 
 			if (root.LeftChild != null)
 			{
@@ -39,7 +39,7 @@ namespace BinaryTree.Classes
 				PreOrder(root.RightChild);
 			}
 
-			return output;
+			return Nodes;
 		}
 
 		/// <summary>
@@ -54,14 +54,14 @@ namespace BinaryTree.Classes
 				InOrder(root.LeftChild);
 			}
 
-			output.Add(root.Value);
+			Nodes.Add(root.Value);
 
 			if (root.RightChild != null)
 			{
 				InOrder(root.RightChild);
 			}
 
-			return output;
+			return Nodes;
 		}
 
 		/// <summary>
@@ -81,9 +81,9 @@ namespace BinaryTree.Classes
 				PostOrder(root.RightChild);
 			}
 
-			output.Add(root.Value);
+			Nodes.Add(root.Value);
 
-			return output;
+			return Nodes;
 		}
 
 		/// <summary>
@@ -107,7 +107,7 @@ namespace BinaryTree.Classes
 			{
 				Node<T> front = queue.Dequeue();
 
-				output.Add(front.Value);
+				Nodes.Add(front.Value);
 
 				if (front.LeftChild != null)
 				{
@@ -120,7 +120,7 @@ namespace BinaryTree.Classes
 				}
 			}
 
-			return output;
+			return Nodes;
 		}
 
 		public int? FindMaxValue(Node<int> root)

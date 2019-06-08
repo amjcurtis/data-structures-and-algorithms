@@ -5,7 +5,7 @@ using Xunit;
 
 namespace XUnit_BinaryTree
 {
-	public class UnitTest1
+	public class Tests_BinaryTree
 	{
 
 		/// <summary>
