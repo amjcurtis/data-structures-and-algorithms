@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryTree.Classes;
 
 namespace FizzBuzzTree
@@ -19,6 +20,7 @@ namespace FizzBuzzTree
 			Node<object> node8 = new Node<object>(8);
 			Node<object> node9 = new Node<object>(9);
 			Node<object> node10 = new Node<object>(10);
+			Node<object> node11 = new Node<object>(10);
 
 			tree.Root = node1;
 			tree.Root.LeftChild = node2;
@@ -30,49 +32,79 @@ namespace FizzBuzzTree
 			tree.Root.LeftChild.LeftChild.LeftChild = node8;
 			tree.Root.LeftChild.LeftChild.RightChild = node9;
 			tree.Root.LeftChild.RightChild.LeftChild = node10;
+			//tree.Root.LeftChild.RightChild.RightChild = node10;
 
-			FizzBuzzTree(tree);
+			var fbTreeList = FizzBuzzTree(tree.Root);
 
-			Console.WriteLine($"tree.Root.RightChild: {tree.Root.RightChild.Value}");
+			foreach (var obj in fbTreeList)
+			{
+				Console.WriteLine(obj);
+			}
 
-			Console.ReadLine();
 		}
 
-		public static BinaryTree<object> FizzBuzzTree(BinaryTree<object> tree)
+		public static List<object> FizzBuzzTree(Node<object> root)
 		{
-			// FizzBuzz tests
-			if ((int)tree.Root.Value % 3 == 0 && (int)tree.Root.Value % 5 == 0)
-			{
-				tree.Root.Value = "FizzBuzz";
-			}
-			else if ((int)tree.Root.Value % 3 == 0)
-			{
-				tree.Root.Value = "Fizz";
-			}
-			else if ((int)tree.Root.Value % 5 == 0)
-			{
-				tree.Root.Value = "Buzz";
-			}
-			
+			List<object> list = new List<object>();
+
+			CheckFizzBuzz(root);
+
+			list.Add(root.Value);
+
+			Console.Write($"{root.Value.ToString()} ");
+
 			// Traversal of child nodes
-			if (tree.Root.LeftChild != null)
+			if (root.LeftChild != null)
 			{
-				tree.PreOrder(tree.Root.LeftChild);
+				FizzBuzzTree(root.LeftChild);
 			}
 
-			if (tree.Root.RightChild != null)
+			if (root.RightChild != null)
 			{
-				tree.PreOrder(tree.Root.RightChild);
+				FizzBuzzTree(root.RightChild);
 			}
 
-			return tree;
+			return list;
 		}
+
+		//public static BinaryTree<object> FizzBuzzTree(BinaryTree<object> tree)
+		//{
+		//	CheckFizzBuzz(tree.Root);
+
+		//	Console.Write($"{tree.Root.Value.ToString()} ");
+		//	Console.WriteLine();
+
+		//	// Traversal of child nodes
+		//	if (tree.Root.LeftChild != null)
+		//	{
+		//		FizzBuzzTree(tree);
+		//	}
+
+		//	if (tree.Root.RightChild != null)
+		//	{
+		//		FizzBuzzTree(tree);
+		//	}
+
+		//	return tree;
+		//}
 
 		// Helper method to check for FizzBuzz
-		//public string CheckFizzBuzz(int value)
-		//{
-
-		//}
+		public static void CheckFizzBuzz(Node<object> node)
+		{
+			// FizzBuzz tests
+			if ((int)node.Value % 3 == 0 && (int)node.Value % 5 == 0)
+			{
+				node.Value = "FizzBuzz";
+			}
+			else if ((int)node.Value % 3 == 0)
+			{
+				node.Value = "Fizz";
+			}
+			else if ((int)node.Value % 5 == 0)
+			{
+				node.Value = "Buzz";
+			}
+		}
 
 	}
 }
