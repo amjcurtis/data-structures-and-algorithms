@@ -6,15 +6,14 @@ namespace HashTable
 	{
 		static void Main(string[] args)
 		{
-
 			///////////////////////////////////////
 			// Demo the methods on Hashtable class
 			///////////////////////////////////////
 
-			// Initialize hash table of specified size
+			// Initialize hashtable of specified size
 			Hashtable ht = new Hashtable(1024);
 
-			// Populate hash table
+			// Populate hashtable
 			ht.Add("John", "Husband");
 			ht.Add("Cathy", "Boss");
 			ht.Add("Amanda", "Instructor");
@@ -28,13 +27,13 @@ namespace HashTable
 			ht.Add("Khalil", "Student");
 			ht.Add("Jason", "Student");
 
-			// Print contents of hash table
+			// Print contents of hashtable
 			ht.Print();
 
-			// Demo Contains() method
-			bool key1 = ht.Contains("Demi");
+			// Demo ContainsKey() method
+			bool key1 = ht.ContainsKey("Demi");
 			Console.WriteLine(key1);
-			bool key2 = ht.Contains("T-Rex");
+			bool key2 = ht.ContainsKey("T-Rex");
 			Console.WriteLine(key2);
 
 			// Demo Get() method
@@ -84,7 +83,7 @@ namespace HashTable
 				if (!ht.Contains(currentWord))
 				//if (ht.Get(currentWord) == null) // Alternate conditional test
 				{
-					// Current word will be both key and value in the key:value pair added to HT
+					// Current word will be both key and value in the key:value pair added to ht
 					ht.Add(currentWord, currentWord);
 				}
 				else

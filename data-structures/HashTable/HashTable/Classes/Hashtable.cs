@@ -21,7 +21,6 @@ namespace HashTable
 		public int Hash(string key)
 		{
 			int hashValue = 0;
-
 			char[] letters = key.ToCharArray();
 
 			for (int i = 0; i < letters.Length; i++)
@@ -30,12 +29,11 @@ namespace HashTable
 			}
 
 			hashValue = (hashValue * 599) % Map.Length;
-
 			return hashValue;
 		}
 
 		/// <summary>
-		/// Adds new hashed key:value pair to hash table
+		/// Adds new hashed key:value pair to hashtable in O(1) time
 		/// </summary>
 		/// <param name="key">key for key:value pair to add</param>
 		/// <param name="value">value for key:value pair to add</param>
@@ -52,12 +50,64 @@ namespace HashTable
 		}
 
 		/// <summary>
-		/// Traverses hashtable and returns whether or not it contains specified value
+		/// Adds new key:value pair to hashtable, hashing value as the key
 		/// </summary>
-		/// <param name="value">value to search hash table for</param>
+		/// <param name="value">value to add</param>
+		public void Add(string value)
+		{
+			// Use value as key to hash
+			string key = value;
+			int hashKey = Hash(key);
+
+			if (Map[hashKey] == null)
+			{
+				Map[hashKey] = new LinkedList<Node>();
+			}
+
+			Map[hashKey].AddFirst(new Node(key, value));
+		}
+
+		/// <summary>
+		/// Checks whether hashtable contains specified key in O(1) time
+		/// </summary>
+		/// <param name="key">key to search hashtable for</param>
+		/// <returns>boolean</returns>
+		public bool ContainsKey(string key)
+		{
+			/*
+			* Runtime complexity is O(1) in best and avg case
+			* or O(k) time where k is number of keys hashed
+			* to same index (in worst case, k > 1)
+			*/
+
+			int hashKey = Hash(key);
+
+			if (Map[hashKey] != null)
+			{
+				// Could omit foreach and always get O(1) runtime if hash were perfect
+				foreach (Node node in Map[hashKey])
+				{
+					if (node.Key == key)
+					{
+						return true;
+					}
+				}
+			}
+			return false;
+		}
+
+		/// <summary>
+		/// Checks whether hashtable contains value in O(n) time
+		/// </summary>
+		/// <param name="value">value to search hashtable for</param>
 		/// <returns>boolean</returns>
 		public bool ContainsValue(string value)
 		{
+			/*
+			 * Runtime complexity is in worst case O(nk) where n is number
+			 * of buckets and k is number of key:value pairs in hashtable
+			 */
+
 			for (int i = 0; i < Map.Length; i++)
 			{
 				if (Map[i] != null)
@@ -75,30 +125,30 @@ namespace HashTable
 		}
 
 		/// <summary>
-		/// Returns whether or not hashtable contains specified key
+		/// Retrieves first key:value pair where key matches specified key
 		/// </summary>
-		/// <param name="key">key to search hash table for</param>
-		/// <returns>boolean</returns>
-		public bool ContainsKey(string key)
+		/// <param name="key">key to search for</param>
+		/// <returns>node if key:value pair found, else null</returns>
+		public Node Get(string key)
 		{
 			int hashKey = Hash(key);
 
 			if (Map[hashKey] != null)
 			{
-				// Could omit foreach if hash were perfect
 				foreach (Node node in Map[hashKey])
 				{
+					// Could omit foreach and always get O(1) runtime if hash were perfect
 					if (node.Key == key)
 					{
-						return true;
+						return node;
 					}
 				}
 			}
-			return false;
+			return null;
 		}
 
 		/// <summary>
-		/// Retrieves first key:value pair matching search params
+		/// Retrieves first key:value pair matching specified key and value, allowing exact search for value in case same key is hashed multiple times with different values
 		/// </summary>
 		/// <param name="key">key to search for</param>
 		/// <param name="value">value to search for</param>
@@ -121,7 +171,7 @@ namespace HashTable
 		}
 
 		/// <summary>
-		/// Writes key:value pairs from hash table to console
+		/// Writes key:value pairs from hashtable to console
 		/// </summary>
 		public void Print()
 		{
