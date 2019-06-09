@@ -6,11 +6,13 @@ namespace HashTable
 	public class Hashtable
 	{
 		public LinkedList<Node>[] Map { get; set; }
+		public List<string> Values { get; set; }
 
 		// Hashtable constructor
 		public Hashtable(int size)
 		{
 			Map = new LinkedList<Node>[size];
+			Values = new List<string>();
 		}
 
 		/// <summary>
@@ -47,6 +49,7 @@ namespace HashTable
 			}
 
 			Map[hashKey].AddFirst(new Node(key, value));
+			Values.Add(value);
 		}
 
 		/// <summary>
@@ -65,6 +68,7 @@ namespace HashTable
 			}
 
 			Map[hashKey].AddFirst(new Node(key, value));
+			Values.Add(value);
 		}
 
 		/// <summary>

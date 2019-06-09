@@ -21,7 +21,7 @@ namespace XUnitTestProject1
 
 			// Act
 			ht.Add("John", "Instructor");
-			bool valuePresent = ht.Contains("John");
+			bool valuePresent = ht.ContainsKey("John");
 
 			// Assert
 			Assert.True(valuePresent);

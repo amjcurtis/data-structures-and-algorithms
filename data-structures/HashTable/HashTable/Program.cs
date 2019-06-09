@@ -40,6 +40,9 @@ namespace HashTable
 			Node node1 = ht.Get("Amanda");
 			Console.WriteLine($"{node1.Key}:{node1.Value}");
 
+			// Demo Values property of hashtable
+			Console.WriteLine("Values: [{0}]", string.Join(" ", ht.Values));
+
 
 			///////////////////////////////////////
 			// Demo RepeatedWord() method
@@ -80,11 +83,11 @@ namespace HashTable
 				// Change each word to lower case before adding to ht
 				currentWord = wordsArray[i].ToLower();
 
-				if (!ht.Contains(currentWord))
+				if (!ht.ContainsKey(currentWord))
 				//if (ht.Get(currentWord) == null) // Alternate conditional test
 				{
 					// Current word will be both key and value in the key:value pair added to ht
-					ht.Add(currentWord, currentWord);
+					ht.Add(currentWord);
 				}
 				else
 				{
