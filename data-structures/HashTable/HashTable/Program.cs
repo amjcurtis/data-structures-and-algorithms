@@ -6,15 +6,14 @@ namespace HashTable
 	{
 		static void Main(string[] args)
 		{
-
 			///////////////////////////////////////
 			// Demo the methods on Hashtable class
 			///////////////////////////////////////
 
-			// Initialize hash table of specified size
+			// Initialize hashtable of specified size
 			Hashtable ht = new Hashtable(1024);
 
-			// Populate hash table
+			// Populate hashtable
 			ht.Add("John", "Husband");
 			ht.Add("Cathy", "Boss");
 			ht.Add("Amanda", "Instructor");
@@ -28,18 +27,21 @@ namespace HashTable
 			ht.Add("Khalil", "Student");
 			ht.Add("Jason", "Student");
 
-			// Print contents of hash table
+			// Print contents of hashtable
 			ht.Print();
 
-			// Demo Contains() method
-			bool key1 = ht.Contains("Demi");
+			// Demo ContainsKey() method
+			bool key1 = ht.ContainsKey("Demi");
 			Console.WriteLine(key1);
-			bool key2 = ht.Contains("T-Rex");
+			bool key2 = ht.ContainsKey("T-Rex");
 			Console.WriteLine(key2);
 
 			// Demo Get() method
 			Node node1 = ht.Get("Amanda");
 			Console.WriteLine($"{node1.Key}:{node1.Value}");
+
+			// Demo Values property of hashtable
+			Console.WriteLine("Values: [{0}]", string.Join(" ", ht.Values));
 
 
 			///////////////////////////////////////
@@ -81,11 +83,11 @@ namespace HashTable
 				// Change each word to lower case before adding to ht
 				currentWord = wordsArray[i].ToLower();
 
-				if (!ht.Contains(currentWord))
+				if (!ht.ContainsKey(currentWord))
 				//if (ht.Get(currentWord) == null) // Alternate conditional test
 				{
-					// Current word will be both key and value in the key:value pair added to HT
-					ht.Add(currentWord, currentWord);
+					// Current word will be both key and value in the key:value pair added to ht
+					ht.Add(currentWord);
 				}
 				else
 				{
