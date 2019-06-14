@@ -20,11 +20,9 @@ namespace Fibonacci
 			watch1.Start();
 			int fibRecurs = FibonacciRecursive(n);
 			watch1.Stop();
-			Console.WriteLine();
 			Console.WriteLine($"The {n}th Fibonacci number is: {fibRecurs}");	// Nth number in Fib sequence
 			Console.WriteLine($"Number of operations req'd: {OperationCount}"); // Number of recursive calls req'd to calc nth Fib number
-			Console.WriteLine($"Elapsed time: {watch1.Elapsed} seconds");
-			Console.WriteLine();
+			Console.WriteLine($"Elapsed time: {watch1.Elapsed} seconds\n");
 
 			// Demo Fibonacci memoized
 			Console.WriteLine("FIBONACCI MEMOIZED");
@@ -37,8 +35,7 @@ namespace Fibonacci
 			}
 			Console.WriteLine($"\nThe {n}th Fibonacci number is: {fibMemoized.Item2[fibMemoized.Item2.Length - 1]}");
 			Console.WriteLine($"Number of operations req'd: {fibMemoized.Item1}");
-			Console.WriteLine($"Elapsed time: {watch2.Elapsed} seconds");
-			Console.WriteLine();
+			Console.WriteLine($"Elapsed time: {watch2.Elapsed} seconds\n");
 
 			// Demo Fibonacci greedy
 			Console.WriteLine("FIBONACCI GREEDY");
@@ -47,8 +44,7 @@ namespace Fibonacci
 			watch3.Stop();
 			Console.WriteLine($"The {n}th Fibonacci number is: {fibGreedy.Item1}");
 			Console.WriteLine($"Number of operations req'd: {fibGreedy.Item2}");
-			Console.WriteLine($"Elapsed time: {watch3.Elapsed} seconds");
-			Console.WriteLine();
+			Console.WriteLine($"Elapsed time: {watch3.Elapsed} seconds\n");
 		}
 
 		// Static field for counting number of operations in recursive Fibonacci method
@@ -62,7 +58,7 @@ namespace Fibonacci
 		public static int FibonacciRecursive(int n)
 		{
 			OperationCount++;
-			Console.WriteLine(n);
+			//Console.WriteLine(n); // Print value of n at each recursive call
 			if (n < 2) return n; // Base case
 			return FibonacciRecursive(n - 1) + FibonacciRecursive(n - 2);
 		}
