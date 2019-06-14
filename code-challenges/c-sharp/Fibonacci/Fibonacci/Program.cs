@@ -42,11 +42,11 @@ namespace Fibonacci
 			sequence[0] = 0;
 			sequence[1] = 1;
 
-			int fibCountCurrent = 0;
+			int fibCurrent = 0;
 			for (int i = 2; i <= n; i++)
 			{
-				fibCountCurrent = sequence[i - 1] + sequence[i - 2];
-				sequence[i] = fibCountCurrent;
+				fibCurrent = sequence[i - 1] + sequence[i - 2];
+				sequence[i] = fibCurrent;
 			}
 			return sequence;
 		}
