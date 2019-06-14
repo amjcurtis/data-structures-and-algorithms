@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 
 namespace Fibonacci
 {
@@ -9,30 +10,44 @@ namespace Fibonacci
 			// Fib number to calculate
 			int n = 10;
 
+			// Initialize stopwatch instances for clocking execution time
+			Stopwatch watch1 = new Stopwatch();
+			Stopwatch watch2 = new Stopwatch();
+			Stopwatch watch3 = new Stopwatch();
+
 			// Demo Fibonacci recursive
 			Console.WriteLine("FIBONACCI RECURSIVE");
+			watch1.Start();
 			int fibRecurs = FibonacciRecursive(n);
+			watch1.Stop();
 			Console.WriteLine();
 			Console.WriteLine($"The {n}th Fibonacci number is: {fibRecurs}");	// Nth number in Fib sequence
 			Console.WriteLine($"Number of operations req'd: {OperationCount}"); // Number of recursive calls req'd to calc nth Fib number
+			Console.WriteLine($"Elapsed time: {watch1.Elapsed} seconds");
 			Console.WriteLine();
 
 			// Demo Fibonacci memoized
 			Console.WriteLine("FIBONACCI MEMOIZED");
+			watch2.Start();
 			Tuple<int, int[]> fibMemoized = FibonacciMemoized(n);
+			watch2.Stop();
 			foreach (int i in fibMemoized.Item2)
 			{
 				Console.Write("{0} ", i);
 			}
 			Console.WriteLine($"\nThe {n}th Fibonacci number is: {fibMemoized.Item2[fibMemoized.Item2.Length - 1]}");
 			Console.WriteLine($"Number of operations req'd: {fibMemoized.Item1}");
+			Console.WriteLine($"Elapsed time: {watch2.Elapsed} seconds");
 			Console.WriteLine();
 
 			// Demo Fibonacci greedy
 			Console.WriteLine("FIBONACCI GREEDY");
+			watch3.Start();
 			Tuple<int, int> fibGreedy = FibonacciGreedy(n);
+			watch3.Stop();
 			Console.WriteLine($"The {n}th Fibonacci number is: {fibGreedy.Item1}");
 			Console.WriteLine($"Number of operations req'd: {fibGreedy.Item2}");
+			Console.WriteLine($"Elapsed time: {watch3.Elapsed} seconds");
 			Console.WriteLine();
 		}
 
