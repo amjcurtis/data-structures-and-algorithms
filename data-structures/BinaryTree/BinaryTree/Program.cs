@@ -92,6 +92,27 @@ namespace BinaryTree
 			Console.WriteLine("\n");
 			tree.Nodes.Clear();
 
+			// Demo Preorder (for comparison with depth-first with stack)
+			Console.WriteLine("PREORDER");
+			List<int> preOrderOutput = tree.PreOrder(tree.Root);
+			foreach (int num in outputOfPreOrder)
+			{
+				Console.Write("{0} ", num);
+			}
+			Console.WriteLine("\n");
+			tree.Nodes.Clear();
+
+
+			// Demo depth-first traversal using a stack
+			Console.WriteLine("DEPTH-FIRST TRAVERSAL WITH STACK");
+			List<int> depthFirstOutput = tree.TraverseDepthFirstWithStack(tree.Root);
+			foreach (var num in depthFirstOutput)
+			{
+				Console.Write("{0} ", num);
+			}
+			Console.WriteLine("\n");
+			tree.Nodes.Clear();
+
 			// Demo FindMaxValue method
 			int? max = tree.FindMaxValue(tree.Root);
 			Console.WriteLine($"Max value is: {(max.HasValue ? max.ToString() : "NULL")}");

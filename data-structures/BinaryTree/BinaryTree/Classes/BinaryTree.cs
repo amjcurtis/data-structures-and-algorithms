@@ -138,6 +138,36 @@ namespace BinaryTree.Classes
 			return Nodes;
 		}
 
+		public List<T> TraverseDepthFirstWithStack(Node<T> root)
+		{
+			// Error check
+			if (root == null) return null;
+
+			Node<T> current;
+
+			// Instantiate stack
+			Stack<Node<T>> stack = new Stack<Node<T>>();
+
+			stack.Push(root);
+
+			while (stack.Count > 0)
+			{
+				current = stack.Pop();
+				Nodes.Add(current.Value);
+
+				if (current.RightChild != null)
+				{
+					stack.Push(current.RightChild);
+				}
+
+				if (current.LeftChild != null)
+				{
+					stack.Push(current.LeftChild);
+				}
+			}
+			return Nodes;
+		}
+
 		public int? FindMaxValue(Node<int> root)
 		{
 			// Handles edge case where tree is empty
