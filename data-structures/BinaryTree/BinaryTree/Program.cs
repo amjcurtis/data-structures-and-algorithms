@@ -71,6 +71,24 @@ namespace BinaryTree
 			Node<int> node9 = new Node<int>(9);
 			Node<int> node10 = new Node<int>(10);
 
+			/*
+								1
+
+							 2     3
+						    
+						  4   5   6   7
+						/ \					
+					   8  9  10
+
+
+								1
+							  /   \
+							 2     3
+						   /\     /\
+						 4
+
+			*/
+
 			// Populate tree with nodes
 			tree.Root = node1;
 			tree.Root.LeftChild = node2;
