@@ -6,14 +6,14 @@ namespace Fibonacci
 	{
 		static void Main(string[] args)
 		{
-			// Nth Fib number to calculate
+			// Fib number to calculate
 			int n = 10;
 
 			// Demo Fibonacci recursive
 			Console.WriteLine("FIBONACCI RECURSIVE");
 			int fibRecurs = FibonacciRecursive(n);
 			Console.WriteLine();
-			Console.WriteLine($"The {n}th Fibonacci number is: {fibRecurs}");      // Nth number in Fib sequence
+			Console.WriteLine($"The {n}th Fibonacci number is: {fibRecurs}");	// Nth number in Fib sequence
 			Console.WriteLine($"Number of operations req'd: {OperationCount}"); // Number of recursive calls req'd to calc nth Fib number
 			Console.WriteLine();
 
@@ -39,6 +39,11 @@ namespace Fibonacci
 		// Static field for counting number of operations in recursive Fibonacci method
 		public static int OperationCount = 0;
 
+		/// <summary>
+		/// Calculates nth Fibonacci number recursively
+		/// </summary>
+		/// <param name="n">number to calculate in Fibonacci sequence</param>
+		/// <returns>nth number in Fibonacci sequence</returns>
 		public static int FibonacciRecursive(int n)
 		{
 			OperationCount++;
@@ -47,6 +52,11 @@ namespace Fibonacci
 			return FibonacciRecursive(n - 1) + FibonacciRecursive(n - 2);
 		}
 
+		/// <summary>
+		/// Calculates nth Fibonacci number in O(n) space; more efficient than recursive method thanks to "memoizing" (caching) previously calc'd Fib number
+		/// </summary>
+		/// <param name="n">number to calculate in Fibonacci sequence</param>
+		/// <returns>Fibonacci sequence up to nth number</returns>
 		public static Tuple<int, int[]> FibonacciMemoized(int n)
 		{
 			int fibCount = 0; // Counter for tracking number of operations
@@ -63,6 +73,11 @@ namespace Fibonacci
 			return tup;
 		}
 
+		/// <summary>
+		/// Calculates nth Fibonacci number in O(1) space; uses "memoizing" (caching) previously calc'd Fib numbers
+		/// </summary>
+		/// <param name="n"></param>
+		/// <returns></returns>
 		public static Tuple<int, int> FibonacciGreedy(int n)
 		{
 			int fibCount = 0; // Counter for tracking number of operations
