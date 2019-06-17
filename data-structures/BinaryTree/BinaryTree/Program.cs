@@ -8,58 +8,10 @@ namespace BinaryTree
 	{
 		static void Main(string[] args)
 		{
-			// Instantiate new node and add as root of new BT
-			Node<int> intNode = new Node<int>(11);
-			BinaryTree<int> tree = new BinaryTree<int>(intNode);
 
-			// Add child nodes to BT
-			Node<int> left = new Node<int>(12);
-			Node<int> right = new Node<int>(13);
-			tree.Root.LeftChild = left;
-			tree.Root.RightChild = right;
+			BinaryTree<int> tree = new BinaryTree<int>();
 
-			// Test PreOrder() method
-			List<int> outputOfPreOrder = tree.PreOrder(intNode);
-			foreach (int num in outputOfPreOrder)
-			{
-				Console.Write("{0} ", num);
-			}
-			Console.WriteLine("\n");
-			tree.Nodes.Clear();
-
-			// Demo InOrder() method
-			List<int> outputOfInOrder = tree.InOrder(intNode);
-			foreach (int num in outputOfInOrder)
-			{
-				Console.Write("{0} ", num);
-			}
-			Console.WriteLine("\n");
-			tree.Nodes.Clear();
-
-			// Demo PostOrder() method
-			List<int> outputOfPostOrder = tree.PostOrder(intNode);
-			foreach (int num in outputOfPostOrder)
-			{
-				Console.Write("{0} ", num);
-			}
-			Console.WriteLine("\n");
-			tree.Nodes.Clear();
-
-			// Demo BST's Add() method
-			Node<int> rootOfBST = new Node<int>(21);
-			BinarySearchTree<int> bst = new BinarySearchTree<int>(rootOfBST);
-			Console.WriteLine($"bst.Root.Value: {bst.Root.Value}");
-
-			bst.Add(bst.Root, 22);
-			Console.WriteLine($"bst.Root.RightChild.Value: {bst.Root.RightChild.Value}");
-			Console.WriteLine("");
-
-			////////////////////////////////////////////
-			// Breadth-first binary tree traversal
-			////////////////////////////////////////////
-
-			Console.WriteLine("Node values from breadth-first binary tree traversal:");
-			
+			// Instantiate nodes to populate tree			
 			Node<int> node1 = new Node<int>(1);
 			Node<int> node2 = new Node<int>(2);
 			Node<int> node3 = new Node<int>(3);
@@ -70,24 +22,6 @@ namespace BinaryTree
 			Node<int> node8 = new Node<int>(8);
 			Node<int> node9 = new Node<int>(9);
 			Node<int> node10 = new Node<int>(10);
-
-			/*
-								1
-
-							 2     3
-						    
-						  4   5   6   7
-						/ \					
-					   8  9  10
-
-
-								1
-							  /   \
-							 2     3
-						   /\     /\
-						 4
-
-			*/
 
 			// Populate tree with nodes
 			tree.Root = node1;
@@ -101,7 +35,49 @@ namespace BinaryTree
 			tree.Root.LeftChild.LeftChild.RightChild = node9;
 			tree.Root.LeftChild.RightChild.LeftChild = node10;
 
+			/*
+							   1
+							  /  \
+							2      3
+						   / \    / \
+						 4    5  6   7
+						/\	 /			
+					   8  9 10
+
+			*/
+
+			// Demo PreOrder() method
+			Console.WriteLine("PREORDER");
+			List<int> preOrderOutput = tree.PreOrder(tree.Root);
+			foreach (int num in preOrderOutput)
+			{
+				Console.Write("{0} ", num);
+			}
+			Console.WriteLine("\n");
+			tree.Nodes.Clear();
+
+			// Demo InOrder() method
+			Console.WriteLine("INORDER");
+			List<int> inOrderOutput = tree.InOrder(tree.Root);
+			foreach (int num in inOrderOutput)
+			{
+				Console.Write("{0} ", num);
+			}
+			Console.WriteLine("\n");
+			tree.Nodes.Clear();
+
+			// Demo PostOrder() method
+			Console.WriteLine("POSTORDER");
+			List<int> postOrderOutput = tree.PostOrder(tree.Root);
+			foreach (int num in postOrderOutput)
+			{
+				Console.Write("{0} ", num);
+			}
+			Console.WriteLine("\n");
+			tree.Nodes.Clear();
+
 			// Demo breadth-first tree traversal
+			Console.WriteLine("BREADTH-FIRST TRAVERSAL");
 			List<int> outputOfBreadthFirst = tree.TraverseBreadthFirst(tree.Root);
 			foreach (var num in outputOfBreadthFirst)
 			{
@@ -109,17 +85,6 @@ namespace BinaryTree
 			}
 			Console.WriteLine("\n");
 			tree.Nodes.Clear();
-
-			// Demo Preorder (for comparison with depth-first with stack)
-			Console.WriteLine("PREORDER");
-			List<int> preOrderOutput = tree.PreOrder(tree.Root);
-			foreach (int num in outputOfPreOrder)
-			{
-				Console.Write("{0} ", num);
-			}
-			Console.WriteLine("\n");
-			tree.Nodes.Clear();
-
 
 			// Demo depth-first traversal using a stack
 			Console.WriteLine("DEPTH-FIRST TRAVERSAL WITH STACK");
@@ -134,7 +99,6 @@ namespace BinaryTree
 			// Demo FindMaxValue method
 			int? max = tree.FindMaxValue(tree.Root);
 			Console.WriteLine($"Max value is: {(max.HasValue ? max.ToString() : "NULL")}");
-
 			Node<int> nullNode = null;
 			int ? nullMax = tree.FindMaxValue(nullNode);
 			Console.WriteLine($"Max value is: {(nullMax.HasValue ? nullMax.ToString() : "NULL")}");
