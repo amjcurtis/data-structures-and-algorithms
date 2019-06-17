@@ -58,7 +58,7 @@ namespace Fibonacci
 		public static int FibonacciRecursive(int n)
 		{
 			OperationCount++;
-			//Console.WriteLine(n); // Print value of n at each recursive call
+			//Console.Write($"{n} "); // Print value of n at each recursive call
 			if (n < 2) return n; // Base case
 			return FibonacciRecursive(n - 1) + FibonacciRecursive(n - 2);
 		}
@@ -80,8 +80,8 @@ namespace Fibonacci
 				sequence[i] = sequence[i - 1] + sequence[i - 2];
 				fibCount++;
 			}
-			Tuple<int, int[]> tup = new Tuple<int, int[]>(fibCount, sequence);
-			return tup;
+			Tuple<int, int[]> result = new Tuple<int, int[]>(fibCount, sequence);
+			return result;
 		}
 
 		/// <summary>
