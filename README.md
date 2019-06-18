@@ -20,13 +20,13 @@
 
 8. [Implementation: Binary Tree and Binary Search Tree](data-structures/BinaryTree)
 
-9. GOAL - [Challenge: FizzBuzz Tree](code-challenges/c-sharp/FizzBuzzTree)
+9. [Challenge: FizzBuzz Tree](code-challenges/c-sharp/FizzBuzzTree)
 
 10. [Challenge: Insertion Sort](code-challenges/c-sharp/Sorts/InsertionSort)
 
-11. [Challenge: Merge Sort](code-challenges/c-sharp/Sorts/MergeSort)
+11. [Challenge: Merge Sort](code-challenges/c-sharp/sorts/MergeSort)
 
-12. [Challenge: Quick Sort](code-challenges/c-sharp/Sorts/QuickSort)
+12. [Challenge: Quick Sort](code-challenges/c-sharp/sorts/QuickSort)
 
 13. [Implementation: Hash Table](data-structures/HashTable)
 
@@ -48,11 +48,15 @@
 
 22. [Challenge: Remove nodes containing specified value from a linked list](code-challenges/c-sharp/RemoveDuplValsFromLinkedList)
 
-23. [Challenge: Selection Sort](code-challenges/c-sharp/Sorts/SelectionSort)
+23. [Challenge: Selection Sort](code-challenges/c-sharp/sorts/SelectionSort)
 
-24. [Challenge: Bubble Sort](code-challenges/c-sharp/Sorts/BubbleSort)
+24. [Challenge: Bubble Sort](code-challenges/c-sharp/sorts/BubbleSort)
 
-25. GOAL - Challenge: Pascal’s Triangle
+25. [Challenge: Calculate *n*th Fibonacci Number (Recursively and Iteratively)](code-challenges/c-sharp/Fibonacci)
+
+26. [Challenge: Depth-First Tree Traversal Using a Stack](data-structures/BinaryTree)
+
+27. GOAL - Challenge: Pascal’s Triangle
 
 26. GOAL - Challenge: Escape Room Matrix 
 
