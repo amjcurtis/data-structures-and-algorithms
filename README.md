@@ -22,7 +22,7 @@
 
 9. [Challenge: FizzBuzz Tree](code-challenges/c-sharp/FizzBuzzTree)
 
-10. [Challenge: Insertion Sort](code-challenges/c-sharp/Sorts/InsertionSort)
+10. [Challenge: Insertion Sort](code-challenges/c-sharp/sorts/InsertionSort)
 
 11. [Challenge: Merge Sort](code-challenges/c-sharp/sorts/MergeSort)
 
