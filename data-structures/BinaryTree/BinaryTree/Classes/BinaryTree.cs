@@ -21,6 +21,14 @@ namespace BinaryTree.Classes
 		}
 
 		/// <summary>
+		/// Clears list of nodes populated by last traversal of tree
+		/// </summary>
+		public void ClearNodeList()
+		{
+			Nodes.Clear();
+		}
+
+		/// <summary>
 		/// Performs depth-first traversal of binary tree, inspecting root node before traversing to child nodes
 		/// </summary>
 		/// <param name="root">root node of tree</param>
@@ -96,11 +104,38 @@ namespace BinaryTree.Classes
 		}
 
 		/// <summary>
-		/// Clears list of nodes populated by last traversal of tree
+		/// Traverses tree depth-first non-recursively by using a stack
 		/// </summary>
-		public void ClearNodeList()
+		/// <param name="root">root node of tree</param>
+		/// <returns>list of nodes traversed</returns>
+		public List<T> TraverseDepthFirstWithStack(Node<T> root)
 		{
-			Nodes.Clear();
+			// Error check
+			if (root == null) return null;
+
+			Node<T> current;
+
+			// Instantiate stack
+			Stack<Node<T>> stack = new Stack<Node<T>>();
+
+			stack.Push(root);
+
+			while (stack.Count > 0)
+			{
+				current = stack.Pop();
+				Nodes.Add(current.Value);
+
+				if (current.RightChild != null)
+				{
+					stack.Push(current.RightChild);
+				}
+
+				if (current.LeftChild != null)
+				{
+					stack.Push(current.LeftChild);
+				}
+			}
+			return Nodes;
 		}
 
 		/// <summary>
@@ -138,43 +173,15 @@ namespace BinaryTree.Classes
 			return Nodes;
 		}
 
-		public List<T> TraverseDepthFirstWithStack(Node<T> root)
-		{
-			// Error check
-			if (root == null) return null;
-
-			Node<T> current;
-
-			// Instantiate stack
-			Stack<Node<T>> stack = new Stack<Node<T>>();
-
-			stack.Push(root);
-
-			while (stack.Count > 0)
-			{
-				current = stack.Pop();
-				Nodes.Add(current.Value);
-
-				if (current.RightChild != null)
-				{
-					stack.Push(current.RightChild);
-				}
-
-				if (current.LeftChild != null)
-				{
-					stack.Push(current.LeftChild);
-				}
-			}
-			return Nodes;
-		}
-
+		/// <summary>
+		/// Traverses tree breadth-first and returns maximum node value
+		/// </summary>
+		/// <param name="root">root node</param>
+		/// <returns>max node value or null if tree is empty</returns>
 		public int? FindMaxValue(Node<int> root)
 		{
 			// Handles edge case where tree is empty
-			if (root == null)
-			{
-				return null;
-			}
+			if (root == null) return null;
 
 			// Variable to store max value
 			int? max = int.MinValue;

@@ -46,7 +46,7 @@ namespace BinaryTree
 
 			*/
 
-			// Demo PreOrder() method
+			// Demo preorder traversal
 			Console.WriteLine("PREORDER");
 			List<int> preOrderOutput = tree.PreOrder(tree.Root);
 			foreach (int num in preOrderOutput)
@@ -56,7 +56,7 @@ namespace BinaryTree
 			Console.WriteLine("\n");
 			tree.Nodes.Clear();
 
-			// Demo InOrder() method
+			// Demo inorder traversal
 			Console.WriteLine("INORDER");
 			List<int> inOrderOutput = tree.InOrder(tree.Root);
 			foreach (int num in inOrderOutput)
@@ -66,7 +66,7 @@ namespace BinaryTree
 			Console.WriteLine("\n");
 			tree.Nodes.Clear();
 
-			// Demo PostOrder() method
+			// Demo postorder traversal
 			Console.WriteLine("POSTORDER");
 			List<int> postOrderOutput = tree.PostOrder(tree.Root);
 			foreach (int num in postOrderOutput)
