@@ -174,45 +174,11 @@ namespace BinaryTree.Classes
 			return Nodes;
 		}
 
-		public void AddForBinarySearch(Node<int> root, int value)
-		{
-			// Instantiate new node and give it a value
-			Node<int> newNode = new Node<int>(value);
-			Console.WriteLine(newNode.Value);
-
-			if (root == null)
-			{
-				root = newNode;
-			}
-			else
-			{
-				while (root != null)
-				{
-					if (newNode.Value < root.Value)
-					{
-						if (root.LeftChild == null)
-						{
-							root.LeftChild = newNode;
-							break;
-						}
-						root = root.LeftChild;
-					}
-					else if (value > root.Value)
-					{
-						if (root.RightChild == null)
-						{
-							root.RightChild = newNode;
-							break;
-						}
-						root = root.RightChild;
-					}
-					// Could add logic here to handle situation where new node's value equals root node's value
-					// Currently I'm simply not adding the new node if a node with its value is already present in tree
-					// Could handle it differently if I wanted to allow duplicate values in tree
-				}
-			}
-		}
-
+		/// <summary>
+		/// Checks whether binary tree is a binary search tree
+		/// </summary>
+		/// <param name="root">root node of tree</param>
+		/// <returns>boolean depending on whether tree is BST or not or null if tree is empty</returns>
 		public bool? IsBinarySearchTree(Node<int> root)
 		{
 			// Error check
@@ -227,24 +193,28 @@ namespace BinaryTree.Classes
 			{
 				Node<int> front = queue.Dequeue();
 
-				//Nodes.Add((T)front.Value);
+				if (front.LeftChild != null)
+				{
+					if (front.LeftChild.Value <= front.Value)
+					{
+						queue.Enqueue(front.LeftChild);
+					}
+					else
+					{
+						return false;
+					}
+				}
 
-				if (front.LeftChild != null && front.LeftChild.Value <= front.Value)
+				if (front.RightChild != null)
 				{
-					queue.Enqueue(front.LeftChild);
-				}
-				else
-				{
-					return false;
-				}
-
-				if (front.RightChild != null && front.RightChild.Value >= front.Value)
-				{
-					queue.Enqueue(front.RightChild);
-				}
-				else
-				{
-					return false;
+					if (front.RightChild.Value >= front.Value)
+					{
+						queue.Enqueue(front.RightChild);
+					}
+					else
+					{
+						return false;
+					}
 				}
 			}
 			return true;

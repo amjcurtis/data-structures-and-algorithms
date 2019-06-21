@@ -52,12 +52,10 @@ namespace BinaryTree
 						 35  45  55  65
 						/\	 /			
 					  33 37 42
-
 			*/
 
-			// Instantiate binary search tree for demo'ing IsBinarySearchTree method
+			// Instantiate and populate new tree for demo'ing IsBinarySearchTree method
 			BinaryTree<int> bst = new BinaryTree<int>();
-			// Add values to bst
 			bst.Root = new Node<int>(50);
 			bst.Root.LeftChild = new Node<int>(40);
 			bst.Root.RightChild = new Node<int>(60);
@@ -69,26 +67,6 @@ namespace BinaryTree
 			bst.Root.LeftChild.LeftChild.RightChild = new Node<int>(37);
 			bst.Root.LeftChild.RightChild.LeftChild = new Node<int>(42);
 			
-			//Random rand = new Random();
-			//bst.Root = new Node<int>(rand.Next(100));
-			//List<int> list = new List<int>();
-			//list.Add(bst.Root.Value);
-			//for (int i = 0; i < 10; i++)
-			//{
-			//	int newRand = rand.Next(100);
-			//	if (!list.Contains(newRand))
-			//	{
-			//		bst.AddForBinarySearch(bst.Root, newRand);
-			//	}
-			//}
-			//Console.WriteLine(bst.Root.Value);
-			//Console.WriteLine(bst.Root.LeftChild.Value);
-			//Console.WriteLine(bst.Root.RightChild.Value);
-
-			//bst.Root = new Node<int>(5);
-			//bst.Root.LeftChild = new Node<int>(2);
-			//bst.Root.LeftChild = new Node<int>(3);
-
 			// Demo preorder traversal
 			Console.WriteLine("PREORDER");
 			List<int> preOrderOutput = tree.PreOrder(tree.Root);
