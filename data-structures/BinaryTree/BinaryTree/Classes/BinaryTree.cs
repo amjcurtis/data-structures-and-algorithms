@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace BinaryTree.Classes
 {
@@ -171,6 +172,82 @@ namespace BinaryTree.Classes
 			}
 
 			return Nodes;
+		}
+
+		public void AddForBinarySearch(Node<int> root, int value)
+		{
+			// Instantiate new node and give it a value
+			Node<int> newNode = new Node<int>(value);
+			Console.WriteLine(newNode.Value);
+
+			if (root == null)
+			{
+				root = newNode;
+			}
+			else
+			{
+				while (root != null)
+				{
+					if (newNode.Value < root.Value)
+					{
+						if (root.LeftChild == null)
+						{
+							root.LeftChild = newNode;
+							break;
+						}
+						root = root.LeftChild;
+					}
+					else if (value > root.Value)
+					{
+						if (root.RightChild == null)
+						{
+							root.RightChild = newNode;
+							break;
+						}
+						root = root.RightChild;
+					}
+					// Could add logic here to handle situation where new node's value equals root node's value
+					// Currently I'm simply not adding the new node if a node with its value is already present in tree
+					// Could handle it differently if I wanted to allow duplicate values in tree
+				}
+			}
+		}
+
+		public bool? IsBinarySearchTree(Node<int> root)
+		{
+			// Error check
+			if (root == null) return null;
+
+			// Instantiate queue
+			Queue<Node<int>> queue = new Queue<Node<int>>();
+
+			queue.Enqueue(root);
+
+			while (queue.Count > 0)
+			{
+				Node<int> front = queue.Dequeue();
+
+				//Nodes.Add((T)front.Value);
+
+				if (front.LeftChild != null && front.LeftChild.Value <= front.Value)
+				{
+					queue.Enqueue(front.LeftChild);
+				}
+				else
+				{
+					return false;
+				}
+
+				if (front.RightChild != null && front.RightChild.Value >= front.Value)
+				{
+					queue.Enqueue(front.RightChild);
+				}
+				else
+				{
+					return false;
+				}
+			}
+			return true;
 		}
 
 		/// <summary>
