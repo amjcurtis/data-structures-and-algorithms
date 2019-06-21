@@ -88,7 +88,7 @@ namespace Fibonacci
 		/// Calculates nth Fibonacci number in O(1) space; uses "memoizing" (caching) previously calc'd Fib numbers
 		/// </summary>
 		/// <param name="n"></param>
-		/// <returns></returns>
+		/// <returns>nth number in Fibonacci sequence</returns>
 		public static Tuple<int, int> FibonacciGreedy(int n)
 		{
 			int fibCount = 0; // Counter for tracking number of operations
