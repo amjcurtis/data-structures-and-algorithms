@@ -129,8 +129,6 @@ namespace BinaryTree
 			Node<int> nullNode = null;
 			int ? nullMax = tree.FindMaxValue(nullNode);
 			Console.WriteLine($"Max value is: {(nullMax.HasValue ? nullMax.ToString() : "NULL")}");
-
-			Console.ReadLine();
 		}
 	}
 }
