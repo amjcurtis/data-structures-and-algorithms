@@ -20,9 +20,17 @@ namespace Fibonacci
 			watch1.Start();
 			int fibRecurs = FibonacciRecursive(n);
 			watch1.Stop();
-			Console.WriteLine($"The {n}th Fibonacci number is: {fibRecurs}");	// Nth number in Fib sequence
+			Console.WriteLine($"The {n}th Fibonacci number is: {fibRecurs}"); // Nth number in Fib sequence
 			Console.WriteLine($"Number of operations req'd: {OperationCount}"); // Number of recursive calls req'd to calc nth Fib number
 			Console.WriteLine($"Elapsed time: {watch1.Elapsed} seconds\n");
+			// Produce whole Fibonacci sequence up to n instead of just the nth Fibonacci number
+			OperationCount = 0;
+			for (int i = 0; i <= 10; i++)
+			{
+				//OperationCount = 0; // Reset counter before calculating next Fibonacci number
+				int fib = FibonacciRecursive(i);
+				Console.WriteLine($"Fib number when i is {i} is {fib}. It took {OperationCount} calls to get here.");
+			}
 
 			// Demo Fibonacci memoized
 			Console.WriteLine("FIBONACCI MEMOIZED");
@@ -60,11 +68,11 @@ namespace Fibonacci
 			OperationCount++;
 			//Console.Write($"{n} "); // Print value of n at each recursive call
 			if (n < 2) return n; // Base case
-			return FibonacciRecursive(n - 1) + FibonacciRecursive(n - 2);
+			return FibonacciRecursive(n - 2) + FibonacciRecursive(n - 1);
 		}
 
 		/// <summary>
-		/// Calculates nth Fibonacci number in O(n) space; more efficient than recursive method thanks to "memoizing" (caching) previously calc'd Fib number
+		/// Calculates Fibonacci sequence up to nth number inclusive in O(n) space; more efficient than recursive method thanks to "memoizing" (caching) previously calc'd Fib number
 		/// </summary>
 		/// <param name="n">number to calculate in Fibonacci sequence</param>
 		/// <returns>Fibonacci sequence up to nth number</returns>
@@ -88,7 +96,7 @@ namespace Fibonacci
 		/// Calculates nth Fibonacci number in O(1) space; uses "memoizing" (caching) previously calc'd Fib numbers
 		/// </summary>
 		/// <param name="n"></param>
-		/// <returns></returns>
+		/// <returns>nth number in Fibonacci sequence</returns>
 		public static Tuple<int, int> FibonacciGreedy(int n)
 		{
 			int fibCount = 0; // Counter for tracking number of operations
@@ -106,7 +114,7 @@ namespace Fibonacci
 
 				fibCount++;
 			}
-			Tuple<int, int> result = new Tuple<int, int>(current, fibCount);;
+			Tuple<int, int> result = new Tuple<int, int>(current, fibCount);
 			return result;
 		}
 	}

@@ -11,7 +11,7 @@ namespace BinaryTree
 
 			BinaryTree<int> tree = new BinaryTree<int>();
 
-			// Instantiate nodes to populate tree			
+			// Instantiate nodes to populate tree
 			Node<int> node1 = new Node<int>(1);
 			Node<int> node2 = new Node<int>(2);
 			Node<int> node3 = new Node<int>(3);
@@ -35,7 +35,7 @@ namespace BinaryTree
 			tree.Root.LeftChild.LeftChild.RightChild = node9;
 			tree.Root.LeftChild.RightChild.LeftChild = node10;
 
-			/*
+			/*				 (Tree)
 							   1
 							  /  \
 							2      3
@@ -44,9 +44,30 @@ namespace BinaryTree
 						/\	 /			
 					   8  9 10
 
+							  (BST)
+							   50
+							  /  \
+							40    60
+						   / \    / \
+						 35  45  55  65
+						/\	 /			
+					  33 37 42
 			*/
 
-			// Demo PreOrder() method
+			// Instantiate and populate new tree for demo'ing IsBinarySearchTree method
+			BinaryTree<int> bst = new BinaryTree<int>();
+			bst.Root = new Node<int>(50);
+			bst.Root.LeftChild = new Node<int>(40);
+			bst.Root.RightChild = new Node<int>(60);
+			bst.Root.LeftChild.LeftChild = new Node<int>(35);
+			bst.Root.LeftChild.RightChild = new Node<int>(45);
+			bst.Root.RightChild.LeftChild = new Node<int>(55);
+			bst.Root.RightChild.RightChild = new Node<int>(65);
+			bst.Root.LeftChild.LeftChild.LeftChild = new Node<int>(33);
+			bst.Root.LeftChild.LeftChild.RightChild = new Node<int>(37);
+			bst.Root.LeftChild.RightChild.LeftChild = new Node<int>(42);
+			
+			// Demo preorder traversal
 			Console.WriteLine("PREORDER");
 			List<int> preOrderOutput = tree.PreOrder(tree.Root);
 			foreach (int num in preOrderOutput)
@@ -56,7 +77,7 @@ namespace BinaryTree
 			Console.WriteLine("\n");
 			tree.Nodes.Clear();
 
-			// Demo InOrder() method
+			// Demo inorder traversal
 			Console.WriteLine("INORDER");
 			List<int> inOrderOutput = tree.InOrder(tree.Root);
 			foreach (int num in inOrderOutput)
@@ -66,20 +87,10 @@ namespace BinaryTree
 			Console.WriteLine("\n");
 			tree.Nodes.Clear();
 
-			// Demo PostOrder() method
+			// Demo postorder traversal
 			Console.WriteLine("POSTORDER");
 			List<int> postOrderOutput = tree.PostOrder(tree.Root);
 			foreach (int num in postOrderOutput)
-			{
-				Console.Write("{0} ", num);
-			}
-			Console.WriteLine("\n");
-			tree.Nodes.Clear();
-
-			// Demo breadth-first tree traversal
-			Console.WriteLine("BREADTH-FIRST TRAVERSAL");
-			List<int> outputOfBreadthFirst = tree.TraverseBreadthFirst(tree.Root);
-			foreach (var num in outputOfBreadthFirst)
 			{
 				Console.Write("{0} ", num);
 			}
@@ -95,6 +106,22 @@ namespace BinaryTree
 			}
 			Console.WriteLine("\n");
 			tree.Nodes.Clear();
+
+			// Demo breadth-first tree traversal
+			Console.WriteLine("BREADTH-FIRST TRAVERSAL WITH QUEUE");
+			List<int> outputOfBreadthFirst = tree.TraverseBreadthFirst(tree.Root);
+			foreach (var num in outputOfBreadthFirst)
+			{
+				Console.Write("{0} ", num);
+			}
+			Console.WriteLine("\n");
+			tree.Nodes.Clear();
+
+			// Demo IsBinarySearchTree method
+			Console.WriteLine("TEST WHETHER TREE IS BINARY SEARCH TREE");
+			Console.WriteLine(tree.IsBinarySearchTree(tree.Root));
+			Console.WriteLine(bst.IsBinarySearchTree(bst.Root));
+			Console.WriteLine();
 
 			// Demo FindMaxValue method
 			int? max = tree.FindMaxValue(tree.Root);
