@@ -7,17 +7,28 @@ namespace BubbleSort
 	{
 		static void Main(string[] args)
 		{
-			//int[] nums = new int[] { 4, 3, 1, 9, 7, 5, 8, 6, 2 };
+			// Boolean to allow easy switching between preset and randomly generated array of numbers to sort
+			bool randomlyGenerateArrayOfNums = false;
 
-			// Generate array of random numbers
-			int size = 2500;
-			int[] nums = new int[size];
-			Random random = new Random();
-			int randomRange = size * 4;
-			for (int i = 0; i < size; i++)
+			int[] nums;
+
+			if (randomlyGenerateArrayOfNums)
 			{
-				int rand = random.Next(1, randomRange);
-				nums[i] = rand;
+				// Generate array of random numbers
+				int size = 25;
+				nums = new int[size];
+				Random random = new Random();
+				int randomRange = size * 4;
+				for (int i = 0; i < size; i++)
+				{
+					int rand = random.Next(1, randomRange);
+					nums[i] = rand;
+				}
+			}
+			else
+			{
+				// Use preset array of numbers
+				nums = new int[] { 4, 3, 1, 9, 7, 5, 8, 6, 2 };
 			}
 
 			// Print array before sorting
