@@ -135,6 +135,7 @@ namespace BinaryTree.Classes
 					stack.Push(current.LeftChild);
 				}
 			}
+
 			return Nodes;
 		}
 
@@ -216,7 +217,37 @@ namespace BinaryTree.Classes
 					}
 				}
 			}
+
 			return true;
+		}
+
+		public bool IsBalanced(Node<T> root)
+		{
+			// Error check
+			if (root == null) return true;
+
+			Node<T> current;
+
+			// Instantiate stack
+			Stack<Node<T>> stack = new Stack<Node<T>>();
+
+			stack.Push(root);
+
+			while (stack.Count > 0)
+			{
+				current = stack.Pop();
+
+
+				if (current.RightChild != null)
+				{
+					stack.Push(current.RightChild);
+				}
+
+				if (current.LeftChild != null)
+				{
+					stack.Push(current.LeftChild);
+				}
+			}
 		}
 
 		/// <summary>
@@ -257,6 +288,7 @@ namespace BinaryTree.Classes
 					queue.Enqueue(front.RightChild);
 				}
 			}
+
 			return max;
 		}
 	}
