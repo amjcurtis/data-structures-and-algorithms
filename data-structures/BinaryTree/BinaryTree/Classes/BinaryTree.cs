@@ -268,6 +268,8 @@ namespace BinaryTree.Classes
 			{
 				current = stack.Pop();
 
+				//TODO fill in balance test logic
+
 
 				if (current.RightChild != null)
 				{

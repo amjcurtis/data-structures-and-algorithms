@@ -132,11 +132,13 @@ namespace BinaryTree
 
 			// Demo recursive IsBalancedRecursive method
 			Console.WriteLine($"tree is balanced: {tree.IsBalancedRecursive(tree.Root)}"); // true
+			//Console.WriteLine($"tree is balanced: {tree.IsBalancedWithStack(tree.Root)}"); // Expect true
 			// Unbalance tree
 			tree.Root.RightChild.LeftChild = null;
 			tree.Root.RightChild.RightChild = null;
 			tree.Root.LeftChild.RightChild.LeftChild = null;
 			Console.WriteLine($"tree is balanced: {tree.IsBalancedRecursive(tree.Root)}"); // false
+			//Console.WriteLine($"tree is balanced: {tree.IsBalancedWithStack(tree.Root)}"); // Expect false
 		}
 	}
 }
