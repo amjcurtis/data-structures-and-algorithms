@@ -35,7 +35,7 @@ namespace BinaryTree
 			tree.Root.LeftChild.LeftChild.RightChild = node9;
 			tree.Root.LeftChild.RightChild.LeftChild = node10;
 
-			/*				 (Tree)
+			/*				 (tree)
 							   1
 							  /  \
 							2      3
@@ -44,7 +44,7 @@ namespace BinaryTree
 						/\	 /			
 					   8  9 10
 
-							  (BST)
+							  (bst)
 							   50
 							  /  \
 							40    60
@@ -66,7 +66,7 @@ namespace BinaryTree
 			bst.Root.LeftChild.LeftChild.LeftChild = new Node<int>(33);
 			bst.Root.LeftChild.LeftChild.RightChild = new Node<int>(37);
 			bst.Root.LeftChild.RightChild.LeftChild = new Node<int>(42);
-			
+
 			// Demo preorder traversal
 			Console.WriteLine("PREORDER");
 			List<int> preOrderOutput = tree.PreOrder(tree.Root);
@@ -127,8 +127,16 @@ namespace BinaryTree
 			int? max = tree.FindMaxValue(tree.Root);
 			Console.WriteLine($"Max value is: {(max.HasValue ? max.ToString() : "NULL")}");
 			Node<int> nullNode = null;
-			int ? nullMax = tree.FindMaxValue(nullNode);
+			int? nullMax = tree.FindMaxValue(nullNode);
 			Console.WriteLine($"Max value is: {(nullMax.HasValue ? nullMax.ToString() : "NULL")}");
+
+			// Demo recursive IsBalancedRecursive method
+			Console.WriteLine($"tree is balanced: {tree.IsBalancedRecursive(tree.Root)}"); // true
+			// Unbalance tree
+			tree.Root.RightChild.LeftChild = null;
+			tree.Root.RightChild.RightChild = null;
+			tree.Root.LeftChild.RightChild.LeftChild = null;
+			Console.WriteLine($"tree is balanced: {tree.IsBalancedRecursive(tree.Root)}"); // false
 		}
 	}
 }
