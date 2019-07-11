@@ -56,7 +56,7 @@
 
 26. [Challenge: Depth-First Tree Traversal Using a Stack](data-structures/BinaryTree)
 
-27. GOAL - Shortest path traversal between two nodes in a graph
+27. GOAL - Shortest path between two nodes in a graph
 
 28. GOAL - Winner of Tic Tac Toe
 
