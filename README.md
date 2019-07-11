@@ -38,7 +38,7 @@
 
 17. GOAL - [Challenge: Flight Itinerary with a Graph](code-challenges/c-sharp/GraphEdge)
 
-18. [Challenge: Depth-First Graph Traversal](code-challenges/c-sharp/DepthFirstGraphTraversal)
+18. GOAL - [Challenge: Depth-First Graph Traversal](code-challenges/c-sharp/DepthFirstGraphTraversal)
 
 19. [Challenge: Move All Instances of a Number to End of Array](code-challenges/c-sharp/MoveArrayElementsToEnd)
 
