@@ -56,8 +56,12 @@
 
 26. [Challenge: Depth-First Tree Traversal Using a Stack](data-structures/BinaryTree)
 
-27. GOAL - Challenge: Pascal’s Triangle
+27. GOAL - Shortest path traversal between two nodes in a graph
 
-26. GOAL - Challenge: Escape Room Matrix 
+28. GOAL - Winner of Tic Tac Toe
 
-27. GOAL - Challenge: Battleships
+28. GOAL - Challenge: Pascal’s Triangle
+
+29. GOAL - Challenge: Escape Room Matrix 
+
+30. GOAL - Challenge: Battleships
