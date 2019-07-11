@@ -65,3 +65,7 @@
 29. GOAL - Challenge: Escape Room Matrix 
 
 30. GOAL - Challenge: Battleships
+
+31. GOAL - Improve efficiency of GetKthNodeFromEnd() method on linked list
+
+32. GOAL - Find node where linked list becomes circular
