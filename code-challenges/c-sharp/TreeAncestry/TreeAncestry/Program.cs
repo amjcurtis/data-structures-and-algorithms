@@ -33,11 +33,21 @@ namespace TreeAncestry
 			tree.Root.LeftChild.LeftChild.RightChild = node9;
 			tree.Root.LeftChild.RightChild.LeftChild = node10;
 
+			/*				 (tree)
+							   1
+							  /  \
+							2      3
+						   / \    / \
+						 4    5  6   7
+						/\	 /			
+					   8  9 10
+			*/
+			
 			////////////////////////////////////////////
 			// Demo IsAncestor() method
 			////////////////////////////////////////////
 
-			Console.WriteLine(IsAncestor(4, 9, tree.Root)); // Second value is descendant of first
+			Console.WriteLine(IsAncestor(4, 9, tree.Root));  // Second value is descendant of first
 			Console.WriteLine(IsAncestor(2, 10, tree.Root)); // Second value is descendant of first
 			Console.WriteLine(IsAncestor(3, 10, tree.Root)); // Second value not descendant of first
 			Console.WriteLine(IsAncestor(14, 9, tree.Root)); // Ancestor not in tree
@@ -66,9 +76,11 @@ namespace TreeAncestry
 			// Internal method for PreOrder traversal
 			void PreOrderContains(int x, Node<int> node)
 			{
+				// Base case
 				if (node.Value == x)
 				{
 					found = node;
+					return;
 				}
 
 				if (node.LeftChild != null)
