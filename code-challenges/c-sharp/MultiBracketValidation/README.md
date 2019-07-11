@@ -16,7 +16,7 @@ The approach I followed for implementing my stack data structure has a time and 
 
 ## Solution
 
-![Whiteboard Planning](https://github.com/amjcurtis/data-structures-and-algorithms/blob/fifo_animal_shelter/assets/multi_bracket_validation.JPG)
+![Whiteboard Planning](https://github.com/amjcurtis/data-structures-and-algorithms/blob/master/assets/multi_bracket_validation.JPG)
 
 ## Attribution
 
