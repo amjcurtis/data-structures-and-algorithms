@@ -47,8 +47,6 @@ namespace ConsoleApp_LinkedList
 				sll.Reverse();
 				printedVals = sll.Print();
 				Console.WriteLine("printedVals: [{0}]", string.Join(", ", printedVals));
-				Console.WriteLine($"HEAD.Value: {sll.Head.Value}");
-				Console.WriteLine($"HEAD.Next.Value: {sll.Head.Next.Value}");
 			}
 			catch (Exception e)
             {

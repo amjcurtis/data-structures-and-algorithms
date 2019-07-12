@@ -285,7 +285,7 @@ namespace ConsoleApp_LinkedList.Classes
 				leader = Current.Next;	 // Saves a reference to node ahead
 				Current.Next = follower; // Saves a reference to node behind
 				follower = Current;		 // Moves prev node ahead by one node at each iteration
-				Current = leader;		 // Moves current one node ahead at each iteration; also ensures loop ends by making current null at end
+				Current = leader;		 // Moves Current one node ahead at each iteration; also ensures loop ends by making Current null at end
 			}
 
 			Head = follower;			 // Reset Head to last node in list
