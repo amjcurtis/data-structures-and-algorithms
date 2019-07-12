@@ -29,8 +29,10 @@ namespace ConsoleApp_LinkedList
                 Console.WriteLine("printedVals: [{0}]", string.Join(", ", printedVals));
 
 				// Demo GetKthNodeFromEnd() method
-                Node kthValFromEnd = sll.GetKthNodeFromEnd(2);
-                Console.WriteLine($"Value of kthValFromEnd: {kthValFromEnd.Value}\n");
+				int k = 2;
+				Node kthValFromEnd = sll.GetKthNodeFromEnd(k);
+				Console.WriteLine($"k = {k}");
+                Console.WriteLine($"Value of kthNodeFromEnd: {kthValFromEnd.Value}\n");
 
 				// Demo IsCircular method
 				Node end = sll.GetKthNodeFromEnd(1); // Get last node in list

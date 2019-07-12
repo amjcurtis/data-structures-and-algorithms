@@ -197,22 +197,16 @@ namespace ConsoleApp_LinkedList.Classes
         /// <returns>current node</returns>
         public Node GetKthNodeFromEnd(int k)
         {
+			// Handle empty list
+			if (Head == null) throw new NullReferenceException("There are no nodes in the list!");
+
+			// Handle invalid input for k
+			if (k <= 0) throw new Exception("Value of k must be a positive number greater than zero!");
+
             Current = Head;
-
-			// Error checks
-            if (Head == null) // Handle empty list
-			{
-                Console.WriteLine("There are no nodes in the list!");
-                return null;
-            }
-            if (k <= 0) // Handle invalid input for k
-			{
-                Console.WriteLine("Value of k must be a positive number greater than zero!");
-                return null;
-            }
-
-            // Counter to increment for tracking length of list
-            int count = 1;
+			
+			// Counter to increment for tracking length of list
+			int count = 1;
 
 			// First loop through list to get length
             while (Current.Next != null)
@@ -227,7 +221,7 @@ namespace ConsoleApp_LinkedList.Classes
             // Error check: handles k value greater than length of list
             if (k > count)
             {
-                Console.WriteLine("From GetKthNodeFromEnd(): Value of k is greater than length of list!");
+                Console.WriteLine("Value of k is greater than length of list!");
                 return null;
             }
 
@@ -249,13 +243,13 @@ namespace ConsoleApp_LinkedList.Classes
 		/// <returns>boolean</returns>
 		public bool IsCircular()
 		{
-			// "Tortoise and hare"
-			Node runner = Head;
-			Node walker = Head;
-
 			// Handle empty list
 			if (Head == null) return false;
 
+			// "Tortoise and hare"
+			Node runner = Head;
+			Node walker = Head;
+			
 			while (runner.Next != null && runner.Next.Next != null)
 			{
 				walker = walker.Next;
