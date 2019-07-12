@@ -20,17 +20,21 @@ namespace ConsoleApp_LinkedList
 					// Demo Append() method
 					sll.Append(i + 1);
                 }
+				
+				//	[1] -> [2] -> [3] -> [4] -> [5] -> [6] -> null 
 
 				// Demo Insert() method
-                //myLinkedList.Insert(244);
+				//myLinkedList.Insert(244);
 
 				// Demo Print() method
-                int[] printedVals = sll.Print();
-                Console.WriteLine("printedVals: [{0}]", string.Join(", ", printedVals));
+				int[] nodeVals = sll.Print();
+                Console.WriteLine("Nodes values: [{0}]", string.Join(", ", nodeVals));
 
 				// Demo GetKthNodeFromEnd() method
-                Node kthValFromEnd = sll.GetKthNodeFromEnd(2);
-                Console.WriteLine($"Value of kthValFromEnd: {kthValFromEnd.Value}\n");
+				int k = 2;
+				Node kthValFromEnd = sll.GetKthNodeFromEnd(k);
+				Console.WriteLine($"k = {k}");
+                Console.WriteLine($"kth node from end: {kthValFromEnd.Value}\n");
 
 				// Demo IsCircular method
 				Node end = sll.GetKthNodeFromEnd(1); // Get last node in list
@@ -45,10 +49,8 @@ namespace ConsoleApp_LinkedList
 				// Demo reversing of linked list
 				Console.WriteLine("REVERSE LINKED LIST");
 				sll.Reverse();
-				printedVals = sll.Print();
-				Console.WriteLine("printedVals: [{0}]", string.Join(", ", printedVals));
-				Console.WriteLine($"HEAD.Value: {sll.Head.Value}");
-				Console.WriteLine($"HEAD.Next.Value: {sll.Head.Next.Value}");
+				nodeVals = sll.Print();
+				Console.WriteLine("printedVals: [{0}]", string.Join(", ", nodeVals));
 			}
 			catch (Exception e)
             {

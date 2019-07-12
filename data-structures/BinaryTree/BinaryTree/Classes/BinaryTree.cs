@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace BinaryTree.Classes
 {
@@ -135,6 +136,7 @@ namespace BinaryTree.Classes
 					stack.Push(current.LeftChild);
 				}
 			}
+
 			return Nodes;
 		}
 
@@ -216,7 +218,34 @@ namespace BinaryTree.Classes
 					}
 				}
 			}
+
 			return true;
+		}
+
+		/// <summary>
+		/// Recursively traverses binary tree to find whether tree is balanced.
+		/// </summary>
+		/// <param name="root">Root node of tree.</param>
+		/// <returns>Boolean.</returns>
+		public bool IsBalancedRecursive(Node<T> root)
+		{
+			return (root == null) || // Base case
+				(IsBalancedRecursive(root.LeftChild) &&
+				IsBalancedRecursive(root.RightChild) &&
+				Math.Abs(GetHeight(root.LeftChild) - GetHeight(root.RightChild)) <= 1);
+		}
+
+		/// <summary>
+		/// Recursively calculates height of binary tree from specified node to bottom of tree.
+		/// </summary>
+		/// <param name="node">Starting node in tree.</param>
+		/// <returns>Boolean.</returns>
+		public int GetHeight(Node<T> node)
+		{
+			// Base case
+			if (node == null) return 0;
+
+			return 1 + Math.Max(GetHeight(node.LeftChild), GetHeight(node.RightChild));
 		}
 
 		/// <summary>
@@ -257,6 +286,7 @@ namespace BinaryTree.Classes
 					queue.Enqueue(front.RightChild);
 				}
 			}
+
 			return max;
 		}
 	}
