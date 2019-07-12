@@ -211,8 +211,8 @@ namespace ConsoleApp_LinkedList.Classes
 			// First loop through list to get length
             while (Current.Next != null)
             {
-                count++;
                 Current = Current.Next;
+                count++;
             }
 
             // Handles list of only one node
