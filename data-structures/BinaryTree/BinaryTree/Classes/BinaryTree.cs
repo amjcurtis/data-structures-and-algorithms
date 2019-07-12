@@ -229,18 +229,14 @@ namespace BinaryTree.Classes
 		/// <returns>Boolean.</returns>
 		public bool IsBalancedRecursive(Node<T> root)
 		{
-			return (
-						root == null // Base case
-				   ) ||
-				   (
-						IsBalancedRecursive(root.LeftChild) &&
-						IsBalancedRecursive(root.RightChild) &&
-						Math.Abs(GetHeight(root.LeftChild) - GetHeight(root.RightChild)) <= 1
-				   );
+			return (root == null) || // Base case
+				(IsBalancedRecursive(root.LeftChild) &&
+				IsBalancedRecursive(root.RightChild) &&
+				Math.Abs(GetHeight(root.LeftChild) - GetHeight(root.RightChild)) <= 1);
 		}
 
 		/// <summary>
-		/// Calculates height of binary tree from specified node to bottom of tree.
+		/// Recursively calculates height of binary tree from specified node to bottom of tree.
 		/// </summary>
 		/// <param name="node">Starting node in tree.</param>
 		/// <returns>Boolean.</returns>
@@ -250,37 +246,6 @@ namespace BinaryTree.Classes
 			if (node == null) return 0;
 
 			return 1 + Math.Max(GetHeight(node.LeftChild), GetHeight(node.RightChild));
-		}
-
-		public bool IsBalancedWithStack(Node<T> root)
-		{
-			// Error check
-			if (root == null) return true;
-
-			Node<T> current;
-
-			// Instantiate stack
-			Stack<Node<T>> stack = new Stack<Node<T>>();
-
-			stack.Push(root);
-
-			while (stack.Count > 0)
-			{
-				current = stack.Pop();
-
-				//TODO fill in balance test logic
-
-
-				if (current.RightChild != null)
-				{
-					stack.Push(current.RightChild);
-				}
-
-				if (current.LeftChild != null)
-				{
-					stack.Push(current.LeftChild);
-				}
-			}
 		}
 
 		/// <summary>
