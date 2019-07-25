@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using ConsoleApp_LinkedList.Classes;
 
 namespace ConsoleApp_LinkedList
@@ -9,13 +8,13 @@ namespace ConsoleApp_LinkedList
 		static void Main(string[] args)
 		{
 			LList list = new LList();
-			for (int i = 0; i < 6; i++)
+			for (int i = 0; i < 7; i++)
 			{
 				// Demo Append() method
 				list.Append(i + 1);
 			}
 
-			//	[1] -> [2] -> [3] -> [4] -> [5] -> [6] -> null 
+			//	[1] -> [2] -> [3] -> [4] -> [5] -> [6] -> [7] -> null 
 
 			// Demo Print() method
 			int[] nodeVals = list.Print();
@@ -29,7 +28,7 @@ namespace ConsoleApp_LinkedList
 
 			// Demo IsCircular method
 			Node end = list.GetKthNodeFromEnd(1); // Get last node in list
-			end.Next = list.Head.Next.Next.Next.Next.Next; // Make list circular
+			end.Next = list.Head.Next.Next.Next; // Make list circular
 			Console.WriteLine($"Is list circular: {list.IsCircular()}");
 			Node collisionPoint = list.FindLoopStart();
 			Console.WriteLine($"Value of node at start of loop in circular list: {collisionPoint.Value}");

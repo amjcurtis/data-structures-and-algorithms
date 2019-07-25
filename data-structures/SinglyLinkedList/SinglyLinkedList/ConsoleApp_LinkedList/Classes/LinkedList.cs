@@ -286,19 +286,19 @@ namespace ConsoleApp_LinkedList.Classes
 				walker = walker.Next;
 				runner = runner.Next.Next;
 
-				if (runner == walker) // List has a loop
+				if (runner == walker)		  // List has a loop
 				{
-					walker = Head; // Reset walker to beginning of list
+					walker = Head;			  // Reset walker to beginning of list
 
-					while (runner != walker) // Traverse until walker and runner collide again
+					while (runner != walker)  // Traverse until walker and runner collide again
 					{
 						walker = walker.Next;
 						runner = runner.Next; // Runner now moves one node at a time
 					}
 
-					if (walker == runner) // If is theoretically unnecessary here
+					if (walker == runner)	  // If is theoretically unnecessary here
 					{
-						return walker; // Point where walker and runner collide again is start of loop
+						return walker;		  // Point where walker and runner collide again is start of loop
 					}
 				}
 			}
