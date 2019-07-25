@@ -66,6 +66,6 @@
 
 30. GOAL - Challenge: Battleships
 
-31. GOAL - Improve efficiency of GetKthNodeFromEnd() method on linked list
+31. GOAL - Find node where linked list becomes circular
 
-32. GOAL - Find node where linked list becomes circular
+32. GOAL - Radix sort
