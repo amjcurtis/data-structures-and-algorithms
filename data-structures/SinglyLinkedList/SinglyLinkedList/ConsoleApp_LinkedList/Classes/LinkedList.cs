@@ -201,7 +201,11 @@ namespace ConsoleApp_LinkedList.Classes
 			if (Head == null) throw new NullReferenceException("There are no nodes in the list!");
 
 			// Handle invalid input for k
-			if (k <= 0) throw new Exception("Value of k must be a positive number greater than zero!");
+			if (k <= 0)
+			{
+				Console.WriteLine("Value of k must be a positive number greater than zero!");
+				return null;
+			}
 
             Current = Head;
 			
@@ -250,7 +254,7 @@ namespace ConsoleApp_LinkedList.Classes
 			Node runner = Head;
 			Node walker = Head;
 			
-			while (runner.Next != null && runner.Next.Next != null)
+			while (runner != null && runner.Next != null)
 			{
 				walker = walker.Next;
 				runner = runner.Next.Next;
@@ -262,6 +266,44 @@ namespace ConsoleApp_LinkedList.Classes
 			}
 
 			return false;
+		}
+
+		/// <summary>
+		/// Finds point where loop begins in a circular linked list
+		/// </summary>
+		/// <returns>Node where loop begins, else null if linked list not circular</returns>
+		public Node FindLoopStart()
+		{
+			// Handle empty list
+			if (Head == null) return null;
+
+			// "Tortoise and hare"
+			Node runner = Head;
+			Node walker = Head;
+
+			while (runner != null && runner.Next != null)
+			{
+				walker = walker.Next;
+				runner = runner.Next.Next;
+
+				if (runner == walker) // List has a loop
+				{
+					walker = Head; // Reset walker to beginning of list
+
+					while (runner != walker) // Traverse until walker and runner collide again
+					{
+						walker = walker.Next;
+						runner = runner.Next; // Runner now moves one node at a time
+					}
+
+					if (walker == runner) // If is theoretically unnecessary here
+					{
+						return walker; // Point where walker and runner collide again is start of loop
+					}
+				}
+			}
+
+			return null;
 		}
 
 		/// <summary>
