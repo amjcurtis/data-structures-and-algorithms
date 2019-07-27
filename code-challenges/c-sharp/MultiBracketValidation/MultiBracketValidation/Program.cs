@@ -9,8 +9,9 @@ namespace MultiBracketValidation
 		{
 			string bracketString = "()[[]]";
 			string bracketString2 = "{(})";
+
+			Console.WriteLine(MultiBracketValidation(bracketString));
 			Console.WriteLine(MultiBracketValidation(bracketString2));
-			Console.ReadLine();
 		}
 
 		/// <summary>
@@ -40,17 +41,17 @@ namespace MultiBracketValidation
 					{
 						if (charArray[i] == ')' && bracketStack.Top.Value == '(')
 						{
-							Console.WriteLine($"Top to pop:  {bracketStack.Top.Value}");
+							Console.WriteLine($"Pop:  {bracketStack.Top.Value}");
 							bracketStack.Pop();
 						}
 						else if (charArray[i] == '}' && bracketStack.Top.Value == '{')
 						{
-							Console.WriteLine($"Top to pop:  {bracketStack.Top.Value}");
+							Console.WriteLine($"Pop:  {bracketStack.Top.Value}");
 							bracketStack.Pop();
 						}
 						else if (charArray[i] == ']' && bracketStack.Top.Value == '[')
 						{
-							Console.WriteLine($"Top to pop:  {bracketStack.Top.Value}");
+							Console.WriteLine($"Pop:  {bracketStack.Top.Value}");
 							bracketStack.Pop();
 						}
 						else
@@ -60,6 +61,7 @@ namespace MultiBracketValidation
 					}
 				}
 			}
+
 			if (bracketStack.Top != null)
 			{
 				return false;
@@ -68,7 +70,6 @@ namespace MultiBracketValidation
 			{
 				return true;
 			}
-
 		}
 	}
 }
