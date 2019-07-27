@@ -540,9 +540,78 @@ namespace XUnitTestProject_SinglyLinkedList
 			Assert.Null(start);
 		}
 
-		//TODO Return start of loop in linked list of only 1 node
-		//TODO Return start of loop in linked list of only 2 nodes
-		//TODO Return start of loop when it's first node in list
-		//TODO Return start of loop when it's last node in list
+		// Return start of loop in linked list of only 1 node
+		[Fact]
+		public void CanFindStartOfLoopInLinkedListWithOnlyOneNode()
+		{
+			// ARRANGE
+			LList list = new LList();
+			list.Append(1); // Make list contain only 1 node
+			list.Head.Next = list.Head; // Make list circular
+
+			// ACT
+			Node start = list.FindLoopStart();
+
+			// ASSERT
+			Assert.Equal(1, start.Value);
+		}
+
+		// Return start of loop in linked list of only 2 nodes
+		[Fact]
+		public void CanFindStartOfLoopInLinkedListWithOnlyTwoNodes()
+		{
+			// ARRANGE
+			LList list = new LList();
+			list.Append(1); 
+			list.Append(2);
+			Node end = list.GetKthNodeFromEnd(1); // Get last node in list
+			end.Next = list.Head; // Make list circular
+
+			// ACT
+			Node start = list.FindLoopStart();
+
+			// ASSERT
+			Assert.Equal(1, start.Value);
+		}
+
+		// Return start of loop when it's first node in list
+		[Fact]
+		public void CanFindStartOfLoopInLinkedListWhenLoopStartIsFirstNode()
+		{
+			// ARRANGE
+			LList list = new LList();
+			for (int i = 0; i < 5; i++)
+			{
+				list.Append(i + 1);
+			}
+			Node end = list.GetKthNodeFromEnd(1); // Get last node in list
+			end.Next = list.Head.Next.Next;       // Make list circular
+
+			// ACT
+			Node start = list.FindLoopStart();
+
+			// ASSERT
+			Assert.Equal(3, start.Value);
+		}
+
+		// Return start of loop when it's last node in list
+		[Fact]
+		public void CanFindStartOfLoopInLinkedListWhenLoopStartIsLastNode()
+		{
+			// ARRANGE
+			LList list = new LList();
+			for (int i = 0; i < 5; i++)
+			{
+				list.Append(i + 1);
+			}
+			Node end = list.GetKthNodeFromEnd(1); // Get last node in list
+			end.Next = end; // Make list circular
+
+			// ACT
+			Node start = list.FindLoopStart();
+
+			// ASSERT
+			Assert.Equal(5, start.Value);
+		}
 	}
 }
