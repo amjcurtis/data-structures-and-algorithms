@@ -303,7 +303,7 @@ namespace ConsoleApp_LinkedList.Classes
 				}
 			}
 
-			return null;
+			return null; // Return null if list not circular
 		}
 
 		/// <summary>

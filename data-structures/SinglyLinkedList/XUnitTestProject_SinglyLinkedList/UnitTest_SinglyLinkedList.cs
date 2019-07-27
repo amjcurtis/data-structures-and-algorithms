@@ -116,7 +116,6 @@ namespace XUnitTestProject_SinglyLinkedList
         [InlineData(0, 3)]
         [InlineData(1, 2)]
         [InlineData(2, 1)]
-
         public void CanReturnArrayOfAllValuesInList(int index, int value)
         {
             // Arrange
@@ -160,7 +159,6 @@ namespace XUnitTestProject_SinglyLinkedList
         [Theory]
         [InlineData(3, 49)]
         [InlineData(4, 49)]
-
         public void CanAddMultipleNodesToEndOfList(int index, int value)
         {
             // Arrange
@@ -340,6 +338,9 @@ namespace XUnitTestProject_SinglyLinkedList
             //Assert.Null(result);
         }
 
+		/// <summary>
+		/// Test whether can return node not at either end of linked list
+		/// </summary>
         [Fact]
         public void CanReturnNodeNotAtEitherEndOfList()
         {
@@ -448,7 +449,7 @@ namespace XUnitTestProject_SinglyLinkedList
 		}
 
 		/// <summary>
-		/// Tests whether can return false if list is empty
+		/// Tests whether IsCircular method can return false if list is empty
 		/// </summary>
 		[Fact]
 		public void CanReturnFalseIfListIsEmpty()
@@ -462,5 +463,14 @@ namespace XUnitTestProject_SinglyLinkedList
 			// Assert
 			Assert.False(notCirc);
 		}
+
+		//TODO Happy path: return correct node at start of loop in linked list with EVEN number of nodes
+		//TODO Happy path: return correct node at start of loop in linked list with ODD number of nodes
+		//TODO Expected failure: return null if list with EVEN number of nodes is not circular
+		//TODO Expected failure: return null if list with ODD number of nodes is not circular
+		//TODO Return start of loop in linked list of only 1 node
+		//TODO Return start of loop in linked list of only 2 nodes
+		//TODO Return start of loop when it's first node in list
+		//TODO Return start of loop when it's last node in list
     }
 }
