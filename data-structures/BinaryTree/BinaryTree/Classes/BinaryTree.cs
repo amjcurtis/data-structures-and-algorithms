@@ -289,5 +289,48 @@ namespace BinaryTree.Classes
 
 			return max;
 		}
+
+
+		public static Node<int> MergeTrees(Node<int> root1, Node<int> root2)
+		{
+			if (root1 == null && root2 == null)
+			{
+				return null;
+			}
+			else if (root1 == null && root2 != null)
+			{
+				return root2;
+			}
+			else if (root1 != null && root2 == null)
+			{
+				return root1;
+			}
+
+			BinaryTree<int> newTree = new BinaryTree<int>();
+			Queue<Node<int>> queue = new Queue<Node<int>>();
+
+			newTree.Root = new Node<int>(root1.Value + root2.Value); // Only happens if both root1 and root2 not null
+			Node<int> newTreeCurrentNode = newTree.Root;
+			queue.Enqueue(root1);
+			queue.Enqueue(root2);
+
+			while (queue.Count > 0)
+			{
+				Node<int> t1Node = queue.Dequeue();
+				Node<int> t2Node = queue.Dequeue();
+
+				if (t1Node.LeftChild != null && t2Node.LeftChild != null)
+				{
+					newTreeCurrentNode.LeftChild = new Node<int>(t1Node.Value + t2Node.Value);
+					queue.Enqueue(t1Node.LeftChild);
+					queue.Enqueue(t2Node.LeftChild);
+				}
+
+				if (t1Node.RightChild != null)
+				{
+					queue.Enqueue(t1Node.RightChild);
+				}
+			}
+		}
 	}
 }
