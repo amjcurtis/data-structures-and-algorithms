@@ -162,7 +162,7 @@ namespace BinaryTree
 			treeToMerge2.Root.RightChild.RightChild = new Node<int>(7);
 
 			Node<int> newTreeRoot = MergeTrees(treeToMerge1.Root, treeToMerge2.Root);
-			List<int> mergedTreeNodeValues = PreOrderStatic(newTreeRoot);
+			List<int> mergedTreeNodeValues = BreadthFirstStatic(newTreeRoot);
 			foreach (int value in mergedTreeNodeValues)
 			{
 				Console.WriteLine(value);
@@ -193,7 +193,7 @@ namespace BinaryTree
 			queue.Enqueue(root1);
 			queue.Enqueue(root2);
 
-			while (queue.Count > 0) // Should be greater'n *one* since we're dequeuing two nodes at each iteration?
+			while (queue.Count > 1) // Should be greater'n *one* since we're dequeuing two nodes at each iteration?
 			{
 				Node<int> t1Node = queue.Dequeue();
 				Node<int> t2Node = queue.Dequeue();
@@ -214,10 +214,6 @@ namespace BinaryTree
 					newTreeCurrentNode.LeftChild = new Node<int>(t1Node.LeftChild.Value);
 					queue.Enqueue(t1Node.LeftChild);
 				}
-				else // If both t1Node.LeftChild and t2Node.LeftChild are null
-				{
-
-				}
 
 				if (t1Node.RightChild != null && t2Node.RightChild != null)
 				{
@@ -236,7 +232,7 @@ namespace BinaryTree
 					queue.Enqueue(t1Node.RightChild);
 				}
 
-				//TODO Move newTreeCurrentNode to next node down
+				// Move newTreeCurrentNode to next node down
 				if (t1Node.LeftChild != null || t2Node.LeftChild != null)
 				{
 					newTreeCurrentNode = newTreeCurrentNode.LeftChild;
@@ -247,33 +243,35 @@ namespace BinaryTree
 				}
 			}
 
-			//TODO Handle scenario where queue.Count == 1 and so the queue isn't empty but the while loop above doesn't reiterate b/c queue.Count?
-
-
 			return newTree.Root;
 		}
 
 		public static List<int> list = new List<int>();
 
-		public static List<int> PreOrderStatic(Node<int> root)
+		public static List<int> BreadthFirstStatic(Node<int> root)
 		{
-			// Error check
-			if (root == null) return null;
+			Queue<Node<int>> queue = new Queue<Node<int>>();
 
-			list.Add(root.Value);
+			queue.Enqueue(root);
 
-			if (root.LeftChild != null)
+			while (queue.Count > 0)
 			{
-				PreOrderStatic(root.LeftChild);
-			}
+				Node<int> front = queue.Dequeue();
 
-			if (root.RightChild != null)
-			{
-				PreOrderStatic(root.RightChild);
+				list.Add(front.Value);
+
+				if (front.LeftChild != null)
+				{
+					queue.Enqueue(front.LeftChild);
+				}
+
+				if (front.RightChild != null)
+				{
+					queue.Enqueue(front.RightChild);
+				}
 			}
 
 			return list;
 		}
-
 	}
 }
