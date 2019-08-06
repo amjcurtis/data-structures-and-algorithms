@@ -8,7 +8,6 @@ namespace BinaryTree
 	{
 		static void Main(string[] args)
 		{
-
 			BinaryTree<int> tree = new BinaryTree<int>();
 
 			// Instantiate nodes to populate tree
@@ -54,6 +53,7 @@ namespace BinaryTree
 					  33 37 42
 			*/
 
+		
 			// Instantiate and populate new tree for demo'ing IsBinarySearchTree method
 			BinaryTree<int> bst = new BinaryTree<int>();
 			bst.Root = new Node<int>(50);
@@ -67,6 +67,7 @@ namespace BinaryTree
 			bst.Root.LeftChild.LeftChild.RightChild = new Node<int>(37);
 			bst.Root.LeftChild.RightChild.LeftChild = new Node<int>(42);
 
+			
 			// Demo preorder traversal
 			Console.WriteLine("PREORDER");
 			List<int> preOrderOutput = tree.PreOrder(tree.Root);
@@ -77,6 +78,7 @@ namespace BinaryTree
 			Console.WriteLine("\n");
 			tree.Nodes.Clear();
 
+			
 			// Demo inorder traversal
 			Console.WriteLine("INORDER");
 			List<int> inOrderOutput = tree.InOrder(tree.Root);
@@ -87,6 +89,7 @@ namespace BinaryTree
 			Console.WriteLine("\n");
 			tree.Nodes.Clear();
 
+			
 			// Demo postorder traversal
 			Console.WriteLine("POSTORDER");
 			List<int> postOrderOutput = tree.PostOrder(tree.Root);
@@ -97,6 +100,7 @@ namespace BinaryTree
 			Console.WriteLine("\n");
 			tree.Nodes.Clear();
 
+			
 			// Demo depth-first traversal using a stack
 			Console.WriteLine("DEPTH-FIRST TRAVERSAL WITH STACK");
 			List<int> depthFirstOutput = tree.TraverseDepthFirstWithStack(tree.Root);
@@ -107,6 +111,7 @@ namespace BinaryTree
 			Console.WriteLine("\n");
 			tree.Nodes.Clear();
 
+			
 			// Demo breadth-first tree traversal
 			Console.WriteLine("BREADTH-FIRST TRAVERSAL WITH QUEUE");
 			List<int> outputOfBreadthFirst = tree.TraverseBreadthFirst(tree.Root);
@@ -117,12 +122,14 @@ namespace BinaryTree
 			Console.WriteLine("\n");
 			tree.Nodes.Clear();
 
+			
 			// Demo IsBinarySearchTree method
 			Console.WriteLine("TEST WHETHER TREE IS BINARY SEARCH TREE");
 			Console.WriteLine(tree.IsBinarySearchTree(tree.Root));
 			Console.WriteLine(bst.IsBinarySearchTree(bst.Root));
 			Console.WriteLine();
 
+			
 			// Demo FindMaxValue method
 			int? max = tree.FindMaxValue(tree.Root);
 			Console.WriteLine($"Max value is: {(max.HasValue ? max.ToString() : "NULL")}");
@@ -130,6 +137,7 @@ namespace BinaryTree
 			int? nullMax = tree.FindMaxValue(nullNode);
 			Console.WriteLine($"Max value is: {(nullMax.HasValue ? nullMax.ToString() : "NULL")}");
 
+			
 			// Demo recursive IsBalancedRecursive method
 			Console.WriteLine($"tree is balanced: {tree.IsBalancedRecursive(tree.Root)}"); // true
 			// Unbalance tree
@@ -137,6 +145,135 @@ namespace BinaryTree
 			tree.Root.RightChild.RightChild = null;
 			tree.Root.LeftChild.RightChild.LeftChild = null;
 			Console.WriteLine($"tree is balanced: {tree.IsBalancedRecursive(tree.Root)}"); // false
+
+
+			// Demo MergeTrees method
+			BinaryTree<int> treeToMerge1 = new BinaryTree<int>();
+			treeToMerge1.Root = new Node<int>(1);
+			treeToMerge1.Root.LeftChild = new Node<int>(3);
+			treeToMerge1.Root.RightChild = new Node<int>(2);
+			treeToMerge1.Root.LeftChild.LeftChild = new Node<int>(5);
+
+			BinaryTree<int> treeToMerge2 = new BinaryTree<int>();
+			treeToMerge2.Root = new Node<int>(2);
+			treeToMerge2.Root.LeftChild = new Node<int>(1);
+			treeToMerge2.Root.RightChild = new Node<int>(3);
+			treeToMerge2.Root.LeftChild.RightChild = new Node<int>(4);
+			treeToMerge2.Root.RightChild.RightChild = new Node<int>(7);
+
+			Node<int> newTreeRoot = MergeTrees(treeToMerge1.Root, treeToMerge2.Root);
+			List<int> mergedTreeNodeValues = PreOrderStatic(newTreeRoot);
+			foreach (int value in mergedTreeNodeValues)
+			{
+				Console.WriteLine(value);
+			}
 		}
+
+
+		public static Node<int> MergeTrees(Node<int> root1, Node<int> root2)
+		{
+			if (root1 == null && root2 == null)
+			{
+				return null;
+			}
+			else if (root1 == null && root2 != null)
+			{
+				return root2;
+			}
+			else if (root1 != null && root2 == null)
+			{
+				return root1;
+			}
+
+			BinaryTree<int> newTree = new BinaryTree<int>();
+			Queue<Node<int>> queue = new Queue<Node<int>>();
+
+			newTree.Root = new Node<int>(root1.Value + root2.Value); // Only happens if both root1 and root2 not null
+			Node<int> newTreeCurrentNode = newTree.Root;
+			queue.Enqueue(root1);
+			queue.Enqueue(root2);
+
+			while (queue.Count > 0) // Should be greater'n *one* since we're dequeuing two nodes at each iteration?
+			{
+				Node<int> t1Node = queue.Dequeue();
+				Node<int> t2Node = queue.Dequeue();
+
+				if (t1Node.LeftChild != null && t2Node.LeftChild != null)
+				{
+					newTreeCurrentNode.LeftChild = new Node<int>(t1Node.LeftChild.Value + t2Node.LeftChild.Value);
+					queue.Enqueue(t1Node.LeftChild);
+					queue.Enqueue(t2Node.LeftChild);
+				}
+				else if (t1Node.LeftChild == null && t2Node.LeftChild != null)
+				{
+					newTreeCurrentNode.LeftChild = new Node<int>(t2Node.LeftChild.Value);
+					queue.Enqueue(t2Node.LeftChild);
+				}
+				else if (t1Node.LeftChild != null && t2Node.LeftChild == null)
+				{
+					newTreeCurrentNode.LeftChild = new Node<int>(t1Node.LeftChild.Value);
+					queue.Enqueue(t1Node.LeftChild);
+				}
+				else // If both t1Node.LeftChild and t2Node.LeftChild are null
+				{
+
+				}
+
+				if (t1Node.RightChild != null && t2Node.RightChild != null)
+				{
+					newTreeCurrentNode.RightChild = new Node<int>(t1Node.RightChild.Value + t2Node.RightChild.Value);
+					queue.Enqueue(t1Node.RightChild);
+					queue.Enqueue(t2Node.RightChild);
+				}
+				else if (t1Node.RightChild == null && t2Node.RightChild != null)
+				{
+					newTreeCurrentNode.RightChild = new Node<int>(t2Node.RightChild.Value);
+					queue.Enqueue(t2Node.RightChild);
+				}
+				else if (t1Node.RightChild != null && t2Node.RightChild == null)
+				{
+					newTreeCurrentNode.RightChild = new Node<int>(t1Node.RightChild.Value);
+					queue.Enqueue(t1Node.RightChild);
+				}
+
+				//TODO Move newTreeCurrentNode to next node down
+				if (t1Node.LeftChild != null || t2Node.LeftChild != null)
+				{
+					newTreeCurrentNode = newTreeCurrentNode.LeftChild;
+				}
+				else if (t1Node.RightChild != null || t2Node.RightChild != null)
+				{
+					newTreeCurrentNode = newTreeCurrentNode.RightChild;
+				}
+			}
+
+			//TODO Handle scenario where queue.Count == 1 and so the queue isn't empty but the while loop above doesn't reiterate b/c queue.Count?
+
+
+			return newTree.Root;
+		}
+
+		public static List<int> list = new List<int>();
+
+		public static List<int> PreOrderStatic(Node<int> root)
+		{
+			// Error check
+			if (root == null) return null;
+
+			list.Add(root.Value);
+
+			if (root.LeftChild != null)
+			{
+				PreOrderStatic(root.LeftChild);
+			}
+
+			if (root.RightChild != null)
+			{
+				PreOrderStatic(root.RightChild);
+			}
+
+			return list;
+		}
+
 	}
 }
