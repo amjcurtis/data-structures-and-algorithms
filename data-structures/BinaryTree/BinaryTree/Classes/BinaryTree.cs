@@ -314,22 +314,52 @@ namespace BinaryTree.Classes
 			queue.Enqueue(root1);
 			queue.Enqueue(root2);
 
-			while (queue.Count > 0)
+			while (queue.Count > 1) // Greater'n one since we're dequeuing two nodes at each iteration
 			{
 				Node<int> t1Node = queue.Dequeue();
 				Node<int> t2Node = queue.Dequeue();
 
 				if (t1Node.LeftChild != null && t2Node.LeftChild != null)
 				{
-					newTreeCurrentNode.LeftChild = new Node<int>(t1Node.Value + t2Node.Value);
+					newTreeCurrentNode.LeftChild = new Node<int>(t1Node.LeftChild.Value + t2Node.LeftChild.Value);
+					newTreeCurrentNode = newTreeCurrentNode.LeftChild;
 					queue.Enqueue(t1Node.LeftChild);
 					queue.Enqueue(t2Node.LeftChild);
 				}
-
-				if (t1Node.RightChild != null)
+				else if (t1Node.LeftChild == null && t2Node.LeftChild != null)
 				{
+					newTreeCurrentNode.LeftChild = new Node<int>(t2Node.LeftChild.Value);
+					queue.Enqueue(t2Node.LeftChild);
+				}
+				else if (t1Node.LeftChild != null && t2Node.LeftChild == null)
+				{
+					newTreeCurrentNode.LeftChild = new Node<int>(t1Node.LeftChild.Value);
+					queue.Enqueue(t1Node.LeftChild);
+				}
+				else // If both t1Node.LeftChild and t2Node.LeftChild are null
+				{
+
+				}
+
+				if (t1Node.RightChild != null && t2Node.RightChild != null)
+				{
+					newTreeCurrentNode.RightChild = new Node<int>(t1Node.RightChild.Value + t2Node.RightChild.Value);
+					queue.Enqueue(t1Node.RightChild);
+					queue.Enqueue(t2Node.RightChild);
+				}
+				else if (t1Node.RightChild == null && t2Node.RightChild != null)
+				{
+					newTreeCurrentNode.RightChild = new Node<int>(t2Node.RightChild.Value);
+					queue.Enqueue(t2Node.RightChild);
+				}
+				else if (t1Node.RightChild != null && t2Node.RightChild == null)
+				{
+					newTreeCurrentNode.RightChild = new Node<int>(t1Node.RightChild.Value);
 					queue.Enqueue(t1Node.RightChild);
 				}
+
+				//TODO Move newTreeCurrentNode to next node down
+
 			}
 		}
 	}

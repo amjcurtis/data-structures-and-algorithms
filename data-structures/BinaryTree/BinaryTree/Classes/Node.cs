@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace BinaryTree.Classes
+﻿namespace BinaryTree.Classes
 {
 	public class Node<T>
 	{
