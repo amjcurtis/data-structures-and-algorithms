@@ -169,7 +169,7 @@ namespace BinaryTree
 			}
 		}
 
-
+		// Merges two binary trees
 		public static Node<int> MergeTrees(Node<int> root1, Node<int> root2)
 		{
 			if (root1 == null && root2 == null)
@@ -246,8 +246,10 @@ namespace BinaryTree
 			return newTree.Root;
 		}
 
+		// For use in demo'ing MergeTrees method above
 		public static List<int> list = new List<int>();
 
+		// For use in demo'ing MergeTrees method above
 		public static List<int> BreadthFirstStatic(Node<int> root)
 		{
 			Queue<Node<int>> queue = new Queue<Node<int>>();
