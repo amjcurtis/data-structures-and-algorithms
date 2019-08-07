@@ -186,66 +186,54 @@ namespace BinaryTree
 				return root1;
 			}
 
-			//BinaryTree<int> newTree = new BinaryTree<int>();
 			Queue<Node<int>> queue = new Queue<Node<int>>();
 
-			//newTree.Root = new Node<int>(root1.Value + root2.Value); // Only happens if both root1 and root2 not null
 			root1.Value += root2.Value;
-			//Node<int> newTreeCurrentNode = newTree.Root;
 			queue.Enqueue(root1);
 			queue.Enqueue(root2);
 
+
+			//TODO Fix while loop below; may be cause of buggy behavior in test case
+
 			while (queue.Count > 1) // Should be greater'n *one* since we're dequeuing two nodes at each iteration?
 			{
-				Node<int> t1Node = queue.Dequeue();
-				Node<int> t2Node = queue.Dequeue();
+				Node<int> root1Node = queue.Dequeue();
+				Node<int> root2Node = queue.Dequeue();
 
-				if (t1Node.LeftChild != null && t2Node.LeftChild != null)
+				if (root1Node.LeftChild != null && root2Node.LeftChild != null)
 				{
-					newTreeCurrentNode.LeftChild = new Node<int>(t1Node.LeftChild.Value + t2Node.LeftChild.Value);
-					queue.Enqueue(t1Node.LeftChild);
-					queue.Enqueue(t2Node.LeftChild);
+					root1Node.LeftChild.Value += root2Node.LeftChild.Value;
+					queue.Enqueue(root1Node.LeftChild);
+					queue.Enqueue(root2Node.LeftChild);
 				}
-				else if (t1Node.LeftChild == null && t2Node.LeftChild != null)
+				else if (root1Node.LeftChild == null && root2Node.LeftChild != null)
 				{
-					newTreeCurrentNode.LeftChild = new Node<int>(t2Node.LeftChild.Value);
-					queue.Enqueue(t2Node.LeftChild);
+					root1Node.LeftChild = root2Node.LeftChild;
+					queue.Enqueue(root2Node.LeftChild);
 				}
-				else if (t1Node.LeftChild != null && t2Node.LeftChild == null)
+				else if (root1Node.LeftChild != null && root2Node.LeftChild == null)
 				{
-					newTreeCurrentNode.LeftChild = new Node<int>(t1Node.LeftChild.Value);
-					queue.Enqueue(t1Node.LeftChild);
-				}
-
-				if (t1Node.RightChild != null && t2Node.RightChild != null)
-				{
-					newTreeCurrentNode.RightChild = new Node<int>(t1Node.RightChild.Value + t2Node.RightChild.Value);
-					queue.Enqueue(t1Node.RightChild);
-					queue.Enqueue(t2Node.RightChild);
-				}
-				else if (t1Node.RightChild == null && t2Node.RightChild != null)
-				{
-					newTreeCurrentNode.RightChild = new Node<int>(t2Node.RightChild.Value);
-					queue.Enqueue(t2Node.RightChild);
-				}
-				else if (t1Node.RightChild != null && t2Node.RightChild == null)
-				{
-					newTreeCurrentNode.RightChild = new Node<int>(t1Node.RightChild.Value);
-					queue.Enqueue(t1Node.RightChild);
+					queue.Enqueue(root1Node.LeftChild);
 				}
 
-				// Move newTreeCurrentNode to next node down
-				if (t1Node.LeftChild != null || t2Node.LeftChild != null)
+				if (root1Node.RightChild != null && root2Node.RightChild != null)
 				{
-					newTreeCurrentNode = newTreeCurrentNode.LeftChild;
+					root1Node.RightChild.Value += root2Node.RightChild.Value;
+					queue.Enqueue(root1Node.RightChild);
+					queue.Enqueue(root2Node.RightChild);
 				}
-				else if (t1Node.RightChild != null || t2Node.RightChild != null)
+				else if (root1Node.RightChild == null && root2Node.RightChild != null)
 				{
-					newTreeCurrentNode = newTreeCurrentNode.RightChild;
+					root1Node.RightChild = root2Node.RightChild;
+					queue.Enqueue(root2Node.RightChild);
+				}
+				else if (root1Node.RightChild != null && root2Node.RightChild == null)
+				{
+					queue.Enqueue(root1Node.RightChild);
 				}
 			}
 
-			return newTree.Root;
+			return root1;
 		}
 
 		// For use in demo'ing MergeTrees method above
