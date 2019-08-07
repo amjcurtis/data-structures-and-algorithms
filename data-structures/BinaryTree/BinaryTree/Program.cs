@@ -172,6 +172,7 @@ namespace BinaryTree
 		// Merges two binary trees
 		public static Node<int> MergeTrees(Node<int> root1, Node<int> root2)
 		{
+			// Validate input
 			if (root1 == null && root2 == null)
 			{
 				return null;
@@ -185,11 +186,12 @@ namespace BinaryTree
 				return root1;
 			}
 
-			BinaryTree<int> newTree = new BinaryTree<int>();
+			//BinaryTree<int> newTree = new BinaryTree<int>();
 			Queue<Node<int>> queue = new Queue<Node<int>>();
 
-			newTree.Root = new Node<int>(root1.Value + root2.Value); // Only happens if both root1 and root2 not null
-			Node<int> newTreeCurrentNode = newTree.Root;
+			//newTree.Root = new Node<int>(root1.Value + root2.Value); // Only happens if both root1 and root2 not null
+			root1.Value += root2.Value;
+			//Node<int> newTreeCurrentNode = newTree.Root;
 			queue.Enqueue(root1);
 			queue.Enqueue(root2);
 
