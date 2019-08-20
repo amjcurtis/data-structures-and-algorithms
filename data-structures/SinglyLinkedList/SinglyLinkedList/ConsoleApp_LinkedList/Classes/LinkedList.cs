@@ -36,11 +36,9 @@ namespace ConsoleApp_LinkedList.Classes
         /// <returns>boolean depending on whether value exists in a node in list</returns>
         public bool Includes(int value)
         {
-            // Start at beginning of list
             Current = Head;
 
-            // Traverse list if list contains multiple nodes
-            while (Current.Next != null)
+            while (Current != null)
             {
                 if (Current.Value == value)
                 {
@@ -49,12 +47,6 @@ namespace ConsoleApp_LinkedList.Classes
                 Current = Current.Next;
             }
 
-            // Catches case where list contains only single node
-            if (Current.Value == value)
-            {
-                return true;
-            }
-            
             return false;
         }
 

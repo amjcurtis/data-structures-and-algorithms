@@ -11,18 +11,16 @@ namespace Fibonacci
 			int n = 10;
 
 			// Initialize stopwatch instances for clocking execution time
-			Stopwatch watch1 = new Stopwatch();
-			Stopwatch watch2 = new Stopwatch();
-			Stopwatch watch3 = new Stopwatch();
+			Stopwatch watch = new Stopwatch();
 
 			// Demo Fibonacci recursive
 			Console.WriteLine("FIBONACCI RECURSIVE");
-			watch1.Start();
+			watch.Start();
 			int fibRecurs = FibonacciRecursive(n);
-			watch1.Stop();
+			watch.Stop();
 			Console.WriteLine($"The {n}th Fibonacci number is: {fibRecurs}"); // Nth number in Fib sequence
 			Console.WriteLine($"Number of operations req'd: {OperationCount}"); // Number of recursive calls req'd to calc nth Fib number
-			Console.WriteLine($"Elapsed time: {watch1.Elapsed} seconds\n");
+			Console.WriteLine($"Elapsed time: {watch.Elapsed} seconds\n");
 			// Produce whole Fibonacci sequence up to n instead of just the nth Fibonacci number
 			OperationCount = 0;
 			for (int i = 0; i <= 10; i++)
@@ -33,26 +31,26 @@ namespace Fibonacci
 			}
 
 			// Demo Fibonacci memoized
-			Console.WriteLine("FIBONACCI MEMOIZED");
-			watch2.Start();
+			Console.WriteLine("\nFIBONACCI MEMOIZED");
+			watch.Restart();
 			Tuple<int, int[]> fibMemoized = FibonacciMemoized(n);
-			watch2.Stop();
+			watch.Stop();
 			foreach (int i in fibMemoized.Item2)
 			{
 				Console.Write("{0} ", i);
 			}
 			Console.WriteLine($"\nThe {n}th Fibonacci number is: {fibMemoized.Item2[fibMemoized.Item2.Length - 1]}");
 			Console.WriteLine($"Number of operations req'd: {fibMemoized.Item1}");
-			Console.WriteLine($"Elapsed time: {watch2.Elapsed} seconds\n");
+			Console.WriteLine($"Elapsed time: {watch.Elapsed} seconds\n");
 
 			// Demo Fibonacci greedy
 			Console.WriteLine("FIBONACCI GREEDY");
-			watch3.Start();
+			watch.Restart();
 			Tuple<int, int> fibGreedy = FibonacciGreedy(n);
-			watch3.Stop();
+			watch.Stop();
 			Console.WriteLine($"The {n}th Fibonacci number is: {fibGreedy.Item1}");
 			Console.WriteLine($"Number of operations req'd: {fibGreedy.Item2}");
-			Console.WriteLine($"Elapsed time: {watch3.Elapsed} seconds\n");
+			Console.WriteLine($"Elapsed time: {watch.Elapsed} seconds\n");
 		}
 
 		// Static field for counting number of operations in recursive Fibonacci method
@@ -88,8 +86,7 @@ namespace Fibonacci
 				sequence[i] = sequence[i - 1] + sequence[i - 2];
 				fibCount++;
 			}
-			Tuple<int, int[]> result = new Tuple<int, int[]>(fibCount, sequence);
-			return result;
+			return new Tuple<int, int[]>(fibCount, sequence);
 		}
 
 		/// <summary>
@@ -114,8 +111,7 @@ namespace Fibonacci
 
 				fibCount++;
 			}
-			Tuple<int, int> result = new Tuple<int, int>(current, fibCount);
-			return result;
+			return new Tuple<int, int>(current, fibCount);
 		}
 	}
 }

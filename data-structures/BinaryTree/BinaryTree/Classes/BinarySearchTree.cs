@@ -36,7 +36,7 @@ namespace BinaryTree.Classes
 			}
 			else
 			{
-				while (root!= null)
+				while (root != null)
 				{
 					if (newNode.Value < root.Value)
 					{
