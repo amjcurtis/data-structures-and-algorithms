@@ -8,7 +8,6 @@ namespace BinaryTree
 	{
 		static void Main(string[] args)
 		{
-
 			BinaryTree<int> tree = new BinaryTree<int>();
 
 			// Instantiate nodes to populate tree
@@ -54,6 +53,7 @@ namespace BinaryTree
 					  33 37 42
 			*/
 
+		
 			// Instantiate and populate new tree for demo'ing IsBinarySearchTree method
 			BinaryTree<int> bst = new BinaryTree<int>();
 			bst.Root = new Node<int>(50);
@@ -67,6 +67,7 @@ namespace BinaryTree
 			bst.Root.LeftChild.LeftChild.RightChild = new Node<int>(37);
 			bst.Root.LeftChild.RightChild.LeftChild = new Node<int>(42);
 
+			
 			// Demo preorder traversal
 			Console.WriteLine("PREORDER");
 			List<int> preOrderOutput = tree.PreOrder(tree.Root);
@@ -77,6 +78,7 @@ namespace BinaryTree
 			Console.WriteLine("\n");
 			tree.Nodes.Clear();
 
+			
 			// Demo inorder traversal
 			Console.WriteLine("INORDER");
 			List<int> inOrderOutput = tree.InOrder(tree.Root);
@@ -87,6 +89,7 @@ namespace BinaryTree
 			Console.WriteLine("\n");
 			tree.Nodes.Clear();
 
+			
 			// Demo postorder traversal
 			Console.WriteLine("POSTORDER");
 			List<int> postOrderOutput = tree.PostOrder(tree.Root);
@@ -97,6 +100,7 @@ namespace BinaryTree
 			Console.WriteLine("\n");
 			tree.Nodes.Clear();
 
+			
 			// Demo depth-first traversal using a stack
 			Console.WriteLine("DEPTH-FIRST TRAVERSAL WITH STACK");
 			List<int> depthFirstOutput = tree.TraverseDepthFirstWithStack(tree.Root);
@@ -107,6 +111,7 @@ namespace BinaryTree
 			Console.WriteLine("\n");
 			tree.Nodes.Clear();
 
+			
 			// Demo breadth-first tree traversal
 			Console.WriteLine("BREADTH-FIRST TRAVERSAL WITH QUEUE");
 			List<int> outputOfBreadthFirst = tree.TraverseBreadthFirst(tree.Root);
@@ -117,12 +122,14 @@ namespace BinaryTree
 			Console.WriteLine("\n");
 			tree.Nodes.Clear();
 
+			
 			// Demo IsBinarySearchTree method
 			Console.WriteLine("TEST WHETHER TREE IS BINARY SEARCH TREE");
 			Console.WriteLine(tree.IsBinarySearchTree(tree.Root));
 			Console.WriteLine(bst.IsBinarySearchTree(bst.Root));
 			Console.WriteLine();
 
+			
 			// Demo FindMaxValue method
 			int? max = tree.FindMaxValue(tree.Root);
 			Console.WriteLine($"Max value is: {(max.HasValue ? max.ToString() : "NULL")}");
@@ -130,6 +137,7 @@ namespace BinaryTree
 			int? nullMax = tree.FindMaxValue(nullNode);
 			Console.WriteLine($"Max value is: {(nullMax.HasValue ? nullMax.ToString() : "NULL")}");
 
+			
 			// Demo recursive IsBalancedRecursive method
 			Console.WriteLine($"tree is balanced: {tree.IsBalancedRecursive(tree.Root)}"); // true
 			// Unbalance tree
@@ -137,6 +145,125 @@ namespace BinaryTree
 			tree.Root.RightChild.RightChild = null;
 			tree.Root.LeftChild.RightChild.LeftChild = null;
 			Console.WriteLine($"tree is balanced: {tree.IsBalancedRecursive(tree.Root)}"); // false
+
+
+			// Demo MergeTrees method
+			BinaryTree<int> treeToMerge1 = new BinaryTree<int>();
+			treeToMerge1.Root = new Node<int>(1);
+			treeToMerge1.Root.LeftChild = new Node<int>(3);
+			treeToMerge1.Root.RightChild = new Node<int>(2);
+			treeToMerge1.Root.LeftChild.LeftChild = new Node<int>(5);
+
+			BinaryTree<int> treeToMerge2 = new BinaryTree<int>();
+			treeToMerge2.Root = new Node<int>(2);
+			treeToMerge2.Root.LeftChild = new Node<int>(1);
+			treeToMerge2.Root.RightChild = new Node<int>(3);
+			treeToMerge2.Root.LeftChild.RightChild = new Node<int>(4);
+			treeToMerge2.Root.RightChild.RightChild = new Node<int>(7);
+
+			Node<int> newTreeRoot = MergeTrees(treeToMerge1.Root, treeToMerge2.Root);
+			List<int> mergedTreeNodeValues = BreadthFirstStatic(newTreeRoot);
+			foreach (int value in mergedTreeNodeValues)
+			{
+				Console.WriteLine(value);
+			}
+		}
+
+		// Merges two binary trees
+		public static Node<int> MergeTrees(Node<int> root1, Node<int> root2)
+		{
+			// Validate input
+			if (root1 == null && root2 == null)
+			{
+				return null;
+			}
+			else if (root1 == null && root2 != null)
+			{
+				return root2;
+			}
+			else if (root1 != null && root2 == null)
+			{
+				return root1;
+			}
+
+			Queue<Node<int>> queue = new Queue<Node<int>>();
+
+			root1.Value += root2.Value;
+			queue.Enqueue(root1);
+			queue.Enqueue(root2);
+
+
+			//TODO Fix while loop below; may be cause of buggy behavior in test case
+
+			while (queue.Count > 1) // Should be greater'n *one* since we're dequeuing two nodes at each iteration?
+			{
+				Node<int> root1Node = queue.Dequeue();
+				Node<int> root2Node = queue.Dequeue();
+
+				if (root1Node.LeftChild != null && root2Node.LeftChild != null)
+				{
+					root1Node.LeftChild.Value += root2Node.LeftChild.Value;
+					queue.Enqueue(root1Node.LeftChild);
+					queue.Enqueue(root2Node.LeftChild);
+				}
+				else if (root1Node.LeftChild == null && root2Node.LeftChild != null)
+				{
+					root1Node.LeftChild = root2Node.LeftChild;
+					queue.Enqueue(root2Node.LeftChild);
+				}
+				else if (root1Node.LeftChild != null && root2Node.LeftChild == null)
+				{
+					queue.Enqueue(root1Node.LeftChild);
+				}
+
+				if (root1Node.RightChild != null && root2Node.RightChild != null)
+				{
+					root1Node.RightChild.Value += root2Node.RightChild.Value;
+					queue.Enqueue(root1Node.RightChild);
+					queue.Enqueue(root2Node.RightChild);
+				}
+				else if (root1Node.RightChild == null && root2Node.RightChild != null)
+				{
+					root1Node.RightChild = root2Node.RightChild;
+					queue.Enqueue(root2Node.RightChild);
+				}
+				else if (root1Node.RightChild != null && root2Node.RightChild == null)
+				{
+					queue.Enqueue(root1Node.RightChild);
+				}
+			}
+
+			return root1;
+		}
+
+		// For use in demo'ing MergeTrees method above
+		public static List<int> list = new List<int>();
+
+		// For use in demo'ing MergeTrees method above
+		public static List<int> BreadthFirstStatic(Node<int> root)
+		{
+			Queue<Node<int>> queue = new Queue<Node<int>>();
+
+			queue.Enqueue(root);
+
+			while (queue.Count > 0)
+			{
+				Node<int> front = queue.Dequeue();
+
+				list.Add(front.Value);
+
+				if (front.LeftChild != null)
+				{
+					queue.Enqueue(front.LeftChild);
+				}
+
+				if (front.RightChild != null)
+				{
+					queue.Enqueue(front.RightChild);
+				}
+			}
+
+			return list;
 		}
 	}
 }
