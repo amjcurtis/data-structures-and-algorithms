@@ -9,10 +9,7 @@ For example, oddValues([1,2,3]) returns [1,3].
 ------------------------------------------------------------------------------------------------ */
 
 const oddValues = (arr) => {
-  const odds = arr.filter( (val, idx) => {
-    return (val % 2);
-  });
-  return odds;
+  return arr.filter(val => val % 2); // (val % 2) evaluates to 1 (truthy) for odds and 0 (falsy) for evens
 };
 
 /* ------------------------------------------------------------------------------------------------
