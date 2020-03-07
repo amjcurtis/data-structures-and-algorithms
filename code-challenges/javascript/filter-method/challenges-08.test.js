@@ -3,7 +3,8 @@
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 1
 
-Write a function named oddValues that, given an array of integers as input, uses filter to return an array containing only the odd integers.
+Write a function named oddValues that, given an array of integers as input, uses filter to return
+an array containing only the odd integers.
 
 For example, oddValues([1,2,3]) returns [1,3].
 ------------------------------------------------------------------------------------------------ */
@@ -15,43 +16,40 @@ const oddValues = (arr) => {
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
 
-Write a function named filterStringsWithVowels that, given an array of strings as input, uses filter to return an array with only words that contain vowels.
+Write a function named filterStringsWithVowels that, given an array of strings as input,
+uses filter to return an array with only words that contain vowels.
 
 The callback function to filter should include or utilize a regular expression pattern.
 
 For example, filterStringsWithVowels('gregor','hound','xyz') returns ['gregor', 'hound'].
 ------------------------------------------------------------------------------------------------ */
 
-
 const filterStringsWithVowels = (arr) => {
   let regex = /[aeiou]/i; 
-  const wordsWithVowels = arr.filter(val => {
-    return val.match(regex);
-  });
-  return wordsWithVowels;
+  return arr.filter(val => val.match(regex));
 };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
 
-Write a function named notInFirstArray that, given two arrays as input, uses filter to return an array of all the elements in the second array that are not included in the first array.
+Write a function named notInFirstArray that, given two arrays as input, uses filter to return an
+array of all the elements in the second array that are not included in the first array.
 
 For example, notInFirstArray([1,2,3], [1,2,3,4]) returns [4].
 ------------------------------------------------------------------------------------------------ */
 
-const notInFirstArray = (forbiddenValues, arr) => {
-  const uniqueToSecondArray = arr.filter(val => {
-    return !forbiddenValues.includes(val);
-  });
-  return uniqueToSecondArray;
+const notInFirstArray = (firstArray, secondArray) => {
+  return secondArray.filter(val => !firstArray.includes(val));
 };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
 
-Write a function named getBaseStatGreaterThan that, given the snorlaxData, below, and an integer as input, uses filter to return an array containing all stats with a baseStat greater than the integer.
+Write a function named getBaseStatGreaterThan that, given the snorlaxData, below, and an integer as
+input, uses filter to return an array containing all stats with a baseStat greater than the integer.
 
-For example, getBaseStatGreaterThan(snorlaxData.stats, 50) will return an array containing the 'special-defense' and 'special-attack' objects.
+For example, getBaseStatGreaterThan(snorlaxData.stats, 50) will return an array containing
+the 'special-defense' and 'special-attack' objects.
 ------------------------------------------------------------------------------------------------ */
 
 const snorlaxData = {
@@ -86,46 +84,28 @@ const snorlaxData = {
 };
 
 const getBaseStatGreaterThan = (arr, minBaseStat) => {
-  const greaterBaseStats = arr.filter(val => {
-    return (val.baseStat > minBaseStat);
-  });
-  return greaterBaseStats;
+  return arr.filter(val => val.baseStat > minBaseStat);
 };
-
-// Doesn't pass test of non-Snorlax data
-// const getBaseStatGreaterThan = (arr, minBaseStat) => {
-//   const greaterBaseStats = arr.filter(val => {
-//     if (val.baseStat > minBaseStat) {
-//       console.log('Line 104', val.baseStat > minBaseStat);
-//       return val.baseStat;
-//     }
-//   });
-//   console.log('Line 109', greaterBaseStats);
-//   return greaterBaseStats;
-// };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
 
-Write a function named getStatName that is an extension of your getBaseStatGreaterThan function from challenge 4. For this function, extend your solution from challenge 4 to only return the name of the stat, rather than the entire stat object.
+Write a function named getStatName that is an extension of your getBaseStatGreaterThan function
+from challenge 4. For this function, extend your solution from challenge 4 to only return the name
+of the stat, rather than the entire stat object.
 
 For example, getStatName(snorlaxData.stats, 50) will return ['special-defense', 'special-attack'].
 ------------------------------------------------------------------------------------------------ */
 
 const getStatName = (arr, minBaseStat) => {
-  let newArray = [];
-  arr.filter(val => {
-    if (val.baseStat > minBaseStat) {
-      newArray.push(val.stat.name);
-    }  
-  });
-  return newArray;
+  return getBaseStatGreaterThan(arr, minBaseStat).map(elem => elem.stat.name);
 };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
 
-Write a function named getCharactersWithoutChildren that, given the array of characters, below, uses filter to return an array of all characters without children.
+Write a function named getCharactersWithoutChildren that, given the array of characters, below,
+uses filter to return an array of all characters without children.
 ------------------------------------------------------------------------------------------------ */
 
 const characters = [
@@ -167,24 +147,33 @@ const characters = [
   {
     name: 'Jon',
     spouse: null,
+    children: null, // Edge case for testing validation logic
     house: 'Snow',
   },
 ];
 
 const getCharactersWithoutChildren = (arr) => {
-  // Solution code here...
+  return arr.filter(val => !val.children || val.children.length === 0); // Use "falsiness" of children when undefined to check for existence
 };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7 - Stretch Goal
 
-Write a function named evenOddNumericValues that, given an array as input, uses filter to remove any non-numeric values, then uses map to generate a new array containing the string 'even' or 'odd', depending on the original value.
+Write a function named evenOddNumericValues that, given an array as input, uses filter to remove
+any non-numeric values, then uses map to generate a new array containing the string 'even' or 'odd',
+depending on the original value.
 
 For example: evenOddNumericValues(['Gregor', 2, 4, 1]) returns ['even', 'even', 'odd'].
 ------------------------------------------------------------------------------------------------ */
 
+// Callback function to pass to filter to remove non-numeric values
+// Borrowed from MDN example of using Array.prototype.filter()
+function isNumber(obj) {
+  return obj !== undefined && typeof(obj) === 'number' && !isNaN(obj)
+}
+
 const evenOddNumericValues = (arr) => {
-  // Solution code here...
+  return arr.filter(isNumber).map(elem => elem % 2 ? 'odd' : 'even'); // (elem % 2) evaluates to 1 (truthy) for odds and 0 (falsy) for evens
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -278,7 +267,7 @@ describe('Testing challenge 5', () => {
 
 describe('Testing challenge 6', () => {
   test('It should return an array containing characters who do not have children', () => {
-    expect(getCharactersWithoutChildren(characters)).toStrictEqual([{ name: 'Sansa', spouse: 'Tyrion', house: 'Stark' }, { name: 'Jon', spouse: null, house: 'Snow' }]);
+    expect(getCharactersWithoutChildren(characters)).toStrictEqual([{ name: 'Sansa', spouse: 'Tyrion', house: 'Stark' }, { name: 'Jon', spouse: null, children: null, house: 'Snow' }]);
     expect(getCharactersWithoutChildren(characters).length).toStrictEqual(2);
   });
 });
