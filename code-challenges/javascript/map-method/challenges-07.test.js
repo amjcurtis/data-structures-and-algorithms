@@ -3,7 +3,9 @@
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 1
 
-Write a function named forLoopTwoToThe that, given an array of integers as input, iterates over the array and returns a new array. The returned array should contain the result of raising 2 to the power of the original input element.
+Write a function named forLoopTwoToThe that, given an array of integers as input, iterates over the
+array and returns a new array. The returned array should contain the result of raising 2 to the
+power of the original input element.
 
 You may choose to complete this challenge using a for loop, for...in syntax, or for...of syntax.
 
@@ -22,13 +24,14 @@ const forLoopTwoToThe = (arr) => {
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
 
-Write a function named forEachTwoToThe that produces the same output as your forLoopTwoToThe function from challenge 1, but uses forEach instead of a for loop.
+Write a function named forEachTwoToThe that produces the same output as your forLoopTwoToThe
+function from challenge 1, but uses forEach instead of a for loop.
 ------------------------------------------------------------------------------------------------ */
 
 const forEachTwoToThe = (arr) => {
   const newArray = [];
-  arr.forEach( (i) => {
-    let result = Math.pow(2, i);
+  arr.forEach(n => {
+    let result = Math.pow(2, n);
     newArray.push(result);
   });
   return newArray;
@@ -37,33 +40,35 @@ const forEachTwoToThe = (arr) => {
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
 
-Write a function named mapTwoToThe that produces the same output as your forLoopTwoToThe function from challenge 1 and your forEachTwoToThe function from challenge 2, but uses map instead of a for loop or forEach.
+Write a function named mapTwoToThe that produces the same output as your forLoopTwoToThe function
+from challenge 1 and your forEachTwoToThe function from challenge 2, but uses map instead of a
+for loop or forEach.
 ------------------------------------------------------------------------------------------------ */
 
 const mapTwoToThe = (arr) => {
-  let result = arr.map(n => Math.pow(2, n));
-  return result;
+  return arr.map(n => Math.pow(2, n));
 }
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
 
-Write a function named charCode that, given an array of letters as an input, uses map to return a new array where each element is the result of the `charCodeAt` method on the original array element.
+Write a function named charCode that, given an array of letters as an input, uses map to return a
+new array where each element is the result of the `charCodeAt` method on the original array element.
 
 Read the MDN documentation on String.charCodeAt() if necessary.
 
-For example: charCode(['h','i']) returns [104, 105].
+For example: charCodeAt(['h','i']) returns [104, 105].
 ------------------------------------------------------------------------------------------------ */
 
 const charCode = (arr) => {
-  let result = arr.map( value => value.charCodeAt() ); // previously had 0 in charCodeAt's parens: "...charCodeAt(0)"
-  return result;
+  return arr.map(val => val.charCodeAt()); // If no arg passed to charCodeAt or if arg is not a number, arg defaults to 0 
 };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
 
-Write a function that, given an array of numbers as input, uses map to return a new array where each element is either the string "even" or the string "odd", based on each value.
+Write a function that, given an array of numbers as input, uses map to return a new array where
+each element is either the string "even" or the string "odd", based on each value.
 
 If any element in the array is not a number, the resulting array should have the string "N/A" in its place.
 
@@ -71,18 +76,13 @@ For example: evenOdd([1,2,3]) returns ['odd','even','odd'].
 ------------------------------------------------------------------------------------------------ */
 
 const evenOdd = (arr) => {
-  let newArray = arr.map( (val, idx) => {
+  return arr.map(val => {
     if (typeof val === 'number') {
-      if (val % 2 === 0) {
-        return 'even';
-      } else {
-        return 'odd';
-      }
+      return val % 2 ? 'odd' : 'even'; // (val % 2) evaluates to 1 (truthy) for odds and 0 (falsy) for evens
     } else {
-      return 'N/A';      
+      return 'N/A';
     }
   });
-  return newArray;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -90,7 +90,8 @@ CHALLENGE 6
 
 Use the snorlaxAbilities data, below, for this challenge.
 
-Write a function named extractAbilities that, given the array of abilities, uses map to create an array containing only the ability name.
+Write a function named extractAbilities that, given the array of abilities, uses map to create an
+array containing only the ability name.
 
 Note: Because this function is expecting the array of abilities, it will be invoked as:
 extractAbilities(snorlaxAbilities.abilities)
@@ -128,10 +129,7 @@ const snorlaxAbilities = {
 };
 
 const extractAbilities = (arr) => {
-  const newArray = arr.map( (val, idx) => {
-    return val.ability.name;
-  });
-  return newArray;
+  return arr.map(val => val.ability.name);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -139,7 +137,8 @@ CHALLENGE 7
 
 Use the snorlaxStats data, below, for this challenge.
 
-Write a function named extractStats that, given an array of stats, uses map to return an array of objects containing the stat name and the total.
+Write a function named extractStats that, given an array of stats, uses map to return an
+array of objects containing the stat name and the total.
 
 The total should be the sum of the effort and the baseStat.
 
@@ -178,7 +177,12 @@ const snorlaxStats = {
 };
 
 const extractStats = (arr) => {
-  // Solution code here...
+  return arr.map(val => { 
+    return {
+      name: val.stat.name,
+      total: val.effort + val.baseStat
+    };
+  });
 };
 
 /* ------------------------------------------------------------------------------------------------
